@@ -3,7 +3,7 @@
 <head>
   <title>AZtools</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css" />
-  <link rel="icon" href="AZtec.JPG" type="image/x-icon" />
+  <link rel="icon" href="https://aztec.bio/public/images/bd2k.png" type="image/x-icon" />
 </head>
 
 
@@ -24,6 +24,7 @@ html {
 	padding: 0;
 	margin: 0;
 	margin-bottom: 4%;
+	font-weight: 100;
 }
 
 #directions {
@@ -36,36 +37,43 @@ html {
 	border-radius: 4px;
 	background-color: #e7e7e7;
 	border: none;
-	color: black;
+	color: #161719;
 	text-align: center;
 	font-size: 15px;
 	padding: 10px;
 	width: 300px;
 	height: 40px;
 	cursor: pointer;
-	font-weight: normal;
+	font-weight: 200;
 	font-family: 'Raleway', sans-serif;
 }
 
-#upload_message {
+#upload-message {
+	display: table;
+	margin: 0 auto;
 	border-radius: 4px;
 	border: none;
 	color: white;
 	text-align: center;
-	font-size: 15px;
-	padding: 10px;
-	width: 300px;
+	font-size: 20px;
+	padding-top: 15px;
+	width: 600px;
 	height: 40px;
-	font-weight: normal;
-	font-family: 'Raleway', sans-serif;	
+	font-family: 'Raleway', sans-serif;
+	font-weight: 200;
 }
 
 #upload_button {
 	display: none;
 }
 
-</style>
+#image {
+	width: 500px;
+	height: 300px;
+	margin: 20px 0px;
+}
 
+</style>
 
   <div id="heading">AZtools</div>
   <div id="directions">1. Upload PDF <br/>2. Download JSON</div>
@@ -88,6 +96,8 @@ html {
       </table>
     </form>
   </div>
+
+  <a href="http://aztec.bio"><img src="https://aztec.bio/public/images/bd2k.png" alt="AZtec" id="image"/></a>
 
   <!--div>
     <ul>
