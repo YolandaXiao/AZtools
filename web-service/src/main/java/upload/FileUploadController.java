@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.ws.rs.core.MediaType;
-
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
+import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.google.common.net.MediaType;
 
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
@@ -77,8 +75,7 @@ public class FileUploadController {
         //        "Successfully uploaded " + file.getOriginalFilename() + "!");
     	
     	HttpHeaders responseHeaders = new HttpHeaders();
-        //responseHeaders.setContentType(MediaType.APPLICATION_XML);
-        responseHeaders.add("Content-Type", "application/xml; charset=UTF-8");
+        responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
         
         ContentExtractor extractor = null;
         InputStream inputStream = null;
@@ -86,10 +83,13 @@ public class FileUploadController {
         try {       
 			extractor = new ContentExtractor();
 			inputStream = new BufferedInputStream(file.getInputStream());
-			//inputStream = new FileInputStream("path/to/pdf/file");
 			extractor.setPDF(inputStream);
 			result = extractor.getContentAsNLM();
 			String nlm = new XMLOutputter().outputString(result);
+			
+			JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+	        String jsonPrettyPrintString = xmlJSONObj.toString();
+	        
 			return new ResponseEntity<String>(nlm, responseHeaders, HttpStatus.OK);
 		} catch (IOException | TimeoutException | AnalysisException e) {
 			// TODO Auto-generated catch block
