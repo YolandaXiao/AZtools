@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="pl.edu.icm.cermine.ContentExtractorTest" time="122.724" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="pl.edu.icm.cermine.ContentExtractorTest" time="137.624" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/local/java/jdk1.8.0_131/jre/lib/amd64"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/mnt/c/Ankur/Code/AZtools/CERMINE/cermine-impl"/>
+    <property name="user.dir" value="/mnt/c/Ankur/Code/AZtools/cermine-impl"/>
     <property name="java.runtime.version" value="1.8.0_131-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/local/java/jdk1.8.0_131/jre/lib/endorsed"/>
@@ -58,16 +58,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentTest" time="9.606"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentWithGeneralLabelsTest" time="8.734"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentWithSpecificLabelsTest" time="10.915"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="textRawFullTextTest" time="5.939"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getFullTextWithLabelsTest" time="10.965"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMMetadataTest" time="7.215"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMBodyTest" time="11.541"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMReferencesTest" time="8.281"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMContentTest" time="11.715"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMContentRefsTest" time="15.431"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getImagesTest" time="9.447"/>
-  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getContentWithImagesTest" time="12.921"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentTest" time="10.294"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentWithGeneralLabelsTest" time="13.526"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getBxDocumentWithSpecificLabelsTest" time="13.436"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="textRawFullTextTest" time="7.495"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getFullTextWithLabelsTest" time="13.265"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMMetadataTest" time="9.138"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMBodyTest" time="12.281"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMReferencesTest" time="8.317"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMContentTest" time="11.486"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getNLMContentRefsTest" time="15.508"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getImagesTest" time="10.015"/>
+  <testcase classname="pl.edu.icm.cermine.ContentExtractorTest" name="getContentWithImagesTest" time="12.85"/>
 </testsuite>

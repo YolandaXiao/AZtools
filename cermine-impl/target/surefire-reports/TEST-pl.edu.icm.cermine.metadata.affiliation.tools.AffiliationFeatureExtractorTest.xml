@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" time="0.473" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" time="0.479" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/local/java/jdk1.8.0_131/jre/lib/amd64"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/mnt/c/Ankur/Code/AZtools/CERMINE/cermine-impl"/>
+    <property name="user.dir" value="/mnt/c/Ankur/Code/AZtools/cermine-impl"/>
     <property name="java.runtime.version" value="1.8.0_131-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/local/java/jdk1.8.0_131/jre/lib/endorsed"/>
@@ -58,6 +58,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" name="testExtractFeatures" time="0.459"/>
-  <testcase classname="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" name="testExtractFeaturesWithDocumentAffiliation" time="0.001"/>
+  <testcase classname="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" name="testExtractFeatures" time="0.467"/>
+  <testcase classname="pl.edu.icm.cermine.metadata.affiliation.tools.AffiliationFeatureExtractorTest" name="testExtractFeaturesWithDocumentAffiliation" time="0"/>
 </testsuite>

@@ -1,8 +1,0 @@
-upload/storage/StorageException.class
-upload/storage/StorageProperties.class
-upload/Greeting.class
-upload/GreetingController.class
-upload/storage/FileSystemStorageService.class
-upload/storage/StorageFileNotFoundException.class
-upload/storage/StorageService.class
-upload/Application.class

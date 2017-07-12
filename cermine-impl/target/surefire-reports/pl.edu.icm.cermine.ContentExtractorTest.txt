@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pl.edu.icm.cermine.ContentExtractorTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 122.715 sec
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 137.616 sec
