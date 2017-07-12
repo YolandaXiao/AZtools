@@ -19,9 +19,11 @@ $ mvn spring-boot:run
 
 Go to `localhost:8080`
 
-Upload a PDF of size <= 10,000 KB
-Click Submit
-JSON response will appear in browser
+1. Upload a PDF of size <= 10,000 KB
+
+2. Click Submit
+
+3. JSON response will appear in browser
 
 ## Creating an executable JAR
 
@@ -31,6 +33,7 @@ $ mvn compile assembly:single
 ## REST service
 
 Another possibility is to POST to `localhost:8080/` with a PDF (parameter name "file") 
+
 HTTP Response will contain JSON output of main metadata fields.
 
 ## Contact
