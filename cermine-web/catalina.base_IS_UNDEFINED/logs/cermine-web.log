@@ -1,0 +1,424 @@
+00:52:20.317 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:52:20.613 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: Annales de l’institut Fourier
+00:52:20.635 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 0373-0956
+00:52:20.639 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: Association des Annales de l’institut Fourier
+00:52:20.643 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Analytic inversion of adjunction: blabla extension theorems with gain
+00:52:20.646 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 10.1016/j.lisr.2011.06.002
+00:52:20.650 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:52:20.653 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Some abstract text...
+00:52:20.664 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: McNeal, Jeffery D.
+00:52:20.670 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Varolin, Dror
+00:52:27.575 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:52:27.578 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:52:27.584 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:52:27.588 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:52:27.589 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+00:52:28.084 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:52:28.085 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:52:28.086 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:52:28.585 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:52:28.585 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:52:28.587 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+00:52:29.218 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:52:29.219 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:52:29.221 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+00:53:03.328 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+00:53:03.385 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+00:53:03.386 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:53:03.387 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+00:53:03.389 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+00:53:03.390 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+00:53:03.391 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+00:53:03.392 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+00:53:03.394 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:53:03.395 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+00:53:03.404 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+00:53:03.405 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+00:53:03.405 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+00:53:03.406 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+00:53:03.407 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+00:53:03.407 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+00:53:03.407 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+00:53:03.408 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+00:53:03.408 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+00:53:03.444 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+00:53:03.445 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:53:08.067 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+00:53:08.067 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:53:08.068 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+00:53:08.068 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+00:53:39.226 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+00:53:39.245 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+00:53:39.245 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:53:39.246 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+00:53:39.247 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+00:53:39.248 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+00:53:39.249 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+00:53:39.250 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+00:53:39.251 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:53:39.252 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+00:53:39.257 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+00:53:39.258 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+00:53:39.258 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+00:53:39.258 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+00:53:39.259 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+00:53:39.259 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+00:53:39.259 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+00:53:39.260 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+00:53:39.260 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+00:53:39.289 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+00:53:39.289 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:53:42.896 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+00:53:42.896 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+00:53:54.695 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:53:54.696 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:53:54.696 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:53:54.699 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:53:54.700 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extractor pool is empty, going to sleep...
+00:53:54.800 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:54:01.754 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Input stream is: java.io.BufferedInputStream@3cce57c7
+00:54:22.139 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:54:22.139 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:54:22.141 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:54:22.141 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:54:22.141 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+00:54:54.814 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+00:54:54.822 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+00:54:54.823 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:54:54.824 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+00:54:54.825 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+00:54:54.826 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+00:54:54.827 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+00:54:54.828 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+00:54:54.829 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:54:54.831 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+00:54:54.837 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+00:54:54.838 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+00:54:54.838 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+00:54:54.838 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+00:54:54.839 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+00:54:54.839 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+00:54:54.839 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+00:54:54.840 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+00:54:54.841 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+00:54:54.872 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+00:54:54.873 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:54:59.504 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+00:58:25.286 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:58:25.462 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: Annales de l’institut Fourier
+00:58:25.479 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 0373-0956
+00:58:25.482 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: Association des Annales de l’institut Fourier
+00:58:25.485 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Analytic inversion of adjunction: blabla extension theorems with gain
+00:58:25.487 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 10.1016/j.lisr.2011.06.002
+00:58:25.490 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:58:25.494 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Some abstract text...
+00:58:25.504 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: McNeal, Jeffery D.
+00:58:25.509 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Varolin, Dror
+00:58:44.021 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:58:44.022 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:58:44.023 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:58:44.034 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:58:44.035 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extractor pool is empty, going to sleep...
+00:58:44.128 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:58:49.145 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Input stream is: java.io.BufferedInputStream@4149c063
+00:59:10.855 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:59:10.859 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:59:10.866 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:59:10.866 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:59:10.867 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+00:59:47.740 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+00:59:47.811 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+00:59:47.812 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+00:59:47.815 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+00:59:47.818 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+00:59:47.819 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+00:59:47.821 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+00:59:47.822 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+00:59:47.824 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+00:59:47.826 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+00:59:47.837 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+00:59:47.838 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+00:59:47.839 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+00:59:47.839 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+00:59:47.840 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+00:59:47.840 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+00:59:47.841 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+00:59:47.841 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+00:59:47.843 [pool-5-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+00:59:47.890 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+00:59:47.891 [pool-5-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+00:59:53.137 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+00:59:57.381 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:59:57.382 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:59:57.383 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:59:57.385 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+00:59:57.385 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+00:59:57.974 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:59:57.976 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:59:57.977 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+00:59:58.470 [Thread-5] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:59:58.471 [Thread-5] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:59:58.473 [Thread-5] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+00:59:58.969 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+00:59:58.970 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+00:59:58.971 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+01:00:28.065 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+01:00:28.077 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+01:00:28.077 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:00:28.080 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+01:00:28.081 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+01:00:28.082 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+01:00:28.083 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+01:00:28.084 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+01:00:28.085 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:00:28.086 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+01:00:28.092 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+01:00:28.093 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+01:00:28.093 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+01:00:28.093 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+01:00:28.094 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+01:00:28.094 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+01:00:28.095 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+01:00:28.095 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+01:00:28.095 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+01:00:28.124 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+01:00:28.125 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:00:32.659 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+01:00:32.659 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:00:32.660 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+01:00:32.660 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+01:01:03.921 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+01:01:03.929 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+01:01:03.929 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:01:03.931 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+01:01:03.932 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+01:01:03.932 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+01:01:03.933 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+01:01:03.934 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+01:01:03.936 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:01:03.937 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+01:01:03.945 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+01:01:03.946 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+01:01:03.946 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+01:01:03.946 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+01:01:03.947 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+01:01:03.947 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+01:01:03.947 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+01:01:03.947 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+01:01:03.948 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+01:01:03.979 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+01:01:03.980 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:01:08.936 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+01:01:08.937 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+01:05:32.025 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:05:32.205 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: Annales de l’institut Fourier
+01:05:32.223 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 0373-0956
+01:05:32.226 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: Association des Annales de l’institut Fourier
+01:05:32.228 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Analytic inversion of adjunction: blabla extension theorems with gain
+01:05:32.231 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 10.1016/j.lisr.2011.06.002
+01:05:32.233 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:05:32.236 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Some abstract text...
+01:05:32.246 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: McNeal, Jeffery D.
+01:05:32.251 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Varolin, Dror
+01:05:38.396 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+01:05:38.400 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+01:05:38.405 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+01:05:38.407 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:05:38.408 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+01:05:38.898 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+01:05:38.899 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+01:05:38.899 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+01:05:39.400 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+01:05:39.400 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+01:05:39.402 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+01:05:39.898 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+01:05:39.898 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+01:05:39.899 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+01:06:13.324 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+01:06:13.391 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+01:06:13.392 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:06:13.394 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+01:06:13.396 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+01:06:13.397 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+01:06:13.398 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+01:06:13.400 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+01:06:13.401 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:06:13.403 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+01:06:13.410 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+01:06:13.411 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+01:06:13.412 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+01:06:13.413 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+01:06:13.413 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+01:06:13.414 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+01:06:13.414 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+01:06:13.415 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+01:06:13.415 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+01:06:13.449 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+01:06:13.450 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:06:17.969 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+01:06:17.969 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:06:17.970 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+01:06:17.970 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+01:06:49.499 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+01:06:49.516 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+01:06:49.517 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:06:49.518 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+01:06:49.519 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+01:06:49.520 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+01:06:49.521 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+01:06:49.522 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+01:06:49.524 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:06:49.525 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+01:06:49.530 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+01:06:49.531 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+01:06:49.531 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+01:06:49.531 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+01:06:49.532 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+01:06:49.532 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+01:06:49.536 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+01:06:49.536 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+01:06:49.536 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+01:06:49.565 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+01:06:49.565 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:06:53.132 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+01:06:53.133 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+01:07:04.980 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:07:04.981 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:07:04.981 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:07:04.984 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:07:04.985 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extractor pool is empty, going to sleep...
+01:07:05.084 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:07:11.503 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Input stream is: java.io.BufferedInputStream@3cce57c7
+01:07:32.549 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+01:07:32.550 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+01:07:32.551 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+01:07:32.552 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+01:07:32.552 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+01:08:03.180 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+01:08:03.191 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+01:08:03.192 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+01:08:03.193 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+01:08:03.195 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+01:08:03.195 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+01:08:03.196 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+01:08:03.197 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+01:08:03.198 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+01:08:03.198 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+01:08:03.204 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+01:08:03.205 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+01:08:03.205 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+01:08:03.205 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+01:08:03.206 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+01:08:03.206 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+01:08:03.206 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+01:08:03.207 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+01:08:03.207 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+01:08:03.241 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+01:08:03.242 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+01:08:09.141 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+18:02:56.267 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+18:02:56.607 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: Annales de l’institut Fourier
+18:02:56.658 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 0373-0956
+18:02:56.673 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: Association des Annales de l’institut Fourier
+18:02:56.683 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Analytic inversion of adjunction: blabla extension theorems with gain
+18:02:56.693 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 10.1016/j.lisr.2011.06.002
+18:02:56.702 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+18:02:56.709 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Some abstract text...
+18:02:56.739 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: McNeal, Jeffery D.
+18:02:56.746 [main] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Varolin, Dror
+18:03:06.161 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+18:03:06.168 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+18:03:06.177 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+18:03:06.184 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:03:06.185 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+18:03:06.669 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+18:03:06.670 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+18:03:06.671 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+18:03:07.180 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+18:03:07.181 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+18:03:07.182 [Thread-3] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+18:03:07.717 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+18:03:07.718 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+18:03:07.719 [Thread-4] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Service exception
+18:03:54.824 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+18:03:54.947 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+18:03:54.948 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+18:03:54.951 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+18:03:54.953 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+18:03:54.954 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+18:03:54.956 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+18:03:54.958 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+18:03:54.959 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+18:03:54.961 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+18:03:54.991 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+18:03:54.992 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+18:03:54.993 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+18:03:54.994 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+18:03:54.996 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+18:03:54.997 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+18:03:54.998 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+18:03:55.006 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+18:03:55.007 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+18:03:55.127 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+18:03:55.128 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+18:04:00.349 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+18:04:00.349 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:04:00.350 [Thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+18:04:00.350 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+18:04:39.792 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+18:04:39.807 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+18:04:39.811 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+18:04:39.812 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+18:04:39.814 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+18:04:39.815 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+18:04:39.817 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+18:04:39.818 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+18:04:39.821 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+18:04:39.823 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+18:04:39.835 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+18:04:39.836 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+18:04:39.836 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+18:04:39.837 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+18:04:39.838 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+18:04:39.840 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+18:04:39.841 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+18:04:39.842 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+18:04:39.845 [pool-3-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+18:04:39.919 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+18:04:39.920 [pool-3-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+18:04:44.942 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...
+18:04:44.943 [Thread-2] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Extraction succeeeded...
+18:05:03.263 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:05:03.264 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:05:03.266 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:05:03.277 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:05:03.278 [Thread-6] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extractor pool is empty, going to sleep...
+18:05:03.377 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+18:05:09.466 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImplTest - Input stream is: java.io.BufferedInputStream@72d6b3ba
+18:05:31.302 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extractNLM task...
+18:05:31.303 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - submitting extractNLM task...
+18:05:31.309 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Obtaining extractor from the pool
+18:05:31.310 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - waiting for extractNLM task...
+18:05:31.310 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Starting extraction on the input stream...
+18:06:12.987 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Extraction ok..
+18:06:13.001 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction start:
+18:06:13.002 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Starting extraction from document...
+18:06:13.004 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal title: 
+18:06:13.005 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got journal ISSN: 
+18:06:13.006 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got publisher name: 
+18:06:13.006 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got title from xpath: Bigtable: A Distributed Storage System for Structured Data
+18:06:13.007 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got doi from xpath: 
+18:06:13.008 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got urn: 
+18:06:13.009 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got abstract: Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Finance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a exible, high-performance solution for all of these Google products. In this paper we describe the simple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we describe the design and implementation of Bigtable.
+18:06:13.019 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Fay Chang
+18:06:13.020 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Jeffrey Dean
+18:06:13.021 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Sanjay Ghemawat
+18:06:13.022 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Wilson C. Hsieh
+18:06:13.022 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Deborah A. Wallach Mike Burrows
+18:06:13.023 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Tushar Chandra
+18:06:13.023 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Andrew Fikes
+18:06:13.024 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Robert E. Gruber
+18:06:13.024 [pool-7-thread-1] DEBUG p.e.icm.cermine.service.ArticleMeta - Got author name: Google
+18:06:13.069 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Article meta extraction succeeded
+18:06:13.070 [pool-7-thread-1] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - Returning extractor to the pool...
+18:06:17.918 [main] DEBUG p.e.i.c.s.CermineExtractorServiceImpl - finished extractNLM task...

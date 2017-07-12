@@ -1,0 +1,13 @@
+pl.edu.icm.cermine.affiliation
+pl.edu.icm.cermine.bibref
+pl.edu.icm.cermine.bx
+pl.edu.icm.cermine.csv
+pl.edu.icm.cermine.evaluation
+pl.edu.icm.cermine.evaluation.exception
+pl.edu.icm.cermine.evaluation.systems
+pl.edu.icm.cermine.evaluation.tools
+pl.edu.icm.cermine.evaluation.transformers
+pl.edu.icm.cermine.libsvm.export
+pl.edu.icm.cermine.libsvm.parameters
+pl.edu.icm.cermine.libsvm.training
+pl.edu.icm.cermine.pubmed
