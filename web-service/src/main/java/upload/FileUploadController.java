@@ -4,18 +4,10 @@ import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.http.HttpHeaders;
@@ -36,7 +28,6 @@ import pl.edu.icm.cermine.tools.timeout.TimeoutException;
 @Controller
 public class FileUploadController {
 
-    String nlm = null;
 	/*
     private final StorageService storageService;
 
@@ -76,7 +67,7 @@ public class FileUploadController {
 
     @PostMapping("/")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) throws FileNotFoundException {
+                                   RedirectAttributes redirectAttributes, Model model) throws FileNotFoundException {
 
         //storageService.store(file);
         //redirectAttributes.addFlashAttribute("message",
@@ -93,10 +84,14 @@ public class FileUploadController {
 			inputStream = new BufferedInputStream(file.getInputStream());
 			extractor.setPDF(inputStream);
 			result = extractor.getContentAsNLM();
-            nlm = new XMLOutputter().outputString(result);
-			
-			JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+            String nlm = new XMLOutputter().outputString(result);
+            JSONObject xmlJSONObj = XML.toJSONObject(nlm);
 	        String jsonPrettyPrintString = xmlJSONObj.toString();
+
+            ObjectMapper mapper = new ObjectMapper();
+            Attributes attr = new Attributes(xmlJSONObj);
+            String jsonString = mapper.writeValueAsString(attr);
+//            model.addAttribute("message", jsonString);
 
 	        //another method to return filtered json
 //            String title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
@@ -112,10 +107,12 @@ public class FileUploadController {
 //            ObjectNode objectNode1 = mapper.createObjectNode();
 //            objectNode1.put("title", title);
 
-			return new ResponseEntity<String>(jsonPrettyPrintString, responseHeaders, HttpStatus.OK);
+//            return "DisplayData";
+			return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.OK);
 		} catch (IOException | TimeoutException | AnalysisException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+//			return "exception";
 			return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}	
 
@@ -126,18 +123,17 @@ public class FileUploadController {
     //    return ResponseEntity.notFound().build();
     //}
 
-    //return filtered json
-    @RequestMapping("/metadata")
-    public ResponseEntity<String> getAttribute() throws JsonProcessingException {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-
-        ObjectMapper mapper = new ObjectMapper();
-        Attributes attr = new Attributes(nlm);
-        String jsonString = mapper.writeValueAsString(attr);
-        return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.OK);
-
-    }
+//    //return filtered json
+//    @RequestMapping("/metadata")
+//    public ResponseEntity<String> getAttribute() throws JsonProcessingException {
+//        HttpHeaders responseHeaders = new HttpHeaders();
+//        responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        Attributes attr = new Attributes(xmlJSONObj);
+//        String jsonString = mapper.writeValueAsString(attr);
+//        return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.OK);
+//    }
 
 
 }

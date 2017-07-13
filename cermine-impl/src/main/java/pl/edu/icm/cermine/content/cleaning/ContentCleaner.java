@@ -177,6 +177,7 @@ public class ContentCleaner {
         }
         str = str.replaceAll(" +", " ").replaceAll("^ +", "").replaceAll(" +$", "");
         String hyphenList = "\u002D\u00AD\u2010\u2011\u2012\u2013\u2014\u2015\u207B\u208B\u2212-";
+        String url_link = "\u002E\u002F";
         String[] lines = str.split("\n");
         for (int i = 0; i < lines.length; i++) {
             lines[i] = lines[i].replaceAll("^ +", "").replaceAll(" +$", "");
@@ -201,7 +202,22 @@ public class ContentCleaner {
                     sb.append(next.substring(0, idx));
                     lines[i+1] = next.substring(idx+1);                   
                 }
-            } else {
+            }
+            else if (line.matches("^.*(http|https).*["+url_link+"]$")){
+                line = line.substring(0, line.length());
+                sb.append(line);
+                int idx = next.indexOf(' ');
+                if (idx < 0) {
+                    sb.append(next);
+                    i++;
+                } else {
+                    sb.append(next.substring(0, idx));
+                    lines[i+1] = next.substring(idx+1);
+                }
+//                System.out.println(line);
+//                sb.append(line);
+            }
+            else {
                 sb.append(line);
             }
             sb.append("\n");
