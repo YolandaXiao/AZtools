@@ -4,9 +4,18 @@ import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import jdk.nashorn.internal.parser.JSONParser;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.http.HttpHeaders;
@@ -14,9 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,6 +36,7 @@ import pl.edu.icm.cermine.tools.timeout.TimeoutException;
 @Controller
 public class FileUploadController {
 
+    String nlm = null;
 	/*
     private final StorageService storageService;
 
@@ -85,12 +93,26 @@ public class FileUploadController {
 			inputStream = new BufferedInputStream(file.getInputStream());
 			extractor.setPDF(inputStream);
 			result = extractor.getContentAsNLM();
-			String nlm = new XMLOutputter().outputString(result);
+            nlm = new XMLOutputter().outputString(result);
 			
 			JSONObject xmlJSONObj = XML.toJSONObject(nlm);
 	        String jsonPrettyPrintString = xmlJSONObj.toString();
-	        
-			return new ResponseEntity<String>(nlm, responseHeaders, HttpStatus.OK);
+
+	        //another method to return filtered json
+//            String title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
+//            ArrayList<String> arraylist= new ArrayList<String>();
+//            JSONArray authors_json = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+//            for(int i=0;i<authors_json.length();i++)
+//            {
+//                String author = authors_json.getJSONObject(i).getString("string-name");
+//                arraylist.add(author);
+//            }
+//            String authors = String.join(", ", arraylist);
+//            ObjectMapper mapper = new ObjectMapper();
+//            ObjectNode objectNode1 = mapper.createObjectNode();
+//            objectNode1.put("title", title);
+
+			return new ResponseEntity<String>(jsonPrettyPrintString, responseHeaders, HttpStatus.OK);
 		} catch (IOException | TimeoutException | AnalysisException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,5 +125,19 @@ public class FileUploadController {
     //public ResponseEntity handleStorageFileNotFound(StorageFileNotFoundException exc) {
     //    return ResponseEntity.notFound().build();
     //}
+
+    //return filtered json
+    @RequestMapping("/metadata")
+    public ResponseEntity<String> getAttribute() throws JsonProcessingException {
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
+
+        ObjectMapper mapper = new ObjectMapper();
+        Attributes attr = new Attributes(nlm);
+        String jsonString = mapper.writeValueAsString(attr);
+        return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.OK);
+
+    }
+
 
 }
