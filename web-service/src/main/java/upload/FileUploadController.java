@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
 import org.json.JSONObject;
@@ -90,6 +91,7 @@ public class FileUploadController {
 
             ObjectMapper mapper = new ObjectMapper();
             Attributes attr = new Attributes(xmlJSONObj);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
             String jsonString = mapper.writeValueAsString(attr);
 //            model.addAttribute("message", jsonString);
 
