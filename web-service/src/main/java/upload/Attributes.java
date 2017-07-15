@@ -2,7 +2,6 @@ package upload;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.XML;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,18 +79,27 @@ public class Attributes {
             String author = authors.getJSONObject(i).getString("string-name");
             arraylist.add(author);
         }
-//        String listString = String.join(", ", arraylist);
         return arraylist;
     }
 
     public List<String> extractAffiliation(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
-        JSONArray affiliations = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("aff");
-        for(int i=0;i<affiliations.length();i++)
-        {
-            if(affiliations.getJSONObject(i).has("institution")) {
-                String aff = affiliations.getJSONObject(i).getString("institution");
-                arraylist.add(aff);
+        JSONObject group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
+        if(group.has("aff")){
+            Object item = group.get("aff");
+            if (item instanceof JSONObject){
+                JSONObject affiliations = (JSONObject) item;
+                arraylist.add(affiliations.getString("institution"));
+            }
+            else if (item instanceof JSONArray){
+                JSONArray affiliations = (JSONArray) item;
+                for(int i=0;i<affiliations.length();i++)
+                {
+                    if(affiliations.getJSONObject(i).has("institution")) {
+                        String aff = affiliations.getJSONObject(i).getString("institution");
+                        arraylist.add(aff);
+                    }
+                }
             }
         }
         return arraylist;
@@ -116,22 +124,28 @@ public class Attributes {
     }
 
     public String extractDOI(JSONObject xmlJSONObj) {
-        String DOI = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("article-id").getString("content");
-        return DOI;
+        JSONObject value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+        if (value.has("article-id")) {
+            String DOI = value.getJSONObject("article-id").getString("content");
+            return DOI;
+        }
+        return "None";
     }
 
     public int extractDate(JSONObject xmlJSONObj) {
-        int date = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("pub-date").getInt("year");
-        return date;
+        JSONObject value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+        if (value.has("pub-date")) {
+            int date = value.getJSONObject("pub-date").getInt("year");
+            return date;
+        }
+        return 0;
     }
 
     public List<String> extractURL(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
-        // Create a Pattern object
         Pattern r = Pattern.compile(pattern);
-        // Now create matcher object.
         Matcher m = r.matcher(line);
         while (m.find( )) {
             System.out.println("Found value: " + m.group());
@@ -145,10 +159,16 @@ public class Attributes {
         for(int i=0;i<funding_section.length();i++)
         {
             String title = funding_section.getJSONObject(i).getString("title");
-            if(funding_section.getJSONObject(i).has("title") && (title.toLowerCase().equals("funding") || title.toLowerCase().equals("acknowledgements"))){
-                JSONArray funding_text = funding_section.getJSONObject(i).getJSONArray("p");
-                String f = funding_text.getString(0);
-                return f;
+            if((funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("funding")) || (funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("acknowledgements"))){
+                Object item = funding_section.getJSONObject(i).get("p");
+                if (item instanceof String){
+                    String funding_text = (String) item;
+                    return funding_text;
+                }
+                else if (item instanceof JSONArray){
+                    JSONArray funding_text = (JSONArray) item;
+                    return funding_text.getString(0);
+                }
             }
         }
         return "None";
