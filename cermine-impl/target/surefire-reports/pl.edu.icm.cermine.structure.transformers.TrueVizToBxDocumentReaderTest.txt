@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pl.edu.icm.cermine.structure.transformers.TrueVizToBxDocumentReaderTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.439 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.247 sec

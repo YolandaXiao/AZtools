@@ -1,16 +1,13 @@
 package upload;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by yinxuexiao on 7/12/17.
- */
 public class Attributes {
     private final String title;
     private final List<String> author;
@@ -67,16 +64,34 @@ public class Attributes {
     public String getFunding(){ return funding; }
 
     public String extractTitle(JSONObject xmlJSONObj) {
-        String title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
+        String title = null;
+		try {
+			title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return title;
     }
 
     public List<String> extractAuthor(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
-        JSONArray authors = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+        JSONArray authors = null;
+		try {
+			authors = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         for(int i=0;i<authors.length();i++)
         {
-            String author = authors.getJSONObject(i).getString("string-name");
+            String author = null;
+			try {
+				author = authors.getJSONObject(i).getString("string-name");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             arraylist.add(author);
         }
         return arraylist;
@@ -84,21 +99,43 @@ public class Attributes {
 
     public List<String> extractAffiliation(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
-        JSONObject group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
+        JSONObject group = null;
+		try {
+			group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         if(group.has("aff")){
-            Object item = group.get("aff");
+            Object item = null;
+			try {
+				item = group.get("aff");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             if (item instanceof JSONObject){
                 JSONObject affiliations = (JSONObject) item;
-                arraylist.add(affiliations.getString("institution"));
+                try {
+					arraylist.add(affiliations.getString("institution"));
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
             else if (item instanceof JSONArray){
                 JSONArray affiliations = (JSONArray) item;
                 for(int i=0;i<affiliations.length();i++)
                 {
-                    if(affiliations.getJSONObject(i).has("institution")) {
-                        String aff = affiliations.getJSONObject(i).getString("institution");
-                        arraylist.add(aff);
-                    }
+                    try {
+						if(affiliations.getJSONObject(i).has("institution")) {
+						    String aff = affiliations.getJSONObject(i).getString("institution");
+						    arraylist.add(aff);
+						}
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 }
             }
         }
@@ -106,36 +143,83 @@ public class Attributes {
     }
 
     public String extractAbstract(JSONObject xmlJSONObj) {
-        String abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
+        String abstrakt = null;
+		try {
+			abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return abstrakt;
     }
 
     public List<String> extractContact(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
-        JSONArray contacts = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+        JSONArray contacts = null;
+		try {
+			contacts = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         for(int i=0;i<contacts.length();i++)
         {
-            if(contacts.getJSONObject(i).has("email")){
-                String contact = contacts.getJSONObject(i).getString("email");
-                arraylist.add(contact);
-            }
+            try {
+				if(contacts.getJSONObject(i).has("email")){
+				    String contact = null;
+					try {
+						contact = contacts.getJSONObject(i).getString("email");
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				    arraylist.add(contact);
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         return arraylist;
     }
 
     public String extractDOI(JSONObject xmlJSONObj) {
-        JSONObject value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+        JSONObject value = null;
+		try {
+			value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         if (value.has("article-id")) {
-            String DOI = value.getJSONObject("article-id").getString("content");
+            String DOI = null;
+			try {
+				DOI = value.getJSONObject("article-id").getString("content");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             return DOI;
         }
         return "None";
     }
 
     public int extractDate(JSONObject xmlJSONObj) {
-        JSONObject value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+        JSONObject value = null;
+		try {
+			value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         if (value.has("pub-date")) {
-            int date = value.getJSONObject("pub-date").getInt("year");
+            int date = 0;
+			try {
+				date = value.getJSONObject("pub-date").getInt("year");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             return date;
         }
         return 0;
@@ -155,21 +239,49 @@ public class Attributes {
     }
 
     public String extractFunding(JSONObject xmlJSONObj) {
-        JSONArray funding_section = xmlJSONObj.getJSONObject("article").getJSONObject("body").getJSONArray("sec");
+        JSONArray funding_section = null;
+		try {
+			funding_section = xmlJSONObj.getJSONObject("article").getJSONObject("body").getJSONArray("sec");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         for(int i=0;i<funding_section.length();i++)
         {
-            String title = funding_section.getJSONObject(i).getString("title");
-            if((funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("funding")) || (funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("acknowledgements"))){
-                Object item = funding_section.getJSONObject(i).get("p");
-                if (item instanceof String){
-                    String funding_text = (String) item;
-                    return funding_text;
-                }
-                else if (item instanceof JSONArray){
-                    JSONArray funding_text = (JSONArray) item;
-                    return funding_text.getString(0);
-                }
-            }
+            String title = null;
+			try {
+				title = funding_section.getJSONObject(i).getString("title");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            try {
+				if((funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("funding")) || (funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("acknowledgements"))){
+				    Object item = null;
+					try {
+						item = funding_section.getJSONObject(i).get("p");
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				    if (item instanceof String){
+				        String funding_text = (String) item;
+				        return funding_text;
+				    }
+				    else if (item instanceof JSONArray){
+				        JSONArray funding_text = (JSONArray) item;
+				        try {
+							return funding_text.getString(0);
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				    }
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         return "None";
     }

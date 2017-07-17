@@ -4,13 +4,12 @@ import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +20,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
 import pl.edu.icm.cermine.tools.timeout.TimeoutException;
@@ -102,7 +100,13 @@ public class FileUploadController {
 
             //convert xml to json output
             String nlm = new XMLOutputter().outputString(nlmContent);
-            JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+            JSONObject xmlJSONObj = null;
+			try {
+				xmlJSONObj = XML.toJSONObject(nlm);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        String jsonPrettyPrintString = xmlJSONObj.toString();
 
             //filter out excessive data
