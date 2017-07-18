@@ -1,21 +1,13 @@
 # AZtools
 
-AZtools is a Java web service that ([http://aztec.bio](http://aztec.bio/)) for extracting metadata
-and content of software tools from PDF files containing academic publications.
+AZtools is a Java web service that supports AZtec ([http://aztec.bio])(http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
 
 The code is licensed under GNU Affero General Public License version 3.
 
 ## Using AZtools
 
-$ cd cermine-impl/
-
-$ mvn clean install
-
-$ cd ../web_service/
-
-$ mvn eclipse:eclipse
-
-$ mvn spring-boot:run
+1. $ cd AZtools/spring-app
+2. $ mvn spring-boot:run
 
 Go to `localhost:8080`
 
@@ -25,14 +17,9 @@ Go to `localhost:8080`
 
 3. JSON response will appear in browser
 
-## Creating an executable JAR
-
-$ cd web_service/
-$ mvn compile assembly:single
-
 ## REST service
 
-Another possibility is to POST to `localhost:8080/` with a PDF (parameter name "file") 
+Another possibility is to POST to `/` with a PDF (parameter name "file") 
 
 HTTP Response will contain JSON output of main metadata fields.
 
