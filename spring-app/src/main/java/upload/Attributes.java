@@ -215,14 +215,17 @@ public class Attributes {
     }
 
     public List<String> extractURL(JSONObject xmlJSONObj) {
-        ArrayList<String> arraylist = new ArrayList<String>();
+        ArrayList<String> arraylist= new ArrayList<String>();
         String line = xmlJSONObj.toString();
-        String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
+//        String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
+        String pattern = "\\.\\s.*?http.*?(\\.(\\s|$|\"))";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(line);
         while (m.find( )) {
-            System.out.println("Found value: " + m.group());
-            arraylist.add(m.group());
+            String[] arr = m.group().split("\\. ");
+            String result = arr[arr.length-1];
+            System.out.println("Found value: " + result);
+            arraylist.add(result);
         }
         return arraylist;
     }

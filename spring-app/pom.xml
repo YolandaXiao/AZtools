@@ -26,11 +26,6 @@
             <scope>test</scope>
         </dependency>
 		<dependency>
-		    <groupId>pl.edu.icm.cermine</groupId>
-		    <artifactId>cermine-impl</artifactId>
-		    <version>1.13</version>
-		</dependency>
-		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    </dependency>
@@ -53,13 +48,5 @@
         </plugins>
     </build>
 
-    <repositories>
-      <repository>
-		<id>icm</id>
-		<name>ICM repository</name>
-		<url>http://maven.icm.edu.pl/artifactory/repo</url>
-      </repository>
-
-    </repositories>
 
 </project>

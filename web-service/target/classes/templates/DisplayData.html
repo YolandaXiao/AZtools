@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>AZtools</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="https://aztec.bio/public/images/bd2k.png" type="image/x-icon" />
+</head>
+
+
+<body>
+<style>
+
+    html {
+        font-family: "Open Sans", sans-serif;
+        background-image: linear-gradient(#99C0CC 0px, #BBD2DB 100%);
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: lighter;
+    }
+    #heading {
+        font-size: 65px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 4%;
+        font-weight: 100;
+    }
+
+</style>
+
+<div id="heading">AZtools</div>
+
+<div th:if="${message}">
+    <p th:text="${message}"/>
+</div>
+
+
+</body>
+
+</html>
+
