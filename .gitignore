@@ -1,4 +1,6 @@
-.metadata/
+.metadata/*
 .idea/*
 cermine-impl/target/*
-
+spring-app/target*
+spring-app/.project
+spring-app/*.iml
