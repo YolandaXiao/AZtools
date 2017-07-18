@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cermine-impl/cermine-impl.iml" filepath="$PROJECT_DIR$/cermine-impl/cermine-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cermine-parent.iml" filepath="$PROJECT_DIR$/cermine-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cermine-tools/cermine-tools.iml" filepath="$PROJECT_DIR$/cermine-tools/cermine-tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cermine-web/cermine-web.iml" filepath="$PROJECT_DIR$/cermine-web/cermine-web.iml" />
+    </modules>
+  </component>
+</project>

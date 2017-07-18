@@ -55,20 +55,23 @@ public class Attributes {
         return DOI;
     }
 
-    public int getDate(){ return date; }
+    public int getDate() {
+        return date;
+    }
 
     public List<String> getURL(){
         return URL;
     }
 
-    public String getFunding(){ return funding; }
+    public String getFunding() {
+        return funding;
+    }
 
     public String extractTitle(JSONObject xmlJSONObj) {
         String title = null;
 		try {
 			title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return title;
@@ -80,7 +83,6 @@ public class Attributes {
 		try {
 			authors = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         for(int i=0;i<authors.length();i++)
@@ -89,7 +91,6 @@ public class Attributes {
 			try {
 				author = authors.getJSONObject(i).getString("string-name");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             arraylist.add(author);
@@ -103,7 +104,6 @@ public class Attributes {
 		try {
 			group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         if(group.has("aff")){
@@ -111,7 +111,6 @@ public class Attributes {
 			try {
 				item = group.get("aff");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             if (item instanceof JSONObject){
@@ -119,7 +118,6 @@ public class Attributes {
                 try {
 					arraylist.add(affiliations.getString("institution"));
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             }
@@ -133,7 +131,6 @@ public class Attributes {
 						    arraylist.add(aff);
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
                 }
@@ -147,7 +144,6 @@ public class Attributes {
 		try {
 			abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return abstrakt;
@@ -159,7 +155,6 @@ public class Attributes {
 		try {
 			contacts = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         for(int i=0;i<contacts.length();i++)
@@ -170,13 +165,11 @@ public class Attributes {
 					try {
 						contact = contacts.getJSONObject(i).getString("email");
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				    arraylist.add(contact);
 				}
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         }
@@ -188,7 +181,6 @@ public class Attributes {
 		try {
 			value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         if (value.has("article-id")) {
@@ -196,7 +188,6 @@ public class Attributes {
 			try {
 				DOI = value.getJSONObject("article-id").getString("content");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             return DOI;
@@ -209,7 +200,6 @@ public class Attributes {
 		try {
 			value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         if (value.has("pub-date")) {
@@ -217,7 +207,6 @@ public class Attributes {
 			try {
 				date = value.getJSONObject("pub-date").getInt("year");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             return date;
@@ -226,7 +215,7 @@ public class Attributes {
     }
 
     public List<String> extractURL(JSONObject xmlJSONObj) {
-        ArrayList<String> arraylist= new ArrayList<String>();
+        ArrayList<String> arraylist = new ArrayList<String>();
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
         Pattern r = Pattern.compile(pattern);
@@ -243,7 +232,6 @@ public class Attributes {
 		try {
 			funding_section = xmlJSONObj.getJSONObject("article").getJSONObject("body").getJSONArray("sec");
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         for(int i=0;i<funding_section.length();i++)
@@ -252,7 +240,6 @@ public class Attributes {
 			try {
 				title = funding_section.getJSONObject(i).getString("title");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             try {
@@ -261,7 +248,6 @@ public class Attributes {
 					try {
 						item = funding_section.getJSONObject(i).get("p");
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				    if (item instanceof String){
@@ -273,13 +259,11 @@ public class Attributes {
 				        try {
 							return funding_text.getString(0);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 				    }
 				}
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         }
