@@ -4,3 +4,4 @@ cermine-impl/target/*
 spring-app/target*
 spring-app/.project
 spring-app/*.iml
+/.metadata/
