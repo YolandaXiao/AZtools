@@ -12,6 +12,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.3.RELEASE</version>
+        <relativePath></relativePath>
     </parent>
 
 
@@ -30,17 +31,10 @@
 		    <artifactId>cermine-impl</artifactId>
 		    <version>1.13</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    <version>20140107</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jdom</groupId>
-			<artifactId>jdom</artifactId>
-			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jdom</groupId>

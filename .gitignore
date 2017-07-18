@@ -1,5 +1,4 @@
-/.metadata/
-./target/*
+.metadata/
+.idea/*
 cermine-impl/target/*
-cermine-web/target/*
-cermine-tools/target/*
+

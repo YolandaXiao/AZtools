@@ -2,29 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc9584f-857f-41d2-8475-7a931dc18630" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/FileUploadController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/Greeting.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/GreetingController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/storage/FileSystemStorageService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/storage/StorageException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/storage/StorageFileNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/storage/StorageProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/storage/StorageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/Controller.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/test/java/upload/FileUploadIntegrationTests.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/src/test/java/upload/FileUploadTests.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/FileUploadController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/Greeting.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/GreetingController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/FileSystemStorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageFileNotFoundException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageProperties.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadIntegrationTests.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadTests.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/Application.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/FileUploadController.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/FileUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/Greeting.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/Greeting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/GreetingController.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/GreetingController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/FileSystemStorageService.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/storage/FileSystemStorageService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageException.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageFileNotFoundException.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageFileNotFoundException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageProperties.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageProperties.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageService.class" afterPath="$PROJECT_DIR$/web-service/target/classes/upload/storage/StorageService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadIntegrationTests.class" afterPath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadIntegrationTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadTests.class" afterPath="$PROJECT_DIR$/web-service/target/test-classes/upload/FileUploadTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cermine-impl/cermine-impl.iml" afterPath="$PROJECT_DIR$/cermine-impl/cermine-impl.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/Application.java" afterPath="$PROJECT_DIR$/web-service/src/main/java/upload/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/src/main/java/upload/Attributes.java" afterPath="$PROJECT_DIR$/web-service/src/main/java/upload/Attributes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/cermine-tools/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,7 +34,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="testupload.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-service/target/test-classes/upload/testupload.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.class" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-service/target/classes/upload/Application.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#437#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Attributes.class" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-service/target/classes/upload/Attributes.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#9589#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <dirStrings>
+      <dir>C:\Ankur\Code\AZtools\web-service</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +90,8 @@
         <option value="$PROJECT_DIR$/web-service/src/main/java/upload/FileUploadController.java" />
         <option value="$PROJECT_DIR$/web-service/src/main/java/upload/Application.java" />
         <option value="$PROJECT_DIR$/web-service/src/main/java/upload/Attributes.java" />
+        <option value="$PROJECT_DIR$/web-service/src/main/java/upload/Controller.java" />
+        <option value="$PROJECT_DIR$/web-service/target/classes/upload/Application.class" />
       </list>
     </option>
   </component>
@@ -63,9 +101,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="1378" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -86,9 +125,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,46 +145,42 @@
               <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
               <item name="AZtools" type="462c0819:PsiDirectoryNode" />
               <item name="web-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
               <item name="AZtools" type="462c0819:PsiDirectoryNode" />
               <item name="web-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
               <item name="AZtools" type="462c0819:PsiDirectoryNode" />
               <item name="web-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
               <item name="AZtools" type="462c0819:PsiDirectoryNode" />
               <item name="web-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extraction" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="test-classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
               <item name="AZtools" type="462c0819:PsiDirectoryNode" />
               <item name="web-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="test-classes" type="462c0819:PsiDirectoryNode" />
               <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,32 +296,34 @@
       <workItem from="1500397228973" duration="182000" />
       <workItem from="1500397455914" duration="46000" />
       <workItem from="1500397814124" duration="2421000" />
+      <workItem from="1500403853742" duration="1192000" />
+      <workItem from="1500405206064" duration="63000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2649000" />
+    <option name="totallyTimeSpent" value="3904000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -317,22 +355,11 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/Greeting.java" />
-    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/GreetingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/GreetingController.java" />
     <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding>
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -340,36 +367,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="216" column="58" lean-forward="false" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Attributes#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractTitle#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractAuthor#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractAffiliation#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractAbstract#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractContact#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractDOI#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractDate#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractURL#0;class#Attributes#0" expanded="false" />
-            <element signature="method#extractFunding#0;class#Attributes#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/FileUploadController.java">
+    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/FileUploadController.java" />
+    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/extraction/URL.java" />
+    <entry file="file://$PROJECT_DIR$/web-service/.project">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/web-service.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/.settings/org.eclipse.core.resources.prefs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/.settings/org.eclipse.jdt.core.prefs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/.settings/org.eclipse.m2e.core.prefs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/.mvn/wrapper/maven-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="17" column="91" lean-forward="false" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/web-service/src/test/java/upload/FileUploadTests.java" />
+    <entry file="file://$PROJECT_DIR$/web-service/src/test/java/upload/FileUploadIntegrationTests.java" />
+    <entry file="file://$PROJECT_DIR$/web-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/extraction/URL.java">
+    <entry file="file://$PROJECT_DIR$/web-service/src/main/java/upload/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state relative-caret-position="289">
+          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/target/test-classes/upload/testupload.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/target/classes/upload/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#0#159#0" expanded="true" />
+            <element signature="e#0#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-service/target/classes/upload/Attributes.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#9589#0" expanded="true" />
           </folding>
         </state>
       </provider>
