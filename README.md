@@ -1,13 +1,16 @@
 # AZtools
 
-AZtools is a Java web service that supports AZtec ([http://aztec.bio])(http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
+![AZtools](https://aztec.bio/public/images/bd2k.png)
+
+AZtools is a Java web service that supports [AZtec](http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
 
 The code is licensed under GNU Affero General Public License version 3.
 
 ## Using AZtools
 
-1. $ cd AZtools/spring-app
-2. $ mvn spring-boot:run
+$ cd AZtools/spring-app
+
+$ mvn spring-boot:run
 
 Go to `localhost:8080`
 
