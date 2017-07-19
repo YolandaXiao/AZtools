@@ -74,8 +74,9 @@ public class MainController {
             Attributes attr = new Attributes(xmlJSONObj);
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
             String jsonString = mapper.writeValueAsString(attr);
+            String result = jsonString.replace("abstrakt", "abstract");
 
-			return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.OK);
+			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
 
 		} catch (IOException | TimeoutException | AnalysisException e) {
 			e.printStackTrace();
