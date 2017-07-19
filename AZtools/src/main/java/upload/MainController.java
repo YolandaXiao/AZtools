@@ -38,7 +38,7 @@ public class MainController {
 
     	HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-        
+
         ContentExtractor extractor = null;
         InputStream inputStream = null;
 
@@ -85,7 +85,7 @@ public class MainController {
 		} catch (IOException | TimeoutException | AnalysisException e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}	
+		}
 
     }
 
