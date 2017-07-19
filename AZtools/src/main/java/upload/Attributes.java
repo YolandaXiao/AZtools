@@ -19,7 +19,7 @@ public class Attributes {
     private final List<String> URL;
     private final String funding;
 
-    public Attributes(JSONObject xmlJSONObj) {
+    public Attributes(JSONObject xmlJSONObj, String name) {
         this.title = extractTitle(xmlJSONObj);
         this.author = extractAuthor(xmlJSONObj);
         this.affiliation = extractAffiliation(xmlJSONObj);
@@ -27,7 +27,7 @@ public class Attributes {
         this.contact = extractContact(xmlJSONObj);
         this.DOI = extractDOI(xmlJSONObj);
         this.date = extractDate(xmlJSONObj);
-        this.URL = extractURL(xmlJSONObj);
+        this.URL = extractURL(xmlJSONObj,name);
         this.funding = extractFunding(xmlJSONObj);
     }
 
@@ -214,17 +214,26 @@ public class Attributes {
         return 0;
     }
 
-    public List<String> extractURL(JSONObject xmlJSONObj) {
-        ArrayList<String> arraylist = new ArrayList<String>();
+    public List<String> extractURL(JSONObject xmlJSONObj, String name) {
+        ArrayList<String> all_links= new ArrayList<String>();
+        ArrayList<String> good_links= new ArrayList<String>();
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
+//        String pattern = "\\.\\s.*?http.*?(\\.(\\s|$|\"))";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(line);
         while (m.find( )) {
+//            String[] arr = m.group().split("\\. ");
+//            String result = arr[arr.length-1];
             System.out.println("Found value: " + m.group());
-            arraylist.add(m.group());
+            String link = m.group().toLowerCase();
+            all_links.add(link);
+            if(link.contains(name.toLowerCase()))
+                good_links.add(link);
         }
-        return arraylist;
+        if(good_links.isEmpty())
+            good_links.add(all_links.get(1));
+        return good_links;
     }
 
     public String extractFunding(JSONObject xmlJSONObj) {
