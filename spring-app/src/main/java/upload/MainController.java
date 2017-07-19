@@ -47,6 +47,10 @@ public class MainController {
 			inputStream = new BufferedInputStream(file.getInputStream());
 			extractor.setPDF(inputStream);
 
+			String name = file.getOriginalFilename();
+			name = name.split("\\.")[0];
+			System.out.println(name);
+
 			//convert pdf to xml
             Element nlmMetadata = extractor.getMetadataAsNLM();
             Element nlmFullText = extractor.getBodyAsNLM(null);
@@ -71,7 +75,7 @@ public class MainController {
 
             //filter out excessive data
             ObjectMapper mapper = new ObjectMapper();
-            Attributes attr = new Attributes(xmlJSONObj);
+            Attributes attr = new Attributes(xmlJSONObj,name);
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
             String jsonString = mapper.writeValueAsString(attr);
 
