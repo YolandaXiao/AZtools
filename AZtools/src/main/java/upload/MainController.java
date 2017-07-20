@@ -72,6 +72,7 @@ public class MainController {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+			String pretty_string = xmlJSONObj.toString();
 
             //filter out excessive data
             ObjectMapper mapper = new ObjectMapper();

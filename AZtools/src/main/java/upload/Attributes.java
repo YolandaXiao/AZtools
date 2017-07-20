@@ -17,7 +17,8 @@ public class Attributes {
     private final String DOI;
     private final int date;
     private final List<String> URL;
-    private final String funding;
+//    private final List<String> funding;
+    private final List<String> license;
 
     public Attributes(JSONObject xmlJSONObj, String name) {
         this.title = extractTitle(xmlJSONObj);
@@ -28,7 +29,8 @@ public class Attributes {
         this.DOI = extractDOI(xmlJSONObj);
         this.date = extractDate(xmlJSONObj);
         this.URL = extractURL(xmlJSONObj,name);
-        this.funding = extractFunding(xmlJSONObj);
+//        this.funding = extractFunding(xmlJSONObj);
+        this.license = extractLicense(xmlJSONObj);
     }
 
     public String getTitle(){
@@ -63,9 +65,11 @@ public class Attributes {
         return URL;
     }
 
-    public String getFunding() {
-        return funding;
-    }
+//    public List<String> getFunding() {
+//        return funding;
+//    }
+
+    public List<String> getLicense() { return license; }
 
     public String extractTitle(JSONObject xmlJSONObj) {
         String title = null;
@@ -234,7 +238,6 @@ public class Attributes {
         while (m.find( )) {
 //            String[] arr = m.group().split("\\. ");
 //            String result = arr[arr.length-1];
-            System.out.println("Found value: " + m.group());
             String link = m.group().toLowerCase();
             all_links.add(link);
             if(link.contains(name.toLowerCase()) && !good_links.contains(link))
@@ -245,7 +248,34 @@ public class Attributes {
         return good_links;
     }
 
-    public String extractFunding(JSONObject xmlJSONObj) {
+    private String extractFundingSection(JSONObject xmlJSONObj) {
+        ArrayList<String> section_title= new ArrayList<String>();
+        String line = xmlJSONObj.toString().toLowerCase();
+        String pattern1 = "\"title\":\"funding\"";
+//        String pattern3 = ",\"funding:";
+        Pattern r1 = Pattern.compile(pattern1);
+        Matcher m1 = r1.matcher(line);
+        while (m1.find( )) {
+            section_title.add(m1.group());
+        }
+        String pattern2 = "\"title\":\"acknowledgement\"";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(line);
+        while (m2.find( )) {
+            section_title.add(m2.group());
+        }
+        String evaluation;
+        boolean flag = (section_title.contains(pattern1));
+        if(flag){
+            evaluation = "funding";
+        }
+        else if(!flag && section_title.contains(pattern2)){
+            evaluation = "acknowledgement";
+        }
+        else{
+            evaluation = "None";
+        }
+
         JSONArray funding_section = null;
         try {
             funding_section = xmlJSONObj.getJSONObject("article").getJSONObject("body").getJSONArray("sec");
@@ -261,7 +291,7 @@ public class Attributes {
                 e.printStackTrace();
             }
             try {
-                if((funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("funding")) || (funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals("acknowledgements"))){
+                if(funding_section.getJSONObject(i).has("title") && title.toLowerCase().equals(evaluation)){
                     Object item = null;
                     try {
                         item = funding_section.getJSONObject(i).get("p");
@@ -287,4 +317,27 @@ public class Attributes {
         }
         return "None";
     }
+
+    public List<String> extractLicense(JSONObject xmlJSONObj) {
+        ArrayList<String> arrayList= new ArrayList<String>();
+        String funding_section = extractFundingSection(xmlJSONObj);
+        String[] arr = funding_section.split("]");
+        for(int i=0; i<arr.length-1; i++)
+        {
+            System.out.println(arr[i]);
+            String result = arr[i].split("\\[")[1];
+            arrayList.add(result);
+        }
+
+//        String pattern = "[^\\[].*[^\\]][.;]";
+//        Pattern r = Pattern.compile(pattern);
+//        Matcher m = r.matcher(funding_section);
+//        while (m.find( )) {
+//            System.out.println(m.group());
+//            arrayList.add(m.group());
+//        }
+
+        return arrayList;
+    }
+
 }

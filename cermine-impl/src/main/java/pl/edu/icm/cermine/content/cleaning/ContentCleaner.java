@@ -190,7 +190,7 @@ public class ContentCleaner {
                 break;
             }
             String next = lines[i+1];
-            if (line.matches("^.*["+hyphenList+"]$")) {
+            if (line.matches("^.*["+hyphenList+"]$")  && !line.matches("^["+hyphenList+"]$")) {
                 line = line.substring(0, line.length()-1);
                 sb.append(line);
                 int idx = next.indexOf(' ');
