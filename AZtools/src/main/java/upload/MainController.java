@@ -34,7 +34,7 @@ public class MainController {
 
     @PostMapping("/")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes, Model model) throws FileNotFoundException {
+                                   RedirectAttributes redirectAttributes, Model model) throws Exception {
 
     	HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
@@ -76,7 +76,7 @@ public class MainController {
 
             //filter out excessive data
             ObjectMapper mapper = new ObjectMapper();
-            Attributes attr = new Attributes(xmlJSONObj,name);
+            Attributes attr = new Attributes(nlm,name);
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
             String jsonString = mapper.writeValueAsString(attr);
             String result = jsonString.replace("abstrakt", "abstract");

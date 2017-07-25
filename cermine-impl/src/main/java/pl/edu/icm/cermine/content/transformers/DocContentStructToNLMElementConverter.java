@@ -26,6 +26,7 @@ import org.apache.commons.lang.StringUtils;
 import org.jdom.Element;
 import pl.edu.icm.cermine.content.citations.CitationPosition;
 import pl.edu.icm.cermine.content.citations.ContentStructureCitationPositions;
+import pl.edu.icm.cermine.content.cleaning.ContentCleaner;
 import pl.edu.icm.cermine.content.model.ContentStructure;
 import pl.edu.icm.cermine.content.model.DocumentSection;
 import pl.edu.icm.cermine.exception.TransformationException;
@@ -86,6 +87,7 @@ public class DocContentStructToNLMElementConverter implements ModelToModelConver
         element.addContent(toHTMLTitle(part.getTitle()));
         for (int i = 0; i < part.getParagraphs().size(); i++) {
             String paragraph = part.getParagraphs().get(i);
+            paragraph = ContentCleaner.cleanAllAndBreaks(paragraph);
             List<Pair<Integer, CitationPosition>> positionList = new ArrayList<Pair<Integer, CitationPosition>>();
             if (positions != null) {
                 positionList = positions.getPositions(part, i);
