@@ -24,15 +24,15 @@ public class Attributes {
 
     class funding_info {
 
-        public String agency;
+        public ArrayList<String> agency;
         public String license;
 
-        public String getAgency() {  return agency; }
+        public ArrayList<String> getAgency() {  return agency; }
         public String getLicense() { return license; }
 
         public funding_info(){}
 
-        public void setAgency(String agency) { this.agency = agency; }
+        public void setAgency(ArrayList<String> agency) { this.agency = agency; }
         public void setLicense(String license) { this.license = license; }
 
     }
@@ -305,10 +305,12 @@ public class Attributes {
             String pattern2 = "<ORGANIZATION>.*?<\\/ORGANIZATION>";
             Pattern r2 = Pattern.compile(pattern2);
             Matcher m2 = r2.matcher(funding);
+            ArrayList<String> arr= new ArrayList<String>();
             while (m2.find( )) {
                 String agency = m2.group().split(">")[1].split("<")[0];
-                fi.setAgency(agency);
+                arr.add(agency);
             }
+            fi.setAgency(arr);
 
             //get license from regex
             String pattern1 = "[\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,}";

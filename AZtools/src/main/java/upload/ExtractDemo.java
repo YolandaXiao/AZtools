@@ -1,7 +1,7 @@
 package upload;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
-import edu.stanford.nlp.ie.crf.CRFClassifier;   
+import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
 
 public class ExtractDemo {   
@@ -13,7 +13,7 @@ public class ExtractDemo {
     }
 
     public void InitNer() {
-        String serializedClassifier = "lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser"; // chinese.misc.distsim.crf.ser.gz
+        String serializedClassifier = "lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz"; // chinese.misc.distsim.crf.ser.gz
         if (ner == null) {
         ner = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         }
@@ -23,4 +23,4 @@ public class ExtractDemo {
         return ner.classifyWithInlineXML(sent);
     }
   
-}   
+}
