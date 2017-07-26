@@ -1,9 +1,5 @@
 package upload;
 
-import java.io.BufferedInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.jdom.Element;
@@ -17,12 +13,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
 import pl.edu.icm.cermine.tools.timeout.TimeoutException;
+
+import java.io.BufferedInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 @Controller
 public class MainController {
@@ -49,7 +52,8 @@ public class MainController {
 
 			String name = file.getOriginalFilename();
 			name = name.split("\\.")[0];
-			System.out.println(name);
+
+			System.out.println("\nApplying CERMINE to \"" + name + ".pdf\"...");
 
 			//convert pdf to xml
             Element nlmMetadata = extractor.getMetadataAsNLM();
@@ -64,6 +68,8 @@ public class MainController {
             nlmContent.addContent(meta);
             nlmContent.addContent(nlmFullText);
 
+            System.out.println("! Completed CERMINE workflow.\n");
+
             //convert xml to json
             String nlm = new XMLOutputter().outputString(nlmContent);
             JSONObject xmlJSONObj = null;
@@ -73,16 +79,19 @@ public class MainController {
 				e.printStackTrace();
 			}
 
-            //filter out excessive data
             ObjectMapper mapper = new ObjectMapper();
-            Attributes attr = new Attributes(xmlJSONObj,name);
+            Attributes attr = new Attributes(xmlJSONObj, name);
+
+            //xmlJSONObj.put("name", Attributes.findName(name, attr.getTitle()));
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
             String jsonString = mapper.writeValueAsString(attr);
             String result = jsonString.replace("abstrakt", "abstract");
 
 			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
 
-		} catch (IOException | TimeoutException | AnalysisException e) {
+		}
+		catch (IOException | TimeoutException | AnalysisException e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
