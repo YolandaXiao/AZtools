@@ -1,3 +1,4 @@
 .metadata/*
 cermine-impl/target/*
 spring-app/target*
+.idea/*

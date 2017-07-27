@@ -37,7 +37,7 @@ public class MainController {
 
     @PostMapping("/")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes, Model model) throws FileNotFoundException {
+                                   RedirectAttributes redirectAttributes, Model model) throws Exception {
 
     	HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
@@ -78,11 +78,10 @@ public class MainController {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+			String pretty_string = xmlJSONObj.toString();
 
             ObjectMapper mapper = new ObjectMapper();
-            Attributes attr = new Attributes(xmlJSONObj, name);
-
-            //xmlJSONObj.put("name", Attributes.findName(name, attr.getTitle()));
+            Attributes attr = new Attributes(nlm, name);
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
             String jsonString = mapper.writeValueAsString(attr);

@@ -5,9 +5,7 @@
       <configuration />
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/AZtools/target/classes" />
-    <output-test url="file://$MODULE_DIR$/AZtools/target/test-classes" />
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <content url="file://$MODULE_DIR$/AZtools">
       <sourceFolder url="file://$MODULE_DIR$/AZtools/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/AZtools/src/main/resources" type="java-resource" />
@@ -81,5 +79,21 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.opennlp:opennlp-tools:1.8.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/AZtools/lib/stanford-ner-2017-06-09" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/AZtools/lib/stanford-ner-2017-06-09" />
+          <root url="file://$MODULE_DIR$/AZtools/lib/stanford-ner-2017-06-09" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/AZtools/lib/stanford-ner-2017-06-09" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/AZtools/lib/stanford-ner-2017-06-09" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="classifiers" level="project" />
   </component>
 </module>

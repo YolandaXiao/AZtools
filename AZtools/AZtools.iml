@@ -67,6 +67,16 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.opennlp:opennlp-tools:1.8.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../weka-3-9-1/weka.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -74,6 +84,20 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
+          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
