@@ -4,6 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,18 +25,19 @@ public class Attributes {
     private final int date;
     private final List<String> URL;
     private final List<funding_info> funding;
+    private final List<String> programming_lang;
 
     class funding_info {
 
-        public ArrayList<String> agency;
+        public String agency;
         public String license;
 
-        public ArrayList<String> getAgency() {  return agency; }
+        public String getAgency() {  return agency; }
         public String getLicense() { return license; }
 
         public funding_info(){}
 
-        public void setAgency(ArrayList<String> agency) { this.agency = agency; }
+        public void setAgency(String agency) { this.agency = agency; }
         public void setLicense(String license) { this.license = license; }
 
     }
@@ -48,6 +53,7 @@ public class Attributes {
         this.date = extractDate(xmlJSONObj);
         this.URL = extractURL(xmlJSONObj,name);
         this.funding = extractFunding(nlm);
+        this.programming_lang = extractProgramming_lang(xmlJSONObj);
     }
 
     public String getTitle(){
@@ -83,6 +89,10 @@ public class Attributes {
     }
 
     public List<funding_info> getFunding() { return funding; }
+
+    public List<String> getProgramming_lang(){
+        return programming_lang;
+    }
 
     public String extractTitle(JSONObject xmlJSONObj) {
         String title = null;
@@ -263,7 +273,7 @@ public class Attributes {
 
     //extract funding section from xlm
     private String extractMatch(String nlm, String name, String result){
-        String pattern = "(?s)<title>"+name+".*?</p>";
+        String pattern = "(?s)"+name+".*?</p>";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(nlm);
         while (m.find( )) {
@@ -275,23 +285,47 @@ public class Attributes {
     //extract funding section from xlm using the above helper function
     private String extractFundingSection(String nlm){
         String result = "None";
-        result = extractMatch(nlm,"ACKNOWLEDG", result);
-        result = extractMatch(nlm,"acknowledg", result);
-        result = extractMatch(nlm,"Acknowledg", result);
-        result = extractMatch(nlm,"Funding", result);
-        result = extractMatch(nlm,"FUNDING", result);
-        result = extractMatch(nlm,"funding", result);
+        result = extractMatch(nlm,"<title>ACKNOWLEDG", result);
+        result = extractMatch(nlm,"<title>acknowledg", result);
+        result = extractMatch(nlm,"<title>Acknowledg", result);
+        result = extractMatch(nlm,"<p>ACKNOWLEDG", result);
+        result = extractMatch(nlm,"<p>acknowledg", result);
+        result = extractMatch(nlm,"<p>Acknowledg", result);
+        result = extractMatch(nlm,"<title>Funding", result);
+        result = extractMatch(nlm,"<title>FUNDING", result);
+        result = extractMatch(nlm,"<title>funding", result);
+        result = extractMatch(nlm,"<p>Funding:", result);
+        result = extractMatch(nlm,"<p>funding:", result);
+        result = extractMatch(nlm,"<p>FUNDING:", result);
         return result;
+    }
+
+    //helper function: get list of agency names
+    private ArrayList<String> getAgencyDic() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("lib/agency_names.txt"));
+        ArrayList<String> agency_dic= new ArrayList<String>();
+        try {
+            String line = br.readLine();
+
+            while (line != null) {
+                agency_dic.add(line);
+                line = br.readLine();
+            }
+        } finally {
+            br.close();
+        }
+        return agency_dic;
     }
 
     public List<funding_info> extractFunding(String nlm) throws Exception {
         ArrayList<funding_info> arrayList= new ArrayList<funding_info>();
         String funding_section = extractFundingSection(nlm);
+//        System.out.println(funding_section);
         //just for license
         //String pattern = "[\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,}";
 
         //for license and agency
-        String pattern = "(by|[^.])[A-Z]+[a-z\\s]+[^.]*?([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s,]{2,}[\\dA-Z\\/\\-]{2,})";
+        String pattern = "(by|[^.])[A-Z]+[a-z\\s]+.*?([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s,]{2,}[\\dA-Z\\/\\-]{2,})";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(funding_section);
         while (m.find( )) {
@@ -305,12 +339,10 @@ public class Attributes {
             String pattern2 = "<ORGANIZATION>.*?<\\/ORGANIZATION>";
             Pattern r2 = Pattern.compile(pattern2);
             Matcher m2 = r2.matcher(funding);
-            ArrayList<String> arr= new ArrayList<String>();
             while (m2.find( )) {
                 String agency = m2.group().split(">")[1].split("<")[0];
-                arr.add(agency);
+                fi.setAgency(agency);
             }
-            fi.setAgency(arr);
 
             //get license from regex
             String pattern1 = "[\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,}";
@@ -321,7 +353,36 @@ public class Attributes {
             }
             arrayList.add(fi);
         }
+
+        //run NER on the entire paragraph again to get agencies without grant number
+        ExtractDemo extractDemo = new ExtractDemo();
+        String funding = extractDemo.doNer(funding_section);
+        String pattern2 = "<ORGANIZATION>.*?<\\/ORGANIZATION>";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(funding);
+        while (m2.find( )) {
+            funding_info f = new funding_info();
+            String agency = m2.group().split(">")[1].split("<")[0];
+            f.setAgency(agency);
+            //check if the name already exists in the list
+            boolean flag = true;
+            for(int i = 0; i < arrayList.size(); i++) {
+                if(arrayList.get(i).getAgency().contains(f.getAgency())){
+                    flag = false;
+                }
+            }
+            //check if the name exists in dictionary
+            if(flag && getAgencyDic().contains(f.getAgency())){
+                arrayList.add(f);
+            }
+        }
         return arrayList;
+    }
+
+    public List<String> extractProgramming_lang(JSONObject xmlJSONObj) {
+        ArrayList<String> arraylist= new ArrayList<String>();
+
+        return arraylist;
     }
 
 }
