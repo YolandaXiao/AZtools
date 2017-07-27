@@ -26,6 +26,7 @@ import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 @Controller
 public class MainController {
@@ -36,8 +37,9 @@ public class MainController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes, Model model) throws Exception {
+    public ResponseEntity<String> handleFileUpload(@RequestParam("file") ArrayList<MultipartFile> file,
+                                                   RedirectAttributes redirectAttributes, Model model)
+                                throws Exception {
 
     	HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
@@ -46,49 +48,56 @@ public class MainController {
         InputStream inputStream = null;
 
         try {
-			extractor = new ContentExtractor();
-			inputStream = new BufferedInputStream(file.getInputStream());
-			extractor.setPDF(inputStream);
-
-			String name = file.getOriginalFilename();
-			name = name.split("\\.")[0];
-
-			System.out.println("\nApplying CERMINE to \"" + name + ".pdf\"...");
-
-			//convert pdf to xml
-            Element nlmMetadata = extractor.getMetadataAsNLM();
-            Element nlmFullText = extractor.getBodyAsNLM(null);
-            Element nlmContent = new Element("article");
-            for (Object ns : nlmFullText.getAdditionalNamespaces()) {
-                if (ns instanceof Namespace) {
-                    nlmContent.addNamespaceDeclaration((Namespace)ns);
-                }
-            }
-            Element meta = (Element) nlmMetadata.getChild("front").clone();
-            nlmContent.addContent(meta);
-            nlmContent.addContent(nlmFullText);
-
-            System.out.println("! Completed CERMINE workflow.\n");
-
-            //convert xml to json
-            String nlm = new XMLOutputter().outputString(nlmContent);
-            JSONObject xmlJSONObj = null;
-			try {
-				xmlJSONObj = XML.toJSONObject(nlm);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			String pretty_string = xmlJSONObj.toString();
-
+            JSONObject final_result = new JSONObject();
             ObjectMapper mapper = new ObjectMapper();
-            Attributes attr = new Attributes(nlm, name);
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            String jsonString = mapper.writeValueAsString(attr);
-            String result = jsonString.replace("abstrakt", "abstract");
+            for (int i = 0; i < file.size(); i++) {
 
-			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
+                String name = file.get(i).getOriginalFilename();
+                name = name.split("\\.")[0];
 
+                System.out.println("\nApplying CERMINE to \"" + name + ".pdf\"...");
+
+                extractor = new ContentExtractor();
+                inputStream = new BufferedInputStream(file.get(i).getInputStream());
+                extractor.setPDF(inputStream);
+
+                //convert pdf to xml
+                Element nlmMetadata = extractor.getMetadataAsNLM();
+                Element nlmFullText = extractor.getBodyAsNLM(null);
+                Element nlmContent = new Element("article");
+                for (Object ns : nlmFullText.getAdditionalNamespaces()) {
+                    if (ns instanceof Namespace) {
+                        nlmContent.addNamespaceDeclaration((Namespace) ns);
+                    }
+                }
+                Element meta = (Element) nlmMetadata.getChild("front").clone();
+                nlmContent.addContent(meta);
+                nlmContent.addContent(nlmFullText);
+
+                System.out.println("! Completed CERMINE workflow.");
+
+                //convert xml to json
+                String nlm = new XMLOutputter().outputString(nlmContent);
+                JSONObject xmlJSONObj = null;
+                try {
+                    xmlJSONObj = XML.toJSONObject(nlm);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String pretty_string = xmlJSONObj.toString();
+
+
+                Attributes attr = new Attributes(nlm, name);
+                mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+                String jsonString = mapper.writeValueAsString(attr);
+                String result = jsonString.replace("abstrakt", "abstract");
+
+                final_result.put(name, result);
+            }
+            String final_json = mapper.writeValueAsString(final_result);
+            return new ResponseEntity<String>(final_json, responseHeaders, HttpStatus.OK);
 		}
 		catch (IOException | TimeoutException | AnalysisException e) {
 			e.printStackTrace();
