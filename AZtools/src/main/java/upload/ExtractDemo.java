@@ -13,7 +13,7 @@ public class ExtractDemo {
     }
 
     public void InitNer() {
-        String serializedClassifier = "C:/Ankur/Code/AZtools/AZtools/lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser"; // chinese.misc.distsim.crf.ser
+        String serializedClassifier = "lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz"; // chinese.misc.distsim.crf.ser
         if (ner == null) {
         ner = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         }

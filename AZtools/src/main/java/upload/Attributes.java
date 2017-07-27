@@ -127,7 +127,7 @@ public class Attributes {
         String cermine_title = getTitle();
         String[] words = cermine_title.split("\\s");
 
-        String fileName = "C:/Ankur/Code/AZtools/AZtools/src/main/java/upload/stop.txt";
+        String fileName = "src/main/java/upload/stop.txt";
 
         String line = null;
         ArrayList<String> stop_words = new ArrayList<>();
@@ -293,7 +293,7 @@ public class Attributes {
                 isMedical = true;
             }
 
-            fileName = "C:/Ankur/Code/AZtools/AZtools/src/main/java/upload/en.txt";
+            fileName = "src/main/java/upload/en.txt";
 
             line = null;
             ArrayList<String> words_list = new ArrayList<>();
@@ -645,7 +645,7 @@ public class Attributes {
 
     //helper function: get list of agency names
     private ArrayList<String> getAgencyDic() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C:/Ankur/Code/AZtools/AZtools/lib/agency_names.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("lib/agency_names.txt"));
         ArrayList<String> agency_dic= new ArrayList<String>();
         try {
             String line = br.readLine();
@@ -664,54 +664,59 @@ public class Attributes {
         ArrayList<funding_info> arrayList= new ArrayList<funding_info>();
         String funding_section = extractFundingSection(nlm);
 //        System.out.println(funding_section);
-        //just for license
-        //String pattern = "[\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,}";
 
-        //for license and agency
-        String pattern = "(by|[^.])[A-Z]+[a-z\\s]+.*?([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s,]{2,}[\\dA-Z\\/\\-]{2,})";
+        //get license
+        String pattern = "([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,})";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(funding_section);
+        String agency = null;
         while (m.find( )) {
-            //result is license + name
-            String result = m.group();
+            //get license and sentence before that contains agency
             funding_info fi = new funding_info();
+            String license = m.group();
+            fi.setLicense(license);
+            String[] arr = funding_section.split(license);
+            String agency_sentence = arr[0];
+            if(arr.length>=2){
+                funding_section = arr[1];
+            }
+            else{
+                funding_section = arr[0];
+            }
 
             //get agency from stanford ner
             ExtractDemo extractDemo = new ExtractDemo();
-            String funding = extractDemo.doNer(result);
-            String pattern2 = "<ORGANIZATION>.*?<\\/ORGANIZATION>";
+            String funding = extractDemo.doNer(agency_sentence);
+//            System.out.println(funding);
+            String pattern2 = "(?s)<ORGANIZATION>.*?<\\/ORGANIZATION>";
             Pattern r2 = Pattern.compile(pattern2);
             Matcher m2 = r2.matcher(funding);
             while (m2.find( )) {
-                String agency = m2.group().split(">")[1].split("<")[0];
-                fi.setAgency(agency);
+                String[] temp = m2.group().split(">");
+                agency = temp[temp.length-1].split("<")[0];
             }
-
-            //get license from regex
-            String pattern1 = "[\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,}";
-            Pattern r1 = Pattern.compile(pattern1);
-            Matcher m1 = r1.matcher(result);
-            while (m1.find( )) {
-                fi.setLicense(m1.group());
-            }
+            fi.setAgency(agency);
             arrayList.add(fi);
         }
 
         //run NER on the entire paragraph again to get agencies without grant number
+        funding_section = extractFundingSection(nlm);
         ExtractDemo extractDemo = new ExtractDemo();
         String funding = extractDemo.doNer(funding_section);
-        String pattern2 = "<ORGANIZATION>.*?<\\/ORGANIZATION>";
+        String pattern2 = "(?s)<ORGANIZATION>.*?<\\/ORGANIZATION>";
         Pattern r2 = Pattern.compile(pattern2);
         Matcher m2 = r2.matcher(funding);
         while (m2.find( )) {
             funding_info f = new funding_info();
-            String agency = m2.group().split(">")[1].split("<")[0];
-            f.setAgency(agency);
+            String ag = m2.group().split(">")[1].split("<")[0];
+            f.setAgency(ag);
             //check if the name already exists in the list
             boolean flag = true;
             for(int i = 0; i < arrayList.size(); i++) {
-                if(arrayList.get(i).getAgency().contains(f.getAgency())){
-                    flag = false;
+                if(arrayList.get(i).getAgency()!=null ){
+                    if(arrayList.get(i).getAgency().equals(f.getAgency())){
+                        flag = false;
+                    }
                 }
             }
             //check if the name exists in dictionary
@@ -719,6 +724,7 @@ public class Attributes {
                 arrayList.add(f);
             }
         }
+
         return arrayList;
     }
 
