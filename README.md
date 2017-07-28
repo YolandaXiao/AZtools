@@ -9,6 +9,7 @@ The code is licensed under GNU Affero General Public License version 3.
 ## Using AZtools
 
 $ mv AZtools/AZtools/src/main/java/upload/.Properties.java AZtools/AZtools/src/main/java/upload/Properties.java
+AND uncomment all the code in Properties.java
 
 $ cd AZtools/AZtools
 

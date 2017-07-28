@@ -1,3 +1,4 @@
+/*
 package upload;
 
 public class Properties {
@@ -23,3 +24,4 @@ public class Properties {
         return serializedClassifier;
     }
 }
+*/
