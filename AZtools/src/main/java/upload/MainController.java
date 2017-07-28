@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
@@ -76,9 +77,9 @@ public class MainController {
             //convert xml to json
             String nlm = new XMLOutputter().outputString(nlmContent);
             Attributes attr = new Attributes(nlm, name);
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            String jsonString = mapper.writeValueAsString(attr.toString());
+            String jsonString = mapper.writeValueAsString(attr);
             String result = jsonString.replace("abstrakt", "abstract");
 
 			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
@@ -103,8 +104,8 @@ public class MainController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
 
-        JSONObject final_json = new JSONObject();
         ObjectMapper mapper = new ObjectMapper();
+        ArrayList<Attributes> attributeLists = new ArrayList<Attributes>();
 
         try {
 
@@ -137,24 +138,18 @@ public class MainController {
 
                 System.out.println("! Completed CERMINE workflow.");
 
-                //convert xml to json
+                //convert xml to json and put it to attribute list
                 String nlm = new XMLOutputter().outputString(nlmContent);
                 Attributes attr = new Attributes(nlm, name);
-                mapper.enable(SerializationFeature.INDENT_OUTPUT);
+                attributeLists.add(attr);
 
-                String jsonString = mapper.writeValueAsString(attr);
-                String result = jsonString.replace("abstrakt", "abstract");
-
-                final_json.put(name, result);
             }
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            String final_json_string = final_json.toString().replace("\\r\\n  \\", "").replace("\\r\\n", "");
-            final_json_string = final_json_string.replace("\\r\\n  ", "").replace("\\\"", "\"");
 
-            //Object json = mapper.readValue(final_json_string, Object.class);
-            //String new_json_string = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            String jsonString = mapper.writeValueAsString(attributeLists);
+            String result = jsonString.replace("abstrakt", "abstract");
 
-            return new ResponseEntity<String>(final_json_string, responseHeaders, HttpStatus.OK);
+            return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();

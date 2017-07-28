@@ -30,6 +30,7 @@ public class Attributes {
     private final List<String> URL;
     private final List<funding_info> funding;
     private final List<String> programming_lang;
+    private final String filename;
 
     // ------------------------------------------------------------- //
 
@@ -60,6 +61,7 @@ public class Attributes {
         this.URL = extractURL(xmlJSONObj);
         this.funding = extractFunding(nlm);
         this.programming_lang = extractProgramming_lang(xmlJSONObj);
+        this.filename = name;
     }
 
     // ------------------------------------------------------------ //
@@ -104,6 +106,10 @@ public class Attributes {
 
     public List<String> getProgramming_lang(){
         return programming_lang;
+    }
+
+    public String getFilename(){
+        return filename;
     }
 
     // ----------------------------------------------------------- //
