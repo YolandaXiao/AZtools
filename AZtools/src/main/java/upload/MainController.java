@@ -30,12 +30,13 @@ import java.io.InputStream;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
+    /*
+    @GetMapping("/single")
     public String uploadOnePDF(Model model) throws IOException {
         return "uploadOnePDF";
     }
 
-    @PostMapping("/")
+    @PostMapping("/single")
     public ResponseEntity<String> processOnePDF(@RequestParam("file") MultipartFile file,
                                                    RedirectAttributes redirectAttributes, Model model)
                                 throws Exception {
@@ -90,13 +91,14 @@ public class MainController {
 			return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
     }
+    */
 
-    @GetMapping("/batch")
+    @GetMapping("/")
     public String uploadManyPDFs(Model model) throws IOException {
         return "uploadManyPDFs";
     }
 
-    @PostMapping("/batch")
+    @PostMapping("/")
     public ResponseEntity<String> processManyPDFs(@RequestParam("file") List<MultipartFile> files,
                                                    RedirectAttributes redirectAttributes, Model model)
             throws Exception {
