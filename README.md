@@ -8,13 +8,15 @@ The code is licensed under GNU Affero General Public License version 3.
 
 ## Using AZtools
 
-$ cd AZtools/spring-app
+$ mv AZtools/AZtools/src/main/java/upload/.Properties.java AZtools/AZtools/src/main/java/upload/Properties.java
+
+$ cd AZtools/AZtools
 
 $ mvn spring-boot:run
 
 Go to `localhost:8080`
 
-1. Upload a PDF of size <= 10,000 KB
+1. Upload a PDF of size <= 100,000 KB
 
 2. Click Submit
 
