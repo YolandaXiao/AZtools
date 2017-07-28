@@ -31,6 +31,8 @@ public class Attributes {
     private final List<funding_info> funding;
     private final List<String> programming_lang;
 
+    // ------------------------------------------------------------- //
+
     class funding_info {
 
         public String agency;
@@ -59,6 +61,8 @@ public class Attributes {
         this.funding = extractFunding(nlm);
         this.programming_lang = extractProgramming_lang(xmlJSONObj);
     }
+
+    // ------------------------------------------------------------ //
 
     public String getTitle(){
         return title;
@@ -118,8 +122,6 @@ public class Attributes {
 
         System.out.println("Searching: \"" + orig_file_name + ".pdf\" for tool's name...");
 
-        // String titleOfPaper, String abstractOfPaper
-
         Vector cv = new Vector(0);
         Vector metadata = new Vector(0);
 
@@ -127,25 +129,26 @@ public class Attributes {
         String cermine_title = getTitle();
         String[] words = cermine_title.split("\\s");
 
-        String fileName = "src/main/java/upload/stop.txt";
+        String stop_file_path = Properties.get_stop_path();
 
         String line = null;
         ArrayList<String> stop_words = new ArrayList<>();
 
         try {
-            FileReader fileReader = new FileReader(fileName);
+            FileReader fileReader = new FileReader(stop_file_path);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
                 stop_words.add(line);
             }
             bufferedReader.close();
+            //System.out.println("Found file '" + stop_file_path + "'");
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");
+            System.out.println("Unable to open file '" + stop_file_path + "'");
         }
         catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");
+            System.out.println("Error reading file '" + stop_file_path + "'");
         }
 
         for (int i = 0; i < words.length; i++) {
@@ -252,14 +255,14 @@ public class Attributes {
 
         // Existence and Defined-ness
         for (int m = 0; m < cv.size(); m++) {
-            ArrayList<String> phraseWords = new ArrayList((ArrayList) (((Vector)cv.get(m)).get(0)));
+            ArrayList<String> phraseWords = new ArrayList((ArrayList) (((Vector) cv.get(m)).get(0)));
             String possibleName = "";
 
-            for (String word: phraseWords) {
+            for (String word : phraseWords) {
                 possibleName += word + " ";
             }
 
-            possibleName = possibleName.substring(0, possibleName.length()-1);
+            possibleName = possibleName.substring(0, possibleName.length() - 1);
             //System.out.println(possibleName);
 
             String mesh_code = "";
@@ -280,8 +283,7 @@ public class Attributes {
                 rd.close();
 
                 mesh_code = result.toString();
-            }
-            catch (IOException ex) {
+            } catch (IOException ex) {
                 System.out.println("Was not able to search through dictionary. Skipping phrase.");
             }
 
@@ -293,25 +295,23 @@ public class Attributes {
                 isMedical = true;
             }
 
-            fileName = "src/main/java/upload/en.txt";
+            String en_file_path = Properties.get_en_path();
 
             line = null;
             ArrayList<String> words_list = new ArrayList<>();
 
             try {
-                FileReader fileReader = new FileReader(fileName);
+                FileReader fileReader = new FileReader(en_file_path);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                while((line = bufferedReader.readLine()) != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     words_list.add(line);
                 }
                 bufferedReader.close();
-            }
-            catch(FileNotFoundException ex) {
-                System.out.println("Unable to open file '" + fileName + "'");
-            }
-            catch(IOException ex) {
-                System.out.println("Error reading file '" + fileName + "'");
+            } catch (FileNotFoundException ex) {
+                System.out.println("Unable to open file '" + en_file_path + "'");
+            } catch (IOException ex) {
+                System.out.println("Error reading file '" + en_file_path + "'");
             }
 
             if (words_list.contains(phraseWords)) {
@@ -645,7 +645,8 @@ public class Attributes {
 
     //helper function: get list of agency names
     private ArrayList<String> getAgencyDic() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("lib/agency_names.txt"));
+        String agencyNamesFile = Properties.getAgencyNamesFileName();
+        BufferedReader br = new BufferedReader(new FileReader(agencyNamesFile));
         ArrayList<String> agency_dic= new ArrayList<String>();
         try {
             String line = br.readLine();
@@ -730,7 +731,6 @@ public class Attributes {
 
     public List<String> extractProgramming_lang(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
-
         return arraylist;
     }
 }

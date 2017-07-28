@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -71,10 +71,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../weka-3-9-1/weka.jar!/" />
+          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -84,20 +85,6 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
-          <root url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/stanford-ner-2017-06-09" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

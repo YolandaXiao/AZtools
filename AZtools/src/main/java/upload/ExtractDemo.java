@@ -8,19 +8,16 @@ public class ExtractDemo {
     private static AbstractSequenceClassifier<CoreLabel> ner;
 
     public ExtractDemo() {
-
         InitNer();
     }
 
     public void InitNer() {
-        String serializedClassifier = "lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz"; // chinese.misc.distsim.crf.ser
         if (ner == null) {
-        ner = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
+            ner = CRFClassifier.getClassifierNoExceptions(Properties.getSerializedClassifier());
         }
     }
 
     public String doNer(String sent) {
         return ner.classifyWithInlineXML(sent);
     }
-  
 }

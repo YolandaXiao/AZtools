@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AZtools" />
+        <module name="cermine-impl" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AZtools" target="1.8" />
+      <module name="cermine-impl" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
