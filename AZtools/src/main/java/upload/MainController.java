@@ -76,9 +76,9 @@ public class MainController {
             //convert xml to json
             String nlm = new XMLOutputter().outputString(nlmContent);
             Attributes attr = new Attributes(nlm, name);
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            String jsonString = mapper.writeValueAsString(attr.toString());
+            String jsonString = mapper.writeValueAsString(attr);
             String result = jsonString.replace("abstrakt", "abstract");
 
 			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
@@ -103,8 +103,8 @@ public class MainController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
 
-        JSONObject final_json = new JSONObject();
         ObjectMapper mapper = new ObjectMapper();
+        String final_result = "\n";
 
         try {
 
@@ -145,16 +145,10 @@ public class MainController {
                 String jsonString = mapper.writeValueAsString(attr);
                 String result = jsonString.replace("abstrakt", "abstract");
 
-                final_json.put(name, result);
+                final_result += (k+1) + " " + result + "\n";
             }
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            String final_json_string = final_json.toString().replace("\\r\\n  \\", "").replace("\\r\\n", "");
-            final_json_string = final_json_string.replace("\\r\\n  ", "").replace("\\\"", "\"");
 
-            //Object json = mapper.readValue(final_json_string, Object.class);
-            //String new_json_string = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-
-            return new ResponseEntity<String>(final_json_string, responseHeaders, HttpStatus.OK);
+            return new ResponseEntity<String>(final_result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();
