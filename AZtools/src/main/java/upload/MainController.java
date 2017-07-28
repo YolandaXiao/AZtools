@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
@@ -104,7 +105,7 @@ public class MainController {
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
 
         ObjectMapper mapper = new ObjectMapper();
-        String final_result = "\n";
+        ArrayList<Attributes> attributeLists = new ArrayList<Attributes>();
 
         try {
 
@@ -137,18 +138,18 @@ public class MainController {
 
                 System.out.println("! Completed CERMINE workflow.");
 
-                //convert xml to json
+                //convert xml to json and put it to attribute list
                 String nlm = new XMLOutputter().outputString(nlmContent);
                 Attributes attr = new Attributes(nlm, name);
-                mapper.enable(SerializationFeature.INDENT_OUTPUT);
+                attributeLists.add(attr);
 
-                String jsonString = mapper.writeValueAsString(attr);
-                String result = jsonString.replace("abstrakt", "abstract");
-
-                final_result += (k+1) + " " + result + "\n";
             }
 
-            return new ResponseEntity<String>(final_result, responseHeaders, HttpStatus.OK);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            String jsonString = mapper.writeValueAsString(attributeLists);
+            String result = jsonString.replace("abstrakt", "abstract");
+
+            return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();

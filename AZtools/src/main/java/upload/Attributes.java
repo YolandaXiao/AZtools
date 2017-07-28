@@ -30,6 +30,7 @@ public class Attributes {
     private final List<String> URL;
     private final List<funding_info> funding;
     private final List<String> programming_lang;
+    private final String filename;
 
     class funding_info {
 
@@ -58,6 +59,7 @@ public class Attributes {
         this.URL = extractURL(xmlJSONObj);
         this.funding = extractFunding(nlm);
         this.programming_lang = extractProgramming_lang(xmlJSONObj);
+        this.filename = name;
     }
 
     public String getTitle(){
@@ -102,6 +104,10 @@ public class Attributes {
         return programming_lang;
     }
 
+    public String getFilename(){
+        return filename;
+    }
+
     // ----------------------------------------------------------- //
 
     public String extractTitle(JSONObject xmlJSONObj) {
@@ -128,6 +134,7 @@ public class Attributes {
         String[] words = cermine_title.split("\\s");
 
         String fileName = "src/main/java/upload/stop.txt";
+        //String fileName = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/main/java/upload/stop.txt";
 
         String line = null;
         ArrayList<String> stop_words = new ArrayList<>();
@@ -294,6 +301,7 @@ public class Attributes {
             }
 
             fileName = "src/main/java/upload/en.txt";
+            //fileName = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/main/java/upload/en.txt";
 
             line = null;
             ArrayList<String> words_list = new ArrayList<>();
