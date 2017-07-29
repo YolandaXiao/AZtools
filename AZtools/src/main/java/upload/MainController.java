@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
@@ -30,69 +31,6 @@ import java.io.InputStream;
 
 @Controller
 public class MainController {
-
-    /*
-    @GetMapping("/single")
-    public String uploadOnePDF(Model model) throws IOException {
-        return "uploadOnePDF";
-    }
-
-    @PostMapping("/single")
-    public ResponseEntity<String> processOnePDF(@RequestParam("file") MultipartFile file,
-                                                   RedirectAttributes redirectAttributes, Model model)
-                                throws Exception {
-
-    	HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-
-        ContentExtractor extractor = new ContentExtractor();
-        InputStream inputStream = null;
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            inputStream = new BufferedInputStream(file.getInputStream());
-            extractor.setPDF(inputStream);
-
-            String name = file.getOriginalFilename();
-            name = name.split("\\.")[0];
-
-            System.out.println("Applying CERMINE to \"" + name + ".pdf\"...");
-
-            //convert pdf to xml
-            Element nlmMetadata = extractor.getMetadataAsNLM();
-            Element nlmFullText = extractor.getBodyAsNLM(null);
-            Element nlmContent = new Element("article");
-
-            for (Object ns : nlmFullText.getAdditionalNamespaces()) {
-                if (ns instanceof Namespace) {
-                    nlmContent.addNamespaceDeclaration((Namespace) ns);
-                }
-            }
-
-            Element meta = (Element) nlmMetadata.getChild("front").clone();
-            nlmContent.addContent(meta);
-            nlmContent.addContent(nlmFullText);
-
-            System.out.println("! Completed CERMINE workflow.");
-
-            //convert xml to json
-            String nlm = new XMLOutputter().outputString(nlmContent);
-            Attributes attr = new Attributes(nlm, name);
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-
-            String jsonString = mapper.writeValueAsString(attr);
-            String result = jsonString.replace("abstrakt", "abstract");
-
-			return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
-
-		}
-		catch (IOException | TimeoutException | AnalysisException e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-    }
-    */
 
     @GetMapping("/")
     public String uploadManyPDFs(Model model) throws IOException {
@@ -111,17 +49,29 @@ public class MainController {
         ArrayList<Attributes> attributeLists = new ArrayList<Attributes>();
         JSONObject final_json_object = new JSONObject();
 
+        JSONObject data = new JSONObject();
+        JSONObject metadata = new JSONObject();
+
+        Calendar clock_start = Calendar.getInstance();
+        Calendar cermine_start = null;
+        Calendar cermine_end= null;
+
+        Calendar refining_start= null;
+        Calendar refining_end= null;
+        Calendar clock_end = null;
+
         try {
             for (int k = 0; k < files.size(); k++) {
 
                 // need to check for pdf only
-
                 String originalFilename = ((MultipartFile)files.get(k)).getOriginalFilename();
                 originalFilename = originalFilename.split("\\.")[0] + ".pdf";
                 System.out.println("Applying CERMINE to '" + originalFilename + "'...");
 
                 // apply cermine
+                cermine_start = Calendar.getInstance();
                 ContentExtractor extractor = new ContentExtractor();
+
                 InputStream inputStream = new BufferedInputStream(((MultipartFile)files.get(k)).getInputStream());
                 extractor.setPDF(inputStream);
 
@@ -139,25 +89,48 @@ public class MainController {
                 Element meta = (Element) nlmMetadata.getChild("front").clone();
                 nlmContent.addContent(meta);
                 nlmContent.addContent(nlmFullText);
+
+                cermine_end = Calendar.getInstance();
                 System.out.println("Completed CERMINE workflow for '" + originalFilename + "'");
 
                 String nlm = new XMLOutputter().outputString(nlmContent);
+                refining_start = Calendar.getInstance();
                 Attributes attr = new Attributes(nlm, originalFilename);
+
+                refining_end = Calendar.getInstance();
                 String json_string = mapper.writeValueAsString(attr);
-                final_json_object.put(originalFilename, json_string);
+
+                data.put(originalFilename, json_string);
             }
 
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            //String final_json_string = mapper.writeValueAsString(final_json_object);
-            String final_result = final_json_object.toString().replace("abstrakt", "abstract");
-            final_result = final_result.replace("\\\"", "\"");
+            clock_end = Calendar.getInstance();
+
+            metadata.put("number_of_pdfs", files.size());
+            metadata.put("total_time(ms)", (clock_end.getTimeInMillis() - clock_start.getTimeInMillis()));
+
+            metadata.put("cermine_time(ms)", (cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis()));
+            metadata.put("refining_time(ms)", (refining_end.getTimeInMillis() - refining_start.getTimeInMillis()));
+
+            String metadata_string = metadata.toString();
+            String data_string = data.toString().replace("abstrakt", "abstract");
+
+            final_json_object.put("metadata", metadata_string);
+            final_json_object.put("data", data_string);
+
+            String final_result = final_json_object.toString().replace("\\\"", "\"");
+            final_result = final_result.replace("\\\\\"", "\"");
+
             return new ResponseEntity<String>(final_result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();
-            return new ResponseEntity<String>("Error occurred, please try again later.",
-                    null,
-                    HttpStatus.INTERNAL_SERVER_ERROR);
+
+            JSONObject status = new JSONObject();
+            status.put("number_of_pdfs", files.size());
+            status.put("status", "Internal error occurred, please try again later.");
+
+            String status_string = status.toString();
+            return new ResponseEntity<String>(status_string, null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
