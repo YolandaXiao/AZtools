@@ -126,7 +126,7 @@ public class Attributes {
 
     public String extractName(String orig_file_name) {
 
-        System.out.println("Searching: \"" + orig_file_name + ".pdf\" for tool's name...");
+        System.out.println("Searching '" + orig_file_name + "' for tool's name...");
 
         Vector cv = new Vector(0);
         Vector metadata = new Vector(0);

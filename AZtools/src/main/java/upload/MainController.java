@@ -2,6 +2,7 @@ package upload;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sun.org.apache.xpath.internal.operations.Mult;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
@@ -108,20 +109,21 @@ public class MainController {
 
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<Attributes> attributeLists = new ArrayList<Attributes>();
+        JSONObject final_json_object = new JSONObject();
 
         try {
-
             for (int k = 0; k < files.size(); k++) {
 
-                ContentExtractor extractor = new ContentExtractor();
+                // need to check for pdf only
 
+                String originalFilename = ((MultipartFile)files.get(k)).getOriginalFilename();
+                originalFilename = originalFilename.split("\\.")[0] + ".pdf";
+                System.out.println("Applying CERMINE to '" + originalFilename + "'...");
+
+                // apply cermine
+                ContentExtractor extractor = new ContentExtractor();
                 InputStream inputStream = new BufferedInputStream(((MultipartFile)files.get(k)).getInputStream());
                 extractor.setPDF(inputStream);
-
-                String name = ((MultipartFile)files.get(k)).getOriginalFilename();
-                name = name.split("\\.")[0];
-
-                System.out.println("Applying CERMINE to \"" + name + ".pdf\"...");
 
                 //convert pdf to xml
                 Element nlmMetadata = extractor.getMetadataAsNLM();
@@ -137,25 +139,25 @@ public class MainController {
                 Element meta = (Element) nlmMetadata.getChild("front").clone();
                 nlmContent.addContent(meta);
                 nlmContent.addContent(nlmFullText);
+                System.out.println("Completed CERMINE workflow for '" + originalFilename + "'");
 
-                System.out.println("! Completed CERMINE workflow.");
-
-                //convert xml to json and put it to attribute list
                 String nlm = new XMLOutputter().outputString(nlmContent);
-                Attributes attr = new Attributes(nlm, name);
-                attributeLists.add(attr);
-
+                Attributes attr = new Attributes(nlm, originalFilename);
+                String json_string = mapper.writeValueAsString(attr);
+                final_json_object.put(originalFilename, json_string);
             }
 
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            String jsonString = mapper.writeValueAsString(attributeLists);
-            String result = jsonString.replace("abstrakt", "abstract");
-
-            return new ResponseEntity<String>(result, responseHeaders, HttpStatus.OK);
+            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            //String final_json_string = mapper.writeValueAsString(final_json_object);
+            String final_result = final_json_object.toString().replace("abstrakt", "abstract");
+            final_result = final_result.replace("\\\"", "\"");
+            return new ResponseEntity<String>(final_result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();
-            return new ResponseEntity<String>("Exception!!", null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<String>("Error occurred, please try again later.",
+                    null,
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
