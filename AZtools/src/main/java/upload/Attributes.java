@@ -30,7 +30,6 @@ public class Attributes {
     private final List<String> URL;
     private final List<funding_info> funding;
     private final List<String> programming_lang;
-    private final String filename;
 
     // ------------------------------------------------------------- //
 
@@ -50,18 +49,39 @@ public class Attributes {
 
     public Attributes(String nlm, String name) throws Exception {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
-        this.title = extractTitle(xmlJSONObj);
-        this.name = extractName(name);
+
+        this.title = extractTitle(xmlJSONObj).trim();
+        this.name = extractName(name).trim();
+
         this.author = extractAuthor(xmlJSONObj);
+        for (int i = 0; i < this.author.size(); i++) {
+            this.author.set(i, this.author.get(i).trim());
+        }
+
         this.affiliation = extractAffiliation(xmlJSONObj);
-        this.abstrakt = extractAbstract(xmlJSONObj);
+        for (int i = 0; i < this.affiliation.size(); i++) {
+            this.affiliation.set(i, this.affiliation.get(i).trim());
+        }
+
+        this.abstrakt = extractAbstract(xmlJSONObj).trim();
         this.contact = extractContact(xmlJSONObj);
-        this.DOI = extractDOI(xmlJSONObj);
+        for (int i = 0; i < this.contact.size(); i++) {
+            this.contact.set(i, this.contact.get(i).trim());
+        }
+
+        this.DOI = extractDOI(xmlJSONObj).trim();
         this.date = extractDate(xmlJSONObj);
+
         this.URL = extractURL(xmlJSONObj);
+        for (int i = 0; i < this.URL.size(); i++) {
+            this.URL.set(i, this.URL.get(i).trim());
+        }
+
         this.funding = extractFunding(nlm);
         this.programming_lang = extractProgramming_lang(xmlJSONObj);
-        this.filename = name;
+        for (int i = 0; i < this.programming_lang.size(); i++) {
+            this.programming_lang.set(i, this.programming_lang.get(i).trim());
+        }
     }
 
     // ------------------------------------------------------------ //
@@ -106,10 +126,6 @@ public class Attributes {
 
     public List<String> getProgramming_lang(){
         return programming_lang;
-    }
-
-    public String getFilename(){
-        return filename;
     }
 
     // ----------------------------------------------------------- //
