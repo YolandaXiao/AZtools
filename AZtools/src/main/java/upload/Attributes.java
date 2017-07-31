@@ -252,7 +252,7 @@ public class Attributes {
             }
         }
 
-        // Deal with colons
+        // Deal with colons/commas
         for (int l = 0; l < cv.size(); l++) {
             ArrayList<String> phraseWords = new ArrayList((ArrayList)(((Vector)cv.get(l)).get(0)));
 
@@ -260,7 +260,7 @@ public class Attributes {
                 String word = phraseWords.get(m);
                 //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
 
-                if (word.charAt(word.length() - 1) == ':') {
+                if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == ',') {
 
                     String new_word = word.substring(0, word.length()-1);
 
@@ -275,7 +275,7 @@ public class Attributes {
                     //new_phrase.remove(word);
                     //new_phrase.add(new_word);
 
-                    //System.out.println("Colon detected");
+                    //System.out.println("Colon/Comma detected");
                     //System.out.println(phraseWords);
 
                     //System.out.println(word);
