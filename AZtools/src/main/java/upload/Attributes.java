@@ -51,7 +51,6 @@ public class Attributes {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
 
         this.title = extractTitle(xmlJSONObj).trim();
-        this.name = extractName(name).trim();
 
         this.author = extractAuthor(xmlJSONObj);
         for (int i = 0; i < this.author.size(); i++) {
@@ -82,6 +81,8 @@ public class Attributes {
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
         }
+
+        this.name = extractName(name).trim();
     }
 
     // ------------------------------------------------------------ //
@@ -145,11 +146,51 @@ public class Attributes {
         System.out.println("Searching '" + orig_file_name + "' for tool's name...");
 
         Vector cv = new Vector(0);
-        Vector metadata = new Vector(0);
 
         // Initialize confidence vector
         String cermine_title = getTitle();
         String[] words = cermine_title.split("\\s");
+
+        List<String> urls = getURL();
+        for (String url : urls) {
+            int pos = url.indexOf("github");
+            if (pos == -1) {
+                continue;
+            }
+
+            int pos2 = url.indexOf("/", pos + 1);
+            int pos3 = url.indexOf("/", pos2 + 1);
+            int startPos = pos3 + 1;
+
+            int endPos = url.indexOf("/", startPos + 1);
+            if (endPos == -1) {
+                endPos = url.length();
+            }
+
+            //System.out.println(url);
+            //System.out.println("positions: " + startPos + "   " + endPos);
+            String repoName = url.substring(startPos, endPos);
+
+            ArrayList<String> phrase = new ArrayList<String>();
+            Vector element = new Vector(0);
+
+            phrase.add(repoName);
+
+            int pos_in_title = 0;
+            int numWords = phrase.size();
+
+            int confidence = 50;
+            boolean isDefinedInDict = false;
+
+            element.addElement(phrase);
+            element.addElement(pos_in_title);
+            element.addElement(numWords);
+
+            element.addElement(confidence);
+            element.addElement(isDefinedInDict);
+
+            cv.addElement(element);
+        }
 
         String stop_file_path = Properties.get_stop_path();
 
@@ -456,11 +497,11 @@ public class Attributes {
         final_name = final_name.substring(0, final_name.length() - 1);
 
         // Output
-        //System.out.println("Different possible phrases of the title: \n\"" + cermine_title + "\"");
+        System.out.println("Different possible phrases of the title: \n\"" + cermine_title + "\"");
 
-        //for (int l = 0; l < cv.size(); l++) {
-        //    System.out.println(cv.get(l));
-        //}
+        for (int l = 0; l < cv.size(); l++) {
+            System.out.println(cv.get(l));
+        }
 
         //System.out.println("Best possible name for title: \n\"" + cermine_title + "\"");
         System.out.println("! Found name: \"" + final_name + "\"");
@@ -473,18 +514,18 @@ public class Attributes {
         JSONArray authors = null;
         try {
             authors = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+            for(int i=0;i<authors.length();i++)
+            {
+                String author = null;
+                try {
+                    author = authors.getJSONObject(i).getString("string-name");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                arraylist.add(author);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-        for(int i=0;i<authors.length();i++)
-        {
-            String author = null;
-            try {
-                author = authors.getJSONObject(i).getString("string-name");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            arraylist.add(author);
         }
         return arraylist;
     }
@@ -554,24 +595,24 @@ public class Attributes {
         JSONArray contacts = null;
         try {
             contacts = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group").getJSONArray("contrib");
+            for(int i=0;i<contacts.length();i++)
+            {
+                try {
+                    if(contacts.getJSONObject(i).has("email")){
+                        String contact = null;
+                        try {
+                            contact = contacts.getJSONObject(i).getString("email");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        arraylist.add(contact);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-        for(int i=0;i<contacts.length();i++)
-        {
-            try {
-                if(contacts.getJSONObject(i).has("email")){
-                    String contact = null;
-                    try {
-                        contact = contacts.getJSONObject(i).getString("email");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    arraylist.add(contact);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
         return arraylist;
     }

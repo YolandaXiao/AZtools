@@ -1,8 +1,6 @@
 package upload;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.sun.org.apache.xpath.internal.operations.Mult;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import pl.edu.icm.cermine.ContentExtractor;
@@ -46,7 +43,6 @@ public class MainController {
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
 
         ObjectMapper mapper = new ObjectMapper();
-        ArrayList<Attributes> attributeLists = new ArrayList<Attributes>();
         JSONObject final_json_object = new JSONObject();
 
         JSONObject data = new JSONObject();
@@ -135,3 +131,4 @@ public class MainController {
     }
 
 }
+
