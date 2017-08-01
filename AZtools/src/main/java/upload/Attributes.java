@@ -325,7 +325,7 @@ public class Attributes {
                 possibleName += word + " ";
             }
 
-            possibleName = possibleName.substring(0, possibleName.length() - 1);
+            //possibleName = possibleName.substring(0, possibleName.length() - 1);
             //System.out.println(possibleName);
 
             String mesh_code = "";
@@ -463,13 +463,18 @@ public class Attributes {
                         numCaptialsNumbers += 1;
                     }
                 }
+                for (int y = 0; y < word.length(); y++) {
+                    if (word.charAt(y) == (Character)('-')) {
+                        numHyphens += 1;
+                    }
+                }
                 numWords += 1;
                 if (!Character.isUpperCase(word.charAt(0))) {
                     firstLettersCapital = false;
                 }
             }
 
-            ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + numCaptialsNumbers * 7);
+            ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + (numCaptialsNumbers + numHyphens) * 7);
 
             if (firstLettersCapital && numWords > 1) {
                 ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + 25);
