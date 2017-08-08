@@ -149,7 +149,24 @@ public class Attributes {
 
         // Initialize confidence vector
         String cermine_title = getTitle();
-        String[] words = cermine_title.split("\\s");
+        String[] init_words = cermine_title.split("\\s");
+        String[] words = new String[init_words.length + 1];
+
+        for (int i = 0; i < words.length - 1; i++) {
+            words[i] = init_words[i];
+        }
+
+        String newWord = words[0];
+        boolean allLower = true;
+        for (int i = 1; i < newWord.length(); i++) {
+            if (! Character.isLowerCase(newWord.charAt(i))) {
+                allLower = false;
+            }
+        }
+        
+        if (allLower && Character.isUpperCase(newWord.charAt(0))) {
+            words[words.length - 1] = words[0].toLowerCase();
+        }
 
         List<String> urls = getURL();
         for (String url : urls) {
@@ -235,7 +252,7 @@ public class Attributes {
 
                 int startPos = i;
                 int numWords = phrase.size();
-                int confidence = 5;
+                int confidence = 20;
                 boolean isDefinedInDict = false;
 
                 element.addElement(phrase);
@@ -313,7 +330,6 @@ public class Attributes {
                     }
                 }
             }
-
         }
 
         // Existence and Defined-ness
@@ -463,6 +479,7 @@ public class Attributes {
                         numCaptialsNumbers += 1;
                     }
                 }
+
                 for (int y = 0; y < word.length(); y++) {
                     if (word.charAt(y) == (Character)('-')) {
                         numHyphens += 1;
@@ -475,6 +492,7 @@ public class Attributes {
             }
 
             ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + (numCaptialsNumbers + numHyphens) * 7);
+            ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + (numWords * 2));
 
             if (firstLettersCapital && numWords > 1) {
                 ((Vector)(cv.get(z))).set(3, (int)((Vector)(cv.get(z))).get(3) + 25);
