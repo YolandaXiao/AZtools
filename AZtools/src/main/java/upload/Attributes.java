@@ -664,8 +664,7 @@ public class Attributes {
         String name = getTitle();
         ArrayList<String> all_links= new ArrayList<String>();
         ArrayList<String> good_links= new ArrayList<String>();
-        return good_links;
-        /*
+
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
 //        String pattern = "\\.\\s.*?http.*?(\\.(\\s|$|\"))";
@@ -675,14 +674,14 @@ public class Attributes {
 //            String[] arr = m.group().split("\\. ");
 //            String result = arr[arr.length-1];
             String link = m.group().toLowerCase();
+            System.out.println(link);
             all_links.add(link);
             if(link.contains(name.toLowerCase()) && !good_links.contains(link))
                 good_links.add(link);
         }
-        if(good_links.isEmpty())
+        if(good_links.isEmpty() && all_links.size()>1)
             good_links.add(all_links.get(1));
         return good_links;
-        */
     }
 
     //extract funding section from xlm

@@ -4,6 +4,36 @@ import os
 from pathlib import *
 import codecs
 
+# PROCESS ONE PDF WRITE TO FILE
+
+# get all pdf files
+dir_path = Path('/Users/yinxuexiao/Documents/Computer_Science/possible_pdf_layouts')
+pdf_files = list(dir_path.glob('*.pdf'))
+print pdf_files
+# write to file
+outputfile = codecs.open("funding_info.txt", "w", "utf-8")
+# input file for POST requests
+for pdffile in pdf_files:
+	url = pdffile.as_uri().split("file://")[1]
+	print url
+	files = {'file': open(url, 'rb')}
+	r = requests.post("http://localhost:8080",files=files)
+	# put json into dictionary
+	pdf = json.loads(r.text)
+	filename = pdf["filename"]
+	funding = pdf["funding"]
+	outputfile.write(filename+"\n")
+	# get list of funding info
+	for i in range(len(funding)):
+		outputfile.write(funding[i]["agency"])
+		outputfile.write("\n")
+		if funding[i]["license"] is not None:
+			outputfile.write(funding[i]["license"])
+			outputfile.write("\n")
+	outputfile.write("\n")
+
+#################################################
+
 # RPOCESS MULTIPLE PDFs
 
 # files = [('file', open('../../possible_pdf_layouts/chimera.pdf', 'rb')), ('file', open('../../possible_pdf_layouts/genomeHubs.pdf', 'rb'))]
@@ -39,33 +69,9 @@ import codecs
 # 		print funding[i]["agency"]
 # 		print funding[i]["license"]
 
-#################################################
 
-# PROCESS ONE PDF WRITE TO FILE
 
-# get all pdf files
-dir_path = Path('/Users/yinxuexiao/Documents/Computer_Science/pdf_test')
-pdf_files = list(dir_path.glob('*.pdf'))
-# write to file
-outputfile = codecs.open("funding_info.txt", "w", "utf-8")
-# input file for POST requests
-for pdffile in pdf_files:
-	url = pdffile.as_uri().split("file://")[1]
-	files = {'file': open(url, 'rb')}
-	r = requests.post("http://localhost:8080",files=files)
-	# put json into dictionary
-	pdf = json.loads(r.text)
-	filename = pdf["filename"]
-	funding = pdf["funding"]
-	print "\n"+filename
-	outputfile.write(filename+"\n")
-	# get list of funding info
-	for i in range(len(funding)):
-		print funding[i]["agency"]
-		print funding[i]["license"]
-		outputfile.write(funding[i]["agency"]+"\n")
-		outputfile.write(funding[i]["license"]+"\n")
-	outputfile.write("\n")
+
 
 
 
