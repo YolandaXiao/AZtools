@@ -153,19 +153,26 @@ public class Attributes {
         String[] words = new String[init_words.length + 1];
 
         for (int i = 0; i < words.length - 1; i++) {
-            words[i] = init_words[i];
+        //    System.out.println(init_words[i]);
+            words[i] = init_words[i].replaceAll("-", "").replaceAll(",", "");
+        //    System.out.println(words[i]);
+
         }
 
         String newWord = words[0];
+
         boolean allLower = true;
         for (int i = 1; i < newWord.length(); i++) {
             if (! Character.isLowerCase(newWord.charAt(i))) {
                 allLower = false;
             }
         }
-        
+
         if (allLower && Character.isUpperCase(newWord.charAt(0))) {
             words[words.length - 1] = words[0].toLowerCase();
+        }
+        else {
+            words[words.length - 1] = words[0];
         }
 
         List<String> urls = getURL();
