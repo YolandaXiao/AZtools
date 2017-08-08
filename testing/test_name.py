@@ -32,7 +32,7 @@ with open("output.txt", "w+") as output_file:
 		dois = None
 		try:
 			dois = pdf_info['publicationDOI']
-		except KeyError:
+		except:
 			print "No DOI available for PDF"
 			continue
 		successful = False
@@ -122,7 +122,7 @@ with open("output.txt", "w+") as output_file:
 			print "Downloading PDF from '" + pdf_link + "'"
 			try:
 				subprocess.check_call(["wget", pdf_link], stdout=dev_null, stderr=dev_null)
-			except subprocess.CalledProcessError:
+			except:
 				print "Failed to download PDF"
 				num_DOI_bad_process_link += 1
 				continue;
@@ -139,7 +139,7 @@ with open("output.txt", "w+") as output_file:
 			r3 = None
 			try:
 				r3 = requests.post("http://localhost:8080", files=files, timeout=45)
-			except requests.exceptions.ReadTimeout:
+			except:
 				print "No response from AZtools for 45s, continuing to next."
 				continue
 
