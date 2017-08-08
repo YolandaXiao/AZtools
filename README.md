@@ -8,16 +8,17 @@ The code is licensed under GNU Affero General Public License version 3.
 
 ## Using AZtools
 
-$ mv AZtools/AZtools/src/main/java/upload/.Properties.java AZtools/AZtools/src/main/java/upload/Properties.java
-AND uncomment all the code in Properties.java
+$ `mv AZtools/AZtools/src/main/java/upload/.Properties.java AZtools/AZtools/src/main/java/upload/Properties.java`
 
-$ cd AZtools/AZtools
+Uncomment all the code in Properties.java
 
-$ mvn spring-boot:run
+$ `cd AZtools/AZtools`
+
+$ `mvn spring-boot:run`
 
 Go to `localhost:8080`
 
-1. Upload a PDF of size <= 100,000 KB
+1. Upload PDFs of total size <= 100,000 KB
 
 2. Click Submit
 
@@ -28,6 +29,12 @@ Go to `localhost:8080`
 Another possibility is to POST to `/` with a PDF (parameter name "file") 
 
 HTTP Response will contain JSON output of main metadata fields.
+
+## Troubleshoot
+
+Make sure the JDK version specified in AZtools/AZtools/pom.xml matches the installed JDK on your machine.
+
+If you are using IntelliJ IDEA, be sure the add AZtools/AZtools/lib and AZtools/AZtools/lib/stanford-ner-2017-06-09/classifiers (as "Classes") as modules by going to File->Project Structure->Project Settings->Modules and clicking on the green "+" symbol.
 
 ## Contact
 
