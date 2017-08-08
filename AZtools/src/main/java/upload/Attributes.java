@@ -177,7 +177,7 @@ public class Attributes {
 
         List<String> urls = getURL();
         for (String url : urls) {
-            int pos = url.indexOf("github");
+            int pos = url.indexOf("github.com");
             if (pos == -1) {
                 continue;
             }
@@ -199,6 +199,7 @@ public class Attributes {
             Vector element = new Vector(0);
 
             phrase.add(repoName);
+            System.out.println("Found name from repo");
 
             int pos_in_title = 0;
             int numWords = phrase.size();
@@ -214,6 +215,8 @@ public class Attributes {
             element.addElement(isDefinedInDict);
 
             cv.addElement(element);
+
+            return repoName;
         }
 
         String stop_file_path = Properties.get_stop_path();
@@ -354,7 +357,7 @@ public class Attributes {
             String mesh_code = "";
 
             try {
-                String mesh_api = "https://www.ncbi.nlm.nih.gov/mesh/?term=";
+                String mesh_api = "https://www.ncbi.nlm.nih.gov/mesh/?term=" + possibleName.replaceAll(" ", "+");
 
                 URL url = new URL(mesh_api);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
