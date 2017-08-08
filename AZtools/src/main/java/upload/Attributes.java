@@ -131,7 +131,7 @@ public class Attributes {
 
     // ----------------------------------------------------------- //
 
-    public String extractTitle(JSONObject xmlJSONObj) {
+    private String extractTitle(JSONObject xmlJSONObj) {
         String title = null;
         try {
             title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
@@ -141,7 +141,7 @@ public class Attributes {
         return title;
     }
 
-    public String extractName(String orig_file_name) {
+    private String extractName(String orig_file_name) {
 
         System.out.println("Searching '" + orig_file_name + "' for tool's name...");
 
@@ -252,7 +252,7 @@ public class Attributes {
             }
         }
 
-        // Deal with colons/commas
+        // Deal with colons/commas/hyphens
         for (int l = 0; l < cv.size(); l++) {
             ArrayList<String> phraseWords = new ArrayList((ArrayList)(((Vector)cv.get(l)).get(0)));
 
@@ -260,7 +260,7 @@ public class Attributes {
                 String word = phraseWords.get(m);
                 //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
 
-                if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == ',') {
+                if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == ',' || word.charAt(word.length() - 1) == '-') {
 
                     String new_word = word.substring(0, word.length()-1);
 
@@ -514,7 +514,7 @@ public class Attributes {
         return final_name;
     }
 
-    public List<String> extractAuthor(JSONObject xmlJSONObj) {
+    private List<String> extractAuthor(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
         JSONArray authors = null;
         try {
@@ -535,7 +535,7 @@ public class Attributes {
         return arraylist;
     }
 
-    public List<String> extractAffiliation(JSONObject xmlJSONObj) {
+    private List<String> extractAffiliation(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
         JSONObject group = null;
         try {
@@ -585,7 +585,7 @@ public class Attributes {
         return arraylist;
     }
 
-    public String extractAbstract(JSONObject xmlJSONObj) {
+    private String extractAbstract(JSONObject xmlJSONObj) {
         String abstrakt = null;
         try {
             abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
@@ -595,7 +595,7 @@ public class Attributes {
         return abstrakt;
     }
 
-    public List<String> extractContact(JSONObject xmlJSONObj) {
+    private List<String> extractContact(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
         JSONArray contacts = null;
         try {
@@ -622,7 +622,7 @@ public class Attributes {
         return arraylist;
     }
 
-    public String extractDOI(JSONObject xmlJSONObj) {
+    private String extractDOI(JSONObject xmlJSONObj) {
         JSONObject value = null;
         try {
             value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
@@ -641,7 +641,7 @@ public class Attributes {
         return "None";
     }
 
-    public int extractDate(JSONObject xmlJSONObj) {
+    private int extractDate(JSONObject xmlJSONObj) {
         JSONObject value = null;
         try {
             value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
@@ -664,6 +664,8 @@ public class Attributes {
         String name = getTitle();
         ArrayList<String> all_links= new ArrayList<String>();
         ArrayList<String> good_links= new ArrayList<String>();
+        return good_links;
+        /*
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
 //        String pattern = "\\.\\s.*?http.*?(\\.(\\s|$|\"))";
@@ -680,6 +682,7 @@ public class Attributes {
         if(good_links.isEmpty())
             good_links.add(all_links.get(1));
         return good_links;
+        */
     }
 
     //extract funding section from xlm
@@ -729,13 +732,14 @@ public class Attributes {
         return agency_dic;
     }
 
-    public List<funding_info> extractFunding(String nlm) throws Exception {
+    private List<funding_info> extractFunding(String nlm) throws Exception {
         ArrayList<funding_info> arrayList= new ArrayList<funding_info>();
         String funding_section = extractFundingSection(nlm);
-//        System.out.println(funding_section);
+        // System.out.println(funding_section);
 
         //get license
         String pattern = "([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,})";
+
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(funding_section);
         String agency = null;
@@ -746,17 +750,17 @@ public class Attributes {
             fi.setLicense(license);
             String[] arr = funding_section.split(license);
             String agency_sentence = arr[0];
-            if(arr.length>=2){
+            if (arr.length >= 2) {
                 funding_section = arr[1];
             }
             else{
                 funding_section = arr[0];
             }
 
-            //get agency from stanford ner
+            // get agency from stanford ner
             ExtractDemo extractDemo = new ExtractDemo();
             String funding = extractDemo.doNer(agency_sentence);
-//            System.out.println(funding);
+            //System.out.println(funding);
             String pattern2 = "(?s)<ORGANIZATION>.*?<\\/ORGANIZATION>";
             Pattern r2 = Pattern.compile(pattern2);
             Matcher m2 = r2.matcher(funding);
@@ -797,8 +801,8 @@ public class Attributes {
         return arrayList;
     }
 
-    public List<String> extractProgramming_lang(JSONObject xmlJSONObj) {
-        ArrayList<String> arraylist= new ArrayList<String>();
-        return arraylist;
+    private List<String> extractProgramming_lang(JSONObject xmlJSONObj) {
+        ArrayList<String> i = new ArrayList<String>();
+        return i;
     }
 }
