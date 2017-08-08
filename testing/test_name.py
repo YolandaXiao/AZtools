@@ -6,7 +6,7 @@ import time
 import urllib2
 
 metadata = []
-num_pdfs = 20
+num_pdfs = 3500
 link = "http://dev.aztec.io:8983/solr/BD2K/select?q=publicationDOI%3A*&rows=" + str(num_pdfs) + "&wt=json&indent=true"
 r = requests.get(link, timeout=5)
 json_response = json.loads(r.text)
