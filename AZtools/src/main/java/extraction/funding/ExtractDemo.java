@@ -1,4 +1,4 @@
-package webapp;
+package extraction.funding;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
