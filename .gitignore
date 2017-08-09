@@ -3,3 +3,4 @@ cermine-impl/target/*
 spring-app/target*
 .idea/*
 AZtools/src/main/java/upload/Properties.java
+testing/name/*pdf*
