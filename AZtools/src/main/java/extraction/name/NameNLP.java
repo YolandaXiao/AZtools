@@ -133,13 +133,14 @@ public class NameNLP {
                 for (int k = i; k <= j; k++) {
                     if (stop_words.contains(words.get(k).toLowerCase())) {
                         hasStop = true;
-                        break;
+                        //break;
                     }
                     phrase.add(words.get(k));
                 }
 
+                int init_confidence = 20;
                 if (hasStop) {
-                    continue;
+                    init_confidence = 15;
                 }
 
                 String onePhrase = "";
@@ -152,7 +153,7 @@ public class NameNLP {
 
                 // add phrase to possible list
                 element.addElement(onePhrase);
-                element.addElement(20); // initial confidence
+                element.addElement(init_confidence); // initial confidence
 
                 if (!info.contains(phrase)) {
                     info.addElement(element);
@@ -191,19 +192,18 @@ public class NameNLP {
                     thePhrase = thePhrase.substring(0, thePhrase.length() - 1);
 
                     element.addElement(thePhrase);
-                    element.addElement((int)((Vector)info.get(l)).get(1) + 20);
+                    element.addElement((int)((Vector)info.get(l)).get(1) + 150);
 
                     boolean isNew = true;
-                    int p;
-                    for (p = 0; p < info.size(); p++) {
-                        if (((Vector)(info.get(p))).get(0) == thePhrase) {
+                    for (int p = 0; p < info.size(); p++) {
+                        if (((Vector)(info.get(p))).get(0).equals(thePhrase)) {
+                            //System.out.println("Duplicate phrase detected: " + ((Vector)(info.get(p))).get(0) + "  ,  " + thePhrase);
                             isNew = false;
                             break;
                         }
                     }
                     if (isNew) {
                         info.addElement(element);
-                        info.remove(info.get(p));
                     }
                 }
             }
@@ -304,7 +304,7 @@ public class NameNLP {
                     if (Character.isUpperCase(c)) {
                         numCapitalNumbers += 1;
                     }
-                    if (c == '-') {
+                    if (c.equals('-') || c.equals('/')) {
                         numHyphens += 1;
                     }
                 }
@@ -312,7 +312,7 @@ public class NameNLP {
                     firstLettersCapital = false;
                 }
             }
-
+            //System.out.println("For phrase '" + phrase + "': " + numCapitalNumbers + "," + numHyphens );
             ((Vector)(info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 7 + (int)((Vector)(info.get(z))).get(1));
             ((Vector)(info.get(z))).set(1, numWords * 2 +(int)((Vector)(info.get(z))).get(1));
             if (firstLettersCapital && numWords > 1) {
