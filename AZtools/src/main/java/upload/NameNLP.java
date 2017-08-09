@@ -40,23 +40,35 @@ public class NameNLP {
     private void dealFirstWord() {
         String firstWord = words.get(0);
 
+        if (Character.isLowerCase(firstWord.charAt(0))) {
+            return;
+        }
+
         // only first letter should be capitalized for this feature
-        for (int i = 0; i < firstWord.length(); i++) {
+        for (int i = 1; i < firstWord.length(); i++) {
             Character c = firstWord.charAt(i);
-            if (!Character.isLetterOrDigit(c) || Character.isUpperCase(c)) {
+            if (Character.isUpperCase(c)) {
                 return;
             }
         }
 
-        // ensure all words are lower case
+        // ensure all other words are lower case
+        int i = 0;
         for (String word : words) {
-            if (word != word.toLowerCase()) {
+            if (i == 0) {
+                i = 1;
+                continue;
+            }
+            if (!word.equals(word.toLowerCase())) {
                 return;
             }
         }
 
-        words.remove(firstWord);
-        words.add(firstWord.toLowerCase());
+        // add title to list
+        Vector element = new Vector(0);
+        element.addElement(cermine_title);
+        element.addElement(13); // initial confidence
+        info.add(element);
     }
 
     private void findRepoName() {
@@ -81,6 +93,7 @@ public class NameNLP {
             element.addElement(repoName);
             element.addElement(90); // confidence
             info.addElement(element);
+            System.out.println("Adding87 " + element);
         }
     }
 
@@ -130,10 +143,11 @@ public class NameNLP {
 
                 String onePhrase = "";
                 for (String word : phrase) {
-                    onePhrase += word + " ";
+                    onePhrase += word;
+                    onePhrase += " ";
                 }
 
-                onePhrase = onePhrase.replace((onePhrase.substring(onePhrase.length()-1)),"");
+                onePhrase = onePhrase.substring(0, onePhrase.length() - 1);
 
                 // add phrase to possible list
                 element.addElement(onePhrase);
@@ -173,7 +187,7 @@ public class NameNLP {
                     for (String ind_word : new_phrase) {
                         thePhrase += ind_word + " ";
                     }
-                    thePhrase = thePhrase.replace((thePhrase.substring(thePhrase.length()-1)),"");
+                    thePhrase = thePhrase.substring(0, thePhrase.length() - 1);
 
                     element.addElement(thePhrase);
                     element.addElement((int)((Vector)info.get(l)).get(1) + 20);
@@ -181,12 +195,13 @@ public class NameNLP {
                     boolean isNew = true;
                     int p;
                     for (p = 0; p < info.size(); p++) {
-                        if (((Vector)(info.get(p))).get(0) == new_phrase) {
+                        if (((Vector)(info.get(p))).get(0) == thePhrase) {
                             isNew = false;
                             break;
                         }
                     }
                     if (isNew) {
+                        System.out.println("Adding196 " + element);
                         info.addElement(element);
                         info.remove(info.get(p));
                     }

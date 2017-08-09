@@ -296,7 +296,7 @@ public class Attributes {
         while (m.find( )) {
 //            String[] arr = m.group().split("\\. ");
 //            String result = arr[arr.length-1];
-            String link = m.group().toLowerCase();
+            String link = m.group();
             System.out.println(link);
             all_links.add(link);
             if(link.contains(name.toLowerCase()) && !good_links.contains(link))
