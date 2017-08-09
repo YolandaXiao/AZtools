@@ -206,5 +206,3 @@ if len(metadata) != 0 and num_pdfs != 0:
 	print "Accuracy for PDFs retrieved:", counter / len(metadata) * 100, "%"
 else:
 	print "Could not analyze anything"
-
-

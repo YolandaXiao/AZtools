@@ -48,7 +48,7 @@
         font-family: 'Raleway', sans-serif;
     }
 
-    #upload-message {
+    #webapp-message {
         display: table;
         margin: 0 auto;
         border-radius: 4px;
@@ -89,7 +89,7 @@
                 <input class="button" type="submit" value="Submit"/>
             </tr>
             <tr>
-                <div id="upload-message" th:if="${message}">
+                <div id="webapp-message" th:if="${message}">
                     <div th:text="${message}"/>
                 </div>
             </tr>

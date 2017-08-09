@@ -1,6 +1,7 @@
-package upload;
+package webapp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import extraction.Attributes;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;

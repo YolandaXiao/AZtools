@@ -1,8 +1,9 @@
-package upload;
+package webapp;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
+import extraction.Properties;
 
 public class ExtractDemo {   
     private static AbstractSequenceClassifier<CoreLabel> ner;

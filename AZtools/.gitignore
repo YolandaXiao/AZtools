@@ -2,5 +2,5 @@
 build/*
 .idea/*
 
-upload-dir/*
+webapp-dir/*
 /target/

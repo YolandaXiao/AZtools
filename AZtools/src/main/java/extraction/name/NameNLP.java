@@ -1,4 +1,6 @@
-package upload;
+package extraction.name;
+
+import extraction.Properties;
 
 import java.io.*;
 import java.net.HttpURLConnection;

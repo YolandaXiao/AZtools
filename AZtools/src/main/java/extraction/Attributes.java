@@ -1,9 +1,11 @@
-package upload;
+package extraction;
 
+import extraction.name.NameNLP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
+import webapp.ExtractDemo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
