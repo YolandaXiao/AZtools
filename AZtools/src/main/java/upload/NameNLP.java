@@ -93,7 +93,6 @@ public class NameNLP {
             element.addElement(repoName);
             element.addElement(90); // confidence
             info.addElement(element);
-            System.out.println("Adding87 " + element);
         }
     }
 
@@ -201,7 +200,6 @@ public class NameNLP {
                         }
                     }
                     if (isNew) {
-                        System.out.println("Adding196 " + element);
                         info.addElement(element);
                         info.remove(info.get(p));
                     }
