@@ -31,12 +31,12 @@ import java.io.InputStream;
 public class MainController {
 
     @GetMapping("/")
-    public String uploadManyPDFs(Model model) throws IOException {
-        return "uploadManyPDFs";
+    public String upload(Model model) throws IOException {
+        return "upload";
     }
 
     @PostMapping("/")
-    public ResponseEntity<String> processManyPDFs(@RequestParam("file") List<MultipartFile> files,
+    public ResponseEntity<String> process(@RequestParam("file") List<MultipartFile> files,
                                                    RedirectAttributes redirectAttributes, Model model)
             throws Exception {
 
