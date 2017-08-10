@@ -8,7 +8,7 @@ import org.json.JSONObject;
  */
 public class Title {
 
-    public String title;
+    private String title;
 
     public String getTitle() {  return title; }
 

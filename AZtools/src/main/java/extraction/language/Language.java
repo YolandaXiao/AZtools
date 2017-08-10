@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Language {
 
-    public List<String> language;
+    private List<String> language;
 
     public List<String> getLanguage() {  return language; }
 

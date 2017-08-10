@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Affiliation {
 
-    public List<String> affiliation;
+    private List<String> affiliation;
 
     public List<String> getAffiliation() {  return affiliation; }
 

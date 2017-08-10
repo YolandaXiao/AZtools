@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class Url {
 
-    public List<String> url;
+    private List<String> url;
 
     public List<String> getUrl() {  return url; }
 
@@ -21,10 +21,10 @@ public class Url {
         this.url = extractURL(xmlJSONObj);
     }
 
-    public List<String> extractURL(JSONObject xmlJSONObj) {
+    private List<String> extractURL(JSONObject xmlJSONObj) {
         String name = Attributes.getTitle();
-        ArrayList<String> all_links= new ArrayList<String>();
-        ArrayList<String> good_links= new ArrayList<String>();
+        ArrayList<String> all_links= new ArrayList<>();
+        ArrayList<String> good_links= new ArrayList<>();
 
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";

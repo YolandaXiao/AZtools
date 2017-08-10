@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Author {
 
-    public List<String> author;
+    private List<String> author;
 
     public List<String> getAuthor() {  return author; }
 

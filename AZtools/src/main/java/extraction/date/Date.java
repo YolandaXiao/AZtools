@@ -8,7 +8,7 @@ import org.json.JSONObject;
  */
 public class Date {
 
-    public int date;
+    private int date;
 
     public int getDate() {  return date; }
 

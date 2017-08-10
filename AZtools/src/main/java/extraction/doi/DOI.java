@@ -8,7 +8,7 @@ import org.json.JSONObject;
  */
 public class DOI {
 
-    public String doi;
+    private String doi;
 
     public String getDoi() {  return doi; }
 

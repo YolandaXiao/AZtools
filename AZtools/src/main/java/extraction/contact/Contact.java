@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Contact {
 
-    public List<String> contact;
+    private List<String> contact;
 
     public List<String> getContact() {  return contact; }
 
