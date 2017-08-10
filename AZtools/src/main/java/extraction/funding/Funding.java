@@ -106,6 +106,8 @@ public class Funding {
                 agency = temp[temp.length-1].split("<")[0];
             }
             fi.setAgency(agency);
+//            System.out.println(fi.getAgency());
+//            System.out.println(fi.getLicense());
             arrayList.add(fi);
         }
 
