@@ -192,7 +192,7 @@ public class NameNLP {
                     thePhrase = thePhrase.substring(0, thePhrase.length() - 1);
 
                     element.addElement(thePhrase);
-                    element.addElement((int)((Vector)info.get(l)).get(1) + 150);
+                    element.addElement((int)((Vector)info.get(l)).get(1) + 200);
 
                     boolean isNew = true;
                     for (int p = 0; p < info.size(); p++) {
@@ -312,11 +312,14 @@ public class NameNLP {
                     firstLettersCapital = false;
                 }
             }
-            //System.out.println("For phrase '" + phrase + "': " + numCapitalNumbers + "," + numHyphens );
-            ((Vector)(info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 7 + (int)((Vector)(info.get(z))).get(1));
-            ((Vector)(info.get(z))).set(1, numWords * 2 +(int)((Vector)(info.get(z))).get(1));
-            if (firstLettersCapital && numWords > 1) {
-                ((Vector) (info.get(z))).set(1, (int)((Vector)(info.get(z))).get(1) + 25);
+            int curr_confidence = (int)((Vector)(info.get(z))).get(1);
+            if (curr_confidence < 200) {
+                //System.out.println("For phrase '" + phrase + "': " + numCapitalNumbers + "," + numHyphens );
+                ((Vector) (info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 7 + (int) ((Vector) (info.get(z))).get(1));
+                ((Vector) (info.get(z))).set(1, numWords * 2 + (int) ((Vector) (info.get(z))).get(1));
+                if (firstLettersCapital && numWords > 1) {
+                    ((Vector) (info.get(z))).set(1, (int) ((Vector) (info.get(z))).get(1) + 25);
+                }
             }
         }
     }
