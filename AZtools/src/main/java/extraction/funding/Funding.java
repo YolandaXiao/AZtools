@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * Created by yinxuexiao on 8/9/17.
  */
 public class Funding {
-    public List<FundingInfo> funding;
+    private List<FundingInfo> funding;
 
     public List<FundingInfo> getFunding() {  return funding; }
 
@@ -55,7 +55,7 @@ public class Funding {
     private ArrayList<String> getAgencyDic() throws IOException {
         String agencyNamesFile = Properties.getAgencyNamesFileName();
         BufferedReader br = new BufferedReader(new FileReader(agencyNamesFile));
-        ArrayList<String> agency_dic= new ArrayList<String>();
+        ArrayList<String> agency_dic= new ArrayList<>();
         try {
             String line = br.readLine();
 
@@ -70,7 +70,7 @@ public class Funding {
     }
 
     private List<FundingInfo> extractFunding(String nlm) throws Exception {
-        ArrayList<FundingInfo> arrayList= new ArrayList<FundingInfo>();
+        ArrayList<FundingInfo> arrayList= new ArrayList<>();
         String funding_section = extractFundingSection(nlm);
         // System.out.println(funding_section);
 
@@ -106,6 +106,8 @@ public class Funding {
                 agency = temp[temp.length-1].split("<")[0];
             }
             fi.setAgency(agency);
+//            System.out.println(fi.getAgency());
+//            System.out.println(fi.getLicense());
             arrayList.add(fi);
         }
 

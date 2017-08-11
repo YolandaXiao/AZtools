@@ -93,6 +93,7 @@ public class MainController {
                 String nlm = new XMLOutputter().outputString(nlmContent);
                 refining_start = Calendar.getInstance();
                 Attributes attr = new Attributes(nlm, originalFilename);
+                attr.printFunding();
 
                 refining_end = Calendar.getInstance();
                 String json_string = mapper.writeValueAsString(attr);
@@ -117,7 +118,7 @@ public class MainController {
             String final_result = final_json_object.toString().replace("\\\"", "\"");
             final_result = final_result.replace("\\\\\"", "\"");
 
-            return new ResponseEntity<String>(final_result, responseHeaders, HttpStatus.OK);
+            return new ResponseEntity<>(final_result, responseHeaders, HttpStatus.OK);
         }
         catch (IOException | TimeoutException | AnalysisException e) {
             e.printStackTrace();
@@ -127,7 +128,7 @@ public class MainController {
             status.put("status", "Internal error occurred, please try again later.");
 
             String status_string = status.toString();
-            return new ResponseEntity<String>(status_string, null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(status_string, null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
