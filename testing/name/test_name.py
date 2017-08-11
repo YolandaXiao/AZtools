@@ -80,7 +80,7 @@ with open("output.txt", "w+") as output_file:
 							else:
 								print "Could not find link to PDF from DOI"
 
-				domain_name = doi_ret_link[domain_name_startPos : domain_name_endPos]			
+				domain_name = doi_ret_link[domain_name_startPos : domain_name_endPos]
 
 				if "link.springer" in domain_name:
 					link_springer = "<div class=\"cta-button-container u-hide-two-col\">"
@@ -116,6 +116,7 @@ with open("output.txt", "w+") as output_file:
 					unknown_domains.append((domain_name, doi_link))
 					num_unknown_domains += 1
 					continue
+
 		
 				path = txt_response[startPos:endPos]
 
