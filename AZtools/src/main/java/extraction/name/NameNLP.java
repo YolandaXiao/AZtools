@@ -3,8 +3,6 @@ package extraction.name;
 import extraction.Properties;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 public class NameNLP {
@@ -295,7 +293,7 @@ public class NameNLP {
 
         for (int m = 0; m < info.size(); m++) {
 
-            Calendar inner_start_time = Calendar.getInstance();
+//            Calendar inner_start_time = Calendar.getInstance();
 
             ArrayList<String> phraseWords = new ArrayList<>();
             String phrase = (String)(((Vector)info.get(m)).get(0));
