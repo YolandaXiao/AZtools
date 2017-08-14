@@ -29,7 +29,7 @@ dev_null = open(os.devnull, 'w')
 
 print "Looking for tools...."
 
-with open("output.txt", "w+") as output_file:
+with open("name_results.txt", "w+") as output_file:
 	for pdf_info in pdfs_metadata:
 		print "---------------------------------------------------------------"
 		name = pdf_info['name']
