@@ -26,13 +26,47 @@ public class NameNLP {
         urls = cer_urls;
         cermine_title = title;
 
+//        Calendar start_time = Calendar.getInstance();
         dealFirstWord();
+//        Calendar end_time = Calendar.getInstance();
+//        long time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("dealFirstWord() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         findRepoName();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("findRepoName() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         initializeInfo();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("initializeInfo() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         dealPunctuation();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("dealPunctuation() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         isDefined();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("isDefined() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         dealUniqueChar();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("dealUniqueChar() takes " + time_taken);
+
+//        start_time = Calendar.getInstance();
         cleanup();
+//        end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("cleanup() takes " + time_taken);
     }
 
     public String getName() {
@@ -211,62 +245,64 @@ public class NameNLP {
     }
 
     private void isDefined() {
+
+        boolean isMedical = false;
+        boolean isEnglish = false;
+
+        String line;
+
+        String mesh_file_path = Properties.get_mesh_path();
+        String en_file_path = Properties.get_en_path();
+
+        ArrayList<String> mesh_list = new ArrayList<>();
+        ArrayList<String> words_list = new ArrayList<>();
+
+//        Calendar start_time = Calendar.getInstance();
+
+        try {
+            FileReader fileReader = new FileReader(mesh_file_path);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while ((line = bufferedReader.readLine()) != null) {
+                mesh_list.add(line.toLowerCase());
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + mesh_file_path + "'");
+        } catch (IOException ex) {
+            System.out.println("Error reading file '" + mesh_file_path + "'");
+        }
+
+//        Calendar mid_time = Calendar.getInstance();
+//        long time_taken = mid_time.getTimeInMillis() - start_time.getTimeInMillis();
+//        System.out.println("start -> mid takes " + time_taken);
+
+        try {
+            FileReader fileReader = new FileReader(en_file_path);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while ((line = bufferedReader.readLine()) != null) {
+                words_list.add(line.toLowerCase());
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + en_file_path + "'");
+        } catch (IOException ex) {
+            System.out.println("Error reading file '" + en_file_path + "'");
+        }
+
+//        Calendar middle_time = Calendar.getInstance();
+//        time_taken = middle_time.getTimeInMillis() - mid_time.getTimeInMillis();
+//        System.out.println("mid -> middle takes " + time_taken);
+
         for (int m = 0; m < info.size(); m++) {
+
+            Calendar inner_start_time = Calendar.getInstance();
 
             ArrayList<String> phraseWords = new ArrayList<>();
             String phrase = (String)(((Vector)info.get(m)).get(0));
             phraseWords.addAll(Arrays.asList(phrase.split(" ")));
 
-            String mesh_code = "";
-            String line;
-
-            try {
-                String mesh_api = "https://www.ncbi.nlm.nih.gov/mesh/?term=" + phrase.replaceAll(" ", "+");
-
-                URL url = new URL(mesh_api);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                conn.setRequestMethod("GET");
-                BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                StringBuilder result = new StringBuilder();
-                while ((line = rd.readLine()) != null) {
-                    result.append(line);
-                }
-                rd.close();
-
-                mesh_code = result.toString();
-            } catch (IOException ex) {
-                System.out.println("Was not able to search through dictionary. Skipping phrase.");
-            }
-
-            String err_msg = "The following term was not found in MeSH";
-            boolean isMedical = false;
-            boolean isEnglish = false;
-            if (!mesh_code.contains(err_msg)) {
-                isMedical = true;
-            }
-
-            String en_file_path = Properties.get_en_path();
-
-            ArrayList<String> words_list = new ArrayList<>();
-
-            try {
-                FileReader fileReader = new FileReader(en_file_path);
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-                while ((line = bufferedReader.readLine()) != null) {
-                    words_list.add(line);
-                }
-
-                bufferedReader.close();
-            } catch (FileNotFoundException ex) {
-                System.out.println("Unable to open file '" + en_file_path + "'");
-            } catch (IOException ex) {
-                System.out.println("Error reading file '" + en_file_path + "'");
-            }
-
-            isEnglish = words_list.contains(phrase);
+            isMedical = mesh_list.contains(phrase.toLowerCase());
+            isEnglish = words_list.contains(phrase.toLowerCase());
             int currentConfidence = (int) (((Vector) info.get(m)).get(1));
 
             if (isMedical || isEnglish) {
@@ -282,7 +318,15 @@ public class NameNLP {
                     ((Vector) info.get(m)).set(1, currentConfidence - 10);
                 }
             }
+
+//            Calendar inner_end_time = Calendar.getInstance();
+//            time_taken = inner_end_time.getTimeInMillis() - inner_start_time.getTimeInMillis();
+//            System.out.println("inner_start -> inner_end takes " + time_taken);
         }
+
+//        Calendar end_time = Calendar.getInstance();
+//        time_taken = end_time.getTimeInMillis() - middle_time.getTimeInMillis();
+//        System.out.println("middle_time -> end takes " + time_taken);
     }
 
     private void dealUniqueChar() {
@@ -348,10 +392,10 @@ public class NameNLP {
         fin_name = fin_name.substring(0, fin_name.length() - 1);
 
         // Output
-        System.out.println("Different possible phrases of the title: '" + cermine_title + "'");
+        //System.out.println("Different possible phrases of the title: '" + cermine_title + "'");
 
         for (int l = 0; l < info.size(); l++) {
-            System.out.println(info.get(l));
+            //System.out.println(info.get(l));
         }
 
         final_name = fin_name;
