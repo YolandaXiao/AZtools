@@ -210,7 +210,7 @@ with open("name_results.txt", "w+") as output_file:
 
 			metadata.append(output_list)
 			output_line = " , ".join(output_list) 
-			print output_list
+			print output_list.encode('utf-8')
 			output_file.write(output_line)
 			output_file.write("\n")
 			output_file.flush()
@@ -271,7 +271,7 @@ with open("training_data.txt", "w+") as training_file:
 		tokenized_words = []						# specific to an abstract. list of sentences, each sentence is list of tokenized words
 		for tok_sent in tokenized_sents:
 			print tok_sent
-			training_file.write("\t" + tok_sent + "\n")
+			training_file.write("\t" + tok_sent.encode('utf-8') + "\n")
 			training_file.flush()
 			words_wstop = word_tokenize(tok_sent)
 			filtered = [w for w in words_wstop if not w in stop_words]
@@ -283,7 +283,7 @@ all_words = dict()
 for a in tokenized_abstracts:
 	abstract = a[1]
 	for sentence in abstract:
-		for word in sentence:
+		for word in sentence: 
 			if all_words.has_key(word):
 				all_words[word] += 1
 			else:
