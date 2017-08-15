@@ -65,23 +65,24 @@ public class Attributes {
         Date d = new Date(xmlJSONObj);
         this.date = d.getDate();
 
-        Url url_link = new Url(xmlJSONObj);
+        Funding f = new Funding(nlm);
+        this.funding = f.getFunding();
+
+        Url url_link = new Url(xmlJSONObj, name);
         this.URL = url_link.getUrl();
         for (int i = 0; i < this.URL.size(); i++) {
             this.URL.set(i, this.URL.get(i).trim());
         }
 
-        Language lan = new Language(xmlJSONObj);
+//        NameNLP obj = new NameNLP(name, this.title, this.URL);
+//        this.name = obj.getName().trim();
+        this.name = "NAME";
+
+        Language lan = new Language(xmlJSONObj,name);
         this.programming_lang = lan.getLanguage();
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
         }
-
-        Funding f = new Funding(nlm);
-        this.funding = f.getFunding();
-
-        NameNLP obj = new NameNLP(name, this.title, this.URL);
-        this.name = obj.getName().trim();
     }
 
     // ------------------------------------------------------------ //

@@ -88,6 +88,7 @@
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.opennlp:opennlp-tools:1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: pl.edu.icm.cermine:cermine-impl:unknown" level="project" />
   </component>
 </module>

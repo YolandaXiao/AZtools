@@ -1,6 +1,7 @@
 package extraction.url;
 
 import extraction.Attributes;
+import extraction.name.NameNLP;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ public class Url {
 
     public List<String> getUrl() {  return url; }
 
-    public Url(JSONObject xmlJSONObj) throws Exception {
-        this.url = extractURL(xmlJSONObj);
+    public Url(JSONObject xmlJSONObj, String name) throws Exception {
+        this.url = extractURL(xmlJSONObj, name);
     }
 
-    private List<String> extractURL(JSONObject xmlJSONObj) {
-        String name = Attributes.getTitle();
+    private List<String> extractURL(JSONObject xmlJSONObj, String name) {
+//        String name = Attributes.getTitle();
         ArrayList<String> all_links= new ArrayList<>();
         ArrayList<String> good_links= new ArrayList<>();
 
@@ -35,9 +36,13 @@ public class Url {
 //            String[] arr = m.group().split("\\. ");
 //            String result = arr[arr.length-1];
             String link = m.group();
+//            System.out.println("all_links "+link);
             all_links.add(link);
-            if(link.contains(name.toLowerCase()) && !good_links.contains(link))
+            String lowercase_link = link.toLowerCase();
+            if(lowercase_link.contains(name.toLowerCase()) && !good_links.contains(link)){
+//                System.out.println("good_links "+link);
                 good_links.add(link);
+            }
         }
         if(good_links.isEmpty() && all_links.size()>1)
             good_links.add(all_links.get(1));
