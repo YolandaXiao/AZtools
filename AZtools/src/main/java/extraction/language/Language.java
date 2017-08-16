@@ -49,17 +49,17 @@ public class Language {
         //if no github link found, go to other links to find github links
         if(github_link==""){
             for(int i=0;i<url_links.size();i++){
-                System.out.println(url_links.get(i));
+                //System.out.println(url_links.get(i));
                 try{
                     String result = getHTML(url_links.get(i));
-                    System.out.println(result);
+                    //System.out.println(result);
                     String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
                     Pattern r = Pattern.compile(pattern);
                     Matcher m = r.matcher(result);
                     if (m.find( )) {
-                        System.out.println(m.group());
+                        //System.out.println(m.group());
                         github_link =  m.group().split("\"")[1];
-                        System.out.println(github_link);
+                        //System.out.println(github_link);
                     }
                 }
                 catch (Exception e) {
@@ -72,13 +72,13 @@ public class Language {
         if(github_link!=""){
             //use Github api to access language info link
             String name = github_link.split("github.com")[1];
-            System.out.println(name);
+            //System.out.println(name);
             String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
-            System.out.println(access_link);
+            //System.out.println(access_link);
             JSONObject github_page = readJsonFromUrl(access_link);
-            System.out.println("github_page "+github_page);
+            //System.out.println("github_page "+github_page);
             String new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
-            System.out.println("new_page_info "+new_page_info);
+            //System.out.println("new_page_info "+new_page_info);
 
             //access git language info
             JSONObject lang_info = readJsonFromUrl(new_page_info);
@@ -86,7 +86,7 @@ public class Language {
 //            System.out.println("first "+(String)keys.next());
             while( keys.hasNext() ){
                 String key = (String)keys.next(); // First key in your json object
-                System.out.println("second "+key);
+                //System.out.println("second "+key);
                 lan.add(key);
             }
         }
