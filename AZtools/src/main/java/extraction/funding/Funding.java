@@ -105,10 +105,30 @@ public class Funding {
                 String[] temp = m2.group().split(">");
                 agency = temp[temp.length-1].split("<")[0];
             }
-            fi.setAgency(agency);
+
+            //consider special case such as "KRIBB Research Initiative Program; Technology Innovation Program of the Ministry of Trade, Industry and Energy"
+            if(agency.contains(";")){
+                String new_agency = agency.split(";")[1];
+                fi.setAgency(new_agency);
+                arrayList.add(fi);
+
+                String new_agency1 = agency.split(";")[0];
+                FundingInfo fi1 = new FundingInfo();
+                fi1.setAgency(new_agency1);
+                arrayList.add(fi1);
+            }
+            else{
+                fi.setAgency(agency);
 //            System.out.println(fi.getAgency());
 //            System.out.println(fi.getLicense());
-            arrayList.add(fi);
+                arrayList.add(fi);
+            }
+
+
+//            fi.setAgency(agency);
+////            System.out.println(fi.getAgency());
+////            System.out.println(fi.getLicense());
+//            arrayList.add(fi);
         }
 
         //run NER on the entire paragraph again to get agencies without grant number
