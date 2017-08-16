@@ -23,18 +23,14 @@ public class Url {
     }
 
     private List<String> extractURL(JSONObject xmlJSONObj, String name) {
-//        String name = Attributes.getTitle();
         ArrayList<String> all_links= new ArrayList<>();
         ArrayList<String> good_links= new ArrayList<>();
 
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
-//        String pattern = "\\.\\s.*?http.*?(\\.(\\s|$|\"))";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(line);
         while (m.find( )) {
-//            String[] arr = m.group().split("\\. ");
-//            String result = arr[arr.length-1];
             String link = m.group();
 //            System.out.println("all_links "+link);
             all_links.add(link);

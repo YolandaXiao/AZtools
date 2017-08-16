@@ -62,9 +62,7 @@ public class Language {
                         //System.out.println(github_link);
                     }
                 }
-                catch (Exception e) {
-//                    e.printStackTrace();
-                }
+                catch (Exception e) {}
             }
         }
 
@@ -86,14 +84,14 @@ public class Language {
 //            System.out.println("first "+(String)keys.next());
             while( keys.hasNext() ){
                 String key = (String)keys.next(); // First key in your json object
-                //System.out.println("second "+key);
+                System.out.println(key);
                 lan.add(key);
             }
         }
-
         return lan;
     }
 
+    //helper function: read in lines
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -103,6 +101,7 @@ public class Language {
         return sb.toString();
     }
 
+    //helper function: give json url, return json string
     private static JSONObject readJsonFromUrl(String url) throws IOException {
         // String s = URLEncoder.encode(url, "UTF-8");
         // URL url = new URL(s);
@@ -120,6 +119,7 @@ public class Language {
         return json;
     }
 
+    //helper function: get HTML content
     private static String getHTML(String urlToRead) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
