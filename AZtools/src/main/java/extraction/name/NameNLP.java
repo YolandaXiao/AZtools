@@ -13,7 +13,7 @@ public class NameNLP {
     private List<String> urls;
     private String final_name;
 
-    public NameNLP(String orig_filename, String title, List<String> cer_urls) {
+    public NameNLP(String orig_filename, String title) {//, List<String> cer_urls) {
 
         System.out.println("Searching '" + orig_filename + "' for tool's name...");
 
@@ -21,7 +21,7 @@ public class NameNLP {
         words = new ArrayList<>(0);
         words.addAll(Arrays.asList(title.split("\\s")));
 
-        urls = cer_urls;
+//        urls = cer_urls;
         cermine_title = title;
 
 //        Calendar start_time = Calendar.getInstance();
@@ -31,7 +31,7 @@ public class NameNLP {
 //        System.out.println("dealFirstWord() takes " + time_taken);
 
 //        start_time = Calendar.getInstance();
-        findRepoName();
+//        findRepoName();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("findRepoName() takes " + time_taken);

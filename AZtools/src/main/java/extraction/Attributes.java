@@ -74,9 +74,8 @@ public class Attributes {
             this.URL.set(i, this.URL.get(i).trim());
         }
 
-//        NameNLP obj = new NameNLP(name, this.title, this.URL);
-//        this.name = obj.getName().trim();
-        this.name = "NAME";
+        NameNLP obj = new NameNLP(name, this.title);//, this.URL);
+        this.name = obj.getName().trim();
 
         Language lan = new Language(xmlJSONObj,name);
         this.programming_lang = lan.getLanguage();
