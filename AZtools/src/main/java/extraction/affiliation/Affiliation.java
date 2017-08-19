@@ -61,7 +61,7 @@ public class Affiliation {
                                 arraylist.add(result);
                             }
                         }
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }

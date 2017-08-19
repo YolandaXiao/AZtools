@@ -35,7 +35,7 @@ public class Author {
                 }
                 arraylist.add(author);
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return arraylist;

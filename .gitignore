@@ -3,5 +3,6 @@ AZtools/src/main/java/extraction/Properties.java
 cermine-impl/target/*
 spring-app/target*
 testing/name/*pdf*
+testing/pdfs
 .idea/*
 .metadata/*

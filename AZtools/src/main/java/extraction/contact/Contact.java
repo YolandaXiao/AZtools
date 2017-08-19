@@ -37,11 +37,11 @@ public class Contact {
                         }
                         arraylist.add(contact);
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return arraylist;
