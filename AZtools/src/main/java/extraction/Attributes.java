@@ -9,6 +9,7 @@ import extraction.funding.Funding;
 import extraction.funding.FundingInfo;
 import extraction.language.Language;
 import extraction.name.NameNLP;
+import extraction.summary.Summary;
 import extraction.title.Title;
 import extraction.url.Url;
 import org.json.JSONException;
@@ -21,6 +22,7 @@ public class Attributes {
     private static String title;
 //    private final String title;
     private final String name;
+    private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
     private final String abstrakt;
@@ -33,11 +35,11 @@ public class Attributes {
 
     // ------------------------------------------------------------- //
 
-    public Attributes(String nlm, String name) throws Exception {
+    public Attributes(String nlm, String filename) throws Exception {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
 
         Title t = new Title(xmlJSONObj);
-        this.title = t.getTitle();
+        title = t.getTitle();
 
         Author au = new Author(xmlJSONObj);
         this.author = au.getAuthor();
@@ -52,6 +54,11 @@ public class Attributes {
         }
 
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
+        //summary must necessarily come after abstract
+        System.out.println("Finding summary of tool...");
+        Summary summ = new Summary(this.abstrakt, filename);
+        this.summary = summ.getSummary();
+        System.out.println("Done with summary");
 
         Contact con = new Contact(xmlJSONObj);
         this.contact = con.getContact();
@@ -68,16 +75,16 @@ public class Attributes {
         Funding f = new Funding(nlm);
         this.funding = f.getFunding();
 
-        Url url_link = new Url(xmlJSONObj, name);
+        Url url_link = new Url(xmlJSONObj, filename);
         this.URL = url_link.getUrl();
         for (int i = 0; i < this.URL.size(); i++) {
             this.URL.set(i, this.URL.get(i).trim());
         }
 
-        NameNLP obj = new NameNLP(name, this.title);//, this.URL);
+        NameNLP obj = new NameNLP(filename, title);//, this.URL);
         this.name = obj.getName().trim();
 
-        Language lan = new Language(xmlJSONObj,name);
+        Language lan = new Language(xmlJSONObj, filename);
         this.programming_lang = lan.getLanguage();
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
@@ -92,6 +99,10 @@ public class Attributes {
 
     public String getName() {
         return name;
+    }
+
+    public String getSummary() {
+        return summary;
     }
 
     public List<String> getAuthor(){

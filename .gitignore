@@ -1,6 +1,7 @@
-.metadata/*
+AZtools/AZtools/src/main/java/extraction/summary/abs_to_summ
+AZtools/src/main/java/extraction/Properties.java
 cermine-impl/target/*
 spring-app/target*
-.idea/*
-AZtools/src/main/java/extraction/Properties.java
 testing/name/*pdf*
+.idea/*
+.metadata/*

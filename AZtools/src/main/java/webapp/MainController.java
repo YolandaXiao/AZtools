@@ -93,7 +93,6 @@ public class MainController {
                 String nlm = new XMLOutputter().outputString(nlmContent);
                 refining_start = Calendar.getInstance();
                 Attributes attr = new Attributes(nlm, originalFilename);
-                attr.printFunding();
 
                 refining_end = Calendar.getInstance();
                 String json_string = mapper.writeValueAsString(attr);

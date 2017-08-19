@@ -4,6 +4,7 @@ import operator
 import os
 import random
 import requests
+import sys
 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -19,11 +20,17 @@ C = 0.1  # for linear svm
 # large value -> smaller margin hyperplane if less misclassifications
 # small value -> larger margin hyperplane even when misclassifications
 
-TRAINING_PDFS_DIRECTORY = "training_pdfs"
-LABELED_SENTENCES_DIR = "training_data/labeled_articles"
-RAW_SENTENCS = "sentences.txt"
-WORD_LIST = "complete_word_list.txt"
-TESTING_DATA = "testing_data.txt"
+directory = str(os.path.abspath(__file__)).replace("\\\\", "\\")[:-1*len("lib.py")]
+TRAINING_PDFS_DIRECTORY = directory + "training_pdfs"
+LABELED_SENTENCES_DIR = directory + "training_data\labeled_articles"
+RAW_SENTENCS = directory + "sentences.txt"
+WORD_LIST = directory + "complete_word_list.txt"
+TESTING_DATA = directory + "testing_data.txt"
+TRAINING_DATA = directory + "training_data.txt"
+STOP_WORDS = directory + "stopwords.txt"
+COMPLETE_TRAINING_SET = directory + "complete_training_dataset.txt"
+FINAL_DATASET = directory + "final_dataset.txt"
+OUTPUT_FILE = directory + "output.txt"
 
 def get_all_pdf():
     print "Grabbing all PDFs from directory"
@@ -145,7 +152,7 @@ def get_popular_words_from_sentences(sentences):
     stop_words = []
     nltk_stopwords = set(stopwords.words('english'))
     common_words = ['.', ',', ':', ')', '('] 
-    with open("stopwords.txt", "rb") as stopwords_file:
+    with open(STOP_WORDS, "rb") as stopwords_file:
         data = stopwords_file.readlines()
         for line in data:
             stop_words.append(line.strip('\n'))
@@ -204,11 +211,11 @@ def get_training_txt_files():
     list_files = []
     for file in os.listdir(LABELED_SENTENCES_DIR):
         if file.endswith(".txt"):
-            list_files.append(str(LABELED_SENTENCES_DIR) + "/" + str(file))
+            list_files.append(str(LABELED_SENTENCES_DIR) + "\\" + str(file))
     return list_files
 
 def combine_training_sentences(list_files):
-    with open("training_data.txt", "w+") as output_file:
+    with open(TRAINING_DATA, "w+") as output_file:
         for file in list_files:
             with open(file, "rb") as input_file:
                 data = input_file.readlines()
@@ -239,7 +246,7 @@ def combine_training_sentences(list_files):
                     output_file.write(line_to_write)
 
 def clean_complete_dataset():
-    with open("complete_training_dataset.txt", "rb") as input_file, open("final_dataset.txt", "w+") as output_file:
+    with open(COMPLETE_TRAINING_SET, "rb") as input_file, open(FINAL_DATASET, "w+") as output_file:
         data = input_file.readlines()
         for line in data:
             if line[1] == " ":
@@ -312,7 +319,7 @@ def train_and_test_on_main():
         # structure data
 
         # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
-        training_labeled_data, testing_labeled_data = get_all_labeled_sentences(.9, 'training_data.txt')
+        training_labeled_data, testing_labeled_data = get_all_labeled_sentences(.9, TRAINING_DATA)
         total_num_sents = len(training_labeled_data) + len(testing_labeled_data)
         
         # train model
@@ -359,7 +366,7 @@ def apply_model_to_sentences():
     y = []
 
     # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
-    training_labeled_data, testing_labeled_data = get_all_labeled_sentences(1, 'training_data.txt')
+    training_labeled_data, testing_labeled_data = get_all_labeled_sentences(1, TRAINING_DATA)
     for case in training_labeled_data:
         X.append(create_feature_vector_from_raw_sent(case[1], word_list))
         y.append(case[0])
@@ -372,14 +379,78 @@ def apply_model_to_sentences():
     for sent in sents:
         fv = create_feature_vector_from_raw_sent(sent, word_list)
         features.append([fv, sent])
-    with open("output.txt", "w+") as output_file:
+    with open(OUTPUT_FILE, "w+") as output_file:
         for i in range(len(features)):
             output_line = str(svm_predict(model, features[i][0])[0]) + "\t" + str(sents[i]) + "\n"
             output_file.write(output_line)
 
     print "See output.txt for results"
 
+def get_summary_from_abstract():
+
+    if len(sys.argv) != 2:
+        print "Bad exit code!"
+        return 1
+
+    # # Option 1:
+    # print "Cleaning dataset"
+    # clean_complete_dataset()
+
+    # Option 2:
+    #print "Getting training data"
+    files = get_training_txt_files()
+    combine_training_sentences(files)
+
+    #---------- May use option one or two
+
+    # get features
+    #print "Getting word list"
+    word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
+
+    # train model
+    #print "Training model"
+    X = []
+    y = []
+    # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
+    training_labeled_data, testing_labeled_data = get_all_labeled_sentences(1, TRAINING_DATA)
+    for case in training_labeled_data:
+        X.append(create_feature_vector_from_raw_sent(case[1], word_list))
+        y.append(case[0])
+    model = svm_train(X, y)
+
+    filename = sys.argv[1]
+    summary = ""
+    
+    input_filename = directory + "/abs_to_summ/" + filename + "_abstract.txt"
+    output_filename = directory + "/abs_to_summ/" + filename + "_summary.txt"
+
+    with open(input_filename, "rb") as input_file, open(output_filename, "w+") as output_filename:
+    	paragraph = input_file.readlines()[0]
+    	sentences = sent_tokenize(paragraph)
+    	# print "Abstract:\n-------------------"
+    	# print paragraph
+    	summary_sents = []
+    	nonsummary_sents = []
+    	for sent in sentences:
+	        fv = create_feature_vector_from_raw_sent(sent, word_list)
+	        if int(svm_predict(model, fv)[0]) == 0:
+	        	output_filename.write(sent + "\n")
+	        	summary_sents.append(sent)
+	        else:
+	        	nonsummary_sents.append(sent)
+    	# print "-------------------"
+    	# print "Summary:\n-------------------"
+    	# for i in range(len(summary_sents)):
+    	# 	print str(i + 1) + ". " + summary_sents[i]
+    	# print "-------------------"
+    	# print "Non-summary:\n-------------------"
+    	# for i in range(len(nonsummary_sents)):
+    	# 	print str(i + 1) + ". " + nonsummary_sents[i]
+    	# print "-------------------"
+
 if __name__ == '__main__':
-    apply_model_to_sentences()
-    train_and_test_on_main()
+
+    # apply_model_to_sentences()
+    # train_and_test_on_main()
+    get_summary_from_abstract()
     
