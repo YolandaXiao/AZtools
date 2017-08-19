@@ -388,7 +388,7 @@ def apply_model_to_sentences():
 
 def get_summary_from_abstract():
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print "Bad exit code!"
         return 1
 
@@ -419,6 +419,7 @@ def get_summary_from_abstract():
     model = svm_train(X, y)
 
     filename = sys.argv[1]
+    tool_name = sys.argv[2]
     summary = ""
     
     input_filename = directory + "/abs_to_summ/" + filename + "_abstract.txt"
@@ -433,7 +434,7 @@ def get_summary_from_abstract():
     	nonsummary_sents = []
     	for sent in sentences:
 	        fv = create_feature_vector_from_raw_sent(sent, word_list)
-	        if int(svm_predict(model, fv)[0]) == 0:
+	        if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
 	        	output_filename.write(sent + "\n")
 	        	summary_sents.append(sent)
 	        else:

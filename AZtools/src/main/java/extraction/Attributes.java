@@ -53,13 +53,6 @@ public class Attributes {
             this.affiliation.set(i, this.affiliation.get(i).trim());
         }
 
-        this.abstrakt = extractAbstract(xmlJSONObj).trim();
-        //summary must necessarily come after abstract
-        System.out.println("Finding summary of tool...");
-        Summary summ = new Summary(this.abstrakt, filename);
-        this.summary = summ.getSummary();
-        System.out.println("Done with summary");
-
         Contact con = new Contact(xmlJSONObj);
         this.contact = con.getContact();
         for (int i = 0; i < this.contact.size(); i++) {
@@ -83,6 +76,13 @@ public class Attributes {
 
         NameNLP obj = new NameNLP(filename, title);//, this.URL);
         this.name = obj.getName().trim();
+
+        this.abstrakt = extractAbstract(xmlJSONObj).trim();
+        //summary must necessarily come after abstract
+        System.out.println("Finding summary of tool...");
+        Summary summ = new Summary(abstrakt, filename, name);
+        this.summary = summ.getSummary();
+        System.out.println("Done with summary");
 
         Language lan = new Language(xmlJSONObj, filename);
         this.programming_lang = lan.getLanguage();

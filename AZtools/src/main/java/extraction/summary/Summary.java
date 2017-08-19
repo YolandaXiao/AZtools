@@ -11,7 +11,7 @@ public class Summary {
 
     private String summary;
 
-    public Summary(String paper_abstract, String filename) {
+    public Summary(String paper_abstract, String filename, String tool_name) {
 
         try {
             String abs_summ_dir = Properties.get_abs_summ_dir();
@@ -28,6 +28,7 @@ public class Summary {
             String svm_lib_path = Properties.get_svm_lib_path();
             commands.add(svm_lib_path);
             commands.add(filename);
+            commands.add(tool_name);
 
             SystemCommandExecutor commandExecutor = new SystemCommandExecutor(commands);
             int result = commandExecutor.executeCommand();
