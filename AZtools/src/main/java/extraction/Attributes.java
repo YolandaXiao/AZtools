@@ -23,7 +23,7 @@ public class Attributes {
     private static String title;
 //    private final String title;
     private final String name;
-    private final String summary;
+//    private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
     private final String abstrakt;
@@ -74,23 +74,23 @@ public class Attributes {
         Funding f = new Funding(nlm);
         this.funding = f.getFunding();
 
-        Url url_link = new Url(xmlJSONObj, name);
+        Url url_link = new Url(xmlJSONObj, filename);
         this.URL = url_link.getUrl();
         for (int i = 0; i < this.URL.size(); i++) {
             this.URL.set(i, this.URL.get(i).trim());
         }
 
-        NameNLP obj = new NameNLP(name, this.title, this.URL);
+        NameNLP obj = new NameNLP(filename, this.title);
         this.name = obj.getName().trim();
 
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
         //summary must necessarily come after abstract
-        System.out.println("Finding summary of tool...");
-        Summary summ = new Summary(abstrakt, filename, name);
-        this.summary = summ.getSummary();
-        System.out.println("Done with summary");
+//        System.out.println("Finding summary of tool...");
+//        Summary summ = new Summary(abstrakt, filename, name);
+//        this.summary = summ.getSummary();
+//        System.out.println("Done with summary");
 
-        Language lan = new Language(xmlJSONObj, name);
+        Language lan = new Language(xmlJSONObj, filename);
         this.programming_lang = lan.getLanguage();
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
@@ -107,9 +107,9 @@ public class Attributes {
         return name;
     }
 
-    public String getSummary() {
-        return summary;
-    }
+//    public String getSummary() {
+//        return summary;
+//    }
 
     public List<String> getAuthor(){
         return author;

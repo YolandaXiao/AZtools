@@ -54,11 +54,26 @@ public class Affiliation {
                 {
                     try {
                         if(affiliations.getJSONObject(i).has("institution")) {
-                            String aff = affiliations.getJSONObject(i).getString("institution");
-                            String[] arr = aff.split(",");
-                            String result = arr[arr.length-1];
-                            if(!arraylist.contains(result)){
-                                arraylist.add(result);
+                            Object item2 = null;
+                            try {
+                                item2 = affiliations.getJSONObject(i).get("institution");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            if (item2 instanceof String){
+                                String aff = affiliations.getJSONObject(i).getString("institution");
+                                String[] arr = aff.split(",");
+                                String result = arr[arr.length-1];
+                                if(!arraylist.contains(result)){
+                                    arraylist.add(result);
+                                }
+                            }
+                            else if (item2 instanceof JSONArray){
+                                JSONArray arr = affiliations.getJSONObject(i).getJSONArray("institution");
+                                String result = (String) arr.get(arr.length()-1);
+                                if(!arraylist.contains(result)){
+                                    arraylist.add(result);
+                                }
                             }
                         }
                     } catch (Exception e) {

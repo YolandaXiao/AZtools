@@ -22,7 +22,7 @@ C = 0.1  # for linear svm
 
 directory = str(os.path.abspath(__file__)).replace("\\\\", "\\")[:-1*len("lib.py")]
 TRAINING_PDFS_DIRECTORY = directory + "training_pdfs"
-LABELED_SENTENCES_DIR = directory + "training_data\labeled_articles"
+LABELED_SENTENCES_DIR = "src/main/java/extraction/summary/training_data/labeled_articles" #directory + "training_data\\labeled_articles"
 RAW_SENTENCS = directory + "sentences.txt"
 WORD_LIST = directory + "complete_word_list.txt"
 TESTING_DATA = directory + "testing_data.txt"
@@ -211,7 +211,7 @@ def get_training_txt_files():
     list_files = []
     for file in os.listdir(LABELED_SENTENCES_DIR):
         if file.endswith(".txt"):
-            list_files.append(str(LABELED_SENTENCES_DIR) + "\\" + str(file))
+            list_files.append(str(LABELED_SENTENCES_DIR) + "/" + str(file))
     return list_files
 
 def combine_training_sentences(list_files):
