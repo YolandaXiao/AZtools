@@ -51,8 +51,8 @@ public class MainController {
         JSONObject metadata = new JSONObject();
 
         Calendar clock_start = Calendar.getInstance();
-        Calendar cermine_start = null;
-        Calendar cermine_end= null;
+        Calendar cermine_start = null, cermine_mid1 = null, cermine_mid2 = null, cermine_mid3 = null, cermine_mid4 = null;
+        Calendar cermine_end = null, cermine_mid5 = null, cermine_mid6 = null, cermine_mid7 = null, cermine_mid8 = null, cermine_mid9 = null;
 
         Calendar refining_start= null;
         Calendar refining_end= null;
@@ -70,13 +70,26 @@ public class MainController {
                 cermine_start = Calendar.getInstance();
                 ContentExtractor extractor = new ContentExtractor();
 
+                cermine_mid1 = Calendar.getInstance();
                 InputStream inputStream = new BufferedInputStream(((MultipartFile)files.get(k)).getInputStream());
                 extractor.setPDF(inputStream);
 
+                cermine_mid2 = Calendar.getInstance();
+
                 //convert pdf to xml
                 Element nlmMetadata = extractor.getMetadataAsNLM();
+
+                cermine_mid3 = Calendar.getInstance();
+
                 Element nlmFullText = extractor.getBodyAsNLM(null);
+                // funding, links
+
+                cermine_mid4 = Calendar.getInstance();
+
                 Element nlmContent = new Element("article");
+
+                cermine_mid5 = Calendar.getInstance();
+
 
                 for (Object ns : nlmFullText.getAdditionalNamespaces()) {
                     if (ns instanceof Namespace) {
@@ -84,9 +97,13 @@ public class MainController {
                     }
                 }
 
+                cermine_mid6 = Calendar.getInstance();
                 Element meta = (Element) nlmMetadata.getChild("front").clone();
+                cermine_mid7 = Calendar.getInstance();
                 nlmContent.addContent(meta);
+                cermine_mid8 = Calendar.getInstance();
                 nlmContent.addContent(nlmFullText);
+                cermine_mid9 = Calendar.getInstance();
 
                 cermine_end = Calendar.getInstance();
                 System.out.println("Completed CERMINE workflow for '" + originalFilename + "'");
@@ -107,7 +124,16 @@ public class MainController {
             metadata.put("number_of_pdfs", files.size());
             metadata.put("total_time(ms)", (clock_end.getTimeInMillis() - clock_start.getTimeInMillis()));
 
-            metadata.put("cermine_time(ms)", (cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis()));
+            metadata.put("cermine_time start to 1(ms)", (cermine_mid1.getTimeInMillis() - cermine_start.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 1 to 2", (cermine_mid2.getTimeInMillis() - cermine_mid1.getTimeInMillis()));
+            metadata.put("cermine_time(ms) 2 to 3", (cermine_mid3.getTimeInMillis() - cermine_mid2.getTimeInMillis()));
+            metadata.put("cermine_time(ms) 3 to 4", (cermine_mid4.getTimeInMillis() - cermine_mid3.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 4 to 5", (cermine_mid5.getTimeInMillis() - cermine_mid4.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 5 to 6", (cermine_mid6.getTimeInMillis() - cermine_mid5.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 6 to 7", (cermine_mid7.getTimeInMillis() - cermine_mid6.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 7 to 8", (cermine_mid8.getTimeInMillis() - cermine_mid7.getTimeInMillis()));
+//            metadata.put("cermine_time(ms) 8 to 9", (cermine_mid9.getTimeInMillis() - cermine_mid8.getTimeInMillis()));
+
             metadata.put("refining_time(ms)", (refining_end.getTimeInMillis() - refining_start.getTimeInMillis()));
 
             String metadata_string = metadata.toString();
