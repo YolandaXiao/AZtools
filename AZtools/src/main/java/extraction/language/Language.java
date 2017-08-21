@@ -81,11 +81,19 @@ public class Language {
             //access git language info
             JSONObject lang_info = readJsonFromUrl(new_page_info);
             Iterator<String> keys = lang_info.keys();
-//            System.out.println("first "+(String)keys.next());
+            String prev_key = (String)keys.next(); // First key in your json object
+            int max = lang_info.getInt(prev_key);
+            lan.add(prev_key);
             while( keys.hasNext() ){
                 String key = (String)keys.next(); // First key in your json object
-//                System.out.println(key);
-                lan.add(key);
+                int num = lang_info.getInt(key);
+                System.out.println(key + ": " + num);
+
+                if(num>max){
+                    lan.remove(prev_key);
+                    lan.add(key);
+                }
+                prev_key = key;
             }
         }
         return lan;

@@ -2,6 +2,7 @@ package webapp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import extraction.Attributes;
+import javafx.concurrent.Task;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
@@ -98,6 +99,7 @@ public class MainController {
                 String json_string = mapper.writeValueAsString(attr);
 
                 data.put(originalFilename, json_string);
+
             }
 
             clock_end = Calendar.getInstance();
@@ -119,7 +121,7 @@ public class MainController {
 
             return new ResponseEntity<>(final_result, responseHeaders, HttpStatus.OK);
         }
-        catch (IOException | TimeoutException | AnalysisException e) {
+        catch (TimeoutException e) {
             e.printStackTrace();
 
             JSONObject status = new JSONObject();

@@ -12,6 +12,7 @@ import extraction.name.NameNLP;
 import extraction.summary.Summary;
 import extraction.title.Title;
 import extraction.url.Url;
+import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
@@ -37,6 +38,11 @@ public class Attributes {
 
     public Attributes(String nlm, String filename) throws Exception {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+//        System.out.println(nlm);
+//        System.out.println();
+//        System.out.println(xmlJSONObj);
+//        String json_string = old_xmlJSONObj.toString().replace("\\","");
+//        JSONObject xmlJSONObj = new JSONObject(json_string);
 
         Title t = new Title(xmlJSONObj);
         title = t.getTitle();
@@ -68,13 +74,13 @@ public class Attributes {
         Funding f = new Funding(nlm);
         this.funding = f.getFunding();
 
-        Url url_link = new Url(xmlJSONObj, filename);
+        Url url_link = new Url(xmlJSONObj, name);
         this.URL = url_link.getUrl();
         for (int i = 0; i < this.URL.size(); i++) {
             this.URL.set(i, this.URL.get(i).trim());
         }
 
-        NameNLP obj = new NameNLP(filename, title);//, this.URL);
+        NameNLP obj = new NameNLP(name, this.title, this.URL);
         this.name = obj.getName().trim();
 
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
@@ -84,7 +90,7 @@ public class Attributes {
         this.summary = summ.getSummary();
         System.out.println("Done with summary");
 
-        Language lan = new Language(xmlJSONObj, filename);
+        Language lan = new Language(xmlJSONObj, name);
         this.programming_lang = lan.getLanguage();
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
