@@ -10,6 +10,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize, word_tokenize
 from sklearn import svm
+from sklearn.externals import joblib
 from textblob.classifiers import NLTKClassifier
 
 ps = PorterStemmer()
@@ -22,7 +23,7 @@ C = 0.1  # for linear svm
 
 directory = str(os.path.abspath(__file__)).replace("\\\\", "\\")[:-1*len("lib.py")]
 TRAINING_PDFS_DIRECTORY = directory + "training_pdfs"
-LABELED_SENTENCES_DIR = directory + "training_data\labeled_articles"
+LABELED_SENTENCES_DIR = directory + "training_data/labeled_articles"
 RAW_SENTENCS = directory + "sentences.txt"
 WORD_LIST = directory + "complete_word_list.txt"
 TESTING_DATA = directory + "testing_data.txt"
@@ -31,6 +32,7 @@ STOP_WORDS = directory + "stopwords.txt"
 COMPLETE_TRAINING_SET = directory + "complete_training_dataset.txt"
 FINAL_DATASET = directory + "final_dataset.txt"
 OUTPUT_FILE = directory + "output.txt"
+MODEL_PKL = directory + "modl_ls.pkl"
 
 def get_all_pdf():
     print "Grabbing all PDFs from directory"
@@ -211,7 +213,7 @@ def get_training_txt_files():
     list_files = []
     for file in os.listdir(LABELED_SENTENCES_DIR):
         if file.endswith(".txt"):
-            list_files.append(str(LABELED_SENTENCES_DIR) + "\\" + str(file))
+            list_files.append(str(LABELED_SENTENCES_DIR) + "/" + str(file))
     return list_files
 
 def combine_training_sentences(list_files):
@@ -339,6 +341,7 @@ def train_and_test_on_main():
         acc = svm_get_accuracy(model, X, y) * 100
         print "Accuracy " + str(i+1) + str(": %.2f" % round(acc,2)) + "%"
         average_accuracy += acc
+
     print "--------------------------"
     average_accuracy /= 100
     print "Average Accuracy: " + str("%.2f" % round(average_accuracy,2)) + "%"
@@ -346,31 +349,9 @@ def train_and_test_on_main():
     print "Total sentences: " + str(total_num_sents) + "\n90% trained, 10% tested"
 
 def apply_model_to_sentences():
-    # # Option 1:
-    # print "Cleaning dataset"
-    # clean_complete_dataset()
-
-    # Option 2:
-    print "Getting training data"
-    files = get_training_txt_files()
-    combine_training_sentences(files)
-
-    #---------- May use option one or two
-    # get features
-    print "Getting word list"
-    word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
-
-    # train model
-    print "Training model"
-    X = []
-    y = []
-
-    # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
-    training_labeled_data, testing_labeled_data = get_all_labeled_sentences(1, TRAINING_DATA)
-    for case in training_labeled_data:
-        X.append(create_feature_vector_from_raw_sent(case[1], word_list))
-        y.append(case[0])
-    model = svm_train(X, y)
+    
+    # get model
+    model = joblib.load('modl_ls.pkl')
 
     # apply model on abstracts' sentences
     print "Applying model to sentences from abstracts"
@@ -386,29 +367,25 @@ def apply_model_to_sentences():
 
     print "See output.txt for results"
 
-def get_summary_from_abstract():
+def create_model():
 
-    if len(sys.argv) != 3:
-        print "Bad exit code!"
-        return 1
+    #---------- May use option one or two
 
     # # Option 1:
     # print "Cleaning dataset"
     # clean_complete_dataset()
 
     # Option 2:
-    #print "Getting training data"
+    print "Getting training data"
     files = get_training_txt_files()
     combine_training_sentences(files)
 
-    #---------- May use option one or two
-
     # get features
-    #print "Getting word list"
-    word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
+    print "Getting word list"
+    word_list = get_word_list()#get_popular_words_from_sentences(get_sentences())#get_word_list()
 
     # train model
-    #print "Training model"
+    print "Training model"
     X = []
     y = []
     # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
@@ -416,7 +393,18 @@ def get_summary_from_abstract():
     for case in training_labeled_data:
         X.append(create_feature_vector_from_raw_sent(case[1], word_list))
         y.append(case[0])
+
     model = svm_train(X, y)
+    joblib.dump(model, MODEL_PKL) 
+
+def get_summary_from_abstract(word_list):
+
+    if len(sys.argv) != 3:
+        print "Incorrect call to script.\nUsage: 'python lib.py file_name.pdf tool_name'"
+        return 1
+
+    # get model
+    model = joblib.load(MODEL_PKL)
 
     filename = sys.argv[1]
     tool_name = sys.argv[2]
@@ -451,7 +439,9 @@ def get_summary_from_abstract():
 
 if __name__ == '__main__':
 
+    # create_model()
     # apply_model_to_sentences()
     # train_and_test_on_main()
-    get_summary_from_abstract()
+    word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
+    get_summary_from_abstract(word_list)
     

@@ -13,15 +13,13 @@ public class NameNLP {
     private List<String> urls;
     private String final_name;
 
-    public NameNLP(String orig_filename, String title) {//, List<String> cer_urls) {
-
-        System.out.println("Searching '" + orig_filename + "' for tool's name...");
+    public NameNLP(String orig_filename, String title, List<String> cer_urls) {
 
         info = new Vector(0);
         words = new ArrayList<>(0);
         words.addAll(Arrays.asList(title.split("\\s")));
 
-//        urls = cer_urls;
+        urls = cer_urls;
         cermine_title = title;
 
 //        Calendar start_time = Calendar.getInstance();
@@ -31,7 +29,7 @@ public class NameNLP {
 //        System.out.println("dealFirstWord() takes " + time_taken);
 
 //        start_time = Calendar.getInstance();
-//        findRepoName();
+        findRepoName();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("findRepoName() takes " + time_taken);
@@ -121,7 +119,7 @@ public class NameNLP {
             }
 
             String repoName = url.substring(startPos, endPos);
-            System.out.println("Found tool name from GitHub");
+//            System.out.println("Found tool name from GitHub");
 
             Vector element = new Vector(0);
             element.addElement(repoName);
@@ -397,7 +395,6 @@ public class NameNLP {
         }
 
         final_name = fin_name;
-        System.out.println("! Found name: '" + final_name + "'");
     }
 
 }

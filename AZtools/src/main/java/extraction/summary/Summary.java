@@ -47,18 +47,11 @@ public class Summary {
             FileReader fr = new FileReader(rd_txt_file_name);
             BufferedReader br = new BufferedReader(fr);
             String line;
-            String complete_summary = "";
-
-            while ((line = br.readLine()) != null) {
-                complete_summary = complete_summary + line + " ";
+            if ((line = br.readLine()) != null) {
+                summary = line;
             }
-            summary = complete_summary.substring(0, complete_summary.length() - 1);
-
-            if (br != null) {
-                br.close();
-            }
-            if (fr != null) {
-                fr.close();
+            else {
+                summary = paper_abstract;
             }
         }
         catch (Exception e){

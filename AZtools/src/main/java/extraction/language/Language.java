@@ -87,7 +87,7 @@ public class Language {
             while( keys.hasNext() ){
                 String key = (String)keys.next(); // First key in your json object
                 int num = lang_info.getInt(key);
-                System.out.println(key + ": " + num);
+//                System.out.println(key + ": " + num);
 
                 if(num>max){
                     lan.remove(prev_key);

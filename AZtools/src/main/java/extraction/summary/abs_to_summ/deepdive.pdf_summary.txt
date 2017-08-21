@@ -1,6 +1,1 @@
-In this work, we used DeepDive to extract both protein-protein and transcription factor interactions from over 100 000 full-text PLOS articles.
-Methods: We built an extractor for gene-gene interactions that identified candidate gene-gene relations within an input sentence.
-For each candidate relation, DeepDive computed a probability that the relation was a correct interaction.
-We evaluated this system against the Database of Interacting Proteins and against randomly curated extractions.
-Results: Our system achieved 76% precision and 49% recall in extracting direct and indirect interactions involving gene symbols co-occurring in a sentence.
-Availability and implementation: Application source code is publicly available at https://github.com/edoughty/deepdive_genegene_app Contact: russ.altman@stanford.edu Supplementary information: Supplementary data are available at Bioinformatics online.
+In this work, we used DeepDive to extract both protein-protein and transcription factor interactions from over 100 000 full-text PLOS articles. Methods: We built an extractor for gene-gene interactions that identified candidate gene-gene relations within an input sentence. We evaluated this system against the Database of Interacting Proteins and against randomly curated extractions. Availability and implementation: Application source code is publicly available at https://github.com/edoughty/deepdive_genegene_app Contact: russ.altman@stanford.edu Supplementary information: Supplementary data are available at Bioinformatics online.

@@ -32,16 +32,16 @@ public class Url {
         Matcher m = r.matcher(line);
         while (m.find( )) {
             String link = m.group();
-            System.out.println("all_links "+link);
+//            System.out.println("all_links "+link);
             all_links.add(link);
             String lowercase_link = link.toLowerCase();
             name = name.split(".pdf")[0];
             if(lowercase_link.contains(name.toLowerCase()) && !good_links.contains(link)){
-                System.out.println("good_links "+link);
+//                System.out.println("good_links "+link);
                 good_links.add(link);
             }
             if(link.contains("github") || link.contains("sourceforge") || link.contains("bioconductor")){
-                System.out.println("good_links "+link);
+//                System.out.println("good_links "+link);
                 good_links.add(link);
             }
         }
