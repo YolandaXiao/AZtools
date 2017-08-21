@@ -79,7 +79,7 @@ public class Language {
             for(int i=0;i<arr.length;i++){
                 System.out.println(arr[i]);
             }
-            if(arr.length>=3){
+            if(arr.length>=4){
                 name = arr[1]+"/"+arr[2];
             }
             //System.out.println(name);
