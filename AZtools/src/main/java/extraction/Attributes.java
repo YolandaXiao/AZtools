@@ -21,8 +21,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Attributes {
-    private static String title;
-//    private final String title;
+    private final String title;
     private final String name;
     private final String summary;
     private final List<String> author;
@@ -104,7 +103,6 @@ public class Attributes {
         Calendar name_end = Calendar.getInstance();
 //        System.out.println("Found name: '" + name + "'");
 
-
         Calendar abstract_start = Calendar.getInstance();
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
         Calendar abstract_end = Calendar.getInstance();
@@ -154,7 +152,7 @@ public class Attributes {
 
     // ------------------------------------------------------------ //
 
-    public static String getTitle(){
+    public String getTitle(){
         return title;
     }
 

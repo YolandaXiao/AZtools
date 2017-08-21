@@ -41,7 +41,7 @@ public class Language {
         //iterate through all links to get github link
         for(int i=0;i<url_links.size();i++){
             //perform GET request to get the github link -> for github repo name search
-            if(url_links.get(i).contains("github")){
+            if(url_links.get(i).contains("github.com") || url_links.get(i).contains("sourceforge")){
                 github_link = url_links.get(i);
                 break;
             }
@@ -67,15 +67,33 @@ public class Language {
         }
 
         //if github link present, find programming language from github api
-        if(github_link!=""){
-            //use Github api to access language info link
+        if(github_link.contains("github")){
+            //use Github api to access language info
+            System.out.println("github_link: "+github_link);
             String name = github_link.split("github.com")[1];
+            //clean the github name
+            if(name.contains("Contact")){
+                name = name.split("Contact")[0];
+            }
+            String[] arr = name.split("/");
+            for(int i=0;i<arr.length;i++){
+                System.out.println(arr[i]);
+            }
+            if(arr.length>=4){
+                name = arr[1]+"/"+arr[2];
+            }
             //System.out.println(name);
             String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
-            //System.out.println(access_link);
+            System.out.println(access_link);
             JSONObject github_page = readJsonFromUrl(access_link);
             //System.out.println("github_page "+github_page);
-            String new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
+            String new_page_info = "";
+            if (github_page.getInt("total_count")!=0){
+                new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
+            }
+            else{
+                return lan;
+            }
             //System.out.println("new_page_info "+new_page_info);
 
             //access git language info
@@ -84,6 +102,7 @@ public class Language {
             String prev_key = (String)keys.next(); // First key in your json object
             int max = lang_info.getInt(prev_key);
             lan.add(prev_key);
+            System.out.println(prev_key);
             while( keys.hasNext() ){
                 String key = (String)keys.next(); // First key in your json object
                 int num = lang_info.getInt(key);
@@ -92,10 +111,28 @@ public class Language {
                 if(num>max){
                     lan.remove(prev_key);
                     lan.add(key);
+                    max = num;
                 }
                 prev_key = key;
             }
         }
+
+        //sourceforge has SSL handshake error
+        //if github_link contains sourceforge
+//        if(github_link.contains("sourceforge")){
+//
+//            //use sourceforge api to access language info link
+//            String name = github_link.split("sourceforge.net/projects")[1];
+//            System.out.println(name);
+//            String access_link = "https://sourceforge.net/rest/p"+name;
+//            System.out.println(access_link);
+//            System.setProperty("https.protocols", "TLSv1");
+//            JSONObject github_page = readJsonFromUrl(access_link);
+//            System.out.println("github_page "+github_page);
+//            String key = github_page.getJSONObject("categories").getJSONArray("language").getJSONObject(0).getString("fullname");
+//
+//            lan.add(key);
+//        }
         return lan;
     }
 

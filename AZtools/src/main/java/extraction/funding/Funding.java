@@ -107,7 +107,7 @@ public class Funding {
             }
 
             //consider special case such as "KRIBB Research Initiative Program; Technology Innovation Program of the Ministry of Trade, Industry and Energy"
-            if(agency.contains(";")){
+            if(agency!=null && agency.contains(";")){
                 String new_agency = agency.split(";")[1];
                 fi.setAgency(new_agency);
                 arrayList.add(fi);
