@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,8 +72,15 @@ public class Funding {
 
     private List<FundingInfo> extractFunding(String nlm) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
+
+        //extract funding section
         String funding_section = extractFundingSection(nlm);
-        // System.out.println(funding_section);
+
+        //get agency dictionary
+        ArrayList<String> agency_dic = getAgencyDic();
+
+
+        Calendar ner1_start = Calendar.getInstance();
 
         //get license
         String pattern = "([\\dA-Z\\/\\-\\s]{2,}[\\d\\/\\-\\s]{2,}[\\dA-Z\\/\\-]{2,})";
@@ -123,13 +131,11 @@ public class Funding {
 //            System.out.println(fi.getLicense());
                 arrayList.add(fi);
             }
-
-
-//            fi.setAgency(agency);
-////            System.out.println(fi.getAgency());
-////            System.out.println(fi.getLicense());
-//            arrayList.add(fi);
         }
+
+        Calendar ner1_end = Calendar.getInstance();
+        System.out.println("Time ner1: ");
+        System.out.println(ner1_end.getTimeInMillis() - ner1_start.getTimeInMillis());
 
         //run NER on the entire paragraph again to get agencies without grant number
         funding_section = extractFundingSection(nlm);
@@ -152,7 +158,8 @@ public class Funding {
                 }
             }
             //check if the name exists in dictionary
-            if(flag && getAgencyDic().contains(f.getAgency())){
+
+            if(flag && agency_dic.contains(f.getAgency())){
                 arrayList.add(f);
             }
         }

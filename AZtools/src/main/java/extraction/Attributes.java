@@ -38,11 +38,6 @@ public class Attributes {
 
     public Attributes(String nlm, String filename) throws Exception {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
-//        System.out.println(nlm);
-//        System.out.println();
-//        System.out.println(xmlJSONObj);
-//        String json_string = old_xmlJSONObj.toString().replace("\\","");
-//        JSONObject xmlJSONObj = new JSONObject(json_string);
 
         Calendar title_start = Calendar.getInstance();
         Title t = new Title(xmlJSONObj);

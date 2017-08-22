@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -46,6 +47,7 @@ public class Language {
                 break;
             }
         }
+
         //if no github link found, go to other links to find github links
         if(github_link==""){
             for(int i=0;i<url_links.size();i++){
@@ -66,6 +68,8 @@ public class Language {
             }
         }
 
+        Calendar findprogramminglan_start = Calendar.getInstance();
+
         //if github link present, find programming language from github api
         if(github_link.contains("github")){
             //use Github api to access language info
@@ -76,16 +80,18 @@ public class Language {
                 name = name.split("Contact")[0];
             }
             String[] arr = name.split("/");
-            for(int i=0;i<arr.length;i++){
-                System.out.println(arr[i]);
-            }
             if(arr.length>=4){
                 name = arr[1]+"/"+arr[2];
             }
-            //System.out.println(name);
             String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
             System.out.println(access_link);
+
+            Calendar readJsonFromUrl_start = Calendar.getInstance();
             JSONObject github_page = readJsonFromUrl(access_link);
+            Calendar readJsonFromUrl_end = Calendar.getInstance();
+            System.out.println("Time readJsonFromUrl: ");
+            System.out.println(readJsonFromUrl_end.getTimeInMillis() - readJsonFromUrl_start.getTimeInMillis());
+
             //System.out.println("github_page "+github_page);
             String new_page_info = "";
             if (github_page.getInt("total_count")!=0){
@@ -116,6 +122,10 @@ public class Language {
                 prev_key = key;
             }
         }
+
+        Calendar findprogramminglan_end = Calendar.getInstance();
+        System.out.println("Time findprogramminglan: ");
+        System.out.println(findprogramminglan_end.getTimeInMillis() - findprogramminglan_start.getTimeInMillis());
 
         //sourceforge has SSL handshake error
         //if github_link contains sourceforge
@@ -150,8 +160,14 @@ public class Language {
     private static JSONObject readJsonFromUrl(String url) throws IOException {
         // String s = URLEncoder.encode(url, "UTF-8");
         // URL url = new URL(s);
+        Calendar readAll_start = Calendar.getInstance();
+
         InputStream is = new URL(url).openStream();
         JSONObject json = null;
+
+        Calendar readAll_end = Calendar.getInstance();
+        System.out.println("Time readAll: ");
+        System.out.println(readAll_end.getTimeInMillis() - readAll_start.getTimeInMillis());
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);

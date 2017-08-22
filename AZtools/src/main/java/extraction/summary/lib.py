@@ -410,8 +410,8 @@ def get_summary_from_abstract(word_list):
     tool_name = sys.argv[2]
     summary = ""
     
-    input_filename = directory + "/abs_to_summ/" + filename + "_abstract.txt"
-    output_filename = directory + "/abs_to_summ/" + filename + "_summary.txt"
+    input_filename = directory + "abs_to_summ/" + filename + "_abstract.txt"
+    output_filename = directory + "abs_to_summ/" + filename + "_summary.txt"
 
     with open(input_filename, "rb") as input_file, open(output_filename, "w+") as output_filename:
     	paragraph = input_file.readlines()[0]
