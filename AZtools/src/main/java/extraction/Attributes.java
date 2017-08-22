@@ -12,8 +12,6 @@ import extraction.name.NameNLP;
 import extraction.summary.Summary;
 import extraction.title.Title;
 import extraction.url.Url;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -93,7 +91,7 @@ public class Attributes {
 
 //        System.out.println("Searching '" + filename + "' for tool's name...");
         Calendar name_start = Calendar.getInstance();
-        NameNLP obj = new NameNLP(filename, title, URL);
+        NameNLP obj = new NameNLP(title, URL);
         this.name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
 //        System.out.println("Found name: '" + name + "'");
@@ -196,10 +194,10 @@ public class Attributes {
     // ----------------------------------------------------------- //
 
     private String extractAbstract(JSONObject xmlJSONObj) {
-        String abstrakt = null;
+        String abstrakt = "";
         try {
             abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return abstrakt;

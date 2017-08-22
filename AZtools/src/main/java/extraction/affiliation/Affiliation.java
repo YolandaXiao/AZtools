@@ -21,14 +21,14 @@ public class Affiliation {
     }
 
     private List<String> extractAffiliation(JSONObject xmlJSONObj) {
-        ArrayList<String> arraylist= new ArrayList<String>();
+        ArrayList<String> arraylist = new ArrayList<String>();
         JSONObject group = null;
         try {
             group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if(group.has("aff")){
+        if (group.has("aff")) {
             Object item = null;
             try {
                 item = group.get("aff");

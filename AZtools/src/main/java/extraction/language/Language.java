@@ -71,9 +71,10 @@ public class Language {
         Calendar findprogramminglan_start = Calendar.getInstance();
 
         //if github link present, find programming language from github api
-        if(github_link.contains("github")){
+        if (github_link.contains("github.com")) {
             //use Github api to access language info
-            System.out.println("github_link: "+github_link);
+            System.out.println("github_link: " + github_link);
+
             String name = github_link.split("github.com")[1];
             //clean the github name
             if(name.contains("Contact")){

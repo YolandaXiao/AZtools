@@ -13,11 +13,17 @@ public class NameNLP {
     private List<String> urls;
     private String final_name;
 
-    public NameNLP(String orig_filename, String title, List<String> cer_urls) {
+    public NameNLP(String title, List<String> cer_urls) {
 
         info = new Vector(0);
         words = new ArrayList<>(0);
-        words.addAll(Arrays.asList(title.split("\\s")));
+
+        if (null != title) {
+            words.addAll(Arrays.asList(title.split("\\s")));
+        } else {
+            final_name = "";
+            return;
+        }
 
         urls = cer_urls;
         cermine_title = title;
@@ -71,8 +77,8 @@ public class NameNLP {
 
     private void dealFirstWord() {
         String firstWord = words.get(0);
-
-        if (Character.isLowerCase(firstWord.charAt(0))) {
+//        System.out.println("First word: " + firstWord);
+        if (firstWord.length() >= 1 && Character.isLowerCase(firstWord.charAt(0))) {
             return;
         }
 
@@ -200,41 +206,45 @@ public class NameNLP {
             phraseWords.addAll(Arrays.asList(phrase.split(" ")));
 
             for (int m = 0; m < phraseWords.size(); m++) {
-                String word = phraseWords.get(m);
-                //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
+                try {
+                    String word = phraseWords.get(m);
+                    //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
 
-                // get phrase before the : or -
-                if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
+                    // get phrase before the : or -
+                    if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
 
-                    String new_word = word.substring(0, word.length() - 1);
-                    ArrayList<String> new_phrase = new ArrayList<>();
+                        String new_word = word.substring(0, word.length() - 1);
+                        ArrayList<String> new_phrase = new ArrayList<>();
 
-                    for (int n = 0; n < m; n++) {
-                        new_phrase.add(phraseWords.get(n));
-                    }
-                    new_phrase.add(new_word);
-                    Vector element = new Vector(0);
+                        for (int n = 0; n < m; n++) {
+                            new_phrase.add(phraseWords.get(n));
+                        }
+                        new_phrase.add(new_word);
+                        Vector element = new Vector(0);
 
-                    String thePhrase = "";
-                    for (String ind_word : new_phrase) {
-                        thePhrase += ind_word + " ";
-                    }
-                    thePhrase = thePhrase.substring(0, thePhrase.length() - 1);
+                        String thePhrase = "";
+                        for (String ind_word : new_phrase) {
+                            thePhrase += ind_word + " ";
+                        }
+                        thePhrase = thePhrase.substring(0, thePhrase.length() - 1);
 
-                    element.addElement(thePhrase);
-                    element.addElement((int)((Vector)info.get(l)).get(1) + 200);
+                        element.addElement(thePhrase);
+                        element.addElement((int) ((Vector) info.get(l)).get(1) + 200);
 
-                    boolean isNew = true;
-                    for (int p = 0; p < info.size(); p++) {
-                        if (((Vector)(info.get(p))).get(0).equals(thePhrase)) {
-                            //System.out.println("Duplicate phrase detected: " + ((Vector)(info.get(p))).get(0) + "  ,  " + thePhrase);
-                            isNew = false;
-                            break;
+                        boolean isNew = true;
+                        for (int p = 0; p < info.size(); p++) {
+                            if (((Vector) (info.get(p))).get(0).equals(thePhrase)) {
+                                //System.out.println("Duplicate phrase detected: " + ((Vector)(info.get(p))).get(0) + "  ,  " + thePhrase);
+                                isNew = false;
+                                break;
+                            }
+                        }
+                        if (isNew) {
+                            info.addElement(element);
                         }
                     }
-                    if (isNew) {
-                        info.addElement(element);
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -339,17 +349,21 @@ public class NameNLP {
             int numWords = phraseWords.size();
 
             for (String word : phraseWords) {
-                for (int y = 0; y < word.length(); y++) {
-                    Character c = word.charAt(y);
-                    if (Character.isUpperCase(c)) {
-                        numCapitalNumbers += 1;
+                try {
+                    for (int y = 0; y < word.length(); y++) {
+                        Character c = word.charAt(y);
+                        if (Character.isUpperCase(c)) {
+                            numCapitalNumbers += 1;
+                        }
+                        if (c.equals('-') || c.equals('/')) {
+                            numHyphens += 1;
+                        }
                     }
-                    if (c.equals('-') || c.equals('/')) {
-                        numHyphens += 1;
+                    if (!Character.isUpperCase(word.charAt(0))) {
+                        firstLettersCapital = false;
                     }
-                }
-                if (!Character.isUpperCase(word.charAt(0))) {
-                    firstLettersCapital = false;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             int curr_confidence = (int)((Vector)(info.get(z))).get(1);

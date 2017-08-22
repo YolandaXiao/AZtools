@@ -17,7 +17,7 @@ public class Title {
     }
 
     private String extractTitle(JSONObject xmlJSONObj) {
-        String title = null;
+        String title = "";
         try {
             title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
         } catch (JSONException e) {
