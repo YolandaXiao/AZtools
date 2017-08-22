@@ -287,8 +287,18 @@ def get_all_labeled_sentences(percent_training, file_name):
     testing_sentences = total[thres:]
     return training_sentences, testing_sentences
 
-def svm_train(x, y):
+def svm_train_LinearSVC(x, y):
     lin_clf = svm.LinearSVC(C=C)
+    lin_clf.fit(x, y)
+    return lin_clf
+
+def svm_train_NuSVC(x, y):
+    lin_clf = svm.NuSVC(nu=0.5, kernel="rbf")
+    lin_clf.fit(x, y)
+    return lin_clf
+
+def svm_train_SVC(x, y):
+    lin_clf = svm.SVC(C=C, kernel="rbf")
     lin_clf.fit(x, y)
     return lin_clf
 
@@ -317,7 +327,8 @@ def train_and_test_on_main():
 
     total_num_sents = 0
     average_accuracy = 0
-    for i in range(100):
+    number_times_trained = 100
+    for i in range(number_times_trained):
         # structure data
 
         # if want to use 1st dataset for training (the same), use file name 'final_dataset.txt' and uncomment option 1
@@ -330,7 +341,7 @@ def train_and_test_on_main():
         for case in training_labeled_data:
             X.append(create_feature_vector_from_raw_sent(case[1], word_list))
             y.append(case[0])
-        model = svm_train(X, y)
+        model = svm_train_NuSVC(X, y)
         
         # test model
         X = []
@@ -343,7 +354,7 @@ def train_and_test_on_main():
         average_accuracy += acc
 
     print "--------------------------"
-    average_accuracy /= 100
+    average_accuracy /= number_times_trained
     print "Average Accuracy: " + str("%.2f" % round(average_accuracy,2)) + "%"
     print "C = " + str(C)
     print "Total sentences: " + str(total_num_sents) + "\n90% trained, 10% tested"
@@ -394,7 +405,7 @@ def create_model():
         X.append(create_feature_vector_from_raw_sent(case[1], word_list))
         y.append(case[0])
 
-    model = svm_train(X, y)
+    model = svm_train_LinearSVC(X, y)
     joblib.dump(model, MODEL_PKL) 
 
 def get_summary_from_abstract(word_list):
@@ -440,8 +451,11 @@ def get_summary_from_abstract(word_list):
 if __name__ == '__main__':
 
     # create_model()
+
     # apply_model_to_sentences()
-    # train_and_test_on_main()
-    word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
-    get_summary_from_abstract(word_list)
+
+    train_and_test_on_main()
+
+    # word_list = get_popular_words_from_sentences(get_sentences())#get_word_list()
+    # get_summary_from_abstract(word_list)
     
