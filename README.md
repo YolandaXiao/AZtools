@@ -18,7 +18,7 @@ $ `mvn spring-boot:run`
 
 Go to `localhost:8080`
 
-1. Upload PDFs of total size <= 100,000 KB
+1. Upload PDFs of total size <= 1 GB
 
 2. Click Submit
 
