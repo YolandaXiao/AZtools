@@ -10,7 +10,7 @@
 //    private static String stop_path = basic_java + "name/stop.txt";
 //    private static String mesh_path = basic_java + "name/mesh_terms.txt";
 //    private static String abs_summ_dir = basic_java + "summary/abs_to_summ/";
-//    private static String svm_lib_path = basic_java + "summary/lib.py";
+//    private static String svm_lib_path = basic_java + "summary/abstract_to_summary.py";
 //
 //    public static String get_en_path() {
 //        return en_path;

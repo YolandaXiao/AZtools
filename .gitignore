@@ -6,3 +6,4 @@ testing/name/*pdf*
 testing/pdfs
 .idea/*
 .metadata/*
+/.metadata/
