@@ -3,9 +3,6 @@ package extraction.date;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by yinxuexiao on 8/10/17.
- */
 public class Date {
 
     private int date;

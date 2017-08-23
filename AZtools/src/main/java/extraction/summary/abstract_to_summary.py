@@ -1,14 +1,20 @@
+import time
+
+print "Loading libraries..."
+start = time.time()
 import os
 import sys
 import time
-
 from nltk.tokenize import sent_tokenize, word_tokenize
 from sklearn import svm
 from sklearn.externals import joblib
+end = time.time()
+print "took", (end-start), "seconds"
 
 directory = str(os.path.abspath(__file__)).replace("\\\\", "\\")[:-1*len("abstract_to_summary.py")]
 WORD_LIST = directory + "complete_word_list.txt"
 MODEL_PKL = directory + "modl_ls.pkl"
+LABELED_SENTENCES_DIR = directory + "abs_to_summ"
 
 def get_word_list():
     output_words = []
@@ -29,75 +35,46 @@ def create_feature_vector_from_raw_sent(sentence, features):
             f_vector[index] = 1
     return f_vector
 
-# def create_fvs_from_sentences(sentence, features):
-#     f_vector = []
-#     for i in range(len(features)):
-#         f_vector.append(0)
-#     tok_words = word_tokenize(sentence)
-#     for word in tok_words:
-#         if word in features:
-#             index = features.index(word)
-#             f_vector[index] = 1
-#     return f_vector
-
 def svm_predict(lin_clf, test_sample):
     return lin_clf.predict([test_sample])
 
-
-start = time.time()
-
-if len(sys.argv) != 3:
-    print "Incorrect call to script.\nUsage: 'python abstract_to_summary.py file_name.pdf tool_name'"
-    sys.exit(1)
-
-# if len(sys.argv) != 3:
-#     print "Incorrect call to script.\nUsage: 'python abstract_to_summary.py paper_abstract tool_name'"
-#     sys.exit(1)
+def get_files():
+    list_files = []
+    for file in os.listdir(LABELED_SENTENCES_DIR):
+        if file.endswith(".txt"):
+            list_files.append(str(LABELED_SENTENCES_DIR) + "/" + str(file))
+    return list_files
 
 word_list = get_word_list()
 model = joblib.load(MODEL_PKL)
-summary = ""
 
-filename = sys.argv[1]
-tool_name = sys.argv[2]
+while (True):
+    print "Looking for new abstracts to process..."
+    list_filenames = get_files()
+    for filename in list_filenames:
+        a_index = filename.find("_abstract.txt")
+        if a_index >= 0:
+            s_filename = filename[:a_index] + "_summary.txt"
+            if s_filename not in list_filenames:
+                summary = ""
+                print "Found unsummarized abstract in", filename
+                with open(filename, "rb") as input_file, open(s_filename, "w+") as output_filename:
+                    data = input_file.readlines()
+                    tool_name = data[1]
+                    paragraph = data[0]
+                    sentences = sent_tokenize(paragraph)
+                    for sent in sentences:
+                        fv = create_feature_vector_from_raw_sent(sent, word_list)
+                        if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
+                            summary = summary + sent + " "
+                    summary = summary[:-1]
+                    output_filename.write(summary)
+                print "Summarized", filename
+            else:
+                continue # summary file exists
+        else:
+            continue # looking at a summary file
+    # end for
+    time.sleep(0.5)
 
-input_filename = directory + "/abs_to_summ/" + filename + "_abstract.txt"
-output_filename = directory + "/abs_to_summ/" + filename + "_summary.txt"
-
-mid1 = time.time()
-print "start to mid1", mid1-start
-
-with open(input_filename, "rb") as input_file, open(output_filename, "w+") as output_filename:
-    mid2 = time.time()
-    paragraph = input_file.readlines()[0]
-    mid25 = time.time()
-    sentences = sent_tokenize(paragraph)
-    mid3 = time.time()
-    print ": mid2 to 25", mid25-mid2    
-    print ": mid2 to 3", mid3-mid2
-    for sent in sentences:
-        mid4 = time.time()
-        fv = create_feature_vector_from_raw_sent(sent, word_list)
-        mid5 = time.time()
-        print ":: mid4 to 5", mid5-mid4
-        if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
-            summary = summary + sent + " "
-        mid6 = time.time()
-        print ":: mid5 to 6", mid6-mid5
-    mid7 = time.time()
-    print ": mid3 to 7", mid7-mid3
-    summary = summary[:-1]
-    output_filename.write(summary)
-    mid8 = time.time()
-    print ": mid7 to 8", mid8-mid7
-
-end = time.time()
-print "mid1 to end", end-mid1
-print "start to end", end-start
-# sentences = sent_tokenize(sys.argv[1])
-# for sent in sentences:
-#     fv = create_feature_vector_from_raw_sent(sent, word_list)
-#     if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
-#         summary = summary + sent + " "
-# summary = summary[:-1]
-# print summary
+# will never get here

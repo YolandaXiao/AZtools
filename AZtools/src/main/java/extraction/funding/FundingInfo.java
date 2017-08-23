@@ -1,8 +1,5 @@
 package extraction.funding;
 
-/**
- * Created by yinxuexiao on 8/9/17.
- */
 public class FundingInfo {
     public String agency;
     public String license;

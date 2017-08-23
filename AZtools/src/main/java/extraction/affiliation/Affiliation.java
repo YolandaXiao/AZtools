@@ -7,9 +7,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by yinxuexiao on 8/10/17.
- */
 public class Affiliation {
 
     private List<String> affiliation;

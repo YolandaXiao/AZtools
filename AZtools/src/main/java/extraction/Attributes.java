@@ -129,10 +129,10 @@ public class Attributes {
 //        System.out.println(doi_end.getTimeInMillis() - doi_start.getTimeInMillis());
 //        System.out.println("Time date: ");
 //        System.out.println(date_end.getTimeInMillis() - date_start.getTimeInMillis());
-        System.out.println("Time funding: ");
-        System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
-        System.out.println("Time url: ");
-        System.out.println(url_end.getTimeInMillis() - url_start.getTimeInMillis());
+//        System.out.println("Time funding: ");
+//        System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
+//        System.out.println("Time url: ");
+//        System.out.println(url_end.getTimeInMillis() - url_start.getTimeInMillis());
         System.out.println("Time name: ");
         System.out.println(name_end.getTimeInMillis() - name_start.getTimeInMillis());
 //        System.out.println("Time abstract: ");

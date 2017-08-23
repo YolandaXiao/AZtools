@@ -11,9 +11,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by yinxuexiao on 8/9/17.
- */
 public class Funding {
     private List<FundingInfo> funding;
 
@@ -78,7 +75,6 @@ public class Funding {
 
         //get agency dictionary
         ArrayList<String> agency_dic = getAgencyDic();
-
 
         Calendar ner1_start = Calendar.getInstance();
 

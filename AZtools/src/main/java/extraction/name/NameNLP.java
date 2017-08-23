@@ -77,7 +77,6 @@ public class NameNLP {
 
     private void dealFirstWord() {
         String firstWord = words.get(0);
-//        System.out.println("First word: " + firstWord);
         if (firstWord.length() >= 1 && Character.isLowerCase(firstWord.charAt(0))) {
             return;
         }
@@ -125,8 +124,6 @@ public class NameNLP {
             }
 
             String repoName = url.substring(startPos, endPos);
-//            System.out.println("Found tool name from GitHub");
-
             Vector element = new Vector(0);
             element.addElement(repoName);
             element.addElement(90); // confidence
@@ -150,7 +147,6 @@ public class NameNLP {
             }
 
             bufferedReader.close();
-            //System.out.println("Found file '" + stop_file_path + "'");
         } catch (FileNotFoundException ex) {
             System.out.println("Unable to open file '" + stop_file_path + "'");
         } catch (IOException ex) {
@@ -211,7 +207,7 @@ public class NameNLP {
                     //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
 
                     // get phrase before the : or -
-                    if (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
+                    if (word.length() >= 1 && word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
 
                         String new_word = word.substring(0, word.length() - 1);
                         ArrayList<String> new_phrase = new ArrayList<>();
@@ -263,8 +259,6 @@ public class NameNLP {
         ArrayList<String> mesh_list = new ArrayList<>();
         ArrayList<String> words_list = new ArrayList<>();
 
-//        Calendar start_time = Calendar.getInstance();
-
         try {
             FileReader fileReader = new FileReader(mesh_file_path);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -277,10 +271,6 @@ public class NameNLP {
         } catch (IOException ex) {
             System.out.println("Error reading file '" + mesh_file_path + "'");
         }
-
-//        Calendar mid_time = Calendar.getInstance();
-//        long time_taken = mid_time.getTimeInMillis() - start_time.getTimeInMillis();
-//        System.out.println("start -> mid takes " + time_taken);
 
         try {
             FileReader fileReader = new FileReader(en_file_path);
@@ -295,13 +285,7 @@ public class NameNLP {
             System.out.println("Error reading file '" + en_file_path + "'");
         }
 
-//        Calendar middle_time = Calendar.getInstance();
-//        time_taken = middle_time.getTimeInMillis() - mid_time.getTimeInMillis();
-//        System.out.println("mid -> middle takes " + time_taken);
-
         for (int m = 0; m < info.size(); m++) {
-
-//            Calendar inner_start_time = Calendar.getInstance();
 
             ArrayList<String> phraseWords = new ArrayList<>();
             String phrase = (String)(((Vector)info.get(m)).get(0));
@@ -324,15 +308,7 @@ public class NameNLP {
                     ((Vector) info.get(m)).set(1, currentConfidence - 10);
                 }
             }
-
-//            Calendar inner_end_time = Calendar.getInstance();
-//            time_taken = inner_end_time.getTimeInMillis() - inner_start_time.getTimeInMillis();
-//            System.out.println("inner_start -> inner_end takes " + time_taken);
         }
-
-//        Calendar end_time = Calendar.getInstance();
-//        time_taken = end_time.getTimeInMillis() - middle_time.getTimeInMillis();
-//        System.out.println("middle_time -> end takes " + time_taken);
     }
 
     private void dealUniqueChar() {
@@ -359,7 +335,7 @@ public class NameNLP {
                             numHyphens += 1;
                         }
                     }
-                    if (!Character.isUpperCase(word.charAt(0))) {
+                    if (word.length() >= 1 && !Character.isUpperCase(word.charAt(0))) {
                         firstLettersCapital = false;
                     }
                 } catch (Exception e) {

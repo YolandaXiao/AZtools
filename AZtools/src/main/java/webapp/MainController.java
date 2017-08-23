@@ -124,9 +124,9 @@ public class MainController {
             clock_end = Calendar.getInstance();
 
             metadata.put("number_of_pdfs", files.size());
-            metadata.put("total_time (ms)", (clock_end.getTimeInMillis() - clock_start.getTimeInMillis()));
-            metadata.put("cermine_time total (ms)", total_time);
-            metadata.put("refining_time total (ms)", refine_total);
+            metadata.put("total time (ms)", (clock_end.getTimeInMillis() - clock_start.getTimeInMillis()));
+            metadata.put("total cermine_time (ms)", total_time);
+            metadata.put("total refining_time (ms)", refine_total);
 
             String metadata_string = metadata.toString();
             String data_string = data.toString().replace("abstrakt", "abstract");
