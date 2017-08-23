@@ -49,32 +49,35 @@ word_list = get_word_list()
 model = joblib.load(MODEL_PKL)
 
 while (True):
-    print "Looking for new abstracts to process..."
-    list_filenames = get_files()
-    for filename in list_filenames:
-        a_index = filename.find("_abstract.txt")
-        if a_index >= 0:
-            s_filename = filename[:a_index] + "_summary.txt"
-            if s_filename not in list_filenames:
-                summary = ""
-                print "Found unsummarized abstract in", filename
-                with open(filename, "rb") as input_file, open(s_filename, "w+") as output_filename:
-                    data = input_file.readlines()
-                    tool_name = data[1]
-                    paragraph = data[0]
-                    sentences = sent_tokenize(paragraph)
-                    for sent in sentences:
-                        fv = create_feature_vector_from_raw_sent(sent, word_list)
-                        if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
-                            summary = summary + sent + " "
-                    summary = summary[:-1]
-                    output_filename.write(summary)
-                print "Summarized", filename
+    try:
+        print "Looking for new abstracts to process..."
+        list_filenames = get_files()
+        for filename in list_filenames:
+            a_index = filename.find("_abstract.txt")
+            if a_index >= 0:
+                s_filename = filename[:a_index] + "_summary.txt"
+                if s_filename not in list_filenames:
+                    summary = ""
+                    print "Found unsummarized abstract in", filename
+                    with open(filename, "rb") as input_file, open(s_filename, "w+") as output_filename:
+                        data = input_file.readlines()
+                        tool_name = data[1]
+                        paragraph = data[0]
+                        sentences = sent_tokenize(paragraph.encode('utf-8'))
+                        for sent in sentences:
+                            fv = create_feature_vector_from_raw_sent(sent, word_list)
+                            if int(svm_predict(model, fv)[0]) == 0 or tool_name.lower() in sent.lower():
+                                summary = summary + sent + " "
+                        summary = summary[:-1]
+                        output_filename.write(summary)
+                    print "Summarized", filename
+                else:
+                    continue # summary file exists
             else:
-                continue # summary file exists
-        else:
-            continue # looking at a summary file
-    # end for
-    time.sleep(0.5)
-
+                continue # looking at a summary file
+        # end for
+        time.sleep(0.5)
+    except Exception as ex:
+        print "Error"
+        continue
 # will never get here
