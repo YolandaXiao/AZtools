@@ -17,6 +17,8 @@ import org.json.XML;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Attributes {
     private final String title;
@@ -30,6 +32,7 @@ public class Attributes {
     private final int date;
     private final List<String> URL;
     private final List<FundingInfo> funding;
+//    private final String funding_section;
     private final List<String> programming_lang;
 
     // ------------------------------------------------------------- //
@@ -80,6 +83,8 @@ public class Attributes {
         Funding f = new Funding(nlm);
         this.funding = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
+
+//        this.funding_section = extractFundingSection(nlm);
 
         Calendar url_start = Calendar.getInstance();
         Url url_link = new Url(xmlJSONObj, filename);
@@ -186,6 +191,8 @@ public class Attributes {
     }
 
     public List<FundingInfo> getFunding() { return funding; }
+
+//    public String getFunding_section(){return funding_section;}
 
     public List<String> getProgramming_lang(){
         return programming_lang;
