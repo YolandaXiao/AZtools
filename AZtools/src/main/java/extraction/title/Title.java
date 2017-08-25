@@ -16,7 +16,10 @@ public class Title {
     private String extractTitle(JSONObject xmlJSONObj) {
         String title = "";
         try {
-            title = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("title-group").getString("article-title");
+            JSONObject article = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+            if(article.has("title-group")){
+                title = article.getJSONObject("title-group").getString("article-title");
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

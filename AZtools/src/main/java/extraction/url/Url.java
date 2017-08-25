@@ -25,6 +25,7 @@ public class Url {
     private List<String> extractURL(JSONObject xmlJSONObj, String name) {
         ArrayList<String> all_links= new ArrayList<>();
         ArrayList<String> good_links= new ArrayList<>();
+        name = name.split(".pdf")[0];
 
         String line = xmlJSONObj.toString();
         String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
@@ -35,13 +36,12 @@ public class Url {
 //            System.out.println("all_links "+link);
             all_links.add(link);
             String lowercase_link = link.toLowerCase();
-            name = name.split(".pdf")[0];
             if(lowercase_link.contains(name.toLowerCase()) && !good_links.contains(link)){
-//                System.out.println("good_links "+link);
+                System.out.println("good_links1 "+link);
                 good_links.add(link);
             }
-            if(link.contains("github") || link.contains("sourceforge") || link.contains("bioconductor")){
-//                System.out.println("good_links "+link);
+            if((link.contains("github") || link.contains("sourceforge") || link.contains("bioconductor") || link.contains("bitbucket")) && !good_links.contains(link)){
+                System.out.println("good_links2 "+link);
                 good_links.add(link);
             }
         }

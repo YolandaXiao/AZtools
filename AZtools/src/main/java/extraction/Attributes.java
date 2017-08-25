@@ -22,8 +22,8 @@ import java.util.regex.Pattern;
 
 public class Attributes {
     private final String title;
-    private final String name;
-    private final String summary;
+//    private final String name;
+//    private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
     private final String abstrakt;
@@ -94,27 +94,27 @@ public class Attributes {
         }
         Calendar url_end = Calendar.getInstance();
 
-//        System.out.println("Searching '" + filename + "' for tool's name...");
-        Calendar name_start = Calendar.getInstance();
-        NameNLP obj = new NameNLP(title, URL);
-        this.name = obj.getName().trim();
-        Calendar name_end = Calendar.getInstance();
-//        System.out.println("Found name: '" + name + "'");
+////        System.out.println("Searching '" + filename + "' for tool's name...");
+//        Calendar name_start = Calendar.getInstance();
+//        NameNLP obj = new NameNLP(title, URL);
+//        this.name = obj.getName().trim();
+//        Calendar name_end = Calendar.getInstance();
+////        System.out.println("Found name: '" + name + "'");
 
         Calendar abstract_start = Calendar.getInstance();
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
         Calendar abstract_end = Calendar.getInstance();
 
-        Calendar summary_start = Calendar.getInstance();
-        //summary must necessarily come after abstract
-//        System.out.println("Finding summary of tool...");
-        Summary summ = new Summary(abstrakt, filename, name);
-        this.summary = summ.getSummary();
-//        System.out.println("Done with summary");
-        Calendar summary_end = Calendar.getInstance();
+//        Calendar summary_start = Calendar.getInstance();
+//        //summary must necessarily come after abstract
+////        System.out.println("Finding summary of tool...");
+//        Summary summ = new Summary(abstrakt, filename, name);
+//        this.summary = summ.getSummary();
+////        System.out.println("Done with summary");
+//        Calendar summary_end = Calendar.getInstance();
 
         Calendar lang_start = Calendar.getInstance();
-        Language lan = new Language(xmlJSONObj, name);
+        Language lan = new Language(xmlJSONObj, filename);
         this.programming_lang = lan.getLanguage();
         for (int i = 0; i < this.programming_lang.size(); i++) {
             this.programming_lang.set(i, this.programming_lang.get(i).trim());
@@ -138,12 +138,12 @@ public class Attributes {
 //        System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
 //        System.out.println("Time url: ");
 //        System.out.println(url_end.getTimeInMillis() - url_start.getTimeInMillis());
-        System.out.println("Time name: ");
-        System.out.println(name_end.getTimeInMillis() - name_start.getTimeInMillis());
+//        System.out.println("Time name: ");
+//        System.out.println(name_end.getTimeInMillis() - name_start.getTimeInMillis());
 //        System.out.println("Time abstract: ");
 //        System.out.println(abstract_end.getTimeInMillis() - abstract_start.getTimeInMillis());
-        System.out.println("Time summary: ");
-        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
+//        System.out.println("Time summary: ");
+//        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
         System.out.println("Time language: ");
         System.out.println(lang_end.getTimeInMillis() - lang_start.getTimeInMillis());
     }
@@ -154,13 +154,12 @@ public class Attributes {
         return title;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//    public String getSummary() {
+//        return summary;
+//    }
 
     public List<String> getAuthor(){
         return author;

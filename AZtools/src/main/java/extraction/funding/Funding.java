@@ -89,7 +89,7 @@ public class Funding {
         if(funding_section=="None"){
             return arrayList;
         }
-        System.out.println(funding_section);
+//        System.out.println(funding_section);
 //        funding_section = funding_section.toLowerCase();
         String pattern2 = "([/\\[]*\\w+[-/]*\\w+[-/\\]]*)";
         Pattern r2 = Pattern.compile(pattern2);
@@ -97,14 +97,13 @@ public class Funding {
         ArrayList<String> words = new ArrayList<>();
         while (m2.find( )) {
             String word = m2.group();
-            System.out.println(word);
             words.add(word);
         }
         //iterate through each word
         for(int i=0;i<words.size();i++){
             String word = words.get(i);
             String word_lowercase = word.toLowerCase();
-            System.out.println("word1:"+word);
+//            System.out.println("word1:"+word);
             int count = i;
             JSONObject result2 = result;
             //exclude extreme cases:
@@ -118,7 +117,7 @@ public class Funding {
             if(word_lowercase.equals("us")){
                 continue;
             }
-            System.out.println("word2:"+word);
+//            System.out.println("word2:"+word);
             //for each word, find possible agency name by going through words after it
             while(result2.has(word_lowercase) || result2.has("$value")){
                 //if it has an output result value
@@ -156,17 +155,17 @@ public class Funding {
                 }
                 //keep iterating
                 else{
-                    System.out.println("word: "+word_lowercase);
+//                    System.out.println("word: "+word_lowercase);
                     count++;
                     if(count<words.size()){
                         result2 = result2.getJSONObject(word_lowercase);
-                        System.out.println("hi: "+result2);
+//                        System.out.println("hi: "+result2);
                         word = words.get(count);
                         word_lowercase = word.toLowerCase();
                     }
                     if(count==words.size()){
                         result2 = result2.getJSONObject(word_lowercase);
-                        System.out.println("hi: "+result2);
+//                        System.out.println("hi: "+result2);
                     }
                 }
             }
