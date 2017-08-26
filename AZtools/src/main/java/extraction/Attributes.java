@@ -1,5 +1,6 @@
 package extraction;
 
+import extraction.abstrakt.Abstract;
 import extraction.affiliation.Affiliation;
 import extraction.author.Author;
 import extraction.contact.Contact;
@@ -29,7 +30,7 @@ public class Attributes {
     private final String abstrakt;
     private final List<String> contact;
     private final String doi;
-    private final int date;
+    private final String date;
     private final List<String> URL;
     private final List<FundingInfo> funding;
 //    private final String funding_section;
@@ -37,7 +38,7 @@ public class Attributes {
 
     // ------------------------------------------------------------- //
 
-    public Attributes(String nlm, String filename) throws Exception {
+    public Attributes(String nlm, String filename, int num) throws Exception {
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
 
         Calendar title_start = Calendar.getInstance();
@@ -46,7 +47,7 @@ public class Attributes {
         Calendar title_end = Calendar.getInstance();
 
         Calendar author_start = Calendar.getInstance();
-        Author au = new Author(xmlJSONObj);
+        Author au = new Author(xmlJSONObj,num);
         this.author = au.getAuthor();
         for (int i = 0; i < this.author.size(); i++) {
             this.author.set(i, this.author.get(i).trim());
@@ -54,7 +55,7 @@ public class Attributes {
         Calendar author_end = Calendar.getInstance();
 
         Calendar aff_start = Calendar.getInstance();
-        Affiliation aff = new Affiliation(xmlJSONObj);
+        Affiliation aff = new Affiliation(xmlJSONObj,num);
         this.affiliation = aff.getAffiliation();
         for (int i = 0; i < this.affiliation.size(); i++) {
             this.affiliation.set(i, this.affiliation.get(i).trim());
@@ -70,12 +71,12 @@ public class Attributes {
         Calendar contact_end = Calendar.getInstance();
 
         Calendar doi_start = Calendar.getInstance();
-        DOI d2 = new DOI(xmlJSONObj);
+        DOI d2 = new DOI(xmlJSONObj, num);
         this.doi = d2.getDoi();
         Calendar doi_end = Calendar.getInstance();
 
         Calendar date_start = Calendar.getInstance();
-        Date d = new Date(xmlJSONObj);
+        Date d = new Date(xmlJSONObj,num);
         this.date = d.getDate();
         Calendar date_end = Calendar.getInstance();
 
@@ -102,7 +103,8 @@ public class Attributes {
 ////        System.out.println("Found name: '" + name + "'");
 
         Calendar abstract_start = Calendar.getInstance();
-        this.abstrakt = extractAbstract(xmlJSONObj).trim();
+        Abstract a = new Abstract(xmlJSONObj,num);
+        this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
 //        Calendar summary_start = Calendar.getInstance();
@@ -181,7 +183,7 @@ public class Attributes {
         return doi;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -199,15 +201,6 @@ public class Attributes {
 
     // ----------------------------------------------------------- //
 
-    private String extractAbstract(JSONObject xmlJSONObj) {
-        String abstrakt = "";
-        try {
-            abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return abstrakt;
-    }
 
     public void printFunding() {
         for(int i=0; i<funding.size(); i++){

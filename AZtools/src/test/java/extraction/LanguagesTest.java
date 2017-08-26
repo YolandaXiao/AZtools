@@ -68,7 +68,7 @@ public class LanguagesTest {
         String[] arr = test_pdf.split("/");
         String filename = arr[arr.length-1];
         System.out.println("file_name: "+filename);
-        Attributes attr = new Attributes(nlm, filename);
+        Attributes attr = new Attributes(nlm, filename,0);
         String doi = attr.getDOI();
         System.out.println("doi: "+doi);
         List<String> lang = attr.getProgramming_lang();

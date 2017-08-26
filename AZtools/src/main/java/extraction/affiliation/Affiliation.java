@@ -13,11 +13,17 @@ public class Affiliation {
 
     public List<String> getAffiliation() {  return affiliation; }
 
-    public Affiliation(JSONObject xmlJSONObj) throws Exception {
-        this.affiliation = extractAffiliation(xmlJSONObj);
+    public Affiliation(JSONObject xmlJSONObj, int num) throws Exception {
+        if(num==0){
+            this.affiliation = extractAffiliation_fromCermineXML(xmlJSONObj);
+        }
+        else{
+            this.affiliation = extractAffiliation_fromPMCXML(xmlJSONObj);
+        }
+
     }
 
-    private List<String> extractAffiliation(JSONObject xmlJSONObj) {
+    private List<String> extractAffiliation_fromCermineXML(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist = new ArrayList<String>();
         JSONObject group = null;
         try {
@@ -76,6 +82,27 @@ public class Affiliation {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                }
+            }
+        }
+        return arraylist;
+    }
+
+    private List<String> extractAffiliation_fromPMCXML(JSONObject xmlJSONObj) {
+        ArrayList<String> arraylist = new ArrayList<String>();
+        JSONObject group = null;
+        try {
+            group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (group.has("aff")) {
+            JSONArray affiliations = group.getJSONObject("aff").getJSONArray("content");
+            for(int i=0;i<affiliations.length();i++)
+            {
+                String result = affiliations.getString(i);
+                if(!arraylist.contains(result)){
+                    arraylist.add(result);
                 }
             }
         }

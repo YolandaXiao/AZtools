@@ -34,7 +34,7 @@ public class FundingTest {
         String nlm = new XMLOutputter().outputString(testContent);
         String[] arr = TEST_PDF.split("/");
         String filename = arr[arr.length-1];
-        Attributes attr = new Attributes(nlm, filename);
+        Attributes attr = new Attributes(nlm, filename,0);
         attr.printFunding();
     }
 

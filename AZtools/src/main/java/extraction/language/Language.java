@@ -168,10 +168,10 @@ public class Language {
             System.out.println(name);
             String[] arr = name.split("/");
             if(arr.length>=3){
-                name = arr[1];
+                name = "/"+arr[1];
             }
             System.out.println(name);
-            String access_link = "https://sourceforge.net/rest/p/"+name;
+            String access_link = "https://sourceforge.net/rest/p"+name;
             System.out.println(access_link);
             System.setProperty("https.protocols", "TLSv1");
             JSONObject github_page = readJsonFromUrl(access_link);
