@@ -33,8 +33,10 @@ public class Url {
         Matcher m = r.matcher(line);
         while (m.find( )) {
             String link = m.group();
-//            System.out.println("all_links "+link);
-            all_links.add(link);
+            if(!link.contains("w3") && !link.contains("creativecommons")){
+                System.out.println("all_links "+link);
+                all_links.add(link);
+            }
             String lowercase_link = link.toLowerCase();
             if(lowercase_link.contains(name.toLowerCase()) && !good_links.contains(link)){
                 System.out.println("good_links1 "+link);
@@ -46,7 +48,15 @@ public class Url {
             }
         }
         if(good_links.isEmpty() && all_links.size()>1)
-            good_links.add(all_links.get(1));
+        {
+            for(int i=0;i<all_links.size();i++){
+                if(!all_links.get(i).contains("w3") && !all_links.get(i).contains("niso") && !all_links.get(i).contains("creativecommons")){
+                    good_links.add(all_links.get(i));
+                    break;
+                }
+            }
+        }
+
         return good_links;
     }
 }

@@ -47,14 +47,40 @@ public class Date {
             e.printStackTrace();
         }
         if (value.has("pub-date")) {
-            JSONArray list = value.getJSONArray("pub-date");
-            for(int i=0;i<list.length();i++){
-                JSONObject entry = list.getJSONObject(i);
-                if(entry.getString("pub-type").equals("pmc-release")){
-                    String month = Integer.toString(entry.getInt("month"));
-                    String year = Integer.toString(entry.getInt("year"));
-                    String day = Integer.toString(entry.getInt("day"));
-                    String date = month+"/"+day+"/"+year;
+            Object item = null;
+            try {
+                item = value.get("pub-date");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (item instanceof JSONObject){
+                JSONObject entry = (JSONObject) item;
+                String month = "";
+                String day = "";
+                String year = "";
+                if(entry.has("month"))
+                    month = Integer.toString(entry.getInt("month"))+"/";
+                if(entry.has("day"))
+                    day = Integer.toString(entry.getInt("day"))+"/";
+                if(entry.has("year"))
+                    year = Integer.toString(entry.getInt("year"));
+                String date = month+day+year;
+                return date;
+            }
+            else if (item instanceof JSONArray){
+                JSONArray list = (JSONArray) item;
+                for(int i=0;i<list.length();i++){
+                    JSONObject entry = list.getJSONObject(i);
+                    String month = "";
+                    String day = "";
+                    String year = "";
+                    if(entry.has("month"))
+                        month = Integer.toString(entry.getInt("month"))+"/";
+                    if(entry.has("day"))
+                        day = Integer.toString(entry.getInt("day"))+"/";
+                    if(entry.has("year"))
+                        year = Integer.toString(entry.getInt("year"));
+                    String date = month+day+year;
                     return date;
                 }
             }

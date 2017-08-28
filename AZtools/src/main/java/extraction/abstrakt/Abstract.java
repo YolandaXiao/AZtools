@@ -36,16 +36,31 @@ public class Abstract {
     private String extractAbstract_fromPMCXML(JSONObject xmlJSONObj) {
         String abstrakt = "";
         try {
-            JSONArray abstract_arr = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getJSONArray("p");
-            for(int i=0;i<abstract_arr.length();i++){
+            JSONObject section = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+            if(section.has("abstract")){
+                JSONObject group = section.getJSONObject("abstract");
                 Object item = null;
                 try {
-                    item = abstract_arr.get(i);
+                    item = group.get("p");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 if (item instanceof String){
                     abstrakt += (String) item;
+                }
+                else if (item instanceof JSONArray){
+                    JSONArray abstract_arr = (JSONArray) item;
+                    for(int i=0;i<abstract_arr.length();i++){
+                        Object item2 = null;
+                        try {
+                            item2 = abstract_arr.get(i);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        if (item2 instanceof String){
+                            abstrakt += (String) item2;
+                        }
+                    }
                 }
             }
         } catch (Exception e) {

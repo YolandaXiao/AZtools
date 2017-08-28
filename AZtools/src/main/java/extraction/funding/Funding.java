@@ -6,7 +6,9 @@ import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.commons.io.IOUtils;
 import org.bouncycastle.util.test.Test;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,8 +22,15 @@ public class Funding {
 
     public List<FundingInfo> getFunding() {  return funding; }
 
-    public Funding(String nlm) throws Exception {
-        this.funding = extractFunding(nlm);
+    public Funding(String nlm, int num) throws Exception {
+        String funding_section = extractFundingSection(nlm);
+        if(num==0){
+            this.funding = extractFunding_fromCermineXML(nlm,funding_section);
+        }
+        else{
+            this.funding = extractFunding_fromPMCXML(nlm);
+        }
+
     }
 
     //extract funding section from xlm
@@ -74,7 +83,7 @@ public class Funding {
         return agency_dic;
     }
 
-    private List<FundingInfo> extractFunding(String nlm) throws Exception {
+    private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
 
         //check each character in json file
@@ -85,7 +94,7 @@ public class Funding {
         JSONObject result = new JSONObject(jsonTxt);
 
         //run NER on the entire paragraph again to get agencies without grant number
-        String funding_section = extractFundingSection(nlm);
+//        String funding_section = extractFundingSection(nlm);
         if(funding_section=="None"){
             return arrayList;
         }
@@ -169,6 +178,96 @@ public class Funding {
                     }
                 }
             }
+        }
+
+        return arrayList;
+    }
+
+
+    private List<FundingInfo> extractFunding_fromPMCXML(String nlm) throws Exception {
+        ArrayList<FundingInfo> arrayList= new ArrayList<>();
+
+        //agency only
+        String pattern = "<funding-source>.*?<\\/funding-source>";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(nlm);
+        while (m.find( )) {
+            String agency = m.group().split("<funding-source>")[1];
+            agency = agency.split("</funding-source>")[0];
+            FundingInfo fi = new FundingInfo();
+            fi.setAgency(agency);
+            arrayList.add(fi);
+        }
+        if(!arrayList.isEmpty()){
+            return arrayList;
+        }
+
+        //if hte section is only a paragraph
+        JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+        JSONObject back = null;
+        try {
+            back = xmlJSONObj.getJSONObject("article").getJSONObject("back");
+            System.out.println("back: "+back);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if(back.has("sec")){
+            System.out.println("back has sec");
+            JSONObject group = back.getJSONObject("sec");
+            Object item = null;
+            try {
+                item = group.get("p");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (item instanceof String){
+                String p = (String) item;
+                System.out.println("funding_paragraph: "+p);
+                return extractFunding_fromCermineXML(nlm,p);
+            }
+            else if (item instanceof JSONArray){
+                System.out.println("p is JSONArray");
+                JSONArray arr = (JSONArray) item;
+                JSONObject p = (JSONObject) arr.get(0);
+            }
+            else if (item instanceof JSONObject){
+                System.out.println("p is JSONObject");
+            }
+//            if(sec.has("title")){
+//                String title = sec.getString("title");
+//                if(title.equals("Funding")){
+//                    JSONObject p = (JSONObject) sec.getJSONArray("p").get(0);
+//                }
+//            }
+        }
+        else if(back.has("ack")){
+            System.out.println("back has ack");
+            JSONObject group = back.getJSONObject("ack");
+            Object item = null;
+            try {
+                item = group.get("p");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (item instanceof String){
+                String p = (String) item;
+                System.out.println("funding_paragraph: "+p);
+                return extractFunding_fromCermineXML(nlm,p);
+            }
+            else if (item instanceof JSONArray){
+                System.out.println("p is JSONArray");
+                JSONArray arr = (JSONArray) item;
+                JSONObject p = (JSONObject) arr.get(0);
+            }
+            else if (item instanceof JSONObject){
+                System.out.println("p is JSONObject");
+            }
+//            if(sec.has("title")){
+//                String title = sec.getString("title");
+//                if(title.equals("Funding")){
+//                    JSONObject p = (JSONObject) sec.getJSONArray("p").get(0);
+//                }
+//            }
         }
 
         return arrayList;

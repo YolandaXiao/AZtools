@@ -191,8 +191,8 @@ public class MainController {
         html_withoutref = html_withoutref.replaceAll("<\\/?italic>","");
 
         //xml to json
-//        JSONObject xmlJSONObj = XML.toJSONObject(html_withoutref);
-//        String return_value = xmlJSONObj.toString();
+        JSONObject xmlJSONObj = XML.toJSONObject(html_withoutref);
+        String return_value = xmlJSONObj.toString();
 
         //
         ObjectMapper mapper = new ObjectMapper();

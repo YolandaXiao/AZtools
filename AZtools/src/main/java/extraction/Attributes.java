@@ -63,7 +63,7 @@ public class Attributes {
         Calendar aff_end = Calendar.getInstance();
 
         Calendar contact_start = Calendar.getInstance();
-        Contact con = new Contact(xmlJSONObj);
+        Contact con = new Contact(nlm,num);
         this.contact = con.getContact();
         for (int i = 0; i < this.contact.size(); i++) {
             this.contact.set(i, this.contact.get(i).trim());
@@ -81,7 +81,7 @@ public class Attributes {
         Calendar date_end = Calendar.getInstance();
 
         Calendar funding_start = Calendar.getInstance();
-        Funding f = new Funding(nlm);
+        Funding f = new Funding(nlm,num);
         this.funding = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
 
