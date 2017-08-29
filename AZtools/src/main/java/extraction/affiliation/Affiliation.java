@@ -109,13 +109,24 @@ public class Affiliation {
             }
             if (item2 instanceof JSONObject){
                 JSONObject aff = (JSONObject) item2;
-                JSONArray affiliations = aff.getJSONArray("content");
-                for(int i=0;i<affiliations.length();i++)
-                {
-                    String result = affiliations.getString(i);
-                    System.out.println("result: "+result);
-                    if(!arraylist.contains(result)){
-                        arraylist.add(result);
+                Object item = null;
+                try {
+                    item = aff.get("content");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (item instanceof String){
+                    arraylist.add((String) item);
+                }
+                else if (item instanceof JSONArray){
+                    JSONArray affiliations = (JSONArray) item;
+                    for(int i=0;i<affiliations.length();i++)
+                    {
+                        String result = affiliations.getString(i);
+                        System.out.println("result: "+result);
+                        if(!arraylist.contains(result)){
+                            arraylist.add(result);
+                        }
                     }
                 }
             }

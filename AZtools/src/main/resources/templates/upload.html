@@ -33,7 +33,7 @@
         font-size: 25px;
     }
 
-    #upload_button, .button, input_field {
+    #upload_button, .button{
         border-radius: 4px;
         background-color: #e7e7e7;
         border: none;
@@ -47,6 +47,27 @@
         font-weight: 200;
         font-family: 'Raleway', sans-serif;
     }
+
+    /*#table{*/
+        /*background-color: white;*/
+        /*border-radius: 4px;*/
+        /*width: 360px;*/
+        /*height: 300px;*/
+    /*}*/
+
+    /*#input_field {*/
+        /*border-radius: 4px;*/
+        /*background-color: #e7e7e7;*/
+        /*border: none;*/
+        /*color: #161719;*/
+        /*text-align: center;*/
+        /*font-size: 15px;*/
+        /*padding: 10px;*/
+        /*width: 300px;*/
+        /*height: 40px;*/
+        /*font-weight: 200;*/
+        /*font-family: 'Raleway', sans-serif;*/
+    /*}*/
 
     #webapp-message {
         display: table;
@@ -78,35 +99,38 @@
 <div id="heading">AZtools</div>
 <div id="directions">Upload any number of PDFs<br/>Max total size: 1 GB</div>
 
-<div id="table">
-    <table>
-        <form method="POST" enctype="multipart/form-data" action="/">
+<div >
+    <table align="center">
+        <form id="form1" method="POST" enctype="multipart/form-data" action="/" >
             <tr>
                 <p><button id="upload_button" name="file">Browse PDFs</button></p>
                 <p><input id="upload_input" accept="application/pdf" name="file" type="file" multiple=""/></p>
             </tr>
-            <tr>
-                <input class="button" type="submit" value="Submit"/>
-            </tr>
-            <tr>
-                <div id="webapp-message" th:if="${message}">
-                    <div th:text="${message}"/>
-                </div>
-            </tr>
+            <!--<tr>-->
+            <!--<input class="button" type="submit" value="Submit"/>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<div id="webapp-message" th:if="${message}">-->
+            <!--<div th:text="${message}"/>-->
+            <!--</div>-->
+            <!--</tr>-->
         </form>
-        <form method="POST" enctype="multipart/form-data" action="/pmc_id">
-            <tr>
-                <p>or enter PMC ID <input id="input_field" name="PMC_ID"/></p>
+        <form id="form2" method="POST" enctype="multipart/form-data" action="/pmc_id">
+            <tr >
+                <p id="input_field" style="color:black;">or Enter PMC ID <input name="PMC_ID"/></p>
             </tr>
-            <tr>
-                <input class="button" type="submit" value="Submit"/>
-            </tr>
-            <tr>
-                <div id="webapp-message" th:if="${message}">
-                    <div th:text="${message}"/>
-                </div>
-            </tr>
+            <!--<tr>-->
+            <!--<input class="button" type="submit" value="Submit"/>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<div id="webapp-message" th:if="${message}">-->
+            <!--<div th:text="${message}"/>-->
+            <!--</div>-->
+            <!--</tr>-->
         </form>
+        <tr>
+            <input class="button" type="submit" value="Submit" onclick="submitForms()"/>
+        </tr>
     </table>
 </div>
 
@@ -137,6 +161,20 @@
     input.addEventListener('change', function () {
         button.innerText = this.value;
     });
+
+    //submit forms
+    submitForms = function(){
+        var input = document.getElementById("input_field").value;
+        if(input!=""){
+            console.log(input);
+            document.getElementById("form2").submit();
+        }
+        else{
+            console.log("process pdf");
+            document.getElementById("form1").submit();
+        }
+
+    }
 </script>
 
 </body>
