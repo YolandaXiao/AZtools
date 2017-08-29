@@ -1,11 +1,15 @@
 package extraction.contact;
 
+import extraction.funding.FundingInfo;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Contact {
 
@@ -13,11 +17,18 @@ public class Contact {
 
     public List<String> getContact() {  return contact; }
 
-    public Contact(JSONObject xmlJSONObj) throws Exception {
-        this.contact = extractContact(xmlJSONObj);
+    public Contact(String nlm,int num) throws Exception {
+        JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+        if(num==0){
+            this.contact = extractContact_fromCermineXML(xmlJSONObj);
+        }
+        else{
+            this.contact = extractContact_fromPMCXML(nlm);
+        }
+
     }
 
-    private List<String> extractContact(JSONObject xmlJSONObj) {
+    private List<String> extractContact_fromCermineXML(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist= new ArrayList<String>();
         JSONObject group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
         if (group.has("contrib")) {
@@ -50,6 +61,19 @@ public class Contact {
                 String contact = (String) item;
                 arraylist.add(contact);
             }
+        }
+        return arraylist;
+    }
+
+    private List<String> extractContact_fromPMCXML(String nlm) {
+        ArrayList<String> arraylist= new ArrayList<String>();
+        String pattern = "(?s)<email>.*?<\\/email>";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(nlm);
+        while (m.find( )) {
+            String contact = m.group().split("<email>")[1];
+            contact = contact.split("</email>")[0];
+            arraylist.add(contact);
         }
         return arraylist;
     }
