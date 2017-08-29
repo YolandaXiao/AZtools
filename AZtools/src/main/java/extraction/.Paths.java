@@ -15,8 +15,10 @@
 //    private static final String smtp_properties = "AZtools/src/main/resources/smtp.properties";
 //    private static final String json_response_path = "response.json";
 //
-//    private static final String EMAIL_ADDRESS = "user@domain.tld";
+//    private static final String EMAIL_ADDRESS = "email";
 //    private static final String EMAIL_PASSWORD = "password";
+//
+//    private static final String CACHED_TREE_MAP = "AZtools/src/main/java/extraction/funding/cached_tree_map.json";
 //
 //    public static String get_en_path() {
 //        return en_path;
@@ -57,4 +59,6 @@
 //    public static String get_email_addr() {  return EMAIL_ADDRESS;  }
 //
 //    public static String get_email_pass() {  return EMAIL_PASSWORD;  }
+//
+//    public static String get_cached_tree_map() {  return CACHED_TREE_MAP;  }
 //}

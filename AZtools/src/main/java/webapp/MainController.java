@@ -34,9 +34,9 @@ public class MainController {
                                           RedirectAttributes redirectAttributes, Model model) throws Exception {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-        ArrayList<File> f_files = new ArrayList<>();
-        for (MultipartFile file : files) { f_files.add((File)file); }
-        return new ResponseEntity<>((new ProcessPDF(f_files)).getMetadataString(), responseHeaders, HttpStatus.OK);
+        ArrayList<MultipartFile> f_files = new ArrayList<>();
+        for (MultipartFile file : files) { f_files.add(file); }
+        return new ResponseEntity<>((new ProcessPDF(f_files)).getDataString(), responseHeaders, HttpStatus.OK);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +53,7 @@ public class MainController {
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
         ArrayList<File> f_files = new ArrayList<>();
         for (MultipartFile file : files) { f_files.add((File)file); }
-        return new ResponseEntity<>((new ProcessPDF(f_files)).getFinalString(), responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>((new ProcessPDF(f_files, true)).getFinalString(), responseHeaders, HttpStatus.OK);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////

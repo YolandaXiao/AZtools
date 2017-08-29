@@ -83,7 +83,7 @@ public class Funding {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
 
         //check each character in json file
-        InputStream is = new FileInputStream("src/main/java/extraction/funding/cached_tree_map.json");
+        InputStream is = new FileInputStream(Paths.get_cached_tree_map());
         String jsonTxt = IOUtils.toString(is);
         jsonTxt = jsonTxt.toLowerCase();
 //        System.out.println(jsonTxt);

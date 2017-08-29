@@ -1,5 +1,5 @@
 AZtools/src/main/java/extraction/summary/abs_to_summ
-AZtools/src/main/java/extraction/Properties.java
+AZtools/src/main/java/extraction/Paths.java
 cermine-impl/target/*
 spring-app/target*
 testing/name/*pdf*
