@@ -26,13 +26,14 @@ public class Language {
     }
 
     private List<String> extractProgramming_lang(JSONObject xmlJSONObj, String pdf_name) throws Exception {
+
         ArrayList<String> lan = new ArrayList<>();
         Url url_link = new Url(xmlJSONObj, pdf_name);
         List<String> url_links = url_link.getUrl();
         String github_link = "";
 
         //iterate through all links to get github link
-        for(int i=0;i<url_links.size();i++){
+        for (int i=0; i < url_links.size(); i++){
             //perform GET request to get the github link -> for github repo name search
             if(url_links.get(i).contains("github.com") || url_links.get(i).contains("sourceforge.com")){
                 github_link = url_links.get(i);
@@ -41,24 +42,25 @@ public class Language {
         }
 
         //if no github link found, go to other links to find github links
-        if (github_link.equals("")){
-            for(int i=0;i<url_links.size();i++){
-                try{
+        if (github_link.equals("")) {
+            for (int i=0; i < url_links.size(); i++) {
+                try {
+                    if (url_links.get(i).endsWith(".pdf")) {
+                        continue;
+                    }
                     String result = getHTML(url_links.get(i));
                     String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
                     Pattern r = Pattern.compile(pattern);
                     Matcher m = r.matcher(result);
-                    if (m.find( )) {
-                        github_link =  m.group().split("\"")[1];
+                    if (m.find()) {
+                        github_link = m.group().split("\"")[1];
                     }
                 }
                 catch (Exception e) {
-                    e.printStackTrace();
+//                    System.out.println("Unable to GET " + url_links.get(i));
                 }
             }
         }
-
-        Calendar findprogramminglan_start = Calendar.getInstance();
 
         //if github link present, find programming language from github api
         if (github_link.contains("github.com")) {
@@ -72,17 +74,17 @@ public class Language {
             if(arr.length>=4){
                 name = arr[1]+"/"+arr[2];
             }
-            String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
-            System.out.println(access_link);
+            String access_link = "https://api.github.com/search/repositories?q=" + name + "%20in:name&sort=stars&order=desc";
+//            System.out.println(access_link);
 
-            Calendar readJsonFromUrl_start = Calendar.getInstance();
+//            Calendar readJsonFromUrl_start = Calendar.getInstance();
             JSONObject github_page = readJsonFromUrl(access_link);
-            Calendar readJsonFromUrl_end = Calendar.getInstance();
-            System.out.println("Time readJsonFromUrl: ");
-            System.out.println(readJsonFromUrl_end.getTimeInMillis() - readJsonFromUrl_start.getTimeInMillis());
+//            Calendar readJsonFromUrl_end = Calendar.getInstance();
+//            System.out.println("Time readJsonFromUrl: ");
+//            System.out.println(readJsonFromUrl_end.getTimeInMillis() - readJsonFromUrl_start.getTimeInMillis());
 
             String new_page_info = "";
-            if (github_page.getInt("total_count")!=0){
+            if (github_page.getInt("total_count") != 0) {
                 new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
             }
             else {
@@ -95,7 +97,7 @@ public class Language {
             String prev_key = (String)keys.next(); // First key in your json object
             int max = lang_info.getInt(prev_key);
             lan.add(prev_key);
-            System.out.println(prev_key);
+//            System.out.println(prev_key);
             while (keys.hasNext()) {
                 String key = (String)keys.next(); // First key in your json object
                 int num = lang_info.getInt(key);
@@ -107,10 +109,6 @@ public class Language {
                 prev_key = key;
             }
         }
-
-        Calendar findprogramminglan_end = Calendar.getInstance();
-        System.out.println("Time findprogramminglan: ");
-        System.out.println(findprogramminglan_end.getTimeInMillis() - findprogramminglan_start.getTimeInMillis());
 
         //sourceforge has SSL handshake error
         //if github_link contains sourceforge
@@ -151,8 +149,8 @@ public class Language {
         JSONObject json = null;
 
         Calendar readAll_end = Calendar.getInstance();
-        System.out.println("Time readAll: ");
-        System.out.println(readAll_end.getTimeInMillis() - readAll_start.getTimeInMillis());
+//        System.out.println("Time readAll: ");
+//        System.out.println(readAll_end.getTimeInMillis() - readAll_start.getTimeInMillis());
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
@@ -167,11 +165,14 @@ public class Language {
 
     //helper function: get HTML content
     private static String getHTML(String urlToRead) throws Exception {
+
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
+        Calendar start = Calendar.getInstance();
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        Calendar end = Calendar.getInstance();
         conn.setRequestMethod("GET");
-        conn.setConnectTimeout(3000); // timeout = 3 seconds
+        conn.setConnectTimeout(500); // timeout = 1 seconds
         BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String line;
         while ((line = rd.readLine()) != null) {

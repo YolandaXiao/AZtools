@@ -1,6 +1,6 @@
 package extraction.summary;
 
-import extraction.Properties;
+import extraction.Paths;
 import java.io.*;
 
 public class Summary {
@@ -10,7 +10,7 @@ public class Summary {
     public Summary(String paper_abstract, String filename, String tool_name) {
 
         try {
-            String abs_summ_dir = Properties.get_abs_summ_dir();
+            String abs_summ_dir = Paths.get_abs_summ_dir();
             String wr_txt_file_name = abs_summ_dir + filename + "_abstract.txt";
             String rd_txt_file_name = abs_summ_dir + filename + "_summary.txt";
 

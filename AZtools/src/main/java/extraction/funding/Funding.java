@@ -1,6 +1,6 @@
 package extraction.funding;
 
-import extraction.Properties;
+import extraction.Paths;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -51,7 +51,7 @@ public class Funding {
 
     //helper function: get list of agency names
     private ArrayList<String> getAgencyDic() throws IOException {
-        String agencyNamesFile = Properties.getAgencyNamesFileName();
+        String agencyNamesFile = Paths.getAgencyNamesFileName();
         BufferedReader br = new BufferedReader(new FileReader(agencyNamesFile));
         ArrayList<String> agency_dic= new ArrayList<>();
         try {
@@ -121,7 +121,7 @@ public class Funding {
                 fi1.setAgency(new_agency1);
                 arrayList.add(fi1);
             }
-            else{
+            else {
                 fi.setAgency(agency);
 //            System.out.println(fi.getAgency());
 //            System.out.println(fi.getLicense());

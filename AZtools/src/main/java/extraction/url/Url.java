@@ -35,7 +35,11 @@ public class Url {
 //            System.out.println("all_links "+link);
             all_links.add(link);
             String lowercase_link = link.toLowerCase();
-            name = name.split(".pdf")[0];
+            if (null != name && name.split(".pdf").length >= 1) {
+                name = name.split(".pdf")[0];
+            } else {
+                continue;
+            }
             if(lowercase_link.contains(name.toLowerCase()) && !good_links.contains(link)){
 //                System.out.println("good_links "+link);
                 good_links.add(link);

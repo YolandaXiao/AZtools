@@ -7,3 +7,5 @@ testing/pdfs
 .idea/*
 .metadata/*
 /.metadata/
+*.pdf
+response.json

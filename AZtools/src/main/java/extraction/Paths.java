@@ -1,16 +1,22 @@
 package extraction;
 
-public class Properties {
+public class Paths {
 
-    private static String basic_java = "AZtools/src/main/java/extraction/";
-    private static String agency_path = "AZtools/lib/agency_names.txt";
-    private static String serializedClassifier = "AZtools/lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz";
+    private static final String basic_java = "AZtools/src/main/java/extraction/";
+    private static final String agency_path = "AZtools/lib/agency_names.txt";
+    private static final String serializedClassifier = "AZtools/lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz";
 
-    private static String en_path = basic_java + "name/en.txt";
-    private static String stop_path = basic_java + "name/stop.txt";
-    private static String mesh_path = basic_java + "name/mesh_terms.txt";
-    private static String abs_summ_dir = basic_java + "summary/abs_to_summ/";
-    private static String svm_lib_path = basic_java + "summary/abstract_to_summary.py";
+    private static final String en_path = basic_java + "name/en.txt";
+    private static final String stop_path = basic_java + "name/stop.txt";
+    private static final String mesh_path = basic_java + "name/mesh_terms.txt";
+    private static final String abs_summ_dir = basic_java + "summary/abs_to_summ/";
+    private static final String svm_lib_path = basic_java + "summary/abstract_to_summary.py";
+
+    private static final String smtp_properties = "AZtools/src/main/resources/smtp.properties";
+    private static final String json_response_path = "response.json";
+
+    private static final String EMAIL_ADDRESS = "aztools.nih@gmail.com";
+    private static final String EMAIL_PASSWORD = "e3jFMasd384";
 
     public static String get_en_path() {
         return en_path;
@@ -39,4 +45,16 @@ public class Properties {
     public static String getSerializedClassifier() {
         return serializedClassifier;
     }
+
+    public static String get_smtp_properties() {
+        return smtp_properties;
+    }
+
+    public static String get_json_response_path() {
+        return json_response_path;
+    }
+
+    public static String get_email_addr() {  return EMAIL_ADDRESS;  }
+
+    public static String get_email_pass() {  return EMAIL_PASSWORD;  }
 }

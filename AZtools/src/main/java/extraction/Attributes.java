@@ -18,7 +18,7 @@ import org.json.XML;
 import java.util.Calendar;
 import java.util.List;
 
-public class Attributes {
+public class Attributes implements Runnable {
     private final String title;
     private final String name;
     private final String summary;
@@ -29,19 +29,25 @@ public class Attributes {
     private final String doi;
     private final int date;
     private final List<String> URL;
-    private final List<FundingInfo> funding;
-    private final List<String> programming_lang;
+    private List<FundingInfo> funding;
+    private List<String> programming_lang;
+    private final JSONObject xmlJSONObj;
+    private final String m_nlm;
 
     // ------------------------------------------------------------- //
 
     public Attributes(String nlm, String filename) throws Exception {
-        JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+        m_nlm = nlm;
+        xmlJSONObj = XML.toJSONObject(nlm);
+        funding = null;
+        programming_lang = null;
+
+        run();
 
         Calendar title_start = Calendar.getInstance();
         Title t = new Title(xmlJSONObj);
         title = t.getTitle();
         Calendar title_end = Calendar.getInstance();
-
         Calendar author_start = Calendar.getInstance();
         Author au = new Author(xmlJSONObj);
         this.author = au.getAuthor();
@@ -49,7 +55,6 @@ public class Attributes {
             this.author.set(i, this.author.get(i).trim());
         }
         Calendar author_end = Calendar.getInstance();
-
         Calendar aff_start = Calendar.getInstance();
         Affiliation aff = new Affiliation(xmlJSONObj);
         this.affiliation = aff.getAffiliation();
@@ -57,7 +62,6 @@ public class Attributes {
             this.affiliation.set(i, this.affiliation.get(i).trim());
         }
         Calendar aff_end = Calendar.getInstance();
-
         Calendar contact_start = Calendar.getInstance();
         Contact con = new Contact(xmlJSONObj);
         this.contact = con.getContact();
@@ -65,21 +69,14 @@ public class Attributes {
             this.contact.set(i, this.contact.get(i).trim());
         }
         Calendar contact_end = Calendar.getInstance();
-
         Calendar doi_start = Calendar.getInstance();
         DOI d2 = new DOI(xmlJSONObj);
         this.doi = d2.getDoi();
         Calendar doi_end = Calendar.getInstance();
-
         Calendar date_start = Calendar.getInstance();
         Date d = new Date(xmlJSONObj);
         this.date = d.getDate();
         Calendar date_end = Calendar.getInstance();
-
-        Calendar funding_start = Calendar.getInstance();
-        Funding f = new Funding(nlm);
-        this.funding = f.getFunding();
-        Calendar funding_end = Calendar.getInstance();
 
         Calendar url_start = Calendar.getInstance();
         Url url_link = new Url(xmlJSONObj, filename);
@@ -88,18 +85,15 @@ public class Attributes {
             this.URL.set(i, this.URL.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
-
 //        System.out.println("Searching '" + filename + "' for tool's name...");
         Calendar name_start = Calendar.getInstance();
         NameNLP obj = new NameNLP(title, URL);
         this.name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
 //        System.out.println("Found name: '" + name + "'");
-
         Calendar abstract_start = Calendar.getInstance();
         this.abstrakt = extractAbstract(xmlJSONObj).trim();
         Calendar abstract_end = Calendar.getInstance();
-
         Calendar summary_start = Calendar.getInstance();
         //summary must necessarily come after abstract
 //        System.out.println("Finding summary of tool...");
@@ -107,14 +101,6 @@ public class Attributes {
         this.summary = summ.getSummary();
 //        System.out.println("Done with summary");
         Calendar summary_end = Calendar.getInstance();
-
-        Calendar lang_start = Calendar.getInstance();
-        Language lan = new Language(xmlJSONObj, name);
-        this.programming_lang = lan.getLanguage();
-        for (int i = 0; i < this.programming_lang.size(); i++) {
-            this.programming_lang.set(i, this.programming_lang.get(i).trim());
-        }
-        Calendar lang_end = Calendar.getInstance();
 
         // If < 10ms, comment it
 //        System.out.println("Time title: ");
@@ -129,8 +115,6 @@ public class Attributes {
 //        System.out.println(doi_end.getTimeInMillis() - doi_start.getTimeInMillis());
 //        System.out.println("Time date: ");
 //        System.out.println(date_end.getTimeInMillis() - date_start.getTimeInMillis());
-//        System.out.println("Time funding: ");
-//        System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
 //        System.out.println("Time url: ");
 //        System.out.println(url_end.getTimeInMillis() - url_start.getTimeInMillis());
         System.out.println("Time name: ");
@@ -139,11 +123,33 @@ public class Attributes {
 //        System.out.println(abstract_end.getTimeInMillis() - abstract_start.getTimeInMillis());
         System.out.println("Time summary: ");
         System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
-        System.out.println("Time language: ");
-        System.out.println(lang_end.getTimeInMillis() - lang_start.getTimeInMillis());
+
     }
 
     // ------------------------------------------------------------ //
+
+    public void run() {
+        try {
+            Calendar funding_start = Calendar.getInstance();
+            Funding f = new Funding(m_nlm);
+            funding = f.getFunding();
+            Calendar funding_end = Calendar.getInstance();
+            System.out.println("Time funding: ");
+            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
+
+            Calendar lang_start = Calendar.getInstance();
+            Language lan = new Language(xmlJSONObj, name);
+            programming_lang = lan.getLanguage();
+            for (int i = 0; i < programming_lang.size(); i++) {
+                programming_lang.set(i, programming_lang.get(i).trim());
+            }
+            Calendar lang_end = Calendar.getInstance();
+            System.out.println("Time language: ");
+            System.out.println(lang_end.getTimeInMillis() - lang_start.getTimeInMillis());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public String getTitle(){
         return title;
