@@ -30,7 +30,7 @@ public class ProcessPDF {
     private String metadata_string;
     private String final_json_string;
 
-    public ProcessPDF(ArrayList<File> files, boolean ignore) {
+    public ProcessPDF(ArrayList<File> files, ArrayList<String> filenames, boolean ignore) {
         ObjectMapper mapper = new ObjectMapper();
 
         data = new JSONObject();
@@ -46,11 +46,11 @@ public class ProcessPDF {
         Calendar clock_start = Calendar.getInstance(), clock_end;
 
         try {
-            for (File file : files) {
+            for (int i = 0; i < files.size(); i++) {
                 try {
                     cermine_start = Calendar.getInstance();
                     ContentExtractor extractor = new ContentExtractor();
-                    InputStream inputStream = new FileInputStream(file);
+                    InputStream inputStream = new FileInputStream(files.get(i));
                     extractor.setPDF(inputStream);
                     Element nlmMetadata = extractor.getMetadataAsNLM();
                     Element nlmFullText = extractor.getBodyAsNLM(null);
@@ -68,12 +68,13 @@ public class ProcessPDF {
                     cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
                     refining_start = Calendar.getInstance();
-                    Attributes attr = new Attributes(nlm, file.getName(), 0);
+                    Attributes attr = new Attributes(nlm, filenames.get(i), 0);
                     refining_end = Calendar.getInstance();
                     refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 
                     String json_string = mapper.writeValueAsString(attr);
-                    data.put(file.getName(), json_string);
+                    System.out.println("---------------\n" + filenames.get(i) + ":\n" + json_string + "\n---------------");
+                    data.put(filenames.get(i), json_string);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -89,7 +90,8 @@ public class ProcessPDF {
             metadata.put("total refine_time (ms)", refine_time);
             metadata_string = metadata.toString();
 
-            data_string = data.toString().replace("abstrakt", "abstract");
+            data_string = data.toString().replace("abstrakt", "abstract").replace("\\\"", "\"");
+            System.out.println(data_string);
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
@@ -105,7 +107,7 @@ public class ProcessPDF {
         }
     }
 
-    public ProcessPDF(File file) {
+    public ProcessPDF(File file, String filename) {
         ObjectMapper mapper = new ObjectMapper();
 
         data = new JSONObject();
@@ -141,12 +143,12 @@ public class ProcessPDF {
             cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
             refining_start = Calendar.getInstance();
-            Attributes attr = new Attributes(nlm, file.getName(), 0);
+            Attributes attr = new Attributes(nlm, filename, 0);
             refining_end = Calendar.getInstance();
             refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 
             String json_string = mapper.writeValueAsString(attr);
-            data.put(file.getName(), json_string);
+            data.put(filename, json_string);
 
             clock_end = Calendar.getInstance();
 
@@ -169,7 +171,7 @@ public class ProcessPDF {
         }
     }
 
-    public ProcessPDF(ArrayList<MultipartFile> files) {
+    public ProcessPDF(ArrayList<MultipartFile> files, ArrayList<String> filenames) {
         ObjectMapper mapper = new ObjectMapper();
 
         data = new JSONObject();
@@ -185,11 +187,11 @@ public class ProcessPDF {
         Calendar clock_start = Calendar.getInstance(), clock_end;
 
         try {
-            for (MultipartFile file : files) {
+            for (int i = 0; i < files.size(); i++) {
                 try {
                     cermine_start = Calendar.getInstance();
                     ContentExtractor extractor = new ContentExtractor();
-                    extractor.setPDF(file.getInputStream());
+                    extractor.setPDF((files.get(i)).getInputStream());
                     Element nlmMetadata = extractor.getMetadataAsNLM();
                     Element nlmFullText = extractor.getBodyAsNLM(null);
                     Element nlmContent = new Element("article");
@@ -206,12 +208,13 @@ public class ProcessPDF {
                     cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
                     refining_start = Calendar.getInstance();
-                    Attributes attr = new Attributes(nlm, file.getName(), 0);
+                    Attributes attr = new Attributes(nlm, filenames.get(i), 0);
                     refining_end = Calendar.getInstance();
                     refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 
                     String json_string = mapper.writeValueAsString(attr);
-                    data.put(file.getName(), json_string);
+                    System.out.println("---------------\n" + filenames.get(i) + ":\n" + json_string + "\n---------------");
+                    data.put(filenames.get(i), json_string);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -228,6 +231,7 @@ public class ProcessPDF {
             metadata_string = metadata.toString();
 
             data_string = data.toString().replace("abstrakt", "abstract");
+            System.out.println(data_string);
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
@@ -243,7 +247,7 @@ public class ProcessPDF {
         }
     }
 
-    public ProcessPDF(MultipartFile file) {
+    public ProcessPDF(MultipartFile file, String filename) {
         ObjectMapper mapper = new ObjectMapper();
 
         data = new JSONObject();
@@ -278,12 +282,12 @@ public class ProcessPDF {
             cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
             refining_start = Calendar.getInstance();
-            Attributes attr = new Attributes(nlm, file.getName(), 0);
+            Attributes attr = new Attributes(nlm, filename, 0);
             refining_end = Calendar.getInstance();
             refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 
             String json_string = mapper.writeValueAsString(attr);
-            data.put(file.getName(), json_string);
+            data.put(filename, json_string);
 
             clock_end = Calendar.getInstance();
 
@@ -305,6 +309,8 @@ public class ProcessPDF {
             e.printStackTrace();
         }
     }
+
+    ////////////////////////////////////////////////////////////
 
     public String getFinalString() {
         return final_json_string;

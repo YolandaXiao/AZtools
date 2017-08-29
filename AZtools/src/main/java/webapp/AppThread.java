@@ -35,7 +35,9 @@ public class AppThread implements Runnable {
                 for (Map.Entry<Address[], ArrayList<File>> entry : to_process.entrySet()) {
                     Address[] address = entry.getKey();
                     ArrayList<File> file_list = entry.getValue();
-                    email.completeRequest(address, (new ProcessPDF(file_list, true)).getDataString());
+                    ArrayList<String> f_filenames = new ArrayList<>();
+                    for (File file : file_list) { f_filenames.add(file.getName()); }
+                    email.completeRequest(address, (new ProcessPDF(file_list, f_filenames,true)).getDataString());
                     to_remove.add(address);
                 }
                 for (Address[] ad : to_remove) {

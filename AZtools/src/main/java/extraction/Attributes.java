@@ -157,16 +157,6 @@ public class Attributes implements Runnable {
             Calendar funding_end = Calendar.getInstance();
             System.out.println("Time funding: ");
             System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
-
-            Calendar lang_start = Calendar.getInstance();
-            Language lan = new Language(xmlJSONObj, name);
-            programming_lang = lan.getLanguage();
-            for (int i = 0; i < programming_lang.size(); i++) {
-                programming_lang.set(i, programming_lang.get(i).trim());
-            }
-            Calendar lang_end = Calendar.getInstance();
-            System.out.println("Time language: ");
-            System.out.println(lang_end.getTimeInMillis() - lang_start.getTimeInMillis());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -176,12 +166,13 @@ public class Attributes implements Runnable {
         return title;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//    public String getSummary() {
-//        return summary;
-//    }
+    public String getName() {
+        return name;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
 
     public List<String> getAuthor(){
         return author;

@@ -35,8 +35,10 @@ public class MainController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
         ArrayList<MultipartFile> f_files = new ArrayList<>();
-        for (MultipartFile file : files) { f_files.add(file); }
-        return new ResponseEntity<>((new ProcessPDF(f_files)).getDataString(), responseHeaders, HttpStatus.OK);
+        ArrayList<String> f_filenames = new ArrayList<>();
+        for (MultipartFile file : files) { f_files.add(file); f_filenames.add(file.getOriginalFilename());}
+        String ds = (new ProcessPDF(f_files, f_filenames)).getDataString();
+        return new ResponseEntity<>(ds.replace("\\\"", "\""), responseHeaders, HttpStatus.OK);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,9 +53,10 @@ public class MainController {
                                           RedirectAttributes redirectAttributes, Model model) throws Exception {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-        ArrayList<File> f_files = new ArrayList<>();
-        for (MultipartFile file : files) { f_files.add((File)file); }
-        return new ResponseEntity<>((new ProcessPDF(f_files, true)).getFinalString(), responseHeaders, HttpStatus.OK);
+        ArrayList<MultipartFile> f_files = new ArrayList<>();
+        ArrayList<String> f_filenames = new ArrayList<>();
+        for (MultipartFile file : files) { f_files.add(file); f_filenames.add(file.getOriginalFilename());}
+        return new ResponseEntity<>((new ProcessPDF(f_files, f_filenames)).getFinalString().replace("\\\"", "\""), responseHeaders, HttpStatus.OK);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
