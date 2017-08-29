@@ -67,7 +67,7 @@ public class ProcessPDF {
                     cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
                     refining_start = Calendar.getInstance();
-                    Attributes attr = new Attributes(nlm, file.getName());
+                    Attributes attr = new Attributes(nlm, file.getName(), 0);
                     refining_end = Calendar.getInstance();
                     refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 
@@ -140,7 +140,7 @@ public class ProcessPDF {
             cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
             refining_start = Calendar.getInstance();
-            Attributes attr = new Attributes(nlm, file.getName());
+            Attributes attr = new Attributes(nlm, file.getName(), 0);
             refining_end = Calendar.getInstance();
             refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
 

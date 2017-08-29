@@ -152,7 +152,7 @@ public class Attributes implements Runnable {
     public void run() {
         try {
             Calendar funding_start = Calendar.getInstance();
-            Funding f = new Funding(m_nlm);
+            Funding f = new Funding(m_nlm, 0);
             funding = f.getFunding();
             Calendar funding_end = Calendar.getInstance();
             System.out.println("Time funding: ");
