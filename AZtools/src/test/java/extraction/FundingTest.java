@@ -72,6 +72,14 @@ public class FundingTest {
         assertEquals(2, FundingTest.add(x,y));
     }
 
+    @Test
+    public void testAll()
+    {
+        for(int i=0;i<4;i++){
+            testAdd1Plus1();
+        }
+    }
+
     private static int add(int x, int y) {
         return x+y;
     }

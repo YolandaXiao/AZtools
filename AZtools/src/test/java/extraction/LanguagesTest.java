@@ -90,10 +90,9 @@ public class LanguagesTest {
         return lang;
     }
 
-//    @Test
     public Map<String,String> getLangMap() throws IOException, JSONException {
         Map<String,String> name2lang = new HashMap<>();
-        String access_link = "http://dev.aztec.io:8983/solr/BD2K/select?q=(publicationDOI%3A*)AND(language%3A*)AND(codeRepoURL%3A*)&wt=json&indent=true";
+        String access_link = "http://dev.aztec.io:8983/solr/BD2K/select?q=(publicationDOI%3A*)AND(language%3A*)AND(codeRepoURL%3A*)&rows=100&wt=json&indent=true";
         //System.out.println(access_link);
         JSONObject data = readJsonFromUrl(access_link);
         //System.out.println("data "+data);
@@ -103,7 +102,16 @@ public class LanguagesTest {
             String publicationDOI_old = doc.getString("publicationDOI");
             String[] arr = publicationDOI_old.split("/");
             String publicationDOI = arr[arr.length-1];
+            String[] arr2 = publicationDOI.split("\"]");
+            if(arr2.length>0){
+                publicationDOI = arr2[0];
+            }
+            else{
+                publicationDOI = "";
+            }
             String lang = doc.getString("language");
+            lang = lang.split("\"]")[0];
+            lang = lang.split("\\[\"")[1];
 //            System.out.println(publicationDOI);
 //            System.out.println(lang);
             name2lang.put(publicationDOI,lang);
@@ -123,20 +131,27 @@ public class LanguagesTest {
             for (File child : directoryListing) {
                 if(child.getName().contains(".pdf")){
                     String complete_path = child.getPath();
-                    System.out.println(complete_path);
+//                    System.out.println(complete_path);
                     String[] arr = complete_path.split("/");
                     String new_path = "../"+arr[arr.length-2]+"/"+arr[arr.length-1];
                     String file_name = arr[arr.length-1];
-                    System.out.println(new_path);
+                    file_name=file_name.split(".pdf")[0];
+//                    System.out.println(new_path);
                     List<String> lang = getAZtoolResult(new_path,complete_path);
                     System.out.println("file_name: "+file_name);
                     System.out.println("lang: "+lang);
-//                    if(name2lang.get(file_name).equals(lang)){
-//                        System.out.println("Match!");
-//                    }
-//                    else{
-//                        System.out.println("No Match!");
-//                    }
+                    if(!lang.isEmpty() && name2lang.containsKey(file_name)){
+                        assertEquals(name2lang.get(file_name), lang.get(0));
+//                        if(name2lang.get(file_name).equals(lang.get(0))){
+//                            System.out.println("Match!");
+//                        }
+//                        else{
+//                            System.out.println("No Match!");
+//                        }
+                    }
+                    else{
+                        System.out.println("No Match!");
+                    }
                 }
             }
         }

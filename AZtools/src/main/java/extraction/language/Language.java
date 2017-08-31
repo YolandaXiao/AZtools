@@ -42,7 +42,7 @@ public class Language {
         //iterate through all links to get github link
         for (int i=0; i < url_links.size(); i++){
             //perform GET request to get the github link -> for github repo name search
-            if(url_links.get(i).contains("github.com") || url_links.get(i).contains("/sourceforge.net") || url_links.get(i).contains("bitbucket.org") || url_links.get(i).contains("bioconductor")){
+            if(url_links.get(i).contains("github.com") || url_links.get(i).contains("sourceforge.net") || url_links.get(i).contains("bitbucket.org") || url_links.get(i).contains("bioconductor")){
                 github_link = url_links.get(i);
                 break;
             }
@@ -58,7 +58,6 @@ public class Language {
                     }
                     System.out.println("find github link: "+ link);
                     String result = getHTML(link);
-
 
                     //pattern1 for github
                     if(link.contains("github")) {
@@ -158,7 +157,7 @@ public class Language {
         }
         //sourceforge has SSL handshake error
         //if github_link contains sourceforge
-        else if(github_link.contains("//sourceforge.net")){
+        else if(github_link.contains("sourceforge.net")){
 
             if(github_link.contains("Contact")){
                 github_link = github_link.split("Contact")[0];

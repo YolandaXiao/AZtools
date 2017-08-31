@@ -1,6 +1,11 @@
 package extraction.url;
 
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -35,7 +40,7 @@ public class Url {
                     && !link.contains(".xlsx") && !link.contains(".html") && !link.contains(".pdf") && !link.contains(".gz")){
                 if(!all_links.contains(link)){
                     all_links.add(link);
-                    System.out.println("all_links "+link);
+//                    System.out.println("all_links "+link);
                 }
             }
             String lowercase_link = link.toLowerCase();
@@ -50,7 +55,12 @@ public class Url {
 //                good_links.add(link);
 //            }
             if((link.contains("github") || link.contains("sourceforge") || link.contains("bioconductor") || link.contains("bitbucket")) && !good_links.contains(link)){
-                System.out.println("good_links2 "+link);
+//                System.out.println("good_links2 "+link);
+                if(link.contains("Contact")){
+                    String[] arr = link.split("Contact");
+                    if(arr.length>1)
+                        link = link.split("Contact")[0];
+                }
                 good_links.add(link);
                 break;
             }
@@ -59,14 +69,39 @@ public class Url {
         //add one link to good_links if none found
         if(good_links.isEmpty() && all_links.size()>0)
         {
-            for(int i=0;i<all_links.size();i++){
-                if(!all_links.get(i).contains("w3") && !all_links.get(i).contains("niso") && !all_links.get(i).contains("creativecommons")){
-                    good_links.add(all_links.get(i));
-                    break;
-                }
-            }
+            good_links.add(all_links.get(0));
         }
 
         return good_links;
     }
+
+    public String getStatus(List<String> good_links) throws Exception {
+        //check if good_links are valid
+        for(int i=0;i<good_links.size();i++){
+            if(checkLink(good_links.get(i))==false){
+                return "Github link no longer valid";
+            }
+        }
+        return "Success";
+
+    }
+
+    //helper function: get HTML content
+    private boolean checkLink(String urlToRead) throws Exception {
+        try{
+            URL url = new URL(urlToRead);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(3000); // timeout = 3 seconds
+            int code = conn.getResponseCode() ;
+            if(code==404){
+                return false;
+            }
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
 }

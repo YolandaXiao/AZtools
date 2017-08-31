@@ -18,8 +18,6 @@ import org.json.XML;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Attributes implements Runnable {
     private final String title;
@@ -32,6 +30,7 @@ public class Attributes implements Runnable {
     private final String doi;
     private final String date;
     private final List<String> URL;
+    private final String status;
 
     private List<FundingInfo> funding;
     private List<String> programming_lang;
@@ -98,12 +97,13 @@ public class Attributes implements Runnable {
             this.URL.set(i, this.URL.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
-//        System.out.println("Searching '" + filename + "' for tool's name...");
+
+        this.status = url_link.getStatus(this.URL);
+
         Calendar name_start = Calendar.getInstance();
         NameNLP obj = new NameNLP(title, URL);
         this.name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
-//        System.out.println("Found name: '" + name + "'");
 
         Calendar abstract_start = Calendar.getInstance();
         Abstract a = new Abstract(xmlJSONObj,num);
@@ -210,6 +210,10 @@ public class Attributes implements Runnable {
 
     public List<String> getProgramming_lang(){
         return programming_lang;
+    }
+
+    public String getStatus(){
+        return status;
     }
 
     // ----------------------------------------------------------- //
