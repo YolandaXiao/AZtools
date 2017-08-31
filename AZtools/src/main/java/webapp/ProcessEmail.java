@@ -1,23 +1,22 @@
 package webapp;
 
+import com.sun.mail.util.MailSSLSocketFactory;
 import extraction.Paths;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.*;
+import java.security.GeneralSecurityException;
 import java.util.*;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.*;
 
 public class ProcessEmail {
 
-    private final String PROTOCOL = "imaps";;
+    private final String PROTOCOL = "imap";;
     private final String HOST = "smtp.gmail.com";
     private final String PORT = "587";
 
@@ -44,7 +43,7 @@ public class ProcessEmail {
         return to_process;
     }
 
-    public void process_inbox() {
+    public void process_inbox() throws GeneralSecurityException {
 
         // Checks inbox for any new PDFs in emails
         // Moves such emails to 'processing' folder and

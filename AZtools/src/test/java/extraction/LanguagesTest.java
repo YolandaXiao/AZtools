@@ -64,7 +64,7 @@ public class LanguagesTest {
         nlmContent.addContent(nlmFullText);
 
         String nlm = new XMLOutputter().outputString(nlmContent);
-        System.out.println(nlm);
+//        System.out.println(nlm);
         String[] arr = test_pdf.split("/");
         String filename = arr[arr.length-1];
         System.out.println("file_name: "+filename);
@@ -104,8 +104,8 @@ public class LanguagesTest {
             String[] arr = publicationDOI_old.split("/");
             String publicationDOI = arr[arr.length-1];
             String lang = doc.getString("language");
-            System.out.println(publicationDOI);
-            System.out.println(lang);
+//            System.out.println(publicationDOI);
+//            System.out.println(lang);
             name2lang.put(publicationDOI,lang);
         }
         return name2lang;
@@ -114,7 +114,7 @@ public class LanguagesTest {
     @Test
     public void testLanguage() throws Exception {
         //create name to language map
-//        Map<String,String> name2lang = getLangMap();
+        Map<String,String> name2lang = getLangMap();
 
         //iterate through files in directory and apply AZtools
         File dir = new File(abs_dir);
@@ -131,7 +131,7 @@ public class LanguagesTest {
                     List<String> lang = getAZtoolResult(new_path,complete_path);
                     System.out.println("file_name: "+file_name);
                     System.out.println("lang: "+lang);
-//                    if(name2lang.get(file_name)==lang){
+//                    if(name2lang.get(file_name).equals(lang)){
 //                        System.out.println("Match!");
 //                    }
 //                    else{

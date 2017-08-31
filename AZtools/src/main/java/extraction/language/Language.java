@@ -132,22 +132,27 @@ public class Language {
                 }
 
                 //access git language info
-                JSONObject lang_info = readJsonFromUrl(new_page_info);
-                Iterator<String> keys = lang_info.keys();
-                String prev_key = (String)keys.next(); // First key in your json object
-                int max = lang_info.getInt(prev_key);
-                lan.add(prev_key);
-                System.out.println(prev_key+": "+max);
-                while (keys.hasNext()) {
-                    String key = (String)keys.next(); // First key in your json object
-                    int num = lang_info.getInt(key);
-                    System.out.println(key+": "+num);
-                    if (num > max){
-                        lan.remove(prev_key);
-                        lan.add(key);
-                        max = num;
-                        prev_key = key;
+                try{
+                    JSONObject lang_info = readJsonFromUrl(new_page_info);
+                    Iterator<String> keys = lang_info.keys();
+                    String prev_key = (String)keys.next(); // First key in your json object
+                    int max = lang_info.getInt(prev_key);
+                    lan.add(prev_key);
+                    System.out.println(prev_key+": "+max);
+                    while (keys.hasNext()) {
+                        String key = (String)keys.next(); // First key in your json object
+                        int num = lang_info.getInt(key);
+                        System.out.println(key+": "+num);
+                        if (num > max){
+                            lan.remove(prev_key);
+                            lan.add(key);
+                            max = num;
+                            prev_key = key;
+                        }
                     }
+                }
+                catch (Exception e){
+
                 }
             }
         }

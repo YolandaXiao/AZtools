@@ -24,28 +24,31 @@ public class Author {
 
     private List<String> extractAuthor_fromCermineXML(JSONObject xmlJSONObj) {
         ArrayList<String> arraylist = new ArrayList<String>();
-        JSONObject group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("contrib-group");
-        if (group.has("contrib")) {
-            Object item = null;
-            try {
-                item = group.get("contrib");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (item instanceof JSONArray) {
-                JSONArray authors = (JSONArray) item;
-                for (int i = 0; i < authors.length(); i++) {
-                    String author = null;
-                    try {
-                        author = authors.getJSONObject(i).getString("string-name");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+        JSONObject article_meta = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+        if(article_meta.has("contrib-group")){
+            JSONObject group = article_meta.getJSONObject("contrib-group");
+            if (group.has("contrib")) {
+                Object item = null;
+                try {
+                    item = group.get("contrib");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (item instanceof JSONArray) {
+                    JSONArray authors = (JSONArray) item;
+                    for (int i = 0; i < authors.length(); i++) {
+                        String author = null;
+                        try {
+                            author = authors.getJSONObject(i).getString("string-name");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        arraylist.add(author);
                     }
+                } else if (item instanceof String) {
+                    String author = (String) item;
                     arraylist.add(author);
                 }
-            } else if (item instanceof String) {
-                String author = (String) item;
-                arraylist.add(author);
             }
         }
         return arraylist;
