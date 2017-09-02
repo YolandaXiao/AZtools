@@ -1,7 +1,6 @@
 package extraction;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.FileUtils;
+import extraction.funding.Funding;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
@@ -11,26 +10,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.web.multipart.MultipartFile;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.exception.AnalysisException;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.nio.file.Path;
-import java.util.*;
-
-import static org.junit.Assert.assertEquals;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Created by yinxuexiao on 8/17/17.
+ * Created by yinxuexiao on 9/1/17.
  */
-
-public class LanguagesTest {
-
-    static final private String abs_dir = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/test/resources/lang_files";
+public class NameTest {
+    static final private String abs_dir = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/test/resources/github";
+    static final private String output_file = abs_dir+"/result.txt";
     private ContentExtractor extractor;
     SAXBuilder saxBuilder;
 
@@ -41,65 +37,84 @@ public class LanguagesTest {
     }
 
     //programming language extraction from our method
-    public List<String> getAZtoolResult(String test_pdf, String complete_path) throws Exception {
+    public String getAZtoolResult(String test_pdf, String complete_path, PrintWriter writer) throws Exception {
 
         Helper helper = new Helper();
         Attributes attr = helper.getAttr(test_pdf,complete_path);
 
-        String doi = attr.getDOI();
-        System.out.println("doi: "+doi);
+        //Name
+        String name = attr.getName();
+        System.out.println("name: "+name);
+
+        //return links
+        List<String> url = attr.getURL();
+        for (int i = 0; i < url.size(); i++) {
+            url.set(i, url.get(i).trim());
+        }
+
+        //return programming language
         List<String> lang = attr.getProgramming_lang();
         for (int i = 0; i < lang.size(); i++) {
             lang.set(i, lang.get(i).trim());
         }
-//        for (int i = 0; i < lang.size(); i++) {
-//            System.out.println(lang.get(i).trim());
-//            lang.set(i, lang.get(i).trim());
-//        }
-//        List<String> lang = new ArrayList<String>(attr.getProgramming_lang());
-//        List<String> lang = new ArrayList<>();
-//        lang.addAll(attr.getProgramming_lang());
-//        System.out.println("language size: "+lang.size());
-//        if(lang.size()>0){
-//            System.out.println("language of file: "+lang.get(0));
-//            return lang.get(0);
-//        }
-        return lang;
+
+        //write to file
+        writer.write(name);
+        writer.write(" | ");
+
+        String url_line = "";
+        for (int i = 0; i < url.size(); i++) {
+            url_line += url.get(i);
+        }
+        writer.write(url_line + " | ");
+
+        String programming_lang_line = "";
+        for (int i = 0; i < lang.size(); i++) {
+            programming_lang_line += lang.get(i);
+        }
+        writer.write(programming_lang_line + " | ");
+
+        writer.write("\n");
+
+        return name;
     }
 
-    public Map<String,String> getLangMap() throws IOException, JSONException {
-        Map<String,String> name2lang = new HashMap<>();
-        String access_link = "http://dev.aztec.io:8983/solr/BD2K/select?q=(publicationDOI%3A*)AND(language%3A*)AND(codeRepoURL%3A*)&rows=100&wt=json&indent=true";
-        //System.out.println(access_link);
-        JSONObject data = readJsonFromUrl(access_link);
-        //System.out.println("data "+data);
-        JSONArray docs = data.getJSONObject("response").getJSONArray("docs");
-        for(int i=0; i<docs.length();i++){
-            JSONObject doc = docs.getJSONObject(i);
-            String publicationDOI_old = doc.getString("publicationDOI");
-            String[] arr = publicationDOI_old.split("/");
-            String publicationDOI = arr[arr.length-1];
-            String[] arr2 = publicationDOI.split("\"]");
-            if(arr2.length>0){
-                publicationDOI = arr2[0];
+    //get i to name map
+    public Map<String,String> getMap(String fileName) throws IOException, JSONException {
+        Map<String,String> map = new HashMap<>();
+
+        String line = null;
+        try {
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            int i=1;
+            while((line = bufferedReader.readLine()) != null) {
+                map.put(Integer.toString(i),line);
+                System.out.println(line);
+                i++;
             }
-            else{
-                publicationDOI = "";
-            }
-            String lang = doc.getString("language");
-            lang = lang.split("\"]")[0];
-            lang = lang.split("\\[\"")[1];
-//            System.out.println(publicationDOI);
-//            System.out.println(lang);
-            name2lang.put(publicationDOI,lang);
+            bufferedReader.close();
         }
-        return name2lang;
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + fileName + "'");
+        }
+        catch(IOException ex) {System.out.println("Error reading file '" + fileName + "'");
+        }
+
+        return map;
     }
 
     @Test
-    public void testLanguage() throws Exception {
+    public void testName() throws Exception {
+
+        Calendar start_time = Calendar.getInstance();
+
         //create name to language map
-        Map<String,String> name2lang = getLangMap();
+        Map<String,String> map = getMap(abs_dir+"/Name_data.txt");
+        PrintWriter writer = new PrintWriter(new FileWriter(output_file), true);
+//        Writer writer = new BufferedWriter(new OutputStreamWriter(
+//                new FileOutputStream(output_file), "utf-8"));
 
         //keep track of numbers
         int match = 0;
@@ -109,21 +124,23 @@ public class LanguagesTest {
         File dir = new File(abs_dir);
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
+            int i = 1;
             for (File child : directoryListing) {
                 if(child.getName().contains(".pdf")){
                     String complete_path = child.getPath();
-//                    System.out.println(complete_path);
                     String[] arr = complete_path.split("/");
                     String new_path = "../"+arr[arr.length-2]+"/"+arr[arr.length-1];
                     String file_name = arr[arr.length-1];
                     file_name=file_name.split(".pdf")[0];
-//                    System.out.println(new_path);
-                    List<String> lang = getAZtoolResult(new_path,complete_path);
+                    writer.write(Integer.toString(i));
+                    i++;
+                    writer.write(" | ");
+                    String test_name = getAZtoolResult(new_path,complete_path,writer);
                     System.out.println("file_name: "+file_name);
-                    System.out.println("lang: "+lang);
-                    if(!lang.isEmpty() && name2lang.containsKey(file_name)){
-                        assertEquals(name2lang.get(file_name), lang.get(0));
-                        if(name2lang.get(file_name).equals(lang.get(0))){
+                    System.out.println("lang: "+test_name);
+                    if(map.containsKey(file_name)){
+                        String paper_name = map.get(file_name);
+                        if(paper_name.equals(test_name) || paper_name.contains(test_name) || test_name.contains(paper_name)){
                             System.out.println("Match!");
                             match++;
                         }
@@ -144,6 +161,22 @@ public class LanguagesTest {
         double non_correct = 1-correct;
         System.out.println("correct: "+correct);
         System.out.println("non correct: "+non_correct);
+
+        writer.write("correct: "+correct);
+        writer.write("\n");
+        writer.write("non correct: "+non_correct);
+        writer.write("\n");
+
+        Calendar end_time = Calendar.getInstance();
+        System.out.println("Time: ");
+        long time = end_time.getTimeInMillis() - start_time.getTimeInMillis();
+        System.out.println(time);
+
+        writer.write("Time: "+Long.toString(time)+" ms");
+        writer.write("\n");
+
+        writer.flush();
+        writer.close();
     }
 
     //helper function: read in lines
@@ -173,6 +206,7 @@ public class LanguagesTest {
         }
         return json;
     }
+
 
 
 

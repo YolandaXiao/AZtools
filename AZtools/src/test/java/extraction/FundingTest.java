@@ -1,5 +1,6 @@
 package extraction;
 
+import org.assertj.core.api.SoftAssertions;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
 
 public class FundingTest {
 
@@ -78,6 +81,14 @@ public class FundingTest {
         for(int i=0;i<4;i++){
             testAdd1Plus1();
         }
+    }
+
+    @Test
+    public void testAssert(){
+//        assertThat("They are not equal!","123",is("1234"));
+        assertThat("123",is("123"));
+//        assertThat("123",is("1234"));
+
     }
 
     private static int add(int x, int y) {
