@@ -1,6 +1,6 @@
-//package extraction;
+//package webapp;
 //
-//public class Paths {
+//public class Globs {
 //
 //    private static final String basic_java = "AZtools/src/main/java/extraction/";
 //    private static final String agency_path = "AZtools/lib/agency_names.txt";
@@ -15,7 +15,7 @@
 //    private static final String smtp_properties = "AZtools/src/main/resources/smtp.properties";
 //    private static final String json_response_path = "response.json";
 //
-//    private static final String EMAIL_ADDRESS = "email";
+//    private static final String EMAIL_ADDRESS = "email@gmail.com";
 //    private static final String EMAIL_PASSWORD = "password";
 //
 //    private static final String CACHED_TREE_MAP = "AZtools/src/main/java/extraction/funding/cached_tree_map.json";

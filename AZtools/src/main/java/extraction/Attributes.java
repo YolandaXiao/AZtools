@@ -22,7 +22,7 @@ import java.util.List;
 public class Attributes implements Runnable {
     private final String title;
     private final String name;
-//    private final String summary;
+    private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
     private final String abstrakt;
@@ -42,8 +42,6 @@ public class Attributes implements Runnable {
     public Attributes(String nlm, String filename, int num) throws Exception {
         m_nlm = nlm;
         xmlJSONObj = XML.toJSONObject(nlm);
-//        System.out.println(nlm);
-//        System.out.println(xmlJSONObj);
         funding = null;
         programming_lang = null;
 
@@ -88,8 +86,6 @@ public class Attributes implements Runnable {
         this.funding = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
 
-//        this.funding_section = extractFundingSection(nlm);
-
         Calendar url_start = Calendar.getInstance();
         Url url_link = new Url(xmlJSONObj, filename);
         this.URL = url_link.getUrl();
@@ -97,7 +93,6 @@ public class Attributes implements Runnable {
             this.URL.set(i, this.URL.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
-
         this.status = url_link.getStatus(this.URL);
 
         Calendar name_start = Calendar.getInstance();
@@ -110,13 +105,11 @@ public class Attributes implements Runnable {
         this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
-//        Calendar summary_start = Calendar.getInstance();
-//        //summary must necessarily come after abstract
-////        System.out.println("Finding summary of tool...");
-//        Summary summ = new Summary(abstrakt, filename, name);
-//        this.summary = summ.getSummary();
-////        System.out.println("Done with summary");
-//        Calendar summary_end = Calendar.getInstance();
+        Calendar summary_start = Calendar.getInstance();
+        //summary must necessarily come after abstract
+        Summary summ = new Summary(abstrakt, filename, name);
+        this.summary = summ.getSummary();
+        Calendar summary_end = Calendar.getInstance();
 
         Calendar lang_start = Calendar.getInstance();
         Language lan = new Language(xmlJSONObj, filename);
@@ -157,8 +150,8 @@ public class Attributes implements Runnable {
             Funding f = new Funding(m_nlm, 0);
             funding = f.getFunding();
             Calendar funding_end = Calendar.getInstance();
-            System.out.println("Time funding: ");
-            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
+//            System.out.println("Time funding: ");
+//            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -172,9 +165,9 @@ public class Attributes implements Runnable {
         return name;
     }
 
-//    public String getSummary() {
-//        return summary;
-//    }
+    public String getSummary() {
+        return summary;
+    }
 
     public List<String> getAuthor(){
         return author;
@@ -206,23 +199,11 @@ public class Attributes implements Runnable {
 
     public List<FundingInfo> getFunding() { return funding; }
 
-//    public String getFunding_section(){return funding_section;}
-
     public List<String> getProgramming_lang(){
         return programming_lang;
     }
 
     public String getStatus(){
         return status;
-    }
-
-    // ----------------------------------------------------------- //
-
-
-    public void printFunding() {
-        for(int i=0; i<funding.size(); i++){
-            System.out.println(funding.get(i).agency);
-            System.out.println(funding.get(i).license);
-        }
     }
 }

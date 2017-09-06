@@ -80,4 +80,3 @@ while (True):
     except Exception as ex:
         print "Error"
         continue
-# will never get here

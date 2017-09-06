@@ -1,6 +1,6 @@
 package extraction.name;
 
-import extraction.Paths;
+import webapp.Globs;
 
 import java.io.*;
 import java.util.*;
@@ -133,7 +133,7 @@ public class NameNLP {
 
     private void initializeInfo() {
 
-        String stop_file_path = Paths.get_stop_path();
+        String stop_file_path = Globs.get_stop_path();
         ArrayList<String> stop_words = new ArrayList<>();
 
         // get stop words
@@ -253,8 +253,8 @@ public class NameNLP {
 
         String line;
 
-        String mesh_file_path = Paths.get_mesh_path();
-        String en_file_path = Paths.get_en_path();
+        String mesh_file_path = Globs.get_mesh_path();
+        String en_file_path = Globs.get_en_path();
 
         ArrayList<String> mesh_list = new ArrayList<>();
         ArrayList<String> words_list = new ArrayList<>();

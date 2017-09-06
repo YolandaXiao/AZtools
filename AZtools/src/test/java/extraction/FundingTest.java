@@ -63,7 +63,6 @@ public class FundingTest {
         String[] arr = TEST_PDF.split("/");
         String filename = arr[arr.length-1];
         Attributes attr = new Attributes(nlm, filename,0);
-        attr.printFunding();
     }
 
 
