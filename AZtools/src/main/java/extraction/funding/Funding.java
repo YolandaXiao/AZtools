@@ -137,7 +137,7 @@ public class Funding {
                             }
                         }
 
-                        System.out.println("value: " + value);
+//                        System.out.println("value: " + value);
                         //create new FundingInfo object
                         FundingInfo fi = new FundingInfo();
                         fi.setAgency(value);

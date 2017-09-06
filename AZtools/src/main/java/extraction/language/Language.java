@@ -263,7 +263,6 @@ public class Language {
             return html.toString();
         }
         catch (Exception e){
-            e.printStackTrace();
             return "";
         }
     }

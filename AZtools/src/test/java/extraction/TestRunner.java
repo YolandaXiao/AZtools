@@ -4,10 +4,6 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
-/**
- * Created by yinxuexiao on 8/31/17.
- */
-
 public class TestRunner {
     public static void main(String[] args) {
         Result result = JUnitCore.runClasses(LanguagesTest.class);

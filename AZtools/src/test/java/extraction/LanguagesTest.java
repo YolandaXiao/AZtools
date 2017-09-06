@@ -24,10 +24,6 @@ import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by yinxuexiao on 8/17/17.
- */
-
 public class LanguagesTest {
 
     static final private String abs_dir = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/test/resources/lang_files";
@@ -47,7 +43,6 @@ public class LanguagesTest {
         Attributes attr = helper.getAttr(test_pdf,complete_path);
 
         String doi = attr.getDOI();
-        System.out.println("doi: "+doi);
         List<String> lang = attr.getProgramming_lang();
         for (int i = 0; i < lang.size(); i++) {
             lang.set(i, lang.get(i).trim());
@@ -119,16 +114,16 @@ public class LanguagesTest {
                     file_name=file_name.split(".pdf")[0];
 //                    System.out.println(new_path);
                     List<String> lang = getAZtoolResult(new_path,complete_path);
-                    System.out.println("file_name: "+file_name);
-                    System.out.println("lang: "+lang);
+//                    System.out.println("file_name: "+file_name);
+//                    System.out.println("lang: "+lang);
                     if(!lang.isEmpty() && name2lang.containsKey(file_name)){
                         assertEquals(name2lang.get(file_name), lang.get(0));
                         if(name2lang.get(file_name).equals(lang.get(0))){
-                            System.out.println("Match!");
+//                            System.out.println("Match!");
                             match++;
                         }
                         else{
-                            System.out.println("No Match!");
+//                            System.out.println("No Match!");
                             non_match++;
                         }
                     }
@@ -141,9 +136,9 @@ public class LanguagesTest {
         }
         double sum = match + non_match;
         double correct = match/sum;
-        double non_correct = 1-correct;
-        System.out.println("correct: "+correct);
-        System.out.println("non correct: "+non_correct);
+//        double non_correct = 1-correct;
+//        System.out.println("correct: "+correct);
+//        System.out.println("non correct: "+non_correct);
     }
 
     //helper function: read in lines
@@ -173,7 +168,4 @@ public class LanguagesTest {
         }
         return json;
     }
-
-
-
 }

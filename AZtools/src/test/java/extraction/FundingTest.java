@@ -57,15 +57,11 @@ public class FundingTest {
         String nlm = new XMLOutputter().outputString(nlmContent);
 
 
-        System.out.println("nlm: "+nlm);
         JSONObject xmlJSONObj = XML.toJSONObject(nlm);
-        System.out.println("xmlJSONObj: "+xmlJSONObj);
         String[] arr = TEST_PDF.split("/");
         String filename = arr[arr.length-1];
         Attributes attr = new Attributes(nlm, filename,0);
     }
-
-
 
     @Test
     public void testAdd1Plus1()
