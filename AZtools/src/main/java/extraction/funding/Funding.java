@@ -162,7 +162,7 @@ public class Funding {
                 else{
 //                    System.out.println("word: "+word_lowercase);
                     count++;
-                    if(count<words.size()){
+                    if(count<words.size() && count>=0){
                         result2 = result2.getJSONObject(word_lowercase);
 //                        System.out.println("hi: "+result2);
                         word = words.get(count);

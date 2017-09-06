@@ -18,13 +18,11 @@ import org.json.XML;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Attributes implements Runnable {
     private final String title;
     private final String name;
-    private final String summary;
+//    private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
     private final String abstrakt;
@@ -32,6 +30,7 @@ public class Attributes implements Runnable {
     private final String doi;
     private final String date;
     private final List<String> URL;
+    private final String status;
 
     private List<FundingInfo> funding;
     private List<String> programming_lang;
@@ -43,6 +42,8 @@ public class Attributes implements Runnable {
     public Attributes(String nlm, String filename, int num) throws Exception {
         m_nlm = nlm;
         xmlJSONObj = XML.toJSONObject(nlm);
+//        System.out.println(nlm);
+//        System.out.println(xmlJSONObj);
         funding = null;
         programming_lang = null;
 
@@ -96,25 +97,26 @@ public class Attributes implements Runnable {
             this.URL.set(i, this.URL.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
-//        System.out.println("Searching '" + filename + "' for tool's name...");
+
+        this.status = url_link.getStatus(this.URL);
+
         Calendar name_start = Calendar.getInstance();
         NameNLP obj = new NameNLP(title, URL);
         this.name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
-//        System.out.println("Found name: '" + name + "'");
 
         Calendar abstract_start = Calendar.getInstance();
         Abstract a = new Abstract(xmlJSONObj,num);
         this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
-        Calendar summary_start = Calendar.getInstance();
-        //summary must necessarily come after abstract
-//        System.out.println("Finding summary of tool...");
-        Summary summ = new Summary(abstrakt, filename, name);
-        this.summary = summ.getSummary();
-//        System.out.println("Done with summary");
-        Calendar summary_end = Calendar.getInstance();
+//        Calendar summary_start = Calendar.getInstance();
+//        //summary must necessarily come after abstract
+////        System.out.println("Finding summary of tool...");
+//        Summary summ = new Summary(abstrakt, filename, name);
+//        this.summary = summ.getSummary();
+////        System.out.println("Done with summary");
+//        Calendar summary_end = Calendar.getInstance();
 
         Calendar lang_start = Calendar.getInstance();
         Language lan = new Language(xmlJSONObj, filename);
@@ -143,8 +145,8 @@ public class Attributes implements Runnable {
 //        System.out.println(name_end.getTimeInMillis() - name_start.getTimeInMillis());
 //        System.out.println("Time abstract: ");
 //        System.out.println(abstract_end.getTimeInMillis() - abstract_start.getTimeInMillis());
-        System.out.println("Time summary: ");
-        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
+//        System.out.println("Time summary: ");
+//        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
     }
 
     // ------------------------------------------------------------ //
@@ -170,9 +172,9 @@ public class Attributes implements Runnable {
         return name;
     }
 
-    public String getSummary() {
-        return summary;
-    }
+//    public String getSummary() {
+//        return summary;
+//    }
 
     public List<String> getAuthor(){
         return author;
@@ -208,6 +210,10 @@ public class Attributes implements Runnable {
 
     public List<String> getProgramming_lang(){
         return programming_lang;
+    }
+
+    public String getStatus(){
+        return status;
     }
 
     // ----------------------------------------------------------- //

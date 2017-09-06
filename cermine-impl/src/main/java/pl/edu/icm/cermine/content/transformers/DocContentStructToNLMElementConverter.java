@@ -86,8 +86,12 @@ public class DocContentStructToNLMElementConverter implements ModelToModelConver
         Element element = new Element("sec");
         element.addContent(toHTMLTitle(part.getTitle()));
         for (int i = 0; i < part.getParagraphs().size(); i++) {
-            String paragraph = part.getParagraphs().get(i);
-            paragraph = ContentCleaner.cleanAllAndBreaks(paragraph);
+//            String paragraph = part.getParagraphs().get(i);
+            //add start
+            String old_paragraph = part.getParagraphs().get(i);
+            String paragraph = ContentCleaner.cleanAllAndBreaks(old_paragraph);
+            int diff = old_paragraph.length()-paragraph.length();
+            //add end
             List<Pair<Integer, CitationPosition>> positionList = new ArrayList<Pair<Integer, CitationPosition>>();
             if (positions != null) {
                 positionList = positions.getPositions(part, i);
@@ -102,7 +106,7 @@ public class DocContentStructToNLMElementConverter implements ModelToModelConver
                     }
                 });
             }
-            element.addContent(toHTMLParagraph(paragraph, positionList));
+            element.addContent(toHTMLParagraph(paragraph, positionList,diff));
         }
         for (DocumentSection subpart : part.getSubsections()) {
             element.addContent(toHTML(subpart, positions));
@@ -117,7 +121,7 @@ public class DocContentStructToNLMElementConverter implements ModelToModelConver
         return element;
     }
     
-    public Element toHTMLParagraph(String paragraph, List<Pair<Integer, CitationPosition>> positions) {
+    public Element toHTMLParagraph(String paragraph, List<Pair<Integer, CitationPosition>> positions, int diff) {
         Element element = new Element("p");
         int lastParIndex = 0;
         int posIndex = 0;
@@ -139,9 +143,9 @@ public class DocContentStructToNLMElementConverter implements ModelToModelConver
             }
             Collections.sort(rids);
             ref.setAttribute("rid", StringUtils.join(rids, " "));
-            ref.setText(XMLTools.removeInvalidXMLChars(paragraph.substring(start, end)));
+            ref.setText(XMLTools.removeInvalidXMLChars(paragraph.substring(start-diff, end-diff)));
             element.addContent(ref);
-            lastParIndex = end;
+            lastParIndex = end-diff;
         }
         element.addContent(XMLTools.removeInvalidXMLChars(paragraph.substring(lastParIndex)));
         return element;

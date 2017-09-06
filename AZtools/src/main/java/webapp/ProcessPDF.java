@@ -90,14 +90,14 @@ public class ProcessPDF {
             metadata.put("total refine_time (ms)", refine_time);
             metadata_string = metadata.toString();
 
-            data_string = data.toString().replace("abstrakt", "abstract").replace("\\\"", "\"");
+            data_string = data.toString();//.replace("abstrakt", "abstract").replace("\\\"", "\"");
             System.out.println(data_string);
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
 
-            String final_result = final_json_object.toString().replace("\\\"", "\"");
-            final_json_string = final_result.replace("\\\\\"", "\"");
+            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
+            final_json_string = final_result;//.replace("\\\\\"", "\"");
         }
         catch (TimeoutException e) {
             e.printStackTrace();
@@ -159,13 +159,13 @@ public class ProcessPDF {
             metadata.put("total refine_time (ms)", refine_time);
             metadata_string = metadata.toString();
 
-            data_string = data.toString().replace("abstrakt", "abstract");
+            data_string = data.toString();//.replace("abstrakt", "abstract");
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
 
-            String final_result = final_json_object.toString().replace("\\\"", "\"");
-            final_json_string = final_result.replace("\\\\\"", "\"");
+            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
+            final_json_string = final_result;//.replace("\\\\\"", "\"");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -230,14 +230,14 @@ public class ProcessPDF {
             metadata.put("total refine_time (ms)", refine_time);
             metadata_string = metadata.toString();
 
-            data_string = data.toString().replace("abstrakt", "abstract");
+            data_string = data.toString();//.replace("abstrakt", "abstract");
             System.out.println(data_string);
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
 
-            String final_result = final_json_object.toString().replace("\\\"", "\"");
-            final_json_string = final_result.replace("\\\\\"", "\"");
+            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
+            final_json_string = final_result;//.replace("\\\\\"", "\"");
         }
         catch (TimeoutException e) {
             e.printStackTrace();
@@ -298,13 +298,13 @@ public class ProcessPDF {
             metadata.put("total refine_time (ms)", refine_time);
             metadata_string = metadata.toString();
 
-            data_string = data.toString().replace("abstrakt", "abstract");
+            data_string = data.toString();//.replace("abstrakt", "abstract");
 
             final_json_object.put("metadata", metadata_string);
             final_json_object.put("data", data_string);
 
-            String final_result = final_json_object.toString().replace("\\\"", "\"");
-            final_json_string = final_result.replace("\\\\\"", "\"");
+            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
+            final_json_string = final_result;//.replace("\\\\\"", "\"");
         } catch (Exception e) {
             e.printStackTrace();
         }

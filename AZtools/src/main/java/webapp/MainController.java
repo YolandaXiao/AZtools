@@ -98,16 +98,16 @@ public class MainController {
         //remove <bold> and <italics> tag
         html_withoutref = html_withoutref.replaceAll("<\\/?bold>","");
         html_withoutref = html_withoutref.replaceAll("<\\/?italic>","");
-
-        //xml to json
-        JSONObject xmlJSONObj = XML.toJSONObject(html_withoutref);
-        String return_value = xmlJSONObj.toString();
+//
+//        //xml to json
+//        JSONObject xmlJSONObj = XML.toJSONObject(html_withoutref);
+//        String return_value = xmlJSONObj.toString();
 
         ObjectMapper mapper = new ObjectMapper();
-//        Attributes attr = new Attributes(html_withoutref, "tmp",1);
-//        String json_string = mapper.writeValueAsString(attr);
+        Attributes attr = new Attributes(html_withoutref, "tmp",1);
+        String json_string = mapper.writeValueAsString(attr);
 
-        return new ResponseEntity<>("temp", responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(json_string, responseHeaders, HttpStatus.OK);
     }
 
     //helper function: get HTML content
