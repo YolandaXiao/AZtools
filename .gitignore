@@ -9,3 +9,6 @@ testing/pdfs
 /.metadata/
 *.pdf
 response.json
+*.iml
+*.DS_Store*
+out*

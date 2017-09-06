@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMultipart;
 
 public class ProcessEmail {
 
-    private final String PROTOCOL = "imaps";;
+    private final String PROTOCOL = "imaps";
     private final String HOST = "smtp.gmail.com";
     private final String PORT = "587";
 
