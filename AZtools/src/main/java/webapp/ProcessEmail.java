@@ -17,7 +17,7 @@ public class ProcessEmail {
     private final String PROTOCOL = "imaps";
     private final String HOST = "smtp.gmail.com";
     private final String PORT = "587";
-    private final String SMTP_PROPERTIES = Globs.get_smtp_properties();
+    private final String SMTP_PROPERTIES;
 
     private String EMAIL_ADDRESS;
     private String PASSWORD;
@@ -34,6 +34,7 @@ public class ProcessEmail {
         EMAIL_ADDRESS = Globs.get_email_addr();
         PASSWORD = Globs.get_email_pass();
         to_process = new HashMap();
+        SMTP_PROPERTIES = Globs.get_smtp_properties();
     }
 
     public Map<Address[], ArrayList<File>> get_to_process() {
