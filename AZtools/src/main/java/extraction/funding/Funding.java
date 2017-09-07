@@ -64,7 +64,7 @@ public class Funding {
     private ArrayList<String> getAgencyDic() throws IOException {
         String agencyNamesFile = Globs.getAgencyNamesFileName();
         BufferedReader br = new BufferedReader(new FileReader(agencyNamesFile));
-        ArrayList<String> agency_dic = new ArrayList<>();
+        ArrayList<String> agency_dic = new ArrayList();
         try {
             String line = br.readLine();
             while (line != null) {
@@ -78,7 +78,7 @@ public class Funding {
     }
 
     private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
-        ArrayList<FundingInfo> arrayList= new ArrayList<>();
+        ArrayList<FundingInfo> arrayList= new ArrayList();
         try {
             //check each character in json file
             InputStream is = new FileInputStream(Globs.get_cached_tree_map());
@@ -94,7 +94,7 @@ public class Funding {
             String pattern2 = "([/\\[]*\\w+[-/]*\\w+[-/\\]]*)";
             Pattern r2 = Pattern.compile(pattern2);
             Matcher m2 = r2.matcher(funding_section);
-            ArrayList<String> words = new ArrayList<>();
+            ArrayList<String> words = new ArrayList();
             while (m2.find()) {
                 String word = m2.group();
                 words.add(word);
@@ -177,7 +177,7 @@ public class Funding {
     }
 
     private List<FundingInfo> extractFunding_fromPMCXML(String nlm) throws Exception {
-        ArrayList<FundingInfo> arrayList = new ArrayList<>();
+        ArrayList<FundingInfo> arrayList = new ArrayList();
         try {
             //agency only
             String pattern = "<funding-source>.*?<\\/funding-source>";

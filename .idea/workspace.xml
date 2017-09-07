@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AZtools:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5d62b85-6ff2-43be-9c39-9553e352ea39" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/artifacts/cermine_impl_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__com_google_guava_guava_19_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__com_itextpdf_itextpdf_5_5_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_cli_commons_cli_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_configuration_commons_configuration_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__edu_umass_cs_mallet_grmm_deps_0_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__edu_umass_cs_mallet_mallet_0_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__jaxen_jaxen_1_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__junit_junit_4_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_54.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__org_drools_guvnor_bulk_importer_6_0_0_SNAPSHOT.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__org_jdom_jdom_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__org_json_json_20140107.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__tw_edu_ntu_csie_libsvm_3_17.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/libraries/Maven__xmlunit_xmlunit_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.settings/org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/TRAINING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/bin/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/cermine-impl.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/classes/artifacts/cermine_impl_jar/cermine-impl.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/CommandLineOptionsParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/ComponentConfiguration.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/ComponentFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/ContentExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/ExtractionUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/InternalContentExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/PdfBxStructureExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/PdfNLMContentExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/PdfRawTextExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/PdfRawTextWithLabelsExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/BibReferenceExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/BibReferenceParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/CRFBibReferenceParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/KMeansBibReferenceExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/EndFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/EndsWithDotFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/PrevEndsWithDotFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/PrevRelativeLengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/RelativeLengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/RelativeStartFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/RelativeStartTresholdFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/SpaceBetweenLinesFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/StartsWithNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/StartsWithNumberOrUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/features/StartsWithRefFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/model/BibReferenceLineLabel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/model/BxDocumentBibReferences.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/extraction/tools/BibRefExtractionUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/model/BibEntry.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/model/BibEntryField.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/model/BibEntryFieldType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/model/BibEntryType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/DigitRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/InitialsInParenthesesFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllDigitsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllLettersFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllLettersOrDigitsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllLowercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllRomanDigitsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAllUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsAndFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCityFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsClosingParenthesisFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsClosingSquareBracketFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCommaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCommonPublisherWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCommonSeriesWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCommonSourceWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsCommonSurnamePartFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsDashBetweenWordsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsDashFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsDigitFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsDotFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsLaquoFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsLowercaseLetterFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsNumberTextFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsOpeningParenthesisFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsOpeningSquareBracketFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsPagesTextFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsQuoteFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsRaquoFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsSingleQuoteBetweenWordsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsSlashFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsTextWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsUppercaseLetterFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsUppercaseWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsVolumeTextFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordAndFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordDeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordHttpFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordJrFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordLeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordTheFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsWordTheoryFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/IsYearFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/LengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/LetterRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/LowercaseRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/StartingNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/StartsWithUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/StartsWithWordMcFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/features/UppercaseRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/model/Citation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/model/CitationToken.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/model/CitationTokenLabel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/tools/CitationUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/tools/FeatureList.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/parsing/tools/NlmCitationExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/transformers/BibEntryToBibTeXWriter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/transformers/BibEntryToNLMConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/transformers/BibTeXToBibEntryReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/bibref/transformers/NLMToBibEntryConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/configuration/ExtractionConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/configuration/ExtractionConfigBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/configuration/ExtractionConfigProperty.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/configuration/ExtractionConfigRegister.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/LogicalStructureExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/RawTextWithLabelsExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/SVMLogicalStructureExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/citations/CitationPosition.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/citations/CitationPositionFinder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/citations/ContentCitationPositionFinder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/citations/ContentStructureCitationPositions.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/cleaning/ContentCleaner.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/filtering/ContentFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/filtering/ContentFilterTools.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/filtering/SVMContentFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/ContentHeadersExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/HeaderExtractingTools.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/HeaderLinesCompletener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/HeadersClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/HeuristicContentHeadersExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/SVMContentHeadersExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/SVMHeaderLinesClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/SimpleHeadersClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/SingleLinkageHeadersClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/CapitalizedWordWithInterpunctionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/CapitalizedWords23WithInterpunctionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/ContainsEquationCharacterFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/ContainsInterpunctionInsideFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/ContainsTypicalHeaderKeywordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/DigitDotSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/DigitParSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/DigitRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/DoubleDigitSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/EndsWithDotFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/EndsWithInterpunctionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/EquationCharacterRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/FontCodeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/FontCodeLeftToInterpFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/HeightFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/IndentationFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/IndentationPageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/IndentationZoneFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/IsCapitalizedSingleWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/IsHigherThanNeighborsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/LengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/LowercaseSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/MajorityFontFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/MoreThanOneFontUsedFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/NextLineIndentationFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/NextStartsWithUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/NumberOfCharactersFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/NumberOfFontsUsedFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/NumberOfWordsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/PrevDistanceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/PrevEndsWithDotFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/PrevLineLengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/PrevSpaceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/RomanDigitsSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/SpaceBetweenLineAboveFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/StartsWithUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/TripleDigitSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/UppercaseRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/UppercaseSchemaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/WordsAllUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/headers/features/WordsUppercaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/model/BxContentStructure.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/model/ContentStructure.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/model/DocumentSection.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/transformers/BxContentToDocContentConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/transformers/DocContentStructToNLMElementConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/transformers/DocContentToHTMLWriter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/transformers/HTMLToDocContentReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/content/transformers/NLMToHTMLWriter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/exception/AnalysisException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/exception/TransformationException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/EnhancerMetadataExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/MetadataExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/CRFAffiliationParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/features/AffiliationDictionaryFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationCRFTokenClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationFeatureExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationTokenizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/tools/CountryISOCodeFinder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/affiliation/tools/NLMAffiliationExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AbstractDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AbstractFilterEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AbstractMultiPatternEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AbstractPatternEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AbstractSimpleEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AcceptedDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AffiliationAuthorSplitterEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AffiliationGeometricEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/ArticleIdEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AuthorAffiliationGeometricEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AuthorAffiliationSplitterEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AuthorEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/AuthorTitleSplitterEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/CiteAsEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/DescriptionEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/DoiEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/EditorEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/EmailEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/EnhancedField.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/Enhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/HindawiCornerInfoEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/IssnEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/IssueEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalIssnEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalVolumeIssueEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalVolumeIssueExtendedEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalVolumeIssueWithAuthorEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalVolumePagesEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalVolumePagesYearEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalWithoutVolumeIssueEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/JournalYearVolumeEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/KeywordsEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PagesEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PagesLastEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PagesNumbersEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PagesPartialEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PublishedDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/PublisherEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/ReceivedDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/RevisedDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/RevisedFormDateEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/TitleAuthorSplitterEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/TitleEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/TitleMergedWithTypeEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/UrnEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/VolumeEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/extraction/enhancers/YearEnhancer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/AffiliationLabel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/DateType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/DocumentAffiliation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/DocumentAuthor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/DocumentDate.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/DocumentMetadata.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/model/IDType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/tools/MetadataTools.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/transformers/MetadataToNLMConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/transformers/NLMToMetadataConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AbstractFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AbstractFeatureCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AcknowledgementFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AffiliationFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AreaFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AtCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AtRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AuthorFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/AuthorNameRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/BibinfoFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/BracketCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/BracketRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/BracketedLineRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CharCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CharCountRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CommaCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CommaRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ContainsCuePhrasesFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ContainsPageNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ContributionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CorrespondenceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/CuePhrasesRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DateFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DigitCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DigitRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DistanceFromNearestNeighbourFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DotCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/DotRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/EditorFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/EmailFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/EmptySpaceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/EmptySpaceRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FeatureList.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FigureFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FigureTableFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FontHeightMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FreeSpaceWithinZoneFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/FullWordsRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/GreekLettersFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/HeightFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/HeightRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/HorizontalRelativeProminenceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsAfterMetTitleFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsAnywhereElseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsFirstPageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsFontBiggerThanNeighboursFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsGreatestFontOnPageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsHighestOnThePageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsItemizeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsLastButOnePageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsLastPageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsLeftFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsLongestOnThePageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsLowestOnThePageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsOnSurroundingPagesFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsPageNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsRightFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsSingleWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/IsWidestOnThePageFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/KeywordsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LastButOneZoneFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LetterCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LetterRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LicenseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineHeightMaxMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineHeightMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineWidthMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineXPositionDiffFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineXPositionMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LineXWidthPositionDiffFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LowercaseCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/LowercaseRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/MathSymbolsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/PageNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/PreviousZoneFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ProportionsFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/PunctuationRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ReferencesFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/ReferencesTitleFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/RelativeMeanLengthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/StartsWithDigitFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/StartsWithHeaderFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/TypeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/UppercaseCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/UppercaseRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/UppercaseWordCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/UppercaseWordRelativeCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/VerticalProminenceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WhitespaceCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WhitespaceRelativeCountLogFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WidthFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WidthRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WordCountFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WordCountRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WordLengthMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WordLengthMedianFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/WordWidthMeanFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/XPositionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/XPositionRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/XVarianceFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/YPositionFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/YPositionRelativeFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/features/YearFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/tools/LabelPair.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/tools/ZoneClassificationUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/metadata/zoneclassification/tools/ZoneLocaliser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/model/Document.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/BinaryTokenFeatureCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsAllLowerCaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsAllUpperCaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsNonAlphanumFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsNumberFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsRareFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsSeparatorFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsUpperCaseFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/IsWordFeature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/KeywordFeatureCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/features/WordFeatureCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/model/ParsableString.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/model/Token.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/FeatureExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/GrmmUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/NLMParsableStringExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/ParsableStringParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/TextTokenizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/parsing/tools/TokenClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/CharacterExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/DocstrumSegmenter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/DocstrumSegmenterOrig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/DocumentSegmenter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/HierarchicalReadingOrderResolver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/ITextCharacterExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/ParallelDocstrumSegmenter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/ReadingOrderResolver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/SVMInitialZoneClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/SVMMetadataZoneClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/ZoneClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxBounds.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxChunk.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxDocument.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxImage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxLine.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxObject.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxWord.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxZone.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxZoneLabel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/BxZoneLabelCategory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/Indexable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/model/Printable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/readingorder/BxZoneGroup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/readingorder/DistElem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/readingorder/DocumentPlane.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/readingorder/TreeToListConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/BxBoundsBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/BxModelUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/BxZoneOrderTuple.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/BxZoneTree.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/ClassificationTransfer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/DocumentProcessor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/InitiallyClassifiedZonesPreprocessor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/UnclassifiedZonesPreprocessor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/UnsegmentedPagesFlattener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/tools/UnsegmentedZonesFlattener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/transformers/BxDocumentToTrueVizWriter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/transformers/TrueVizToBxDocumentReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/structure/transformers/TrueVizUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/BxDocUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/CharacterUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/CountMap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/CumulativeFunc.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/DirExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/DisjointSets.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/DocumentsExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/FileExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/Histogram.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/Pair.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/PatternUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/RecursiveDirExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/ResourceUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/ResourcesReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/SmartHashMap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/TextUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/Utils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/XMLTools.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/ZipExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/ClusteringEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/Clusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/CompleteLinkageClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/FeatureVectorClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/FeatureVectorsNormalizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/KMeansWithInitialCentroids.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/clustering/SingleLinkageClusterizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/BxDocsToTrainingSamplesConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/ClassificationUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureLimits.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureVector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureVectorBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureVectorScaler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureVectorScalerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/FeatureVectorScalerNoOp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/LinearScaling.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/PenaltyCalculator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/ScalingStrategy.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/general/TrainingSample.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/knn/KnnClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/knn/KnnModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/sampleselection/NormalSelector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/sampleselection/OversamplingSelector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/sampleselection/SampleFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/sampleselection/SampleSelector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/sampleselection/UndersamplingSelector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/svm/SVMClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/classification/svm/SVMZoneClassifier.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/distance/CosineDistance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/distance/FeatureVectorDistanceMetric.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/distance/FeatureVectorEuclideanMetric.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/distance/LevenshteinDistance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/distance/SmithWatermanDistance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/statistics/Population.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/statistics/ProbabilityDistribution.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/timeout/Timeout.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/timeout/TimeoutException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/timeout/TimeoutRegister.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/transformers/FormatToModelReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/transformers/ModelToFormatWriter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/java/pl/edu/icm/cermine/tools/transformers/ModelToModelConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/application-default.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/bibref/acrf.ser.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/bibref/crf-train-words.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/content/filtering.model" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/content/filtering.range" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/acrf-affiliations-pubmed.ser.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/acrf-affiliations-with-author.ser.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/common-words-affiliations-pubmed.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/common-words-affiliations-with-author.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/country-codes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/address_keywords.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/cities.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/countries.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/countries2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/dependent_territories.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/institution_keywords.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/my_address_keywords.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/state_codes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/states.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/stop_words_long.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/stop_words_multilang.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/metadata/affiliation/features/stop_words_short.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/imports/Trueviz.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-initial-default" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-initial-default.range" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-metadata-default" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-metadata-default.range" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-metadata-humanities" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/main/resources/pl/edu/icm/cermine/structure/model-metadata-humanities.range" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/AltPdfNLMMetadataExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/CommandLineOptionsParserTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/ContentExtractorLoopTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/ContentExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/ContentExtractorTimeoutTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/StandardDataExamples.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/AbstractBibReferenceExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/AbstractBibReferenceParserTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/CRFBibReferenceParserTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/DOIExtractionTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/KMeansBibReferenceExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/transformers/BibEntryToBibTeXWriterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/transformers/BibEntryToNLMElementConverterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/transformers/BibTeXToBibEntryReaderTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/bibref/transformers/NLMElementToBibEntryConverterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/configuration/ExtractionConfigRegisterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/content/citations/CitationReferenceFinderTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/content/model/DocumentContentStructureTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/content/transformers/BxToDocContentStructConverterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/content/transformers/HTMLDocContentStructureConvertersTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/AffiliationParserTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/features/AffiliationDictionaryFeatureTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationCRFTokenClassifierTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationFeatureExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/tools/AffiliationTokenizerTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/affiliation/tools/NLMAffiliationExtractorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/metadata/tools/MetadataToolsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/parsing/features/IsRareFeatureTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/parsing/features/WordFeatureTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/parsing/model/TokenTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/parsing/tools/GrmmUtilsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/AbstractDocumentProcessorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/DocstrumPageSegmenterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/HierarchicalReadingOrderResolverTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/ITextCharacterExtractionTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/ParallelDocstrumPageSegmenterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/SVMInitialClassifierTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/tools/BxBoundsBuilderTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/tools/BxModelUtilsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/transformers/BxDocumentToMinimalTrueVizWriterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/transformers/BxDocumentToTrueVizWriterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/structure/transformers/TrueVizToBxDocumentReaderTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/tools/DisjointSetsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/tools/HistogramTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/tools/ResourceUtilsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/tools/TextUtilsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/java/pl/edu/icm/cermine/tools/timeout/TimeoutRegisterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/bibref/hmmCitationProbabilities.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/bibref/refs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/bibref/refs.xml.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/configuration/test-config.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/content/model/model.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/content/models.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/content/test-small.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/content/test.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/content/train.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/metadata/affiliation/features/mock-dictionary.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/metadata/affiliation/tools/test-nlm-extract-affs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/001.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/006.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/2.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/3.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/4.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/5.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/6.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/DocstrumPageSegmenter01.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/hmmZoneProbabilities.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/imports/MargImporterTest1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/margSmallSample.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/roa_test.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/structure/roa_test_small.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test1-metadata.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test1-structure-general.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test1-structure-specific.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test1-structure.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test2-content.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test2-fulltext.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test2-zones.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test2.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test3-metadata.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test3.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4-content-images.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4-images/img_3_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4-images/img_4_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4-images/img_5_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4-images/img_6_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test4.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test5-content.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test5.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/test6.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/tools/resourceFile.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/tools/timeout/complex.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cermine-impl/src/test/resources/pl/edu/icm/cermine/tools/timeout/simple.pdf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/pom.xml" afterPath="$PROJECT_DIR$/AZtools/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/extraction/affiliation/Affiliation.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/extraction/affiliation/Affiliation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/Funding.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/Funding.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/extraction/language/Language.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/extraction/language/Language.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/extraction/name/NameNLP.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/extraction/name/NameNLP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/extraction/url/Url.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/extraction/url/Url.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/webapp/AppThread.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/webapp/AppThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/webapp/Globs.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/webapp/Globs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/webapp/MainController.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/webapp/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessEmail.java" afterPath="$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessEmail.java" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/cermine-impl/target/" />
+    <ignored path="$PROJECT_DIR$/AZtools/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/AZtools$Application.coverage" NAME="Application Coverage Results" MODIFIED="1503014345707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>extraction.name.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CodeIris Favorites" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AZtools/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Globs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/Globs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NameNLP.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/NameNLP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3859">
+              <caret line="232" column="54" lean-forward="false" selection-start-line="232" selection-start-column="54" selection-end-line="232" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>JSONE</find>
+      <find>Except</find>
+      <find>catch</find>
+      <find>getHTML</find>
+      <find>System.out</find>
+      <find>System.ou</find>
+      <find>ner</find>
+      <find>System.out.println</find>
+      <find>ExtractDemo</find>
+      <find>Quickstart</find>
+      <find>toBe</find>
+      <find>session</find>
+      <find>props</find>
+      <find>delete</find>
+      <find>serviced</find>
+      <find>Delete</find>
+      <find>msgs_othermsgs_other</find>
+      <find>msgs_other</find>
+      <find>processing_folder</find>
+      <find>DELETE</find>
+      <find>data_string</find>
+      <find>data</find>
+      <find>file</find>
+      <find>files</find>
+      <find>getDataString</find>
+      <find>getData</find>
+      <find>Syste</find>
+      <find>print</find>
+      <find>System</find>
+      <find>version</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/upload/Attributes.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/upload/NameNLP.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/NameNLP.java" />
+        <option value="$PROJECT_DIR$/AZtools/lib/cermine-impl.jar!/pl/edu/icm/cermine/ContentExtractor.class" />
+        <option value="$PROJECT_DIR$/AZtools/src/Beans.xml" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/SystemCommandExecutor.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/ThreadedStreamHandler.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/lib.py" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/Properties.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/.Properties.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/Quickstart.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/resources/smtp.properties" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/Email.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/GmailInbox.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/resources/templates/upload_dev.html" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/json_responses/response.json" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/Application.java" />
+        <option value="$PROJECT_DIR$/response.json" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/resources/templates/upload.html" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/.Paths.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/Paths.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessPDF.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/Attributes.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/abstrakt/Abstract.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/author/Author.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/contact/Contact.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/date/Date.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/doi/DOI.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/FundingInfo.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/title/Title.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/abstract_to_summary.py" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/Summary.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/ExtractDemo.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/.Globs.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/AZtools/src/test/java/extraction/FundingTest.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/test/java/extraction/Helper.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/test/java/extraction/NameTest.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/test/java/extraction/TestRunner.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/test/java/extraction/LanguagesTest.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/url/Url.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/Funding.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessEmail.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/AppThread.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/MainController.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/language/Language.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/affiliation/Affiliation.java" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/extraction/name/NameNLP.java" />
+        <option value="$PROJECT_DIR$/AZtools/pom.xml" />
+        <option value="$PROJECT_DIR$/AZtools/src/main/java/webapp/Globs.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="lookForNested" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="817" />
+    <option name="y" value="-15" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="extraction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AZtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AZtools" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15625" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="SearchEverywhereHistoryKey" value="web.x&#9;FILE&#9;file://C:/Ankur/Code/AZtools/AZtools/lib/javamail-1.4.5/demo/webapp/src/docroot/WEB-INF/web.xml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Ankur\Code\AZtools\AZtools\src\main\java\webapp" />
+      <recent name="C:\Ankur\Code\AZtools\AZtools\src\main\resources" />
+      <recent name="C:\Ankur\Code\AZtools\AZtools\src\main\java\extraction\name" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="webapp" />
+      <recent name="extraction" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Ankur\Code\AZtools\AZtools\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="extraction.name.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="webapp.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AZtools" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cermine-impl" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cermine-impl" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cermine-impl" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5d62b85-6ff2-43be-9c39-9553e352ea39" name="Default" comment="" />
+      <created>1501202956037</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1501202956037</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4801902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37242472" sideWeight="0.51098096" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49286845" sideWeight="0.48901904" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22401172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69472915" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7274168" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37242472" sideWeight="0.51098096" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69472915" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5229794" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54041207" sideWeight="0.48901904" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7274168" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="39" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/date/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/cached_tree_map.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22627">
+          <caret line="0" column="75241" lean-forward="true" selection-start-line="0" selection-start-column="75241" selection-end-line="0" selection-end-column="75241" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/title/Title.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/2017MeshTree.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/mesh_terms.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/en.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/words.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/cleanTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/stop.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/abstract_to_summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/complete_training_dataset.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/complete_word_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/final_dataset.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret line="423" column="6" lean-forward="false" selection-start-line="423" selection-start-column="6" selection-end-line="423" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/stopwords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/training_data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/word_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/testing_data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/Attributes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/resources/smtp.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/resources/Beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/summary/Summary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/.Globs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/URL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2452">
+          <caret line="603" column="0" lean-forward="true" selection-start-line="603" selection-start-column="0" selection-end-line="603" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/java/extraction/FundingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/java/extraction/Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/java/extraction/LanguagesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/java/extraction/NameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/java/extraction/TestRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/test/resources/webapp/testupload.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/FundingInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/url/Url.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/Funding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="179" column="56" lean-forward="false" selection-start-line="179" selection-start-column="56" selection-end-line="179" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="85" column="62" lean-forward="false" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/AppThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="39" column="65" lean-forward="false" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="95" column="33" lean-forward="false" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/language/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/affiliation/Affiliation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="70" column="32" lean-forward="false" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/AZtools/lib/stanford-ner-2017-06-09/stanford-ner-3.8.0-sources.jar!/edu/stanford/nlp/ie/AbstractSequenceClassifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="730" column="31" lean-forward="true" selection-start-line="730" selection-start-column="31" selection-end-line="730" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/ProcessPDF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/AZtools.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/resources/META-INF/spring.factories" />
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/funding/ExtractDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/resources/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/extraction/name/NameNLP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3859">
+          <caret line="232" column="54" lean-forward="false" selection-start-line="232" selection-start-column="54" selection-end-line="232" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AZtools/src/main/java/webapp/Globs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>AZtools:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>AZtools</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="knownFile1" value="file://$PROJECT_DIR$/AZtoolUML.suml" />
+      <option name="knownFile2" value="file://$PROJECT_DIR$/AZtools.suml" />
+      <option name="knownFile0" value="file://$PROJECT_DIR$/../AZ_tools.suml" />
+      <option name="knownFile3" value="file://$PROJECT_DIR$/../Attributes.suml" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
+  </component>
+</project>

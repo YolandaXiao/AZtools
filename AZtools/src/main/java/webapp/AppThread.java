@@ -10,7 +10,7 @@ public class AppThread implements Runnable {
 
     public AppThread() {
         try {
-            List<String> commands = new ArrayList<>();
+            List<String> commands = new ArrayList();
             commands.add("python");
             commands.add(Globs.get_svm_lib_path());
             new ProcessBuilder(commands).start();
@@ -32,12 +32,12 @@ public class AppThread implements Runnable {
             try {
                 email.processInbox();
                 Map<Address[], ArrayList<File>> to_process = email.get_to_process();
-                ArrayList<Address[]> to_remove = new ArrayList<>();
+                ArrayList<Address[]> to_remove = new ArrayList();
 
                 for (Map.Entry<Address[], ArrayList<File>> entry : to_process.entrySet()) {
                     Address[] address = entry.getKey();
                     ArrayList<File> file_list = entry.getValue();
-                    ArrayList<String> f_filenames = new ArrayList<>();
+                    ArrayList<String> f_filenames = new ArrayList();
                     for (File file : file_list) { f_filenames.add(file.getName()); }
                     String result = (new ProcessPDF(file_list, f_filenames)).getDataString();
                     // .getDataString() for only PDF metadata

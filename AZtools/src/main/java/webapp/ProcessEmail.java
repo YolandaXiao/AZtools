@@ -33,7 +33,7 @@ public class ProcessEmail {
     public ProcessEmail() {
         EMAIL_ADDRESS = Globs.get_email_addr();
         PASSWORD = Globs.get_email_pass();
-        to_process = new HashMap<>();
+        to_process = new HashMap();
     }
 
     public Map<Address[], ArrayList<File>> get_to_process() {
@@ -83,7 +83,7 @@ public class ProcessEmail {
                     fos.close();
 
                     Address[] sentFrom = message.getFrom();
-                    ArrayList<File> files_list = new ArrayList<>();
+                    ArrayList<File> files_list = new ArrayList();
                     if (to_process.containsKey(sentFrom)) {
                         files_list = to_process.get(sentFrom);
                     }

@@ -68,7 +68,7 @@ public class Affiliation {
                 }
             }
         } catch (Exception e) {
-            return new ArrayList<>();
+            return new ArrayList();
         }
         return arraylist;
     }

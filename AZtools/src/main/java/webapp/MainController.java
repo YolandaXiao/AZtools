@@ -32,9 +32,9 @@ public class MainController {
                                           RedirectAttributes redirectAttributes, Model model) throws Exception {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-        ArrayList<MultipartFile> f_files = new ArrayList<>();
-        ArrayList<File> fnm_files = new ArrayList<>();
-        ArrayList<String> f_filenames = new ArrayList<>();
+        ArrayList<MultipartFile> f_files = new ArrayList();
+        ArrayList<File> fnm_files = new ArrayList();
+        ArrayList<String> f_filenames = new ArrayList();
         for (MultipartFile file : files) {
             f_files.add(file);
             f_filenames.add(file.getOriginalFilename());
@@ -51,7 +51,7 @@ public class MainController {
         // .getDataString() for only PDF metadata
         // .getMetadataString() for processing stats
         // .getFinalString() for both
-        return new ResponseEntity<>(result, responseHeaders, HttpStatus.OK);
+        return new ResponseEntity(result, responseHeaders, HttpStatus.OK);
     }
 
     @PostMapping(value = "/pmc_id")
@@ -74,7 +74,7 @@ public class MainController {
         }
         if(!flag){
             String return_value = "Sorry! PubMed Central doesn't allow full text access for this ID!";
-            return new ResponseEntity<>(return_value, responseHeaders, HttpStatus.OK);
+            return new ResponseEntity(return_value, responseHeaders, HttpStatus.OK);
         }
 
         //get rid of reference section
@@ -93,7 +93,7 @@ public class MainController {
         Attributes attr = new Attributes(html_withoutref, "tmp",1);
         String json_string = mapper.writeValueAsString(attr);
 
-        return new ResponseEntity<>(json_string, responseHeaders, HttpStatus.OK);
+        return new ResponseEntity(json_string, responseHeaders, HttpStatus.OK);
     }
 
     // helper function: get HTML content

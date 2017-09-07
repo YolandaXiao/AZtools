@@ -26,7 +26,7 @@ public class Language {
     }
 
     private List<String> extractProgramming_lang(JSONObject xmlJSONObj, String pdf_name) throws Exception {
-        ArrayList<String> lan = new ArrayList<>();
+        ArrayList<String> lan = new ArrayList();
         try {
             Url url_link = new Url(xmlJSONObj, pdf_name);
             List<String> url_links = url_link.getUrl();

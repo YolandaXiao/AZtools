@@ -16,7 +16,7 @@ public class NameNLP {
     public NameNLP(String title, List<String> cer_urls) {
 
         info = new Vector(0);
-        words = new ArrayList<>(0);
+        words = new ArrayList(0);
 
         if (null != title) {
             words.addAll(Arrays.asList(title.split("\\s")));
@@ -134,7 +134,7 @@ public class NameNLP {
     private void initializeInfo() {
 
         String stop_file_path = Globs.get_stop_path();
-        ArrayList<String> stop_words = new ArrayList<>();
+        ArrayList<String> stop_words = new ArrayList();
 
         // get stop words
         try {
@@ -197,7 +197,7 @@ public class NameNLP {
     private void dealPunctuation() {
         for (int l = 0; l < info.size(); l++) {
 
-            ArrayList<String> phraseWords = new ArrayList<>();
+            ArrayList<String> phraseWords = new ArrayList();
             String phrase = (String)(((Vector)info.get(l)).get(0));
             phraseWords.addAll(Arrays.asList(phrase.split(" ")));
 
@@ -210,7 +210,7 @@ public class NameNLP {
                     if (word.length() >= 1 && word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
 
                         String new_word = word.substring(0, word.length() - 1);
-                        ArrayList<String> new_phrase = new ArrayList<>();
+                        ArrayList<String> new_phrase = new ArrayList();
 
                         for (int n = 0; n < m; n++) {
                             new_phrase.add(phraseWords.get(n));
@@ -256,8 +256,8 @@ public class NameNLP {
         String mesh_file_path = Globs.get_mesh_path();
         String en_file_path = Globs.get_en_path();
 
-        ArrayList<String> mesh_list = new ArrayList<>();
-        ArrayList<String> words_list = new ArrayList<>();
+        ArrayList<String> mesh_list = new ArrayList();
+        ArrayList<String> words_list = new ArrayList();
 
         try {
             FileReader fileReader = new FileReader(mesh_file_path);
@@ -287,7 +287,7 @@ public class NameNLP {
 
         for (int m = 0; m < info.size(); m++) {
 
-            ArrayList<String> phraseWords = new ArrayList<>();
+            ArrayList<String> phraseWords = new ArrayList();
             String phrase = (String)(((Vector)info.get(m)).get(0));
             phraseWords.addAll(Arrays.asList(phrase.split(" ")));
 
@@ -319,7 +319,7 @@ public class NameNLP {
 
             boolean firstLettersCapital = true;
 
-            ArrayList<String> phraseWords = new ArrayList<>();
+            ArrayList<String> phraseWords = new ArrayList();
             String phrase = (String)(((Vector)info.get(z)).get(0));
             phraseWords.addAll(Arrays.asList(phrase.split(" ")));
             int numWords = phraseWords.size();
@@ -348,7 +348,7 @@ public class NameNLP {
                 ((Vector) (info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 7 + (int) ((Vector) (info.get(z))).get(1));
                 ((Vector) (info.get(z))).set(1, numWords * 2 + (int) ((Vector) (info.get(z))).get(1));
                 if (firstLettersCapital && numWords > 1) {
-                    ((Vector) (info.get(z))).set(1, (int) ((Vector) (info.get(z))).get(1) + 25);
+                    ((Vector) (info.get(z))).set(1, (int)((Vector)(info.get(z))).get(1) + 25);
                 }
             }
         }
@@ -368,7 +368,7 @@ public class NameNLP {
         }
 
         String fin_name = "";
-        ArrayList<String> phraseWords = new ArrayList<>();
+        ArrayList<String> phraseWords = new ArrayList();
         String phrase = (String)(((Vector)info.get(index)).get(0));
         phraseWords.addAll(Arrays.asList(phrase.split(" ")));
 

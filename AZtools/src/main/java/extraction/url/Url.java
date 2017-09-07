@@ -20,8 +20,8 @@ public class Url {
     }
 
     private List<String> extractURL(JSONObject xmlJSONObj, String name) {
-        ArrayList<String> all_links= new ArrayList<>();
-        ArrayList<String> good_links= new ArrayList<>();
+        ArrayList<String> all_links= new ArrayList();
+        ArrayList<String> good_links= new ArrayList();
         try {
             name = name.split(".pdf")[0];
 

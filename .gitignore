@@ -1,21 +1,10 @@
 # AZtools
 AZtools/src/main/java/extraction/summary/abs_to_summ/*
-AZtools/src/main/java/extraction/Paths.java
-AZtools/.idea*
-AZtools/target/*
+AZtools/src/main/java/extraction/Globs.java
 testing/name/*pdf*
 testing/pdfs
 *.pdf
 response.json
-
-# Cermine
-cermine-impl/target/*
-
-# IntelliJ
-.idea/*
-*.iml
-*.iws
-out/*
 
 # Eclipse
 *.classpath
