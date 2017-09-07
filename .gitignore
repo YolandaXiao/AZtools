@@ -1,10 +1,16 @@
 # AZtools
 AZtools/src/main/java/extraction/summary/abs_to_summ/*
-AZtools/src/main/java/extraction/Globs.java
+AZtools/src/main/java/webapp/Globs.java
 testing/name/*pdf*
 testing/pdfs
 *.pdf
 response.json
+
+# IntelliJ
+.idea/*
+*.iml
+*.iws
+out/*
 
 # Eclipse
 *.classpath

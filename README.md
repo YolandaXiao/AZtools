@@ -1,20 +1,22 @@
 # AZtools
 
-![AZtools](https://aztec.bio/public/images/bd2k.png)
-
 AZtools is a Java web service that supports [AZtec](http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
 
 The code is licensed under GNU Affero General Public License version 3.
 
-## Using AZtools (Assumes Linux System)
+## Using AZtools
+
+(Assumes Linux System)
+
+`$ git clone https://github.com/ankurpapneja/AZtools.git`
 
 `$ cd AZtools/`
 
 `$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
 
-`$ cp AZtools/src/main/java/webapp/.Globs.java AZtools/AZtools/src/main/java/webapp/Globs.java`
+`$ cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
 
-Uncomment all of the code in `AZtools/AZtools/src/main/java/upload/Globs.java` and change the path variables to match your system. Also add in your email address and password in their respective fields.
+Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and change the path variables to match your system. Also add in your email address and password in their respective fields.
 
 Execute the command in `linux_comm.txt` after: `$ cd AZtools/src/main/resources`
 
@@ -43,6 +45,8 @@ Make sure the JDK version specified in AZtools/AZtools/pom.xml matches the insta
 If you are using IntelliJ IDEA, be sure to add AZtools/AZtools/lib and all subdirectories (as "Classes") as modules by going to File->Project Structure->Project Settings->Modules and clicking on the green "+" symbol.
 
 Ensure that the paths specified in Globs.java match your system's environment.
+
+Change the port which is specified in AZtools/src/main/resources/application.properties. Default port is 8092.
 
 ## Contact
 

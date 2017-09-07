@@ -3,7 +3,7 @@
 //public class Globs {
 //
 //    private static final String basic_java = "AZtools/src/main/java/extraction/";
-//    private static final String agency_path = "AZtools/AZtools/lib/agency_names.txt";
+//    private static final String agency_path = "AZtools/lib/agency_names.txt";
 //    private static final String serializedClassifier = "AZtools/lib/stanford-ner-2017-06-09/classifiers/english.conll.4class.distsim.crf.ser.gz";
 //
 //    private static final String en_path = basic_java + "name/en.txt";
