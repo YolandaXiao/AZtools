@@ -12,9 +12,7 @@ The code is licensed under GNU Affero General Public License version 3.
 
 `$ cd AZtools/`
 
-`$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
-
-`$ cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
+`$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/ ; cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
 
 Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and change the path variables to match your system. Also add in your email address and password in their respective fields.
 
@@ -32,7 +30,7 @@ Email a PDF to the email address you specified in Globs.java
 
 2. Should not take a long time depending on number of requests currently in queue.
 
-POST to `localhost:8092/` with a PDF (parameter name "file") 
+POST to `localhost:8092/` with a PDF (parameter name `file`) 
 
 1. HTTP Response will contain JSON output of main metadata fields.
 
@@ -47,6 +45,12 @@ If you are using IntelliJ IDEA, be sure to add AZtools/AZtools/lib and all subdi
 Ensure that the paths specified in Globs.java match your system's environment.
 
 Change the port which is specified in AZtools/src/main/resources/application.properties. Default port is 8092.
+
+## Microservices Implementation
+
+To add in a new feature, create another package in `extraction` and create another instance variable in `Attributes.java` that is an instance of your new class.
+
+Initialize the variable in `Attribute.java`'s constructor and create another get method for the variable in `Attributes.java`.
 
 ## Contact
 
