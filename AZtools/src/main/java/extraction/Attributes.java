@@ -11,31 +11,34 @@ import extraction.funding.FundingInfo;
 import extraction.language.Language;
 import extraction.name.NameNLP;
 import extraction.summary.Summary;
+import extraction.tags.Tags;
 import extraction.title.Title;
 import extraction.url.Url;
 import org.json.JSONObject;
 import org.json.XML;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Attributes implements Runnable {
     private final String title;
     private final String name;
+    private final String abstrakt;
     private final String summary;
     private final List<String> author;
     private final List<String> affiliation;
-    private final String abstrakt;
     private final List<String> contact;
     private final String doi;
     private final String date;
     private final List<String> URL;
-    private final String status;
+    private final List<String> tags;
+    private List<String> funding;
+    private List<String> languages;
 
-    private List<FundingInfo> funding;
-    private List<String> programming_lang;
     private final JSONObject xmlJSONObj;
     private final String m_nlm;
+    private List<FundingInfo> funding_list;
 
     // ------------------------------------------------------------- //
 
@@ -43,7 +46,7 @@ public class Attributes implements Runnable {
         m_nlm = nlm;
         xmlJSONObj = XML.toJSONObject(nlm);
         funding = null;
-        programming_lang = null;
+        languages = null;
 
         run();
 
@@ -83,7 +86,7 @@ public class Attributes implements Runnable {
 
         Calendar funding_start = Calendar.getInstance();
         Funding f = new Funding(nlm,num);
-        this.funding = f.getFunding();
+        this.funding_list = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
 
         Calendar url_start = Calendar.getInstance();
@@ -93,7 +96,6 @@ public class Attributes implements Runnable {
             this.URL.set(i, this.URL.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
-        this.status = url_link.getStatus(this.URL);
 
         Calendar name_start = Calendar.getInstance();
         NameNLP obj = new NameNLP(title, URL);
@@ -113,11 +115,16 @@ public class Attributes implements Runnable {
 
         Calendar lang_start = Calendar.getInstance();
         Language lan = new Language(xmlJSONObj, filename);
-        this.programming_lang = lan.getLanguage();
-        for (int i = 0; i < this.programming_lang.size(); i++) {
-            this.programming_lang.set(i, this.programming_lang.get(i).trim());
+        this.languages = lan.getLanguage();
+        for (int i = 0; i < this.languages.size(); i++) {
+            this.languages.set(i, this.languages.get(i).trim());
         }
         Calendar lang_end = Calendar.getInstance();
+
+        Calendar tags_start = Calendar.getInstance();
+        Tags tag_var = new Tags(abstrakt);
+        tags = tag_var.getTags();
+        Calendar tags_end = Calendar.getInstance();
 
         // If < 10ms, comment it
 //        System.out.println("Time title: ");
@@ -148,7 +155,7 @@ public class Attributes implements Runnable {
         try {
             Calendar funding_start = Calendar.getInstance();
             Funding f = new Funding(m_nlm, 0);
-            funding = f.getFunding();
+            funding_list = f.getFunding();
             Calendar funding_end = Calendar.getInstance();
 //            System.out.println("Time funding: ");
 //            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
@@ -197,13 +204,25 @@ public class Attributes implements Runnable {
         return URL;
     }
 
-    public List<FundingInfo> getFunding() { return funding; }
-
-    public List<String> getProgramming_lang(){
-        return programming_lang;
+    private List<FundingInfo> getFundingList() {
+        return funding_list;
     }
 
-    public String getStatus(){
-        return status;
+    public List<String> getFundingStr() {
+        List<String> fa = new ArrayList<>();
+        for (FundingInfo fi : getFundingList()) {
+            fa.add(fi.toString());
+        }
+        funding = fa;
+        return funding;
     }
+
+    public List<String> getLanguages(){
+        return languages;
+    }
+
+    public List<String> getTags(){
+        return tags;
+    }
+
 }

@@ -14,7 +14,7 @@ import javax.mail.internet.*;
 
 public class ProcessEmail {
 
-    private final String PROTOCOL = "imap";
+    private final String PROTOCOL = "imaps";
     private final String HOST = "smtp.gmail.com";
     private final String PORT = "587";
     private final String SMTP_PROPERTIES;
@@ -46,7 +46,7 @@ public class ProcessEmail {
         // Checks inbox for any new emails with PDFs
         // Adds PDF files to data structure 'to_process'
 
-        System.out.println("Checking Inbox...");
+//        System.out.println("Checking Inbox...");
         Properties props = new Properties();
 
         try {
@@ -107,7 +107,7 @@ public class ProcessEmail {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Finished checking inbox");
+//        System.out.println("Finished checking inbox");
     }
 
     public void completeRequest(Address[] address, String result) {

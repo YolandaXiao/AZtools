@@ -1,6 +1,10 @@
 # AZtools
 
-AZtools is a Java web service that supports [AZtec](http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
+AZtools, written in Java + Python, is a service that supports [AZtec](http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
+
+Given a PDF (publication) or PMC ID of a biomedical software tools, AZtools, will extract the metadata about the software and submit it to AZtec's Solr database.
+
+AZtools makes use of natural language processing, machine learning, and regex expressions. 
 
 The code is licensed under GNU Affero General Public License version 3.
 
@@ -42,7 +46,7 @@ Make sure the JDK version specified in AZtools/AZtools/pom.xml matches the insta
 
 If you are using IntelliJ IDEA, be sure to add AZtools/AZtools/lib and all subdirectories (as "Classes") as modules by going to File->Project Structure->Project Settings->Modules and clicking on the green "+" symbol.
 
-Ensure that the paths specified in Globs.java match your system's environment.
+Ensure that the paths specified in Globs.java match your system's environment. Try listing the absolute path instead of the relative one that starts with `AZtools`.
 
 Change the port which is specified in AZtools/src/main/resources/application.properties. Default port is 8092.
 

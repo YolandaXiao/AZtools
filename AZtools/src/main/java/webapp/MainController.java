@@ -39,7 +39,6 @@ public class MainController {
             f_files.add(file);
             f_filenames.add(file.getOriginalFilename());
 
-
             File convFile = new File(file.getOriginalFilename());
             convFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(convFile);
@@ -51,6 +50,8 @@ public class MainController {
         // .getDataString() for only PDF metadata
         // .getMetadataString() for processing stats
         // .getFinalString() for both
+
+        System.out.println("Check response.");
         return new ResponseEntity(result, responseHeaders, HttpStatus.OK);
     }
 

@@ -9,11 +9,16 @@ import org.json.JSONObject;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.tools.timeout.TimeoutException;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrInputDocument;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ProcessPDF {
 
@@ -73,6 +78,49 @@ public class ProcessPDF {
                     aztools_end = Calendar.getInstance();
                     aztools_time += aztools_end.getTimeInMillis() - aztools_start.getTimeInMillis();
                     data.put(filenames.get(i), mapper.writeValueAsString(attr));
+
+                    String pubDOI = attr.getDOI();
+                    List<String> pubDOIs = new ArrayList<>();
+                    if (!pubDOI.equals("")) {
+                        pubDOIs.add(pubDOI);
+                    }
+
+                    URL url = new URL("http://10.44.115.202:8983/solr/BD2K/select?q=*%3A*&wt=json&indent=true");
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    String inputLine;
+                    StringBuffer content = new StringBuffer();
+                    while ((inputLine = in.readLine()) != null) {  content.append(inputLine);  }
+                    in.close();
+                    String json_response_str = content.toString();
+                    JSONObject json_reponse = new JSONObject(json_response_str);
+                    JSONObject json_obj = (JSONObject) json_reponse.get("response");
+                    int num_tools = (int)json_obj.get("numFound");
+
+                    SolrClient client = new HttpSolrClient.Builder("http://10.44.115.202:8983/solr/BD2K/").build();
+                    SolrInputDocument doc = new SolrInputDocument();
+                    doc.addField("id", num_tools + 1);
+                    doc.addField("name", attr.getName());
+                    doc.addField("source", "AZtools");
+                    doc.addField("fundingAgencies", attr.getFundingStr());
+                    doc.addField("institutions", attr.getAffiliation());
+                    doc.addField("authors", attr.getAuthor());
+                    doc.addField("description", attr.getAbstrakt());
+                    doc.addField("summary", attr.getSummary());
+                    doc.addField("tags", attr.getTags());
+                    doc.addField("language", attr.getLanguages());
+                    doc.addField("publicationDOI", pubDOIs);
+                    Calendar now = Calendar.getInstance();
+                    String data_str = now.YEAR + "-" + now.MONTH + "-" + now.DAY_OF_MONTH + "T" + now.HOUR + ":";
+                    data_str += now.MINUTE + ":" + now.SECOND + "." + now.MILLISECOND + "Z";
+                    doc.addField("dateUpdated", data_str);
+                    doc.addField("publicationTitle", attr.getTitle());
+                    doc.addField("publicationDate", attr.getDate());
+                    doc.addField("linkUrls", attr.getURL());
+                    client.add(doc);
+                    client.commit();
+                    System.out.println("Committed metadata for '" + filenames.get(i) + "' to Solr DB.");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -82,7 +130,7 @@ public class ProcessPDF {
             total_time = clock_end.getTimeInMillis() - clock_start.getTimeInMillis();
 
             metadata.put("num_pdfs", files.size());
-            metadata.put("total time", total_time);
+            metadata.put("total_time", total_time);
             metadata.put("cermine_time", total_time);
             metadata.put("aztools_time", aztools_time);
             metadata_string = metadata.toString();
@@ -96,14 +144,26 @@ public class ProcessPDF {
             metadata_string = metadata_string.replace("\\\\\"", "\"");
             data_string = data_string.replace("\\\"", "\"");
             data_string = data_string.replace("\\\\\"", "\"");
+            data_string = data_string.replace("abstrakt", "abstract");
             final_json_string = final_json_string.replace("\\\"", "\"");
             final_json_string = final_json_string.replace("\\\\\"", "\"");
+            final_json_string = final_json_string.replace("abstrakt", "abstract");
         }
         catch (TimeoutException e) {
             e.printStackTrace();
-            JSONObject status = new JSONObject();
-            status.put("status", "Internal error occurred, please try again later.");
-            final_json_string = status.toString().replace("\\\"", "\"").replace("\\\\\"", "\"");
+            metadata.put("num_pdfs", files.size());
+            metadata.put("status", "failure");
+            cermine_time = 0;
+            aztools_time = 0;
+            total_time = 0;
+            metadata_string = metadata.toString();
+            data_string = "";
+            final_json_object.put("metadata", metadata_string);
+            final_json_object.put("data", data_string);
+            final_json_string = final_json_object.toString();
+            final_json_string = final_json_string.replace("\\\"", "\"");
+            final_json_string = final_json_string.replace("\\\\\"", "\"");
+            final_json_string = final_json_string.replace("abstrakt", "abstract");
         }
     }
 

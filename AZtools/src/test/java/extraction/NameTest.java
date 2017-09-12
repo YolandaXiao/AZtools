@@ -50,7 +50,7 @@ public class NameTest {
         }
 
         //return programming language
-        List<String> lang = attr.getProgramming_lang();
+        List<String> lang = attr.getLanguages();
         for (int i = 0; i < lang.size(); i++) {
             lang.set(i, lang.get(i).trim());
         }
