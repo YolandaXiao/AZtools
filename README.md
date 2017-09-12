@@ -1,6 +1,6 @@
 # AZtools 
 
-[![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)](https://travis-ci.org/dwyl/esta)
+[![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)](https://github.com/ankurpapneja/AZtools)
 
 AZtools, written in Java + Python, is a service that supports [AZtec](http://aztec.bio/) in extracting metadata and content of software tools from PDF files containing academic publications.
 
