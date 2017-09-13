@@ -26,12 +26,12 @@ public class Attributes implements Runnable {
     private final String name;
     private final String abstrakt;
     private final String summary;
-    private final List<String> author;
-    private final List<String> affiliation;
+    private final List<String> authors;
+    private final List<String> affiliations;
     private final List<String> contact;
     private final String doi;
     private final String date;
-    private final List<String> URL;
+    private final List<String> URLs;
     private final List<String> tags;
     private List<String> funding;
     private List<String> languages;
@@ -39,6 +39,8 @@ public class Attributes implements Runnable {
     private final JSONObject xmlJSONObj;
     private final String m_nlm;
     private List<FundingInfo> funding_list;
+
+    private JSONObject final_object;
 
     // ------------------------------------------------------------- //
 
@@ -56,68 +58,68 @@ public class Attributes implements Runnable {
         Calendar title_end = Calendar.getInstance();
         Calendar author_start = Calendar.getInstance();
         Author au = new Author(xmlJSONObj,num);
-        this.author = au.getAuthor();
-        for (int i = 0; i < this.author.size(); i++) {
-            this.author.set(i, this.author.get(i).trim());
+        authors = au.getAuthor();
+        for (int i = 0; i < authors.size(); i++) {
+            authors.set(i, authors.get(i).trim());
         }
         Calendar author_end = Calendar.getInstance();
         Calendar aff_start = Calendar.getInstance();
         Affiliation aff = new Affiliation(xmlJSONObj,num);
-        this.affiliation = aff.getAffiliation();
-        for (int i = 0; i < this.affiliation.size(); i++) {
-            this.affiliation.set(i, this.affiliation.get(i).trim());
+        affiliations = aff.getAffiliation();
+        for (int i = 0; i < affiliations.size(); i++) {
+            affiliations.set(i, affiliations.get(i).trim());
         }
         Calendar aff_end = Calendar.getInstance();
         Calendar contact_start = Calendar.getInstance();
         Contact con = new Contact(nlm,num);
-        this.contact = con.getContact();
-        for (int i = 0; i < this.contact.size(); i++) {
-            this.contact.set(i, this.contact.get(i).trim());
+        contact = con.getContact();
+        for (int i = 0; i < contact.size(); i++) {
+            contact.set(i, contact.get(i).trim());
         }
         Calendar contact_end = Calendar.getInstance();
         Calendar doi_start = Calendar.getInstance();
         DOI d2 = new DOI(xmlJSONObj, num);
-        this.doi = d2.getDoi();
+        doi = d2.getDoi();
         Calendar doi_end = Calendar.getInstance();
         Calendar date_start = Calendar.getInstance();
         Date d = new Date(xmlJSONObj,num);
-        this.date = d.getDate();
+        date = d.getDate();
         Calendar date_end = Calendar.getInstance();
 
         Calendar funding_start = Calendar.getInstance();
         Funding f = new Funding(nlm,num);
-        this.funding_list = f.getFunding();
+        funding_list = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
 
         Calendar url_start = Calendar.getInstance();
         Url url_link = new Url(xmlJSONObj, filename);
-        this.URL = url_link.getUrl();
-        for (int i = 0; i < this.URL.size(); i++) {
-            this.URL.set(i, this.URL.get(i).trim());
+        URLs = url_link.getUrl();
+        for (int i = 0; i < URLs.size(); i++) {
+            URLs.set(i, URLs.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
 
         Calendar name_start = Calendar.getInstance();
-        NameNLP obj = new NameNLP(title, URL);
-        this.name = obj.getName().trim();
+        NameNLP obj = new NameNLP(title, URLs);
+        name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
 
         Calendar abstract_start = Calendar.getInstance();
         Abstract a = new Abstract(xmlJSONObj,num);
-        this.abstrakt = a.getAbstrakt().trim();
+        abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
         Calendar summary_start = Calendar.getInstance();
         //summary must necessarily come after abstract
         Summary summ = new Summary(abstrakt, filename, name);
-        this.summary = summ.getSummary();
+        summary = summ.getSummary();
         Calendar summary_end = Calendar.getInstance();
 
         Calendar lang_start = Calendar.getInstance();
         Language lan = new Language(xmlJSONObj, filename);
-        this.languages = lan.getLanguage();
-        for (int i = 0; i < this.languages.size(); i++) {
-            this.languages.set(i, this.languages.get(i).trim());
+        languages = lan.getLanguage();
+        for (int i = 0; i < languages.size(); i++) {
+            languages.set(i, languages.get(i).trim());
         }
         Calendar lang_end = Calendar.getInstance();
 
@@ -147,6 +149,21 @@ public class Attributes implements Runnable {
 //        System.out.println(abstract_end.getTimeInMillis() - abstract_start.getTimeInMillis());
 //        System.out.println("Time summary: ");
 //        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
+
+        final_object = new JSONObject();
+        final_object.put("publicationTitle", title);
+        final_object.put("toolName", name);
+        final_object.put("publicationAbstract", abstrakt);
+        final_object.put("toolSummary", summary);
+        final_object.put("authors", authors);
+        final_object.put("institutions", affiliations);
+        final_object.put("contactInfo", contact);
+        final_object.put("publicationDOI", doi);
+        final_object.put("publicationDate", date);
+        final_object.put("URLs", URLs);
+        final_object.put("tags", tags);
+        final_object.put("fundingSources", funding);
+        final_object.put("programmingLanguages", languages);
     }
 
     // ------------------------------------------------------------ //
@@ -177,11 +194,11 @@ public class Attributes implements Runnable {
     }
 
     public List<String> getAuthor(){
-        return author;
+        return authors;
     }
 
     public List<String> getAffiliation(){
-        return affiliation;
+        return affiliations;
     }
 
     public String getAbstrakt(){
@@ -201,7 +218,7 @@ public class Attributes implements Runnable {
     }
 
     public List<String> getURL(){
-        return URL;
+        return URLs;
     }
 
     private List<FundingInfo> getFundingList() {
@@ -223,6 +240,10 @@ public class Attributes implements Runnable {
 
     public List<String> getTags(){
         return tags;
+    }
+
+    public JSONObject getFinalJSONObject(){
+        return final_object;
     }
 
 }

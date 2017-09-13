@@ -1,6 +1,5 @@
 package webapp;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import extraction.Attributes;
 import org.jdom.Element;
 import org.jdom.Namespace;
@@ -35,8 +34,6 @@ public class ProcessPDF {
     private String final_json_string;
 
     public ProcessPDF(ArrayList<File> files, ArrayList<String> filenames) {
-        ObjectMapper mapper = new ObjectMapper();
-
         data = new JSONObject();
         metadata = new JSONObject();
         final_json_object = new JSONObject();
@@ -48,6 +45,8 @@ public class ProcessPDF {
         Calendar cermine_start, cermine_end;
         Calendar aztools_start, aztools_end;
         Calendar clock_start = Calendar.getInstance(), clock_end;
+
+        int spacesToIndentEachLevel = 4;
 
         try {
             for (int i = 0; i < files.size(); i++) {
@@ -77,7 +76,7 @@ public class ProcessPDF {
                     Attributes attr = new Attributes(nlm, filenames.get(i), 0);
                     aztools_end = Calendar.getInstance();
                     aztools_time += aztools_end.getTimeInMillis() - aztools_start.getTimeInMillis();
-                    data.put(filenames.get(i), mapper.writeValueAsString(attr));
+                    data.put(filenames.get(i), attr.getFinalJSONObject());
 
                     String pubDOI = attr.getDOI();
                     List<String> pubDOIs = new ArrayList<>();
@@ -133,37 +132,29 @@ public class ProcessPDF {
             metadata.put("total_time", total_time);
             metadata.put("cermine_time", total_time);
             metadata.put("aztools_time", aztools_time);
-            metadata_string = metadata.toString();
+            metadata_string = metadata.toString(spacesToIndentEachLevel);
 
-            data_string = data.toString();
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
-            final_json_string = final_json_object.toString();
+            data_string = data.toString(spacesToIndentEachLevel);
 
-            metadata_string = metadata_string.replace("\\\"", "\"");
-            metadata_string = metadata_string.replace("\\\\\"", "\"");
-            data_string = data_string.replace("\\\"", "\"");
-            data_string = data_string.replace("\\\\\"", "\"");
-            data_string = data_string.replace("abstrakt", "abstract");
-            final_json_string = final_json_string.replace("\\\"", "\"");
-            final_json_string = final_json_string.replace("\\\\\"", "\"");
-            final_json_string = final_json_string.replace("abstrakt", "abstract");
+            final_json_object.put("metadata", metadata);
+            final_json_object.put("data", data);
+            final_json_string = final_json_object.toString(spacesToIndentEachLevel).replace("\\\"", "\"");
         }
         catch (TimeoutException e) {
             e.printStackTrace();
-            metadata.put("num_pdfs", files.size());
-            metadata.put("status", "failure");
             cermine_time = 0;
             aztools_time = 0;
             total_time = 0;
-            metadata_string = metadata.toString();
+
+            metadata.put("num_pdfs", files.size());
+            metadata.put("status", "failure");
+            metadata_string = metadata.toString(spacesToIndentEachLevel);
             data_string = "";
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
-            final_json_string = final_json_object.toString();
+
+            final_json_object.put("metadata", metadata);
+            final_json_object.put("data", data);
+            final_json_string = final_json_object.toString(spacesToIndentEachLevel);
             final_json_string = final_json_string.replace("\\\"", "\"");
-            final_json_string = final_json_string.replace("\\\\\"", "\"");
-            final_json_string = final_json_string.replace("abstrakt", "abstract");
         }
     }
 

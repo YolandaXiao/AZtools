@@ -92,7 +92,7 @@ public class MainController {
 
         ObjectMapper mapper = new ObjectMapper();
         Attributes attr = new Attributes(html_withoutref, "tmp",1);
-        String json_string = mapper.writeValueAsString(attr);
+        String json_string = attr.getFinalJSONObject().toString(4);
 
         return new ResponseEntity(json_string, responseHeaders, HttpStatus.OK);
     }
