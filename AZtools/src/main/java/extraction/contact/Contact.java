@@ -26,7 +26,6 @@ public class Contact {
         else{
             this.contact = extractContact_fromPMCXML(nlm);
         }
-
     }
 
     private List<String> extractContact_fromCermineXML(JSONObject xmlJSONObj) {
