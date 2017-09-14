@@ -1,6 +1,7 @@
 package extraction.language;
 
 import extraction.url.Url;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -42,7 +43,7 @@ public class Language {
         //iterate through all links to get github link
         for (int i=0; i < url_links.size(); i++){
             //perform GET request to get the github link -> for github repo name search
-            if(url_links.get(i).contains("github.com") || url_links.get(i).contains("sourceforge.net") || url_links.get(i).contains("bitbucket.org") || url_links.get(i).contains("bioconductor")){
+            if(url_links.get(i).contains("github") || url_links.get(i).contains("sourceforge.net") || url_links.get(i).contains("bitbucket.org") || url_links.get(i).contains("bioconductor")){
                 github_link = url_links.get(i);
                 break;
             }
@@ -56,7 +57,7 @@ public class Language {
                     if(link.contains("Contact")){
                         link = link.split("Contact")[0];
                     }
-                    System.out.println("find github link: "+ link);
+                    System.out.println("find link: "+ link);
                     String result = getHTML(link);
 
                     //pattern1 for github
@@ -106,8 +107,19 @@ public class Language {
             }
         }
 
+        if (github_link.contains("github.io")) {
+            String[] arr = github_link.split(".github.io");
+            String name = arr[0];
+            if(arr.length>1){
+                name += arr[1];
+            }
+            lan = accessLanguage(name);
+            for (int i = 0; i < lan.size(); i++) {
+                lan.set(i, lan.get(i).trim());
+            }
+        }
         //if github link present, find programming language from github api
-        if (github_link.contains("github.com")) {
+        else if (github_link.contains("github.com")) {
             if(github_link.split("github.com").length>1){
                 //use Github api to access language info
                 String name = github_link.split("github.com")[1];
@@ -119,64 +131,60 @@ public class Language {
                 if(arr.length>=4){
                     name = arr[1]+"/"+arr[2];
                 }
-                String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
-                System.out.println(access_link);
-                JSONObject github_page = readJsonFromUrl(access_link);
-                String new_page_info = "";
-                if (github_page.getInt("total_count")!=0){
-                    new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
-                }
-                else {
-                    return lan;
-                }
-
-                //access git language info
-                try{
-                    JSONObject lang_info = readJsonFromUrl(new_page_info);
-                    Iterator<String> keys = lang_info.keys();
-                    String prev_key = (String)keys.next(); // First key in your json object
-                    int max = lang_info.getInt(prev_key);
-                    lan.add(prev_key);
-                    System.out.println(prev_key+": "+max);
-                    while (keys.hasNext()) {
-                        String key = (String)keys.next(); // First key in your json object
-                        int num = lang_info.getInt(key);
-                        System.out.println(key+": "+num);
-                        if (num > max){
-                            lan.remove(prev_key);
-                            lan.add(key);
-                            max = num;
-                            prev_key = key;
-                        }
-                    }
-                }
-                catch (Exception e){
-
+                lan = accessLanguage(name);
+                for (int i = 0; i < lan.size(); i++) {
+                    lan.set(i, lan.get(i).trim());
                 }
             }
         }
         //sourceforge has SSL handshake error
         //if github_link contains sourceforge
-        else if(github_link.contains("sourceforge.net")){
+        else if(github_link.contains("sourceforge.net/projects")){
 
             if(github_link.contains("Contact")){
                 github_link = github_link.split("Contact")[0];
             }
             //use sourceforge api to access language info link
-            String name = github_link.split("sourceforge.net/projects")[1];
-            System.out.println(name);
-            String[] arr = name.split("/");
-            if(arr.length>=3){
-                name = "/"+arr[1];
+            String[] arr2 = github_link.split("sourceforge.net/projects");
+            if(arr2.length>1){
+                String name = github_link.split("sourceforge.net/projects")[1];
+                System.out.println(name);
+                String[] arr = name.split("/");
+                if(arr.length>=3){
+                    name = "/"+arr[1];
+                }
+                System.out.println(name);
+                String access_link = "https://sourceforge.net/rest/p"+name;
+                System.out.println(access_link);
+                System.setProperty("https.protocols", "TLSv1");
+                JSONObject github_page = readJsonFromUrl(access_link);
+                System.out.println("github_page "+github_page);
+                JSONArray lang_arr = github_page.getJSONObject("categories").getJSONArray("language");
+                if(lang_arr.length()>0){
+                    String key = lang_arr.getJSONObject(0).getString("fullname");
+                    lan.add(key);
+                }
             }
-            System.out.println(name);
+        }
+        else if(github_link.contains("sourceforge.net")){
+            if(github_link.contains("Contact")){
+                github_link = github_link.split("Contact")[0];
+            }
+            String[] arr = github_link.split(".sourceforge.net");
+            String name = "/"+arr[0];
+            if(arr.length>1){
+                name += arr[1];
+            }
             String access_link = "https://sourceforge.net/rest/p"+name;
             System.out.println(access_link);
             System.setProperty("https.protocols", "TLSv1");
             JSONObject github_page = readJsonFromUrl(access_link);
-            System.out.println("github_page "+github_page);
-            String key = github_page.getJSONObject("categories").getJSONArray("language").getJSONObject(0).getString("fullname");
-            lan.add(key);
+            JSONArray lang_arr = github_page.getJSONObject("categories").getJSONArray("language");
+            if(lang_arr.length()>0){
+                String key = lang_arr.getJSONObject(0).getString("fullname");
+                lan.add(key);
+            }
+
         }
         else if(github_link.contains("bioconductor")){
             lan.add("R");
@@ -294,6 +302,46 @@ public class Language {
             return "";
         }
     }
+
+    private ArrayList<String> accessLanguage(String name) throws IOException {
+        ArrayList<String> lan = new ArrayList<>();
+        String access_link = "https://api.github.com/search/repositories?q="+name+"%20in:name&sort=stars&order=desc";
+        System.out.println(access_link);
+        JSONObject github_page = readJsonFromUrl(access_link);
+        String new_page_info = "";
+        if (github_page.getInt("total_count")!=0){
+            new_page_info = github_page.getJSONArray("items").getJSONObject(0).getString("languages_url");
+        }
+        else {
+            return lan;
+        }
+
+        //access git language info
+        try{
+            JSONObject lang_info = readJsonFromUrl(new_page_info);
+            Iterator<String> keys = lang_info.keys();
+            String prev_key = (String)keys.next(); // First key in your json object
+            int max = lang_info.getInt(prev_key);
+            lan.add(prev_key);
+            System.out.println(prev_key+": "+max);
+            while (keys.hasNext()) {
+                String key = (String)keys.next(); // First key in your json object
+                int num = lang_info.getInt(key);
+                System.out.println(key+": "+num);
+                if (num > max){
+                    lan.remove(prev_key);
+                    lan.add(key);
+                    max = num;
+                    prev_key = key;
+                }
+            }
+        }
+        catch (Exception e){
+
+        }
+        return lan;
+    }
+
 
 //    //helper function: get HTML content
 //    private static String getHTML(String urlToRead) throws Exception {

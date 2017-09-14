@@ -37,10 +37,11 @@ public class Url {
         while (m.find( )) {
             String link = m.group();
             if(!link.contains("w3") && !link.contains("creativecommons") && !link.contains("@") && !link.contains("niso")
-                    && !link.contains(".xlsx") && !link.contains(".html") && !link.contains(".pdf") && !link.contains(".gz")){
+                    && !link.contains(".xlsx") && !link.contains(".html") && !link.contains(".pdf") && !link.contains(".gz")
+                    && !link.contains(".jpg") && !link.contains(".avi")){
                 if(!all_links.contains(link)){
                     all_links.add(link);
-//                    System.out.println("all_links "+link);
+                    System.out.println("all_links "+link);
                 }
             }
             String lowercase_link = link.toLowerCase();
@@ -55,12 +56,12 @@ public class Url {
 //                good_links.add(link);
 //            }
             if((link.contains("github") || link.contains("sourceforge") || link.contains("bioconductor") || link.contains("bitbucket")) && !good_links.contains(link)){
-//                System.out.println("good_links2 "+link);
                 if(link.contains("Contact")){
                     String[] arr = link.split("Contact");
                     if(arr.length>1)
                         link = link.split("Contact")[0];
                 }
+                System.out.println("good_links2 "+link);
                 good_links.add(link);
                 break;
             }

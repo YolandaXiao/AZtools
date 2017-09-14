@@ -160,17 +160,14 @@ public class Funding {
                 }
                 //keep iterating
                 else{
-//                    System.out.println("word: "+word_lowercase);
                     count++;
                     if(count<words.size() && count>=0){
                         result2 = result2.getJSONObject(word_lowercase);
-//                        System.out.println("hi: "+result2);
                         word = words.get(count);
                         word_lowercase = word.toLowerCase();
                     }
                     if(count==words.size()){
                         result2 = result2.getJSONObject(word_lowercase);
-//                        System.out.println("hi: "+result2);
                     }
                 }
             }
@@ -184,86 +181,53 @@ public class Funding {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
 
         //agency only
-        String pattern = "<funding-source>.*?<\\/funding-source>";
+        String pattern = "(?s)<funding-source>.*?<\\/funding-source>";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(nlm);
         while (m.find( )) {
             String agency = m.group().split("<funding-source>")[1];
             agency = agency.split("</funding-source>")[0];
+            if(agency.contains("<institution>")){
+                agency =  agency.split("<institution>")[1];
+                agency =  agency.split("</institution>")[0];
+            }
             FundingInfo fi = new FundingInfo();
             fi.setAgency(agency);
             arrayList.add(fi);
         }
+
+        String pattern2 = "(?s)<funding-group>.*?<\\/funding-group>";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(nlm);
+        if (m2.find( )) {
+            System.out.println("m2.group(): "+m2.group());
+            String paragraph = m2.group();
+            return extractFunding_fromCermineXML(nlm,paragraph);
+        }
+
         if(!arrayList.isEmpty()){
             return arrayList;
         }
 
-        //if hte section is only a paragraph
-        JSONObject xmlJSONObj = XML.toJSONObject(nlm);
-        JSONObject back = null;
-        try {
-            back = xmlJSONObj.getJSONObject("article").getJSONObject("back");
-            System.out.println("back: "+back);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        //if there's no direct funding source info available
+        String pattern3 = "<ack>.*?<\\/ack>";
+        Pattern r3 = Pattern.compile(pattern3);
+        Matcher m3 = r3.matcher(nlm);
+        if (m3.find( )) {
+            String paragraph = m3.group();
+            paragraph = paragraph.replaceAll("<[^>]+>", "");
+            paragraph = paragraph.replaceAll("\n", " ");
+            paragraph = paragraph.replaceAll("\t", " ");
+            paragraph = paragraph.trim().replaceAll(" +", " ");
+            System.out.println("paragraph: "+paragraph);
+            return extractFunding_fromCermineXML(nlm,paragraph);
         }
-        if(back.has("sec")){
-            System.out.println("back has sec");
-            JSONObject group = back.getJSONObject("sec");
-            Object item = null;
-            try {
-                item = group.get("p");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (item instanceof String){
-                String p = (String) item;
-                System.out.println("funding_paragraph: "+p);
-                return extractFunding_fromCermineXML(nlm,p);
-            }
-            else if (item instanceof JSONArray){
-                System.out.println("p is JSONArray");
-                JSONArray arr = (JSONArray) item;
-                JSONObject p = (JSONObject) arr.get(0);
-            }
-            else if (item instanceof JSONObject){
-                System.out.println("p is JSONObject");
-            }
-//            if(sec.has("title")){
-//                String title = sec.getString("title");
-//                if(title.equals("Funding")){
-//                    JSONObject p = (JSONObject) sec.getJSONArray("p").get(0);
-//                }
-//            }
-        }
-        else if(back.has("ack")){
-            System.out.println("back has ack");
-            JSONObject group = back.getJSONObject("ack");
-            Object item = null;
-            try {
-                item = group.get("p");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (item instanceof String){
-                String p = (String) item;
-                System.out.println("funding_paragraph: "+p);
-                return extractFunding_fromCermineXML(nlm,p);
-            }
-            else if (item instanceof JSONArray){
-                System.out.println("p is JSONArray");
-                JSONArray arr = (JSONArray) item;
-                JSONObject p = (JSONObject) arr.get(0);
-            }
-            else if (item instanceof JSONObject){
-                System.out.println("p is JSONObject");
-            }
-//            if(sec.has("title")){
-//                String title = sec.getString("title");
-//                if(title.equals("Funding")){
-//                    JSONObject p = (JSONObject) sec.getJSONArray("p").get(0);
-//                }
-//            }
+
+        if(arrayList.isEmpty()){
+            System.out.println("function_section_cermine");
+            String funding_section = extractFundingSection(nlm);
+            System.out.print(funding_section);
+            return extractFunding_fromCermineXML(nlm,funding_section);
         }
 
         return arrayList;

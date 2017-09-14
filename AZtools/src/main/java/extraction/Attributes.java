@@ -42,8 +42,8 @@ public class Attributes implements Runnable {
     public Attributes(String nlm, String filename, int num) throws Exception {
         m_nlm = nlm;
         xmlJSONObj = XML.toJSONObject(nlm);
-//        System.out.println(nlm);
-//        System.out.println(xmlJSONObj);
+        System.out.println(nlm);
+        System.out.println(xmlJSONObj);
         funding = null;
         programming_lang = null;
 
@@ -106,7 +106,7 @@ public class Attributes implements Runnable {
         Calendar name_end = Calendar.getInstance();
 
         Calendar abstract_start = Calendar.getInstance();
-        Abstract a = new Abstract(xmlJSONObj,num);
+        Abstract a = new Abstract(nlm,num);
         this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 

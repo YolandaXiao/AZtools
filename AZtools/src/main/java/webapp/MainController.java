@@ -88,8 +88,12 @@ public class MainController {
         }
 
         //get rid of reference section
-        String html_withoutref = html.split("<ref-list>")[0];
-        html_withoutref += html.split("</ref-list>")[1];
+        String html_withoutref = html;
+        if(html.contains("<ref-list>")){
+            html_withoutref = html.split("<ref-list>")[0];
+            html_withoutref += html.split("</ref-list>")[1];
+        }
+
 
         //get rid of outmost tag
         html_withoutref = html_withoutref.split("<pmc-articleset>")[1];
@@ -104,8 +108,17 @@ public class MainController {
 //        String return_value = xmlJSONObj.toString();
 
         ObjectMapper mapper = new ObjectMapper();
-        Attributes attr = new Attributes(html_withoutref, "tmp",1);
-        String json_string = mapper.writeValueAsString(attr);
+//        Attributes attr = new Attributes(html_withoutref, "tmp",1);
+//        String json_string = mapper.writeValueAsString(attr);
+        String json_string = "";
+        try{
+            Attributes attr = new Attributes(html_withoutref, "tmp",1);
+            json_string = mapper.writeValueAsString(attr);
+        }
+        catch (Exception e){
+            json_string = "PubMed Central PDF not complete!";
+        }
+
 
         return new ResponseEntity<>(json_string, responseHeaders, HttpStatus.OK);
     }

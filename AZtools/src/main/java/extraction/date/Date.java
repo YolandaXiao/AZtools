@@ -78,8 +78,23 @@ public class Date {
                         month = Integer.toString(entry.getInt("month"))+"/";
                     if(entry.has("day"))
                         day = Integer.toString(entry.getInt("day"))+"/";
-                    if(entry.has("year"))
-                        year = Integer.toString(entry.getInt("year"));
+                    if(entry.has("year")){
+                        Object item2 = null;
+                        try {
+                            item2 = entry.get("year");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        if (item2 instanceof Integer){
+                            year = Integer.toString((Integer)item2);
+                        }
+                        else if (item2 instanceof JSONObject){
+                            JSONObject val = (JSONObject) item2;
+                            if(val.has("content")){
+                                year = Integer.toString(val.getInt("content"));
+                            }
+                        }
+                    }
                     String date = month+day+year;
                     return date;
                 }

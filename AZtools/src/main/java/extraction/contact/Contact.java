@@ -70,11 +70,11 @@ public class Contact {
 
     private List<String> extractContact_fromPMCXML(String nlm) {
         ArrayList<String> arraylist= new ArrayList<String>();
-        String pattern = "(?s)<email>.*?<\\/email>";
+        String pattern = "(?s)<email.*?<\\/email>";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(nlm);
         while (m.find( )) {
-            String contact = m.group().split("<email>")[1];
+            String contact = m.group().split("<email.*?>")[1];
             contact = contact.split("</email>")[0];
             arraylist.add(contact);
         }
