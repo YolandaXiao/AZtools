@@ -97,16 +97,16 @@ public class MainController {
         html_withoutref = html_withoutref.replaceAll("<\\/?italic>","");
 
         ObjectMapper mapper = new ObjectMapper();
-//        Attributes attr = new Attributes(html_withoutref, "tmp",1);
-//        String json_string = mapper.writeValueAsString(attr);
-        String json_string = "";
-        try{
-            Attributes attr = new Attributes(html_withoutref, "tmp",1);
-            json_string = mapper.writeValueAsString(attr);
-        }
-        catch (Exception e){
-            json_string = "PubMed Central PDF not complete!";
-        }
+        Attributes attr = new Attributes(html_withoutref, "tmp",1);
+        String json_string = attr.getFinalJSONObject().toString(4);
+//        String json_string = "";
+//        try{
+//            Attributes attr = new Attributes(html_withoutref, "tmp",1);
+//            json_string = mapper.writeValueAsString(attr);
+//        }
+//        catch (Exception e){
+//            json_string = "PubMed Central PDF not complete!";
+//        }
 
 
         return new ResponseEntity(json_string, responseHeaders, HttpStatus.OK);

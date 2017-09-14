@@ -107,7 +107,6 @@ public class Attributes implements Runnable {
         Calendar abstract_start = Calendar.getInstance();
         Abstract a = new Abstract(nlm,num);
         abstrakt = a.getAbstrakt().trim();
-        this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
         Calendar summary_start = Calendar.getInstance();

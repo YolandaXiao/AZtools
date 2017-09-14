@@ -1,6 +1,5 @@
 package extraction.funding;
 
-import extraction.Paths;
 import webapp.Globs;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
@@ -81,12 +80,11 @@ public class Funding {
 
     private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList();
-        try {
-            //check each character in json file
-            InputStream is = new FileInputStream(Globs.get_cached_tree_map());
-            String jsonTxt = IOUtils.toString(is);
-            jsonTxt = jsonTxt.toLowerCase();
-            JSONObject result = new JSONObject(jsonTxt);
+        //check each character in json file
+        InputStream is = new FileInputStream(Globs.get_cached_tree_map());
+        String jsonTxt = IOUtils.toString(is);
+        jsonTxt = jsonTxt.toLowerCase();
+        JSONObject result = new JSONObject(jsonTxt);
 
         //run NER on the entire paragraph again to get agencies without grant number
 //        String funding_section = extractFundingSection(nlm);

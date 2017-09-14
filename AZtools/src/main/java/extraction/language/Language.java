@@ -29,17 +29,17 @@ public class Language {
 
     private List<String> extractProgramming_lang(JSONObject xmlJSONObj, String pdf_name) throws Exception {
         ArrayList<String> lan = new ArrayList();
-        try {
-            Url url_link = new Url(xmlJSONObj, pdf_name);
-            List<String> url_links = url_link.getUrl();
-            String github_link = "";
 
-            //consider edge case when bioconductor is involved
-            String json_string = xmlJSONObj.toString();
-            if (json_string.toLowerCase().contains("bioconductor")) {
-                lan.add("R");
-                return lan;
-            }
+        Url url_link = new Url(xmlJSONObj, pdf_name);
+        List<String> url_links = url_link.getUrl();
+        String github_link = "";
+
+        //consider edge case when bioconductor is involved
+        String json_string = xmlJSONObj.toString();
+        if (json_string.toLowerCase().contains("bioconductor")) {
+            lan.add("R");
+            return lan;
+        }
 
         //iterate through all links to get github link
         for (int i=0; i < url_links.size(); i++){
