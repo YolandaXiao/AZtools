@@ -1,7 +1,9 @@
 package extraction.abstrakt;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.XML;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Abstract {
 
@@ -11,17 +13,18 @@ public class Abstract {
         return abstrakt;
     }
 
-    public Abstract(JSONObject xmlJSONObj, int num) throws Exception {
-        if(num == 0) {
+    public Abstract(String nlm, int num) throws Exception {
+        JSONObject xmlJSONObj = XML.toJSONObject(nlm);
+        if(num==0){
             this.abstrakt = extractAbstract_fromCermineXML(xmlJSONObj);
         }
-        else {
-            this.abstrakt = extractAbstract_fromPMCXML(xmlJSONObj);
+        else{
+            this.abstrakt = extractAbstract_fromPMCXML(nlm);
         }
     }
 
     private String extractAbstract_fromCermineXML(JSONObject xmlJSONObj) {
-        String abstrakt;
+        String abstrakt = "";
         try {
             abstrakt = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta").getJSONObject("abstract").getString("p");
         } catch (Exception e) {
@@ -31,30 +34,20 @@ public class Abstract {
         return abstrakt;
     }
 
-    private String extractAbstract_fromPMCXML(JSONObject xmlJSONObj) {
+    private String extractAbstract_fromPMCXML(String nlm) {
         String abstrakt = "";
-        try {
-            JSONObject section = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
-            if (section.has("abstract")) {
-                JSONObject group = section.getJSONObject("abstract");
-                if (group.has("p")) {
-                    Object item = group.get("p");
-                    if (item instanceof String){
-                        abstrakt += (String) item;
-                    } else if (item instanceof JSONArray) {
-                        JSONArray abstract_arr = (JSONArray) item;
-                        for (int i=0; i < abstract_arr.length(); i++) {
-                            Object item2 = abstract_arr.get(i);
-                            if (item2 instanceof String){
-                                abstrakt += (String) item2;
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        //use regex to extract matching parts from xml
+        String pattern = "<abstract>.*?<\\/abstract>";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(nlm);
+        if (m.find( )) {
+            abstrakt = m.group();
         }
+        abstrakt = abstrakt.replaceAll("<[^>]+>", "");
+        abstrakt = abstrakt.replaceAll("\n", " ");
+        abstrakt = abstrakt.replaceAll("\t", " ");
+        abstrakt = abstrakt.trim().replaceAll(" +", " ");
         return abstrakt;
     }
 }

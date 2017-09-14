@@ -3,6 +3,7 @@ package extraction.funding;
 import webapp.Globs;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -79,149 +80,139 @@ public class Funding {
 
     private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList();
-        try {
-            //check each character in json file
-            InputStream is = new FileInputStream(Globs.get_cached_tree_map());
-            String jsonTxt = IOUtils.toString(is);
-            jsonTxt = jsonTxt.toLowerCase();
-            JSONObject result = new JSONObject(jsonTxt);
+        InputStream is = new FileInputStream(Globs.get_cached_tree_map());
+        String jsonTxt = IOUtils.toString(is);
+        jsonTxt = jsonTxt.toLowerCase();
+        JSONObject result = new JSONObject(jsonTxt);
 
-            //run NER on the entire paragraph again to get agencies without grant number
-            if (funding_section == "None") {
-                return arrayList;
+        //if there's no funding_section extracted
+        if(funding_section=="None"){
+            return arrayList;
+        }
+        String pattern2 = "([/\\[]*\\w+[-/]*\\w+[-/\\]]*)";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(funding_section);
+        ArrayList<String> words = new ArrayList<>();
+        while (m2.find( )) {
+            String word = m2.group();
+            words.add(word);
+        }
+        //iterate through each word
+        for(int i=0;i<words.size();i++){
+            String word = words.get(i);
+            String word_lowercase = word.toLowerCase();
+            int count = i;
+            JSONObject result2 = result;
+            //exclude extreme cases: if the word is only one layer and it's not acronym
+            if(result2.has(word_lowercase) && result2.getJSONObject(word_lowercase).has("$value") && word.toUpperCase()!=word){
+                continue;
             }
-
-            String pattern2 = "([/\\[]*\\w+[-/]*\\w+[-/\\]]*)";
-            Pattern r2 = Pattern.compile(pattern2);
-            Matcher m2 = r2.matcher(funding_section);
-            ArrayList<String> words = new ArrayList();
-            while (m2.find()) {
-                String word = m2.group();
-                words.add(word);
+            if(word_lowercase.length()==1){
+                continue;
             }
-
-            //iterate through each word
-            for (int i = 0; i < words.size(); i++) {
-                String word = words.get(i);
-                String word_lowercase = word.toLowerCase();
-
-                int count = i;
-                JSONObject result2 = result;
-                //exclude extreme cases:
-                //if the word is only one layer and it's not acronym
-                if (result2.has(word_lowercase)
-                        && result2.getJSONObject(word_lowercase).has("$value")
-                        && word.toUpperCase() != word) {
-                    continue;
-                }
-                if (word_lowercase.length() == 1) {
-                    continue;
-                }
-                if (word_lowercase.equals("us")) {
-                    continue;
-                }
-                //for each word, find possible agency name by going through words after it
-                while (result2.has(word_lowercase) || result2.has("$value")) {
-                    //if it has an output result value
-                    if (result2.has("$value")) {
-                        JSONArray arr = result2.getJSONArray("$value");
-                        String value = (String) arr.get(0);
-                        //check if the acronym has other meanings
-                        if (arr.length() > 0) {
-                            for (int j = 0; j < arr.length(); j++) {
-                                String name = (String) arr.get(j);
-                                if (funding_section.toLowerCase().contains(name)) {
-                                    value = name;
-                                    break;
-                                }
+            if(word_lowercase.equals("us")){
+                continue;
+            }
+            //for each word, find possible agency name by going through words after it
+            while(result2.has(word_lowercase) || result2.has("$value")){
+                //if it has an output result value
+                if(result2.has("$value")){
+                    JSONArray arr = result2.getJSONArray("$value");
+                    String value = (String) arr.get(0);
+                    //check if the acronym has other meanings
+                    if(arr.length()>0){
+                        for(int j = 0; j < arr.length(); j++){
+                            String name = (String) arr.get(j);
+                            if(funding_section.toLowerCase().contains(name)){
+                                value = name;
+                                break;
                             }
                         }
-
-//                        System.out.println("value: " + value);
-                        //create new FundingInfo object
-                        FundingInfo fi = new FundingInfo();
-                        fi.setAgency(value);
-                        //check if the name already exists in the list
-                        boolean flag = true;
-                        for (int j = 0; j < arrayList.size(); j++) {
-                            if (arrayList.get(j).getAgency() != null) {
-                                if (arrayList.get(j).getAgency().equals(fi.getAgency())) {
-                                    flag = false;
-                                }
-                            }
-                        }
-                        if (flag) {
-                            arrayList.add(fi);
-                        }
-                        i = count - 1;
-                        break;
                     }
-                    //keep iterating
-                    else {
-                        count++;
-                        if (count < words.size() && count >= 0) {
-                            result2 = result2.getJSONObject(word_lowercase);
-                            word = words.get(count);
-                            word_lowercase = word.toLowerCase();
+                    //create new FundingInfo object
+                    FundingInfo fi = new FundingInfo();
+                    fi.setAgency(value);
+                    //check if the name already exists in the list
+                    boolean flag = true;
+                    for(int j = 0; j < arrayList.size(); j++) {
+                        if(arrayList.get(j).getAgency()!=null ){
+                            if(arrayList.get(j).getAgency().equals(fi.getAgency())){
+                                flag = false;
+                            }
                         }
-                        if (count == words.size()) {
-                            result2 = result2.getJSONObject(word_lowercase);
-                        }
+                    }
+                    if(flag){
+                        arrayList.add(fi);
+                    }
+                    i = count-1;
+                    break;
+                }
+                //keep iterating
+                else{
+                    count++;
+                    if(count<words.size() && count>=0){
+                        result2 = result2.getJSONObject(word_lowercase);
+                        word = words.get(count);
+                        word_lowercase = word.toLowerCase();
+                    }
+                    if(count==words.size()){
+                        result2 = result2.getJSONObject(word_lowercase);
                     }
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return arrayList;
     }
 
     private List<FundingInfo> extractFunding_fromPMCXML(String nlm) throws Exception {
-        ArrayList<FundingInfo> arrayList = new ArrayList();
-        try {
-            //agency only
-            String pattern = "<funding-source>.*?<\\/funding-source>";
-            Pattern r = Pattern.compile(pattern);
-            Matcher m = r.matcher(nlm);
-            while (m.find()) {
-                String agency = m.group().split("<funding-source>")[1];
-                agency = agency.split("</funding-source>")[0];
-                FundingInfo fi = new FundingInfo();
-                fi.setAgency(agency);
-                arrayList.add(fi);
-            }
-            if (!arrayList.isEmpty()) {
-                return arrayList;
-            }
+        ArrayList<FundingInfo> arrayList= new ArrayList<>();
 
-            //if hte section is only a paragraph
-            JSONObject xmlJSONObj = XML.toJSONObject(nlm);
-            JSONObject back = xmlJSONObj.getJSONObject("article").getJSONObject("back");
-
-            if (back.has("sec")) {
-                System.out.println("back has sec");
-                JSONObject group = back.getJSONObject("sec");
-                Object item = group.get("p");
-                if (item instanceof String) {
-                    String p = (String) item;
-                    return extractFunding_fromCermineXML(nlm, p);
-                } else if (item instanceof JSONArray) {
-                    JSONArray arr = (JSONArray) item;
-                    JSONObject p = (JSONObject) arr.get(0);
-                }
-            } else if (back.has("ack")) {
-                JSONObject group = back.getJSONObject("ack");
-                Object item = group.get("p");
-                if (item instanceof String) {
-                    String p = (String) item;
-                    return extractFunding_fromCermineXML(nlm, p);
-                } else if (item instanceof JSONArray) {
-                    JSONArray arr = (JSONArray) item;
-                    JSONObject p = (JSONObject) arr.get(0);
-                }
+        //get funding sources just by regex matching to pmc xmls
+        String pattern = "(?s)<funding-source>.*?<\\/funding-source>";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(nlm);
+        while (m.find( )) {
+            String agency = m.group().split("<funding-source>")[1];
+            agency = agency.split("</funding-source>")[0];
+            if(agency.contains("<institution>")){
+                agency =  agency.split("<institution>")[1];
+                agency =  agency.split("</institution>")[0];
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            FundingInfo fi = new FundingInfo();
+            fi.setAgency(agency);
+            arrayList.add(fi);
+        }
+
+        if(!arrayList.isEmpty()){
+            return arrayList;
+        }
+
+        //get funding paragraph through another form of regex
+        String pattern2 = "(?s)<funding-group>.*?<\\/funding-group>";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(nlm);
+        if (m2.find( )) {
+            String paragraph = m2.group();
+            return extractFunding_fromCermineXML(nlm,paragraph);
+        }
+
+        //if there's no direct funding source info available, get paragraph and apply our method
+        String pattern3 = "<ack>.*?<\\/ack>";
+        Pattern r3 = Pattern.compile(pattern3);
+        Matcher m3 = r3.matcher(nlm);
+        if (m3.find( )) {
+            String paragraph = m3.group();
+            paragraph = paragraph.replaceAll("<[^>]+>", "");
+            paragraph = paragraph.replaceAll("\n", " ");
+            paragraph = paragraph.replaceAll("\t", " ");
+            paragraph = paragraph.trim().replaceAll(" +", " ");
+            return extractFunding_fromCermineXML(nlm,paragraph);
+        }
+
+        //apply our method on pmc xmls
+        if(arrayList.isEmpty()){
+            String funding_section = extractFundingSection(nlm);
+            return extractFunding_fromCermineXML(nlm,funding_section);
         }
         return arrayList;
     }

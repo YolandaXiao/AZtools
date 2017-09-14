@@ -31,6 +31,7 @@ public class Attributes implements Runnable {
     private final List<String> contact;
     private final String doi;
     private final String date;
+    private final String status;
     private final List<String> URLs;
     private final List<String> tags;
     private List<String> funding;
@@ -97,6 +98,7 @@ public class Attributes implements Runnable {
         for (int i = 0; i < URLs.size(); i++) {
             URLs.set(i, URLs.get(i).trim());
         }
+        status = url_link.getStatus(URLs);
         Calendar url_end = Calendar.getInstance();
 
         Calendar name_start = Calendar.getInstance();
@@ -105,7 +107,7 @@ public class Attributes implements Runnable {
         Calendar name_end = Calendar.getInstance();
 
         Calendar abstract_start = Calendar.getInstance();
-        Abstract a = new Abstract(xmlJSONObj,num);
+        Abstract a = new Abstract(nlm,num);
         abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
@@ -161,7 +163,7 @@ public class Attributes implements Runnable {
         final_object.put("publicationDOI", doi);
         final_object.put("publicationDate", date);
         final_object.put("URLs", URLs);
-//        final_object.put("tags", tags);
+        final_object.put("status", status);
         final_object.put("fundingSources", funding);
         final_object.put("programmingLanguages", languages);
     }
@@ -215,6 +217,10 @@ public class Attributes implements Runnable {
 
     public String getDate() {
         return date;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public List<String> getURL(){

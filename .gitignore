@@ -7,10 +7,12 @@ testing/pdfs
 response.json
 
 # IntelliJ
+*/.idea/*
 .idea/*
 *.iml
 *.iws
 out/*
+*/target/*
 
 # Eclipse
 *.classpath
