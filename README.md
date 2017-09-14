@@ -22,7 +22,7 @@ To contribute to this repository, you will first need to **set up the project**.
 
 1) `$ git clone https://github.com/ankurpapneja/AZtools.git`
 
-2) `$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
+2) `$ cd AZtools/; mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
 
 3) `$ cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
 
