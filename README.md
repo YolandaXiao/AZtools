@@ -24,7 +24,7 @@ To contribute to this repository, you will first need to **set up the project**.
 
 2) `$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
 
-3) `cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
+3) `$ cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
 
 4) Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and fill in your email address and password in their respective fields.
 
