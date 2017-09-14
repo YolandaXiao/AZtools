@@ -40,7 +40,6 @@ public class Url {
                     && !link.contains(".jpg") && !link.contains(".avi")){
                 if(!all_links.contains(link)){
                     all_links.add(link);
-                    System.out.println("all_links "+link);
                 }
             }
             String lowercase_link = link.toLowerCase();
@@ -60,7 +59,6 @@ public class Url {
                     if(arr.length>1)
                         link = link.split("Contact")[0];
                 }
-                System.out.println("good_links2 "+link);
                 good_links.add(link);
                 break;
             }
