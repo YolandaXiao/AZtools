@@ -4,7 +4,7 @@
 
 ### Introduction
 
-[AZtools](http://dev.aztec.io:8092) is **a service that supports [AZtec](http://aztec.bio/) in extracting the metadata of software** developed by the biomedical research community. Biomedical software may consist of algorithms, databases, visualizations, or any other codebase.
+**[AZtools](http://dev.aztec.io:8092) is a service that supports [AZtec](http://aztec.bio/) in extracting the metadata of software** developed by the biomedical research community. Biomedical software may consist of algorithms, databases, visualizations, or any other codebase.
 
 The code is licensed under GNU Affero General Public License version 3.
 
@@ -14,13 +14,13 @@ AZtools takes in as input one of the following:
 1) Academic Publication(s) (PDFs) that describe the tool. [Here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210563/pdf/gkw1083.pdf) is an example for ChimerDB 3.0, a database for fusion genes.
 2) PubMed Central Reference Number (PMCID), a unique identification number for works in PubMed Central's digital archive of scientific literature.
 
-AZtools is at [http://dev.aztec.io:8092](http://dev.aztec.io:8092). You may submit any number of PDFs such that the total size is less than 1 GB. There is also a field for the PMCID. However, if PubMed does not allow full text access to the publication, you will have to upload a PDF instead. The response to your submission will be a JSON object containing the metadata of the software. 
+**AZtools is at [http://dev.aztec.io:8092](http://dev.aztec.io:8092)**. You may submit any number of PDFs such that the total size is less than 1 GB. There is also a field for the PMCID. *However, if PubMed does not allow full text access to the publication, you will have to upload a PDF instead*. The response to your submission will be a JSON object containing the metadata of the software. 
 
 AZtools also supports email submission. You may email the PDF to `az.tools100@gmail.com` and expect a response in an attachment `response.json` and in a formatted table in the email body.
 
 ### Developers
 
-To contribute to this repository, you will first need to set up the project. The instructions to do so are as follows:
+To contribute to this repository, you will first need to **set up the project**. The instructions on how to do so are as follows:
 
 1) `$ git clone https://github.com/ankurpapneja/AZtools.git` This may take a couple minutes.
 
@@ -30,34 +30,36 @@ To contribute to this repository, you will first need to set up the project. The
 
 4) Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and fill in your email address and password in their respective fields.
 
-5) If you do not hava IntelliJ or Java 8:
+5) *If you do not hava IntelliJ or Java 8:*
 a) Install IntelliJ from [here](https://www.jetbrains.com/idea/download/)
 b) Install JDK 8 from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). If you are on an Ubuntu system, you can instead follow the directions [here](http://www.wikihow.com/Install-Oracle-Java-on-Ubuntu-Linux).
 
-6) Open IntelliJ and import `AZtools/` (the higher directory). Click the option to import recursively. Wait for dependencies to resolve. The progress bar can be found near the bottom of the screen.
+6) Open IntelliJ and import `AZtools/` (**the higher directory*). ***Select the option to import recursively***. Wait for dependencies to resolve. The progress bar can be found near the bottom of the screen.
 
-7) Click the green '+' sign on the right side of the panel at File | Project Structure | Project Settings | Modules | Dependencies.
+7) Click the green '+' sign on the right side of the panel at *File | Project Structure | Project Settings | Modules | Dependencies*.
 
-8) Select 'JARs and directories' and then select all of the JAR files in `AZtools/AZtools/lib/`. Be sure to search recursively for JAR files.
+8) Select 'JARs and directories' and then select ***all of the JAR files*** in `AZtools/AZtools/lib/`. Be sure to search recursively for JAR files.
 
 9) In IntelliJ, right click on `AZtools/AZtools/src/main/java/webapp/Application.java` and look for the green triangle. Click on `Run 'Application.main()'`. Once you see `Waiting for a response...` in the IntelliJ console log, proceed to the next section.
 
-10) If there are any build errors, see the 'Troubleshoot' section below.
+10) If there are any build errors, see the **'Troubleshoot'** section below.
 
 #### Testing the application:
 Go to `localhost:8092` in your browser
+
 1a) Upload any number of PDFs of total size <= 1 GB
 OR
 1b) Enter a PMC ID of a work in PubMed Central
+
 2) Click Submit and wait for JSON response
 
 Email a PDF to the email address you specified in `Globs.java` (instruction #4 in the 'Developers' section) and wait for a response.
 
-POST to `localhost:8092/` with a PDF (parameter name `file`) 
+POST to `localhost:8092/` with a **PDF** (parameter name `file`) 
 1) HTTP Response will contain a JSON output of the main metadata fields.
 2) Also possible to submit multiple PDFs at once.
 
-POST to `localhost:8092/pmc_id` with a String (parameter name `pmc_id`) 
+POST to `localhost:8092/pmc_id` with a **String** (parameter name `pmc_id`) 
 1) If PubMed allows full text access to the work specified by the unique ID, the HTTP Response will contain a JSON output of the main metadata fields. Otherwise, you will receive a String that describes the problem.
 
 Congratulations, you have successfully set up AZtools for development!
@@ -66,13 +68,13 @@ Once you've added in a new feature or improved AZtools, submit a pull request an
 
 #### Troubleshoot
 
-Make sure the JDK version specified in `AZtools/pom.xml` matches the installed JDK on your machine.
+Make sure the JDK version specified in `AZtools/pom.xml` matches the installed JDK on your machine. You may check your current version of Java with the command `$ java -version`
 
-Be sure to add all JAR files in `AZtools/lib` by going to File->Project Structure->Project Settings->Modules and clicking on the green "+" symbol. Otherwise the program will not build successfully.
+Be sure to ***add all JAR files*** in `AZtools/lib` by going to *File | Project Structure | Project Settings | Modules | Dependencies* and clicking on the green "+" symbol. Otherwise the program will not build successfully.
 
 Ensure that the paths specified in `AZtools/src/main/java/webapp/Globs.java` match your system's environment. This means that if the relative paths don't work, try replacing them with absolute ones.
 
-Change the port that is specified in `AZtools/src/main/resources/application.properties`. Default port is 8092.
+Change the port that is specified in `AZtools/src/main/resources/application.properties`. The default port is 8092.
 
 ### Microservices Implementation
 
@@ -84,9 +86,9 @@ Initialize the variable in `Attribute.java`'s constructor and create another get
 
 This section concerns those who have access to the AZtec's production server and wish to deploy AZtools to [dev.aztec.io](http://dev.aztec.io).
 
-AZtools will be deployed as a JAR file. To create one from IntelliJ, follow the instructions [here](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html).
+AZtools will be deployed as a **JAR file**. To create one from IntelliJ, follow the instructions [here](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html).
 
-SSH into the server and execute the JAR file in a tmux session. The session name the current version of AZtools is running in is named 'aztools_prod'. You may create another session 'aztools_dev' to test, but make sure to change the port (not 8092) before packaging the code into a JAR file.
+SSH into the server and execute the JAR file in a tmux session. The current version of AZtools is running in a session named 'aztools_prod'. You may create another session 'aztools_dev' to test new implementations, but make sure to change the port before packaging the code into a JAR file.
 
 ### Contact
 
