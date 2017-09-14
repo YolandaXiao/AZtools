@@ -4,13 +4,13 @@
 
 **[AZtools](http://dev.aztec.io:8092) is a service that supports [AZtec](http://aztec.bio/) in extracting the metadata of software** developed by the biomedical research community. Biomedical software may consist of algorithms, databases, visualizations, or any other codebase.
 
-The code is licensed under GNU Affero General Public License version 3.
+[Funded](https://www.nih.gov/news-events/news-releases/nih-commits-24-million-annually-big-data-centers-excellence) by the National Institutes of Health, this project was developed at the [Heart BD2K Center of Excellence](https://commonfund.nih.gov/bd2k). The code is licensed under GNU Affero General Public License version 3.
 
 ### Usage
 
 AZtools takes in as input one of the following:
 1) Academic Publication(s) (PDFs) that describe the tool. [Here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210563/pdf/gkw1083.pdf) is an example for ChimerDB 3.0, a database for fusion genes.
-2) PubMed Central Reference Number (PMCID), a unique identification number for works in PubMed Central's digital archive of scientific literature.
+2) [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/) Reference Number (PMCID), a unique identification number for works in PubMed Central's digital archive of scientific literature.
 
 **AZtools is at [http://dev.aztec.io:8092](http://dev.aztec.io:8092)**. You may submit any number of PDFs such that the total size is less than 1 GB. There is also a field for the PMCID. *However, if PubMed does not allow full text access to the publication, you will have to upload a PDF instead*. The response to your submission will be a JSON object containing the metadata of the software. 
 
@@ -44,10 +44,11 @@ b) Install JDK 8 from [here](http://www.oracle.com/technetwork/java/javase/downl
 
 #### Testing the application:
 Go to `localhost:8092` in your browser
-1) a: Upload any number of PDFs of total size <= 1 GB. OR b: Enter a PMC ID of a work in PubMed Central
+1) a. Upload any number of PDFs of total size <= 1 GB. OR b. Enter a PMC ID of a work in PubMed Central
 2) Click Submit and wait for JSON response
 
-Email a PDF to the email address you specified in `Globs.java` (instruction #4 in the 'Developers' section) and wait for a response.
+Email a PDF to the email address you specified in `Globs.java` (instruction #4 in the 'Developers' section) 
+1) Simply wait for a response email. If there are not too many documents in the queue, then it should not take long.
 
 POST to `localhost:8092/` with a **PDF** (parameter name `file`) 
 1) HTTP Response will contain a JSON output of the main metadata fields.
