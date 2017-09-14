@@ -12,7 +12,6 @@ response.json
 *.iml
 *.iws
 out/*
-*/target/*
 
 # Eclipse
 *.classpath
