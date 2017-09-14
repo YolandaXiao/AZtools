@@ -1,25 +1,28 @@
 package webapp;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import extraction.Attributes;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
 import org.json.JSONObject;
-import org.springframework.web.multipart.MultipartFile;
 import pl.edu.icm.cermine.ContentExtractor;
 import pl.edu.icm.cermine.tools.timeout.TimeoutException;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrInputDocument;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ProcessPDF {
 
     private long cermine_time;
-    private long refine_time;
+    private long aztools_time;
     private long total_time;
 
     private JSONObject data;
@@ -30,20 +33,20 @@ public class ProcessPDF {
     private String metadata_string;
     private String final_json_string;
 
-    public ProcessPDF(ArrayList<File> files, ArrayList<String> filenames, boolean ignore) {
-        ObjectMapper mapper = new ObjectMapper();
-
+    public ProcessPDF(ArrayList<File> files, ArrayList<String> filenames) {
         data = new JSONObject();
         metadata = new JSONObject();
         final_json_object = new JSONObject();
 
         cermine_time = 0;
-        refine_time = 0;
+        aztools_time = 0;
         total_time = 0;
 
         Calendar cermine_start, cermine_end;
-        Calendar refining_start, refining_end;
+        Calendar aztools_start, aztools_end;
         Calendar clock_start = Calendar.getInstance(), clock_end;
+
+        int spacesToIndentEachLevel = 4;
 
         try {
             for (int i = 0; i < files.size(); i++) {
@@ -52,6 +55,7 @@ public class ProcessPDF {
                     ContentExtractor extractor = new ContentExtractor();
                     InputStream inputStream = new FileInputStream(files.get(i));
                     extractor.setPDF(inputStream);
+
                     Element nlmMetadata = extractor.getMetadataAsNLM();
                     Element nlmFullText = extractor.getBodyAsNLM(null);
                     Element nlmContent = new Element("article");
@@ -60,6 +64,7 @@ public class ProcessPDF {
                             nlmContent.addNamespaceDeclaration((Namespace) ns);
                         }
                     }
+
                     Element meta = (Element) nlmMetadata.getChild("front").clone();
                     nlmContent.addContent(meta);
                     nlmContent.addContent(nlmFullText);
@@ -67,250 +72,93 @@ public class ProcessPDF {
                     cermine_end = Calendar.getInstance();
                     cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
-                    refining_start = Calendar.getInstance();
+                    aztools_start = Calendar.getInstance();
                     Attributes attr = new Attributes(nlm, filenames.get(i), 0);
-                    refining_end = Calendar.getInstance();
-                    refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
+                    aztools_end = Calendar.getInstance();
+                    aztools_time += aztools_end.getTimeInMillis() - aztools_start.getTimeInMillis();
+                    data.put(filenames.get(i), attr.getFinalJSONObject());
 
-                    String json_string = mapper.writeValueAsString(attr);
-                    System.out.println("---------------\n" + filenames.get(i) + ":\n" + json_string + "\n---------------");
-                    data.put(filenames.get(i), json_string);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            clock_end = Calendar.getInstance();
-
-            metadata.put("number_of_pdfs", files.size());
-            total_time = clock_end.getTimeInMillis() - clock_start.getTimeInMillis();
-            metadata.put("total time (ms)", total_time);
-            metadata.put("total cermine_time (ms)", total_time);
-            metadata.put("total refine_time (ms)", refine_time);
-            metadata_string = metadata.toString();
-
-            data_string = data.toString();//.replace("abstrakt", "abstract").replace("\\\"", "\"");
-            System.out.println(data_string);
-
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
-
-            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
-            final_json_string = final_result;//.replace("\\\\\"", "\"");
-        }
-        catch (TimeoutException e) {
-            e.printStackTrace();
-            JSONObject status = new JSONObject();
-            status.put("status", "Internal error occurred, please try again later.");
-            final_json_string = status.toString();
-        }
-    }
-
-    public ProcessPDF(File file, String filename) {
-        ObjectMapper mapper = new ObjectMapper();
-
-        data = new JSONObject();
-        metadata = new JSONObject();
-        final_json_object = new JSONObject();
-
-        cermine_time = 0;
-        refine_time = 0;
-        total_time = 0;
-
-        Calendar cermine_start, cermine_end;
-        Calendar refining_start, refining_end;
-        Calendar clock_start = Calendar.getInstance(), clock_end;
-
-        try {
-            cermine_start = Calendar.getInstance();
-            ContentExtractor extractor = new ContentExtractor();
-            InputStream inputStream = new FileInputStream(file);
-            extractor.setPDF(inputStream);
-            Element nlmMetadata = extractor.getMetadataAsNLM();
-            Element nlmFullText = extractor.getBodyAsNLM(null);
-            Element nlmContent = new Element("article");
-            for (Object ns : nlmFullText.getAdditionalNamespaces()) {
-                if (ns instanceof Namespace) {
-                    nlmContent.addNamespaceDeclaration((Namespace) ns);
-                }
-            }
-            Element meta = (Element) nlmMetadata.getChild("front").clone();
-            nlmContent.addContent(meta);
-            nlmContent.addContent(nlmFullText);
-            String nlm = new XMLOutputter().outputString(nlmContent);
-            cermine_end = Calendar.getInstance();
-            cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
-
-            refining_start = Calendar.getInstance();
-            Attributes attr = new Attributes(nlm, filename, 0);
-            refining_end = Calendar.getInstance();
-            refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
-
-            String json_string = mapper.writeValueAsString(attr);
-            data.put(filename, json_string);
-
-            clock_end = Calendar.getInstance();
-
-            metadata.put("number_of_pdfs", 1);
-            total_time = clock_end.getTimeInMillis() - clock_start.getTimeInMillis();
-            metadata.put("total time (ms)", total_time);
-            metadata.put("total cermine_time (ms)", total_time);
-            metadata.put("total refine_time (ms)", refine_time);
-            metadata_string = metadata.toString();
-
-            data_string = data.toString();//.replace("abstrakt", "abstract");
-
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
-
-            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
-            final_json_string = final_result;//.replace("\\\\\"", "\"");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public ProcessPDF(ArrayList<MultipartFile> files, ArrayList<String> filenames) {
-        ObjectMapper mapper = new ObjectMapper();
-
-        data = new JSONObject();
-        metadata = new JSONObject();
-        final_json_object = new JSONObject();
-
-        cermine_time = 0;
-        refine_time = 0;
-        total_time = 0;
-
-        Calendar cermine_start, cermine_end;
-        Calendar refining_start, refining_end;
-        Calendar clock_start = Calendar.getInstance(), clock_end;
-
-        try {
-            for (int i = 0; i < files.size(); i++) {
-                try {
-                    cermine_start = Calendar.getInstance();
-                    ContentExtractor extractor = new ContentExtractor();
-                    extractor.setPDF((files.get(i)).getInputStream());
-                    Element nlmMetadata = extractor.getMetadataAsNLM();
-                    Element nlmFullText = extractor.getBodyAsNLM(null);
-                    Element nlmContent = new Element("article");
-                    for (Object ns : nlmFullText.getAdditionalNamespaces()) {
-                        if (ns instanceof Namespace) {
-                            nlmContent.addNamespaceDeclaration((Namespace) ns);
-                        }
+                    String pubDOI = attr.getDOI();
+                    List<String> pubDOIs = new ArrayList<>();
+                    if (!pubDOI.equals("")) {
+                        pubDOIs.add(pubDOI);
                     }
-                    Element meta = (Element) nlmMetadata.getChild("front").clone();
-                    nlmContent.addContent(meta);
-                    nlmContent.addContent(nlmFullText);
-                    String nlm = new XMLOutputter().outputString(nlmContent);
-                    cermine_end = Calendar.getInstance();
-                    cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
 
-                    refining_start = Calendar.getInstance();
-                    Attributes attr = new Attributes(nlm, filenames.get(i), 0);
-                    refining_end = Calendar.getInstance();
-                    refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
+                    URL url = new URL("http://10.44.115.202:8983/solr/BD2K/select?q=*%3A*&wt=json&indent=true");
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    String inputLine;
+                    StringBuffer content = new StringBuffer();
+                    while ((inputLine = in.readLine()) != null) {  content.append(inputLine);  }
+                    in.close();
+                    String json_response_str = content.toString();
+                    JSONObject json_reponse = new JSONObject(json_response_str);
+                    JSONObject json_obj = (JSONObject) json_reponse.get("response");
+                    int num_tools = (int)json_obj.get("numFound");
 
-                    String json_string = mapper.writeValueAsString(attr);
-                    System.out.println("---------------\n" + filenames.get(i) + ":\n" + json_string + "\n---------------");
-                    data.put(filenames.get(i), json_string);
-
+                    SolrClient client = new HttpSolrClient.Builder("http://10.44.115.202:8983/solr/BD2K/").build();
+                    SolrInputDocument doc = new SolrInputDocument();
+                    doc.addField("id", num_tools + 1);
+                    doc.addField("name", attr.getName());
+                    doc.addField("source", "AZtools");
+                    doc.addField("fundingAgencies", attr.getFundingStr());
+                    doc.addField("institutions", attr.getAffiliation());
+                    doc.addField("authors", attr.getAuthor());
+                    doc.addField("description", attr.getAbstrakt());
+                    doc.addField("summary", attr.getSummary());
+                    doc.addField("tags", attr.getTags());
+                    doc.addField("language", attr.getLanguages());
+                    doc.addField("publicationDOI", pubDOIs);
+                    Calendar now = Calendar.getInstance();
+                    String data_str = now.YEAR + "-" + now.MONTH + "-" + now.DAY_OF_MONTH + "T" + now.HOUR + ":";
+                    data_str += now.MINUTE + ":" + now.SECOND + "." + now.MILLISECOND + "Z";
+                    doc.addField("dateUpdated", data_str);
+                    doc.addField("publicationTitle", attr.getTitle());
+                    doc.addField("publicationDate", attr.getDate());
+                    doc.addField("linkUrls", attr.getURL());
+                    client.add(doc);
+                    client.commit();
+                    System.out.println("Committed metadata for '" + filenames.get(i) + "' to Solr DB.");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
 
             clock_end = Calendar.getInstance();
-
-            metadata.put("number_of_pdfs", files.size());
             total_time = clock_end.getTimeInMillis() - clock_start.getTimeInMillis();
-            metadata.put("total time (ms)", total_time);
-            metadata.put("total cermine_time (ms)", total_time);
-            metadata.put("total refine_time (ms)", refine_time);
-            metadata_string = metadata.toString();
 
-            data_string = data.toString();//.replace("abstrakt", "abstract");
-            System.out.println(data_string);
+            metadata.put("num_pdfs", files.size());
+            metadata.put("total_time", total_time);
+            metadata.put("cermine_time", total_time);
+            metadata.put("aztools_time", aztools_time);
+            metadata_string = metadata.toString(spacesToIndentEachLevel);
 
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
+            data_string = data.toString(spacesToIndentEachLevel);
 
-            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
-            final_json_string = final_result;//.replace("\\\\\"", "\"");
+            final_json_object.put("metadata", metadata);
+            final_json_object.put("data", data);
+            final_json_string = final_json_object.toString(spacesToIndentEachLevel).replace("\\\"", "\"");
         }
         catch (TimeoutException e) {
             e.printStackTrace();
-            JSONObject status = new JSONObject();
-            status.put("status", "Internal error occurred, please try again later.");
-            final_json_string = status.toString();
+            cermine_time = 0;
+            aztools_time = 0;
+            total_time = 0;
+
+            metadata.put("num_pdfs", files.size());
+            metadata.put("status", "failure");
+            metadata_string = metadata.toString(spacesToIndentEachLevel);
+            data_string = "";
+
+            final_json_object.put("metadata", metadata);
+            final_json_object.put("data", data);
+            final_json_string = final_json_object.toString(spacesToIndentEachLevel);
+            final_json_string = final_json_string.replace("\\\"", "\"");
         }
     }
 
-    public ProcessPDF(MultipartFile file, String filename) {
-        ObjectMapper mapper = new ObjectMapper();
-
-        data = new JSONObject();
-        metadata = new JSONObject();
-        final_json_object = new JSONObject();
-
-        cermine_time = 0;
-        refine_time = 0;
-        total_time = 0;
-
-        Calendar cermine_start, cermine_end;
-        Calendar refining_start, refining_end;
-        Calendar clock_start = Calendar.getInstance(), clock_end;
-
-        try {
-            cermine_start = Calendar.getInstance();
-            ContentExtractor extractor = new ContentExtractor();
-            extractor.setPDF(file.getInputStream());
-            Element nlmMetadata = extractor.getMetadataAsNLM();
-            Element nlmFullText = extractor.getBodyAsNLM(null);
-            Element nlmContent = new Element("article");
-            for (Object ns : nlmFullText.getAdditionalNamespaces()) {
-                if (ns instanceof Namespace) {
-                    nlmContent.addNamespaceDeclaration((Namespace) ns);
-                }
-            }
-            Element meta = (Element) nlmMetadata.getChild("front").clone();
-            nlmContent.addContent(meta);
-            nlmContent.addContent(nlmFullText);
-            String nlm = new XMLOutputter().outputString(nlmContent);
-            cermine_end = Calendar.getInstance();
-            cermine_time += cermine_end.getTimeInMillis() - cermine_start.getTimeInMillis();
-
-            refining_start = Calendar.getInstance();
-            Attributes attr = new Attributes(nlm, filename, 0);
-            refining_end = Calendar.getInstance();
-            refine_time += refining_end.getTimeInMillis() - refining_start.getTimeInMillis();
-
-            String json_string = mapper.writeValueAsString(attr);
-            data.put(filename, json_string);
-
-            clock_end = Calendar.getInstance();
-
-            metadata.put("number_of_pdfs", 1);
-            total_time = clock_end.getTimeInMillis() - clock_start.getTimeInMillis();
-            metadata.put("total time (ms)", total_time);
-            metadata.put("total cermine_time (ms)", total_time);
-            metadata.put("total refine_time (ms)", refine_time);
-            metadata_string = metadata.toString();
-
-            data_string = data.toString();//.replace("abstrakt", "abstract");
-
-            final_json_object.put("metadata", metadata_string);
-            final_json_object.put("data", data_string);
-
-            String final_result = final_json_object.toString();//.replace("\\\"", "\"");
-            final_json_string = final_result;//.replace("\\\\\"", "\"");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
     public String getFinalString() {
         return final_json_string;
@@ -324,6 +172,8 @@ public class ProcessPDF {
         return metadata_string;
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+
     public JSONObject getData() {
         return data;
     }
@@ -336,12 +186,14 @@ public class ProcessPDF {
         return final_json_object;
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+
     public long getCermineTime() {
         return cermine_time;
     }
 
     public long getRefineTime() {
-        return refine_time;
+        return aztools_time;
     }
 
     public long getTotalTime() {

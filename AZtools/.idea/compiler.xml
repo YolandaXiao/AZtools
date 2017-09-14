@@ -9,7 +9,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AZtools" target="1.8" />
+      <module name="spring-app" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

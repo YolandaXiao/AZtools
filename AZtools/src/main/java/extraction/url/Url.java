@@ -22,10 +22,10 @@ public class Url {
     }
 
     private List<String> extractURL(JSONObject xmlJSONObj, String name) {
-        ArrayList<String> all_links= new ArrayList<>();
-        ArrayList<String> good_links= new ArrayList<>();
-        System.out.println("name: "+name);
-        name = name.split(".pdf")[0];
+        ArrayList<String> all_links= new ArrayList();
+        ArrayList<String> good_links= new ArrayList();
+        try {
+            name = name.split(".pdf")[0];
 
         //check URLs without http
         String line = xmlJSONObj.toString();
@@ -67,12 +67,13 @@ public class Url {
             }
         }
 
-        //add one link to good_links if none found
-        if(good_links.isEmpty() && all_links.size()>0)
-        {
-            good_links.add(all_links.get(0));
+            //add one link to good_links if none found
+            if (good_links.isEmpty() && all_links.size() > 0) {
+                good_links.add(all_links.get(0));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return good_links;
     }
 
@@ -84,7 +85,6 @@ public class Url {
             }
         }
         return "Success";
-
     }
 
     //helper function: get HTML content
@@ -93,7 +93,7 @@ public class Url {
             URL url = new URL(urlToRead);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setConnectTimeout(3000); // timeout = 3 seconds
+            conn.setConnectTimeout(1500);
             int code = conn.getResponseCode() ;
             if(code==404){
                 return false;

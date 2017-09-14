@@ -11,30 +11,24 @@ public class Date {
     public String getDate() {  return date; }
 
     public Date(JSONObject xmlJSONObj, int num) throws Exception {
-        if(num==0){
+        if (num == 0) {
             this.date = extractDate_fromCermineXML(xmlJSONObj);
         }
-        else{
+        else {
             this.date = extractDate_fromPMCXML(xmlJSONObj);
         }
 
     }
 
     private String extractDate_fromCermineXML(JSONObject xmlJSONObj) {
-        JSONObject value = null;
         try {
-            value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (value.has("pub-date")) {
-            int date = 0;
-            try {
-                date = value.getJSONObject("pub-date").getInt("year");
-            } catch (JSONException e) {
-                e.printStackTrace();
+            JSONObject value = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
+            if (value.has("pub-date")) {
+                int date = value.getJSONObject("pub-date").getInt("year");
+                return Integer.toString(date);
             }
-            return Integer.toString(date);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return "0";
     }

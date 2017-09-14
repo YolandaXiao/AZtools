@@ -8,9 +8,6 @@ import pl.edu.icm.cermine.exception.AnalysisException;
 
 import java.io.*;
 
-/**
- * Created by yinxuexiao on 9/1/17.
- */
 public class Helper {
 
     public Helper() throws Exception {}
@@ -90,10 +87,8 @@ public class Helper {
         nlmContent.addContent(nlmFullText);
 
         String nlm = new XMLOutputter().outputString(nlmContent);
-//        System.out.println(nlm);
         String[] arr = test_pdf.split("/");
         String filename = arr[arr.length-1];
-        System.out.println("file_name: "+filename);
         Attributes attr = new Attributes(nlm, filename,0);
         return attr;
     }

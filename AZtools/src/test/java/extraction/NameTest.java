@@ -21,9 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by yinxuexiao on 9/1/17.
- */
 public class NameTest {
     static final private String abs_dir = "/Users/yinxuexiao/Documents/Computer_Science/AZtools/AZtools/src/test/resources/github";
     static final private String output_file = abs_dir+"/result.txt";
@@ -44,7 +41,7 @@ public class NameTest {
 
         //Name
         String name = attr.getName();
-        System.out.println("name: "+name);
+//        System.out.println("name: "+name);
 
         //return links
         List<String> url = attr.getURL();
@@ -53,7 +50,7 @@ public class NameTest {
         }
 
         //return programming language
-        List<String> lang = attr.getProgramming_lang();
+        List<String> lang = attr.getLanguages();
         for (int i = 0; i < lang.size(); i++) {
             lang.set(i, lang.get(i).trim());
         }

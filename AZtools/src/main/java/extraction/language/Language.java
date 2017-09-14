@@ -4,6 +4,7 @@ import extraction.url.Url;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.mortbay.util.ajax.JSON;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -27,23 +28,26 @@ public class Language {
     }
 
     private List<String> extractProgramming_lang(JSONObject xmlJSONObj, String pdf_name) throws Exception {
+        ArrayList<String> lan = new ArrayList();
+        try {
+            Url url_link = new Url(xmlJSONObj, pdf_name);
+            List<String> url_links = url_link.getUrl();
+            String github_link = "";
 
-        ArrayList<String> lan = new ArrayList<>();
-        Url url_link = new Url(xmlJSONObj, pdf_name);
-        List<String> url_links = url_link.getUrl();
-        String github_link = "";
-
-        //consider edge case when bioconductor is involved
-        String json_string = xmlJSONObj.toString();
-        if(json_string.toLowerCase().contains("bioconductor")){
-            lan.add("R");
-            return lan;
-        }
+            //consider edge case when bioconductor is involved
+            String json_string = xmlJSONObj.toString();
+            if (json_string.toLowerCase().contains("bioconductor")) {
+                lan.add("R");
+                return lan;
+            }
 
         //iterate through all links to get github link
         for (int i=0; i < url_links.size(); i++){
             //perform GET request to get the github link -> for github repo name search
-            if(url_links.get(i).contains("github") || url_links.get(i).contains("sourceforge.net") || url_links.get(i).contains("bitbucket.org") || url_links.get(i).contains("bioconductor")){
+            if(url_links.get(i).contains("github")
+                    || url_links.get(i).contains("sourceforge.net")
+                    || url_links.get(i).contains("bitbucket.org")
+                    || url_links.get(i).contains("bioconductor")){
                 github_link = url_links.get(i);
                 break;
             }
@@ -60,52 +64,45 @@ public class Language {
                     System.out.println("find link: "+ link);
                     String result = getHTML(link);
 
-                    //pattern1 for github
-                    if(link.contains("github")) {
-                        String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
-                        Pattern r = Pattern.compile(pattern);
-                        Matcher m = r.matcher(result);
-                        if (m.find()) {
-                            System.out.println(m.group());
-                            github_link = m.group().split("\"")[1];
-                            break;
+                        //pattern1 for github
+                        if (link.contains("github")) {
+                            String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
+                            Pattern r = Pattern.compile(pattern);
+                            Matcher m = r.matcher(result);
+                            if (m.find()) {
+                                github_link = m.group().split("\"")[1];
+                                break;
+                            }
+                        } else if (link.contains("sourceforge")) {
+                            //pattern2 for sourceforge
+                            String pattern2 = "href=\"(?=[^\"]*sourceforge.net/projects)([^\"]*)";
+                            Pattern r2 = Pattern.compile(pattern2);
+                            Matcher m2 = r2.matcher(result);
+                            if (m2.find()) {
+                                github_link = m2.group().split("\"")[1];
+                                break;
+                            }
+                        } else {
+                            String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
+                            Pattern r = Pattern.compile(pattern);
+                            Matcher m = r.matcher(result);
+                            if (m.find()) {
+                                github_link = m.group().split("\"")[1];
+                                break;
+                            }
+                            String pattern2 = "href=\"(?=[^\"]*sourceforge.net/projects)([^\"]*)";
+                            Pattern r2 = Pattern.compile(pattern2);
+                            Matcher m2 = r2.matcher(result);
+                            if (m2.find()) {
+                                github_link = m2.group().split("\"")[1];
+                                break;
+                            }
                         }
+                    } catch (Exception e) {
+                        continue;
                     }
-                    else if(link.contains("sourceforge")){
-                        //pattern2 for sourceforge
-                        String pattern2 = "href=\"(?=[^\"]*sourceforge.net/projects)([^\"]*)";
-                        Pattern r2 = Pattern.compile(pattern2);
-                        Matcher m2 = r2.matcher(result);
-                        if (m2.find( )) {
-                            System.out.println(m2.group());
-                            github_link =  m2.group().split("\"")[1];
-                            break;
-                        }
-                    }
-                    else{
-                        String pattern = "href=\"(?=[^\"]*github)([^\"]*)";
-                        Pattern r = Pattern.compile(pattern);
-                        Matcher m = r.matcher(result);
-                        if (m.find()) {
-                            System.out.println(m.group());
-                            github_link = m.group().split("\"")[1];
-                            break;
-                        }
-                        String pattern2 = "href=\"(?=[^\"]*sourceforge.net/projects)([^\"]*)";
-                        Pattern r2 = Pattern.compile(pattern2);
-                        Matcher m2 = r2.matcher(result);
-                        if (m2.find( )) {
-                            System.out.println(m2.group());
-                            github_link =  m2.group().split("\"")[1];
-                            break;
-                        }
-                    }
-                }
-                catch (Exception e) {
-//                    System.out.println("Unable to GET " + url_links.get(i));
                 }
             }
-        }
 
         if (github_link.contains("github.io")) {
             String[] arr = github_link.split(".github.io");
@@ -201,7 +198,7 @@ public class Language {
             }
         }
 
-        Calendar findprogramminglan_end = Calendar.getInstance();
+            Calendar findprogramminglan_end = Calendar.getInstance();
 //        System.out.println("Time findprogramminglan: ");
 //        System.out.println(findprogramminglan_end.getTimeInMillis() - findprogramminglan_start.getTimeInMillis());
         return lan;
@@ -219,31 +216,27 @@ public class Language {
 
     //helper function: give json url, return json string
     private static JSONObject readJsonFromUrl(String url) throws IOException {
-        // String s = URLEncoder.encode(url, "UTF-8");
-        // URL url = new URL(s);
-        Calendar readAll_start = Calendar.getInstance();
-
-        InputStream is = new URL(url).openStream();
+        InputStream is;
         JSONObject json = null;
-
-        Calendar readAll_end = Calendar.getInstance();
-//        System.out.println("Time readAll: ");
-//        System.out.println(readAll_end.getTimeInMillis() - readAll_start.getTimeInMillis());
         try {
+            Calendar readAll_start = Calendar.getInstance();
+            is = new URL(url).openStream();
+            Calendar readAll_end = Calendar.getInstance();
+//            System.out.println("Time readAll: ");
+//            System.out.println(readAll_end.getTimeInMillis() - readAll_start.getTimeInMillis());
+
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
             json = new JSONObject(jsonText);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            is.close();
         }
         return json;
     }
 
     //helper function: get HTML content
     private static String getHTML(String urlToRead) throws Exception {
-        try{
+        try {
             StringBuilder result = new StringBuilder();
             URL url = new URL(urlToRead);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -252,7 +245,6 @@ public class Language {
             conn.addRequestProperty("User-Agent", "Mozilla");
             conn.addRequestProperty("Referer", "google.com");
 
-            System.out.println("Request URL ... " + url);
             boolean redirect = false;
             // normally, 3xx is redirect
             int status = conn.getResponseCode();
@@ -262,7 +254,6 @@ public class Language {
                         || status == HttpURLConnection.HTTP_SEE_OTHER)
                     redirect = true;
             }
-            System.out.println("Response Code ... " + status);
 
             if (redirect) {
 
@@ -279,8 +270,6 @@ public class Language {
                 conn.addRequestProperty("User-Agent", "Mozilla");
                 conn.addRequestProperty("Referer", "google.com");
 
-                System.out.println("Redirect to URL : " + newUrl);
-
             }
 
             BufferedReader in = new BufferedReader(
@@ -292,9 +281,6 @@ public class Language {
                 html.append(inputLine);
             }
             in.close();
-
-            System.out.println("URL Content... \n" + html.toString());
-            System.out.println("Done");
 
             return html.toString();
         }
@@ -363,5 +349,4 @@ public class Language {
 //            return "";
 //        }
 //    }
-
 }

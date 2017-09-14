@@ -11,41 +11,44 @@ import extraction.funding.FundingInfo;
 import extraction.language.Language;
 import extraction.name.NameNLP;
 import extraction.summary.Summary;
+import extraction.tags.Tags;
 import extraction.title.Title;
 import extraction.url.Url;
 import org.json.JSONObject;
 import org.json.XML;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Attributes implements Runnable {
     private final String title;
     private final String name;
-//    private final String summary;
-    private final List<String> author;
-    private final List<String> affiliation;
     private final String abstrakt;
+    private final String summary;
+    private final List<String> authors;
+    private final List<String> affiliations;
     private final List<String> contact;
     private final String doi;
     private final String date;
-    private final List<String> URL;
-    private final String status;
+    private final List<String> URLs;
+    private final List<String> tags;
+    private List<String> funding;
+    private List<String> languages;
 
-    private List<FundingInfo> funding;
-    private List<String> programming_lang;
     private final JSONObject xmlJSONObj;
     private final String m_nlm;
+    private List<FundingInfo> funding_list;
+
+    private JSONObject final_object;
 
     // ------------------------------------------------------------- //
 
     public Attributes(String nlm, String filename, int num) throws Exception {
         m_nlm = nlm;
         xmlJSONObj = XML.toJSONObject(nlm);
-        System.out.println(nlm);
-        System.out.println(xmlJSONObj);
         funding = null;
-        programming_lang = null;
+        languages = null;
 
         run();
 
@@ -55,76 +58,76 @@ public class Attributes implements Runnable {
         Calendar title_end = Calendar.getInstance();
         Calendar author_start = Calendar.getInstance();
         Author au = new Author(xmlJSONObj,num);
-        this.author = au.getAuthor();
-        for (int i = 0; i < this.author.size(); i++) {
-            this.author.set(i, this.author.get(i).trim());
+        authors = au.getAuthor();
+        for (int i = 0; i < authors.size(); i++) {
+            authors.set(i, authors.get(i).trim());
         }
         Calendar author_end = Calendar.getInstance();
         Calendar aff_start = Calendar.getInstance();
         Affiliation aff = new Affiliation(xmlJSONObj,num);
-        this.affiliation = aff.getAffiliation();
-        for (int i = 0; i < this.affiliation.size(); i++) {
-            this.affiliation.set(i, this.affiliation.get(i).trim());
+        affiliations = aff.getAffiliation();
+        for (int i = 0; i < affiliations.size(); i++) {
+            affiliations.set(i, affiliations.get(i).trim());
         }
         Calendar aff_end = Calendar.getInstance();
         Calendar contact_start = Calendar.getInstance();
         Contact con = new Contact(nlm,num);
-        this.contact = con.getContact();
-        for (int i = 0; i < this.contact.size(); i++) {
-            this.contact.set(i, this.contact.get(i).trim());
+        contact = con.getContact();
+        for (int i = 0; i < contact.size(); i++) {
+            contact.set(i, contact.get(i).trim());
         }
         Calendar contact_end = Calendar.getInstance();
         Calendar doi_start = Calendar.getInstance();
         DOI d2 = new DOI(xmlJSONObj, num);
-        this.doi = d2.getDoi();
+        doi = d2.getDoi();
         Calendar doi_end = Calendar.getInstance();
         Calendar date_start = Calendar.getInstance();
         Date d = new Date(xmlJSONObj,num);
-        this.date = d.getDate();
+        date = d.getDate();
         Calendar date_end = Calendar.getInstance();
 
         Calendar funding_start = Calendar.getInstance();
         Funding f = new Funding(nlm,num);
-        this.funding = f.getFunding();
+        funding_list = f.getFunding();
         Calendar funding_end = Calendar.getInstance();
-
-//        this.funding_section = extractFundingSection(nlm);
 
         Calendar url_start = Calendar.getInstance();
         Url url_link = new Url(xmlJSONObj, filename);
-        this.URL = url_link.getUrl();
-        for (int i = 0; i < this.URL.size(); i++) {
-            this.URL.set(i, this.URL.get(i).trim());
+        URLs = url_link.getUrl();
+        for (int i = 0; i < URLs.size(); i++) {
+            URLs.set(i, URLs.get(i).trim());
         }
         Calendar url_end = Calendar.getInstance();
 
-        this.status = url_link.getStatus(this.URL);
-
         Calendar name_start = Calendar.getInstance();
-        NameNLP obj = new NameNLP(title, URL);
-        this.name = obj.getName().trim();
+        NameNLP obj = new NameNLP(title, URLs);
+        name = obj.getName().trim();
         Calendar name_end = Calendar.getInstance();
 
         Calendar abstract_start = Calendar.getInstance();
         Abstract a = new Abstract(nlm,num);
+        abstrakt = a.getAbstrakt().trim();
         this.abstrakt = a.getAbstrakt().trim();
         Calendar abstract_end = Calendar.getInstance();
 
-//        Calendar summary_start = Calendar.getInstance();
-//        //summary must necessarily come after abstract
-////        System.out.println("Finding summary of tool...");
-//        Summary summ = new Summary(abstrakt, filename, name);
-//        this.summary = summ.getSummary();
-////        System.out.println("Done with summary");
-//        Calendar summary_end = Calendar.getInstance();
+        Calendar summary_start = Calendar.getInstance();
+        //summary must necessarily come after abstract
+        Summary summ = new Summary(abstrakt, filename, name);
+        summary = summ.getSummary();
+        Calendar summary_end = Calendar.getInstance();
 
         Calendar lang_start = Calendar.getInstance();
         Language lan = new Language(xmlJSONObj, filename);
-        this.programming_lang = lan.getLanguage();
-        for (int i = 0; i < this.programming_lang.size(); i++) {
-            this.programming_lang.set(i, this.programming_lang.get(i).trim());
+        languages = lan.getLanguage();
+        for (int i = 0; i < languages.size(); i++) {
+            languages.set(i, languages.get(i).trim());
         }
         Calendar lang_end = Calendar.getInstance();
+
+        Calendar tags_start = Calendar.getInstance();
+        Tags tag_var = new Tags(abstrakt);
+        tags = tag_var.getTags();
+        Calendar tags_end = Calendar.getInstance();
 
         // If < 10ms, comment it
 //        System.out.println("Time title: ");
@@ -147,6 +150,21 @@ public class Attributes implements Runnable {
 //        System.out.println(abstract_end.getTimeInMillis() - abstract_start.getTimeInMillis());
 //        System.out.println("Time summary: ");
 //        System.out.println(summary_end.getTimeInMillis() - summary_start.getTimeInMillis());
+
+        final_object = new JSONObject();
+        final_object.put("publicationTitle", title);
+        final_object.put("toolName", name);
+        final_object.put("publicationAbstract", abstrakt);
+        final_object.put("toolSummary", summary);
+        final_object.put("authors", authors);
+        final_object.put("institutions", affiliations);
+        final_object.put("contactInfo", contact);
+        final_object.put("publicationDOI", doi);
+        final_object.put("publicationDate", date);
+        final_object.put("URLs", URLs);
+        final_object.put("tags", tags);
+        final_object.put("fundingSources", funding);
+        final_object.put("programmingLanguages", languages);
     }
 
     // ------------------------------------------------------------ //
@@ -155,10 +173,10 @@ public class Attributes implements Runnable {
         try {
             Calendar funding_start = Calendar.getInstance();
             Funding f = new Funding(m_nlm, 0);
-            funding = f.getFunding();
+            funding_list = f.getFunding();
             Calendar funding_end = Calendar.getInstance();
-            System.out.println("Time funding: ");
-            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
+//            System.out.println("Time funding: ");
+//            System.out.println(funding_end.getTimeInMillis() - funding_start.getTimeInMillis());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -172,16 +190,16 @@ public class Attributes implements Runnable {
         return name;
     }
 
-//    public String getSummary() {
-//        return summary;
-//    }
+    public String getSummary() {
+        return summary;
+    }
 
     public List<String> getAuthor(){
-        return author;
+        return authors;
     }
 
     public List<String> getAffiliation(){
-        return affiliation;
+        return affiliations;
     }
 
     public String getAbstrakt(){
@@ -201,28 +219,32 @@ public class Attributes implements Runnable {
     }
 
     public List<String> getURL(){
-        return URL;
+        return URLs;
     }
 
-    public List<FundingInfo> getFunding() { return funding; }
-
-//    public String getFunding_section(){return funding_section;}
-
-    public List<String> getProgramming_lang(){
-        return programming_lang;
+    private List<FundingInfo> getFundingList() {
+        return funding_list;
     }
 
-    public String getStatus(){
-        return status;
-    }
-
-    // ----------------------------------------------------------- //
-
-
-    public void printFunding() {
-        for(int i=0; i<funding.size(); i++){
-            System.out.println(funding.get(i).agency);
-            System.out.println(funding.get(i).license);
+    public List<String> getFundingStr() {
+        List<String> fa = new ArrayList<>();
+        for (FundingInfo fi : getFundingList()) {
+            fa.add(fi.toString());
         }
+        funding = fa;
+        return funding;
     }
+
+    public List<String> getLanguages(){
+        return languages;
+    }
+
+    public List<String> getTags(){
+        return tags;
+    }
+
+    public JSONObject getFinalJSONObject(){
+        return final_object;
+    }
+
 }

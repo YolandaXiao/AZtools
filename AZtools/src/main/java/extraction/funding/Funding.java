@@ -1,6 +1,7 @@
 package extraction.funding;
 
 import extraction.Paths;
+import webapp.Globs;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,10 +21,10 @@ public class Funding {
 
     public Funding(String nlm, int num) throws Exception {
         String funding_section = extractFundingSection(nlm);
-        if(num==0){
+        if (num == 0) {
             this.funding = extractFunding_fromCermineXML(nlm,funding_section);
         }
-        else{
+        else {
             this.funding = extractFunding_fromPMCXML(nlm);
         }
 
@@ -41,7 +42,7 @@ public class Funding {
     }
 
     //extract funding section from xlm using the above helper function
-    private String extractFundingSection(String nlm){
+    private String extractFundingSection(String nlm) {
         String result = "None";
         result = extractMatch(nlm,"<title>ACKNOWLEDG", result);
         result = extractMatch(nlm,"<title>acknowledg", result);
@@ -63,12 +64,11 @@ public class Funding {
 
     //helper function: get list of agency names
     private ArrayList<String> getAgencyDic() throws IOException {
-        String agencyNamesFile = Paths.getAgencyNamesFileName();
+        String agencyNamesFile = Globs.getAgencyNamesFileName();
         BufferedReader br = new BufferedReader(new FileReader(agencyNamesFile));
-        ArrayList<String> agency_dic= new ArrayList<>();
+        ArrayList<String> agency_dic = new ArrayList();
         try {
             String line = br.readLine();
-
             while (line != null) {
                 agency_dic.add(line);
                 line = br.readLine();
@@ -80,14 +80,13 @@ public class Funding {
     }
 
     private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
-        ArrayList<FundingInfo> arrayList= new ArrayList<>();
-
-        //check each character in json file
-        InputStream is = new FileInputStream(Paths.get_cached_tree_map());
-        String jsonTxt = IOUtils.toString(is);
-        jsonTxt = jsonTxt.toLowerCase();
-//        System.out.println(jsonTxt);
-        JSONObject result = new JSONObject(jsonTxt);
+        ArrayList<FundingInfo> arrayList= new ArrayList();
+        try {
+            //check each character in json file
+            InputStream is = new FileInputStream(Globs.get_cached_tree_map());
+            String jsonTxt = IOUtils.toString(is);
+            jsonTxt = jsonTxt.toLowerCase();
+            JSONObject result = new JSONObject(jsonTxt);
 
         //run NER on the entire paragraph again to get agencies without grant number
 //        String funding_section = extractFundingSection(nlm);
@@ -172,10 +171,8 @@ public class Funding {
                 }
             }
         }
-
         return arrayList;
     }
-
 
     private List<FundingInfo> extractFunding_fromPMCXML(String nlm) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
@@ -229,7 +226,6 @@ public class Funding {
             System.out.print(funding_section);
             return extractFunding_fromCermineXML(nlm,funding_section);
         }
-
         return arrayList;
     }
 }
