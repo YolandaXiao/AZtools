@@ -28,7 +28,7 @@ To contribute to this repository, you will first need to **set up the project**.
 
 4) Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and fill in your email address and password in their respective fields.
 
-5) *If you do not hava IntelliJ or Java 8:*
+5) *If you do not have IntelliJ or Java 8:*
 a) Install IntelliJ from [here](https://www.jetbrains.com/idea/download/)
 b) Install JDK 8 from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). If you are on an Ubuntu system, you can instead follow the directions [here](http://www.wikihow.com/Install-Oracle-Java-on-Ubuntu-Linux).
 
@@ -70,6 +70,14 @@ Be sure to ***add all JAR files*** in `AZtools/lib` by going to *File | Project 
 Ensure that the paths specified in `AZtools/src/main/java/webapp/Globs.java` match your system's environment. This means that if the relative paths don't work, try replacing them with absolute ones.
 
 Change the port that is specified in `AZtools/src/main/resources/application.properties`. The default port is 8092.
+
+### Code Organization and Structure
+
+There are two main packages, `webapp` and `extraction`. `webapp` deals with all high-level process/thread related activities and `extraction` deals with specific and individual metadata field value extractions.
+
+The Spring Boot Application starts in `AZtools/src/main/java/webapp/Application.java` just after an instance of `AppThread.java` is created. One of the threads checks and processses submissions sent in through email and the other thread listens for GET/POST requests. A separate machine learning python script is started in `AppThread.java`'s constructor.
+
+`Globs.java` contains a set of paths and machine/user-specific information. `ProcessEmail.java` deals with checking the mailbox, getting a response from processing a pdf, and sending a response to the sender of the email. `ProcessPDF.java` takes in PDFs and in its constructor fills in its variables that store the metadata and processing stats for the PDFs.
 
 ### Microservices Implementation
 
