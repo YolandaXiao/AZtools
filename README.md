@@ -20,11 +20,11 @@ AZtools also supports email submission. You may email the PDF to `az.tools100@gm
 
 To contribute to this repository, you will first need to **set up the project**. The instructions on how to do so are as follows:
 
-1) `$ git clone https://github.com/ankurpapneja/AZtools.git` This may take a couple minutes.
+1) `$ git clone https://github.com/ankurpapneja/AZtools.git`
 
-2) `$ cd AZtools/`
+2) `$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/`
 
-3) `$ mkdir AZtools/src/main/java/extraction/summary/abs_to_summ/; cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
+3) `cp AZtools/src/main/java/webapp/.Globs.java AZtools/src/main/java/webapp/Globs.java`
 
 4) Uncomment all of the code in `AZtools/src/main/java/webapp/Globs.java` and fill in your email address and password in their respective fields.
 
