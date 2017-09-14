@@ -67,7 +67,6 @@ public class Author {
 
                     while (keys.hasNext()) {
                         String key = keys.next();
-                        System.out.println("Key :" + key + "  Value :" + json.get(key));
                         if(key.equals("contrib")){
                             Object item = null;
                             try {
@@ -110,12 +109,10 @@ public class Author {
                 String author = null;
                 try {
                     JSONObject contrib = authors.getJSONObject(i);
-                    System.out.println("contrib: "+contrib);
                     if(contrib.has("name")){
                         JSONObject name = contrib.getJSONObject("name");
                         author = name.getString("given-names")+" "+name.getString("surname");
                         arraylist.add(author);
-                        System.out.println("author: "+author);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -132,7 +129,6 @@ public class Author {
                 JSONObject name = author.getJSONObject("name");
                 String au = name.getString("given-names")+" "+name.getString("surname");
                 arraylist.add(au);
-                System.out.println("author: "+author);
             }
         }
         return arraylist;

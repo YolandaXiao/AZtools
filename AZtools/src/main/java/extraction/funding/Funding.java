@@ -80,19 +80,15 @@ public class Funding {
 
     private List<FundingInfo> extractFunding_fromCermineXML(String nlm, String funding_section) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList();
-        //check each character in json file
         InputStream is = new FileInputStream(Globs.get_cached_tree_map());
         String jsonTxt = IOUtils.toString(is);
         jsonTxt = jsonTxt.toLowerCase();
         JSONObject result = new JSONObject(jsonTxt);
 
-        //run NER on the entire paragraph again to get agencies without grant number
-//        String funding_section = extractFundingSection(nlm);
+        //if there's no funding_section extracted
         if(funding_section=="None"){
             return arrayList;
         }
-//        System.out.println(funding_section);
-//        funding_section = funding_section.toLowerCase();
         String pattern2 = "([/\\[]*\\w+[-/]*\\w+[-/\\]]*)";
         Pattern r2 = Pattern.compile(pattern2);
         Matcher m2 = r2.matcher(funding_section);
@@ -105,11 +101,9 @@ public class Funding {
         for(int i=0;i<words.size();i++){
             String word = words.get(i);
             String word_lowercase = word.toLowerCase();
-//            System.out.println("word1:"+word);
             int count = i;
             JSONObject result2 = result;
-            //exclude extreme cases:
-            //if the word is only one layer and it's not acronym
+            //exclude extreme cases: if the word is only one layer and it's not acronym
             if(result2.has(word_lowercase) && result2.getJSONObject(word_lowercase).has("$value") && word.toUpperCase()!=word){
                 continue;
             }
@@ -119,7 +113,6 @@ public class Funding {
             if(word_lowercase.equals("us")){
                 continue;
             }
-//            System.out.println("word2:"+word);
             //for each word, find possible agency name by going through words after it
             while(result2.has(word_lowercase) || result2.has("$value")){
                 //if it has an output result value
@@ -136,7 +129,6 @@ public class Funding {
                             }
                         }
                     }
-                    System.out.println("value: "+value);
                     //create new FundingInfo object
                     FundingInfo fi = new FundingInfo();
                     fi.setAgency(value);
@@ -175,7 +167,7 @@ public class Funding {
     private List<FundingInfo> extractFunding_fromPMCXML(String nlm) throws Exception {
         ArrayList<FundingInfo> arrayList= new ArrayList<>();
 
-        //agency only
+        //get funding sources just by regex matching to pmc xmls
         String pattern = "(?s)<funding-source>.*?<\\/funding-source>";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(nlm);
@@ -191,20 +183,20 @@ public class Funding {
             arrayList.add(fi);
         }
 
-        String pattern2 = "(?s)<funding-group>.*?<\\/funding-group>";
-        Pattern r2 = Pattern.compile(pattern2);
-        Matcher m2 = r2.matcher(nlm);
-        if (m2.find( )) {
-            System.out.println("m2.group(): "+m2.group());
-            String paragraph = m2.group();
-            return extractFunding_fromCermineXML(nlm,paragraph);
-        }
-
         if(!arrayList.isEmpty()){
             return arrayList;
         }
 
-        //if there's no direct funding source info available
+        //get funding paragraph through another form of regex
+        String pattern2 = "(?s)<funding-group>.*?<\\/funding-group>";
+        Pattern r2 = Pattern.compile(pattern2);
+        Matcher m2 = r2.matcher(nlm);
+        if (m2.find( )) {
+            String paragraph = m2.group();
+            return extractFunding_fromCermineXML(nlm,paragraph);
+        }
+
+        //if there's no direct funding source info available, get paragraph and apply our method
         String pattern3 = "<ack>.*?<\\/ack>";
         Pattern r3 = Pattern.compile(pattern3);
         Matcher m3 = r3.matcher(nlm);
@@ -214,14 +206,12 @@ public class Funding {
             paragraph = paragraph.replaceAll("\n", " ");
             paragraph = paragraph.replaceAll("\t", " ");
             paragraph = paragraph.trim().replaceAll(" +", " ");
-            System.out.println("paragraph: "+paragraph);
             return extractFunding_fromCermineXML(nlm,paragraph);
         }
 
+        //apply our method on pmc xmls
         if(arrayList.isEmpty()){
-            System.out.println("function_section_cermine");
             String funding_section = extractFundingSection(nlm);
-            System.out.print(funding_section);
             return extractFunding_fromCermineXML(nlm,funding_section);
         }
         return arrayList;

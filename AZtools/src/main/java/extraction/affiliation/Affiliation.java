@@ -98,7 +98,6 @@ public class Affiliation {
                 e.printStackTrace();
             }
             if (item3 instanceof JSONArray) {
-                System.out.println("AFF is JSONARRAY");
                 JSONArray group = (JSONArray) item3;
                 for(int j=0;j<group.length();j++) {
                     JSONObject json = group.getJSONObject(j);
@@ -106,7 +105,6 @@ public class Affiliation {
 
                     while (keys.hasNext()) {
                         String key = keys.next();
-                        System.out.println("Key :" + key + "  Value :" + json.get(key));
                         if (key.equals("aff")) {
                             Object item2 = null;
                             try {
@@ -128,7 +126,6 @@ public class Affiliation {
                     group = xmlJSONObj.getJSONObject("article").getJSONObject("front").getJSONObject("article-meta");
                 }
                 if(group.has("aff")){
-                    System.out.println("group has aff");
                     Object item2 = null;
                     try {
                         item2 = group.get("aff");
@@ -155,7 +152,6 @@ public class Affiliation {
             Object item = null;
             try {
                 item = aff.get("content");
-                System.out.println("item :(.content)" + item);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -167,7 +163,6 @@ public class Affiliation {
                 for(int i=0;i<affiliations.length();i++)
                 {
                     String result = affiliations.getString(i);
-                    System.out.println("result: "+result);
                     if(!arraylist.contains(result)){
                         arraylist.add(result);
                     }
@@ -184,7 +179,6 @@ public class Affiliation {
                     Object item = null;
                     try {
                         item = result_object.get("institution");
-                        System.out.println("item :(.institution)" + item);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

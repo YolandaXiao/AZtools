@@ -1,11 +1,7 @@
 package extraction.abstrakt;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
-
-import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,6 +37,7 @@ public class Abstract {
     private String extractAbstract_fromPMCXML(String nlm) {
         String abstrakt = "";
 
+        //use regex to extract matching parts from xml
         String pattern = "<abstract>.*?<\\/abstract>";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(nlm);

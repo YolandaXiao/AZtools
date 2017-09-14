@@ -30,7 +30,6 @@ public class Url {
         //check URLs without http
         String line = xmlJSONObj.toString();
         line = line.replaceAll("\\\\","");
-        //String pattern = "(http|ftp|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
         String pattern = "[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/=]*)";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(line);
@@ -77,11 +76,12 @@ public class Url {
         return good_links;
     }
 
+    //to check if the url link is valid or not
     public String getStatus(List<String> good_links) throws Exception {
         //check if good_links are valid
         for(int i=0;i<good_links.size();i++){
             if(checkLink(good_links.get(i))==false){
-                return "Github link no longer valid";
+                return "URL link no longer valid.";
             }
         }
         return "Success";
