@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)](https://github.com/ankurpapneja/AZtools)
 
-### Introduction
-
 **[AZtools](http://dev.aztec.io:8092) is a service that supports [AZtec](http://aztec.bio/) in extracting the metadata of software** developed by the biomedical research community. Biomedical software may consist of algorithms, databases, visualizations, or any other codebase.
 
 The code is licensed under GNU Affero General Public License version 3.
@@ -18,7 +16,7 @@ AZtools takes in as input one of the following:
 
 AZtools also supports email submission. You may email the PDF to `az.tools100@gmail.com` and expect a response in an attachment `response.json` and in a formatted table in the email body.
 
-### Developers
+### Developers and Contributors
 
 To contribute to this repository, you will first need to **set up the project**. The instructions on how to do so are as follows:
 
@@ -34,7 +32,7 @@ To contribute to this repository, you will first need to **set up the project**.
 a) Install IntelliJ from [here](https://www.jetbrains.com/idea/download/)
 b) Install JDK 8 from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). If you are on an Ubuntu system, you can instead follow the directions [here](http://www.wikihow.com/Install-Oracle-Java-on-Ubuntu-Linux).
 
-6) Open IntelliJ and import `AZtools/` (**the higher directory*). ***Select the option to import recursively***. Wait for dependencies to resolve. The progress bar can be found near the bottom of the screen.
+6) Open IntelliJ and import `AZtools/` (*the higher directory*). ***Select the option to import recursively***. Wait for dependencies to resolve. The progress bar can be found near the bottom of the screen.
 
 7) Click the green '+' sign on the right side of the panel at *File | Project Structure | Project Settings | Modules | Dependencies*.
 
@@ -46,11 +44,7 @@ b) Install JDK 8 from [here](http://www.oracle.com/technetwork/java/javase/downl
 
 #### Testing the application:
 Go to `localhost:8092` in your browser
-
-1a) Upload any number of PDFs of total size <= 1 GB
-OR
-1b) Enter a PMC ID of a work in PubMed Central
-
+1) a: Upload any number of PDFs of total size <= 1 GB. OR b: Enter a PMC ID of a work in PubMed Central
 2) Click Submit and wait for JSON response
 
 Email a PDF to the email address you specified in `Globs.java` (instruction #4 in the 'Developers' section) and wait for a response.
@@ -62,7 +56,7 @@ POST to `localhost:8092/` with a **PDF** (parameter name `file`)
 POST to `localhost:8092/pmc_id` with a **String** (parameter name `pmc_id`) 
 1) If PubMed allows full text access to the work specified by the unique ID, the HTTP Response will contain a JSON output of the main metadata fields. Otherwise, you will receive a String that describes the problem.
 
-Congratulations, you have successfully set up AZtools for development!
+If the four methods of using the application above work, then congratulations, you have successfully set up AZtools for development!
 
 Once you've added in a new feature or improved AZtools, submit a pull request and it will be answered soon.
 
