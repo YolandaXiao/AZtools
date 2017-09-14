@@ -153,7 +153,7 @@ public class Attributes implements Runnable {
         final_object = new JSONObject();
         final_object.put("publicationTitle", title);
         final_object.put("toolName", name);
-        final_object.put("publicationAbstract", abstrakt);
+//        final_object.put("publicationAbstract", abstrakt);
         final_object.put("toolSummary", summary);
         final_object.put("authors", authors);
         final_object.put("institutions", affiliations);
@@ -161,7 +161,7 @@ public class Attributes implements Runnable {
         final_object.put("publicationDOI", doi);
         final_object.put("publicationDate", date);
         final_object.put("URLs", URLs);
-        final_object.put("tags", tags);
+//        final_object.put("tags", tags);
         final_object.put("fundingSources", funding);
         final_object.put("programmingLanguages", languages);
     }

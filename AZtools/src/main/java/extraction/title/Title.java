@@ -21,6 +21,7 @@ public class Title {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            title = "";
         }
         return title;
     }

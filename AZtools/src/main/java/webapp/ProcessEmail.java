@@ -1,6 +1,10 @@
 package webapp;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.JSONObject;
+import org.mortbay.util.Attributes;
+import org.mortbay.util.ajax.JSON;
+import org.w3c.dom.Attr;
 
 import java.io.*;
 import java.security.GeneralSecurityException;
@@ -110,9 +114,9 @@ public class ProcessEmail {
 //        System.out.println("Finished checking inbox");
     }
 
-    public void completeRequest(Address[] address, String result) {
+    public void completeRequest(Address[] address, String result, Map<String, extraction.Attributes> final_obj, String filename) {
 
-        // @param:result -> json of metadata of the PDF @param:address has sent
+        // @param:result -> string json of metadata of the PDF @param:address has sent
         // @param:address -> the address of the sender
 
         Properties props = new Properties();
@@ -143,7 +147,28 @@ public class ProcessEmail {
             message.setRecipients(Message.RecipientType.TO, address);
             message.setSubject(MSG_SUBJECT);
             BodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText(MSG_TXT);
+
+            String html_raw = "";
+            BufferedReader br = new BufferedReader(new FileReader(Globs.getEmailHTMLPath()));
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                html_raw += sCurrentLine;
+            }
+
+            extraction.Attributes attr = final_obj.get(filename);
+            html_raw = html_raw.replace("publicationTitleValue", attr.getTitle());
+            html_raw = html_raw.replace("toolNameValue", attr.getName());
+            html_raw = html_raw.replace("toolSummaryValue", attr.getSummary());
+            html_raw = html_raw.replace("authorsValue", attr.getAuthor().toString());
+            html_raw = html_raw.replace("institutionsValue", attr.getAffiliation().toString());
+            html_raw = html_raw.replace("contactInfoValue", attr.getContact().toString());
+            html_raw = html_raw.replace("publicationDOIValue", attr.getDOI());
+            html_raw = html_raw.replace("publicationDateValue", attr.getDate());
+            html_raw = html_raw.replace("URLsValue", attr.getURL().toString());
+            html_raw = html_raw.replace("fundingSourcesValue", attr.getFundingStr().toString());
+            html_raw = html_raw.replace("programmingLanguagesValue", attr.getLanguages().toString());
+
+            messageBodyPart.setContent(html_raw, "text/html");
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
 

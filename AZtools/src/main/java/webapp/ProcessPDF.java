@@ -15,9 +15,7 @@ import org.apache.solr.common.SolrInputDocument;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 public class ProcessPDF {
 
@@ -32,6 +30,10 @@ public class ProcessPDF {
     private String data_string;
     private String metadata_string;
     private String final_json_string;
+
+    private String last_filename;
+
+    private Map<String, Attributes> metadata_info = new HashMap<>();
 
     public ProcessPDF(ArrayList<File> files, ArrayList<String> filenames) {
         data = new JSONObject();
@@ -74,6 +76,7 @@ public class ProcessPDF {
 
                     aztools_start = Calendar.getInstance();
                     Attributes attr = new Attributes(nlm, filenames.get(i), 0);
+                    metadata_info.put(filenames.get(i), attr);
                     aztools_end = Calendar.getInstance();
                     aztools_time += aztools_end.getTimeInMillis() - aztools_start.getTimeInMillis();
                     data.put(filenames.get(i), attr.getFinalJSONObject());
@@ -119,7 +122,8 @@ public class ProcessPDF {
                     doc.addField("linkUrls", attr.getURL());
                     client.add(doc);
                     client.commit();
-                    System.out.println("Committed metadata for '" + filenames.get(i) + "' to Solr DB.");
+                    last_filename = filenames.get(i);
+                    System.out.println("Committed metadata for '" + last_filename + "' to Solr DB.");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -198,6 +202,14 @@ public class ProcessPDF {
 
     public long getTotalTime() {
         return total_time;
+    }
+
+    public Map<String, Attributes> getMetadata_info() {
+        return metadata_info;
+    }
+
+    public String getFileName() {
+        return last_filename;
     }
 
 }

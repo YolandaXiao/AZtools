@@ -1,5 +1,6 @@
 package extraction.name;
 
+import org.apache.commons.lang.StringUtils;
 import webapp.Globs;
 
 import java.io.*;
@@ -34,11 +35,21 @@ public class NameNLP {
 //        long time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("dealFirstWord() takes " + time_taken);
 
+//        System.out.println("One: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
+
 //        start_time = Calendar.getInstance();
         findRepoName();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("findRepoName() takes " + time_taken);
+
+//        System.out.println("Two: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
 
 //        start_time = Calendar.getInstance();
         initializeInfo();
@@ -46,11 +57,21 @@ public class NameNLP {
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("initializeInfo() takes " + time_taken);
 
+//        System.out.println("Three: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
+
 //        start_time = Calendar.getInstance();
         dealPunctuation();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("dealPunctuation() takes " + time_taken);
+
+//        System.out.println("Four: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
 
 //        start_time = Calendar.getInstance();
         isDefined();
@@ -58,17 +79,32 @@ public class NameNLP {
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("isDefined() takes " + time_taken);
 
+//        System.out.println("Five: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
+
 //        start_time = Calendar.getInstance();
         dealUniqueChar();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("dealUniqueChar() takes " + time_taken);
 
+//        System.out.println("Six: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
+
 //        start_time = Calendar.getInstance();
         cleanup();
 //        end_time = Calendar.getInstance();
 //        time_taken = end_time.getTimeInMillis() - start_time.getTimeInMillis();
 //        System.out.println("cleanup() takes " + time_taken);
+
+//        System.out.println("Seven: '" + cermine_title + "'");
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
     }
 
     public String getName() {
@@ -207,7 +243,9 @@ public class NameNLP {
                     //String word = phraseWords.get(phraseWords.size() - 1); // whether last word in phrase has colon
 
                     // get phrase before the : or -
-                    if (word.length() >= 1 && word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-') {
+//                    System.out.println("Word: " + word);
+//                    System.out.println("Word length: " + word.length());
+                    if ((!StringUtils.isBlank(word) && word.length() != 0) && (word.charAt(word.length() - 1) == ':' || word.charAt(word.length() - 1) == '-')) {
 
                         String new_word = word.substring(0, word.length() - 1);
                         ArrayList<String> new_phrase = new ArrayList();
@@ -345,7 +383,7 @@ public class NameNLP {
             int curr_confidence = (int)((Vector)(info.get(z))).get(1);
             if (curr_confidence < 200) {
                 //System.out.println("For phrase '" + phrase + "': " + numCapitalNumbers + "," + numHyphens );
-                ((Vector) (info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 7 + (int) ((Vector) (info.get(z))).get(1));
+                ((Vector) (info.get(z))).set(1, (numCapitalNumbers + numHyphens) * 10 + (int) ((Vector) (info.get(z))).get(1));
                 ((Vector) (info.get(z))).set(1, numWords * 2 + (int) ((Vector) (info.get(z))).get(1));
                 if (firstLettersCapital && numWords > 1) {
                     ((Vector) (info.get(z))).set(1, (int)((Vector)(info.get(z))).get(1) + 25);
@@ -361,7 +399,7 @@ public class NameNLP {
 
         for (int p = 0; p < info.size(); p++) {
             int confidence = (int)((Vector)(info.get(p))).get(1);
-            if (confidence > maxConfidence) {
+            if (confidence > maxConfidence && ((String)((Vector)info.get(p)).get(0)).matches(".*[a-zA-Z].*")) {
                 maxConfidence = confidence;
                 index = p;
             }
@@ -377,12 +415,12 @@ public class NameNLP {
         }
         fin_name = fin_name.substring(0, fin_name.length() - 1);
 
-        // Output
-        //System.out.println("Different possible phrases of the title: '" + cermine_title + "'");
-
-        for (int l = 0; l < info.size(); l++) {
-            //System.out.println(info.get(l));
-        }
+//         Output
+//        System.out.println("Different possible phrases of the title: '" + cermine_title + "'");
+//
+//        for (int l = 0; l < info.size(); l++) {
+//            System.out.println(info.get(l));
+//        }
 
         final_name = fin_name;
     }
