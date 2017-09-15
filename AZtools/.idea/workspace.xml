@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14255844-2abd-4429-8532-58ed668c852d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/webapp/Globs.class" afterPath="$PROJECT_DIR$/target/classes/webapp/Globs.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/webapp/ProcessEmail.class" afterPath="$PROJECT_DIR$/target/classes/webapp/ProcessEmail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webapp/ProcessEmail.java" afterPath="$PROJECT_DIR$/src/main/java/webapp/ProcessEmail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../command.py" afterPath="$PROJECT_DIR$/../command.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../command_input.txt" afterPath="$PROJECT_DIR$/../command_input.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../command_output.txt" afterPath="$PROJECT_DIR$/../command_output.txt" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="ProcessEmail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webapp/ProcessEmail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="151" column="71" lean-forward="false" selection-start-line="151" selection-start-column="71" selection-end-line="151" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Globs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webapp/Globs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="e#2842#2843#0" expanded="true" />
+                <element signature="e#2872#2873#0" expanded="true" />
+                <element signature="e#2916#2917#0" expanded="true" />
+                <element signature="e#2948#2949#0" expanded="true" />
+                <element signature="e#2992#2993#0" expanded="true" />
+                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="e#3071#3072#0" expanded="true" />
+                <element signature="e#3106#3107#0" expanded="true" />
+                <element signature="e#3153#3154#0" expanded="true" />
+                <element signature="e#3188#3189#0" expanded="true" />
+                <element signature="e#3241#3242#0" expanded="true" />
+                <element signature="e#3275#3276#0" expanded="true" />
+                <element signature="e#3329#3330#0" expanded="true" />
+                <element signature="e#3372#3373#0" expanded="true" />
+                <element signature="e#3422#3423#0" expanded="true" />
+                <element signature="e#3460#3461#0" expanded="true" />
+                <element signature="e#3513#3514#0" expanded="true" />
+                <element signature="e#3554#3555#0" expanded="true" />
+                <element signature="e#3599#3600#0" expanded="true" />
+                <element signature="e#3635#3636#0" expanded="true" />
+                <element signature="e#3680#3681#0" expanded="true" />
+                <element signature="e#3717#3718#0" expanded="true" />
+                <element signature="e#3767#3768#0" expanded="true" />
+                <element signature="e#3805#3806#0" expanded="true" />
+                <element signature="e#3852#3853#0" expanded="true" />
+                <element signature="e#3890#3891#0" expanded="true" />
+                <element signature="e#3937#3938#0" expanded="true" />
+                <element signature="e#3973#3974#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".Globs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webapp/.Globs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="99" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="99" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/webapp/ProcessEmail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/webapp/Globs.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="86" />
+    <option name="y" value="23" />
+    <option name="width" value="1180" />
+    <option name="height" value="719" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AZtools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/webapp/.Globs.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/webapp/Globs.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../command.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/compiler.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/encodings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_classmate_1_3_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_8.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_8.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_api_client_google_api_client_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_apis_google_api_services_gmail_v1_rev70_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_code_gson_gson_2_8_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_guava_guava_jdk5_17_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_http_client_google_http_client_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_http_client_google_http_client_jackson2_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_java6_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_jetty_1_22_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__commons_codec_commons_codec_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__commons_io_commons_io_1_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_activation_activation_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_mail_mail_1_4_5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_12.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__nz_net_ultraq_thymeleaf_thymeleaf_layout_dialect_1_4_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__ognl_ognl_3_0_8.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_commons_commons_math3_3_4_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_opennlp_opennlp_tools_1_8_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_solr_solr_solrj_6_6_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_14.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_14.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_14.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_3_1_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_woodstox_woodstox_core_asl_4_4_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_5_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_jdom_jdom2_2_0_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_json_json_20140107.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_26.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_noggit_noggit_0_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_slf4j_jdk14_1_7_25.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_3_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_beans_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_context_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_core_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_expression_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_test_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_web_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_8_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_thymeleaf_thymeleaf_2_1_5_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_2_1_5_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_unbescape_unbescape_1_1_0_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/modules.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/preferred-vcs.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/vcs.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/AZtools.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/artifacts/cermine_impl_jar.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/compiler.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/encodings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__com_google_guava_guava_19_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__com_itextpdf_itextpdf_5_5_11.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_cli_commons_cli_1_3_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_configuration_commons_configuration_1_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_io_commons_io_2_5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__edu_umass_cs_mallet_grmm_deps_0_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__edu_umass_cs_mallet_mallet_0_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__jaxen_jaxen_1_1_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__junit_junit_4_8_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_54.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__org_drools_guvnor_bulk_importer_6_0_0_SNAPSHOT.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__org_jdom_jdom_1_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__org_json_json_20140107.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__tw_edu_ntu_csie_libsvm_3_17.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/libraries/Maven__xmlunit_xmlunit_1_6.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/modules.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../cermine-impl/cermine-impl.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../command_input.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../command_output.txt</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../command.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../linux_comm.txt</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="webapp.Application" />
+      <module name="AZtools" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14255844-2abd-4429-8532-58ed668c852d" name="Default" comment="" />
+      <created>1505430790065</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1505430790065</updated>
+      <workItem from="1505430791482" duration="2236000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2236000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="86" y="23" width="1180" height="719" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16025642" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webapp/ProcessEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="151" column="71" lean-forward="false" selection-start-line="151" selection-start-column="71" selection-end-line="151" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webapp/.Globs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="99" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="99" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webapp/Globs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#2916#2917#0" expanded="true" />
+            <element signature="e#2948#2949#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
+            <element signature="e#3071#3072#0" expanded="true" />
+            <element signature="e#3106#3107#0" expanded="true" />
+            <element signature="e#3153#3154#0" expanded="true" />
+            <element signature="e#3188#3189#0" expanded="true" />
+            <element signature="e#3241#3242#0" expanded="true" />
+            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#3329#3330#0" expanded="true" />
+            <element signature="e#3372#3373#0" expanded="true" />
+            <element signature="e#3422#3423#0" expanded="true" />
+            <element signature="e#3460#3461#0" expanded="true" />
+            <element signature="e#3513#3514#0" expanded="true" />
+            <element signature="e#3554#3555#0" expanded="true" />
+            <element signature="e#3599#3600#0" expanded="true" />
+            <element signature="e#3635#3636#0" expanded="true" />
+            <element signature="e#3680#3681#0" expanded="true" />
+            <element signature="e#3717#3718#0" expanded="true" />
+            <element signature="e#3767#3768#0" expanded="true" />
+            <element signature="e#3805#3806#0" expanded="true" />
+            <element signature="e#3852#3853#0" expanded="true" />
+            <element signature="e#3890#3891#0" expanded="true" />
+            <element signature="e#3937#3938#0" expanded="true" />
+            <element signature="e#3973#3974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>AZtools</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
