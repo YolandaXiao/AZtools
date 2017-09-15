@@ -7,9 +7,6 @@ testing/pdfs
 response.json
 
 # IntelliJ
-*/.idea/*
-.idea/*
-*.iml
 *.iws
 
 # Eclipse
